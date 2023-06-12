@@ -23,13 +23,13 @@ model User {
 model Item {
   id String @id @default(uuid())
   name String
-  expired Boolean
+  expired Boolean? @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  expiredAt DateTime
+  expiredAt DateTime?
   owner User @relation(fields: [ownerId], references: [id])
   ownerId String
-  home Home 
+  home Home @default(PANTRY) 
 }
 
 enum Home {

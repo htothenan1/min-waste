@@ -1,16 +1,16 @@
-import { getUsers } from "../../lib/users";
+import { getItems } from "../../lib/items";
 
 export default async function Home() {
-  const { users } = await getUsers();
+  const { items } = await getItems();
 
   return (
     <section className="py-20">
       <div className="flex">
-        <h1>Users</h1>
+        <h1>Items</h1>
 
         <ul className="mt-4 flex flex-col gap-1">
-          {users?.map((user) => (
-            <li key={user.id}>{user.firstName}</li>
+          {items?.map((item) => (
+            <li key={item.id}>{item.name}</li>
           ))}
         </ul>
       </div>
