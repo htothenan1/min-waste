@@ -1,20 +1,15 @@
 import { getItems } from "../../lib/items";
-import GroceryItem from "../app/components/GroceryItem";
 import NewItemForm from "./components/NewItemForm";
+import ItemsList from "./components/ItemsList";
 
 export default async function Home() {
   const { items } = await getItems();
 
   return (
     <section className="py-20">
-      <div className="flex justify-start mx-12 border border-red-800 divi">
+      <div className="flex justify-start mx-12">
         <NewItemForm />
-
-        <ul className="flex flex-col justify-center items-center border border-blue-500 border-dashed rounded-md p-6 mx-4 bg-slate-50 h-96 overflow-y-scroll">
-          {items?.map((item) => (
-            <GroceryItem item={item} />
-          ))}
-        </ul>
+        <ItemsList items={items} />
       </div>
     </section>
   );
