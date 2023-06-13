@@ -7,6 +7,10 @@ import SlideFillButton from "./SlideFillButton";
 import { Combobox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
+type groceryItemProps = {
+  name: String;
+};
+
 const groceries = [
   { id: 1, name: "Apples" },
   { id: 2, name: "Bananas" },
@@ -48,7 +52,7 @@ const NewItemForm = () => {
     <form
       ref={formRef}
       action={action}
-      className="flex flex-col border border-blue-500 border-dashed rounded-md p-6 mx-4 bg-slate-50 h-32"
+      className="flex flex-col justify-center align-middle items-center border border-blue-500 border-dashed rounded-md p-6 mx-4 bg-slate-50 h-44"
     >
       <h2 className="mb-2 font-medium">Log a Grocery Item</h2>
 
@@ -60,7 +64,9 @@ const NewItemForm = () => {
         >
           <div className="relative mt-2">
             <Combobox.Input
-              className="w-3/4 rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              type="text"
+              name="name"
+              className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               onChange={(event) => setQuery(event.target.value)}
               displayValue={(grocery) => grocery?.name}
             />
@@ -113,14 +119,9 @@ const NewItemForm = () => {
             )}
           </div>
         </Combobox>
-
-        {/* <input
-          type="text"
-          name="name"
-          className="rounded border border-slate-400 px-2 py-0.5 bg-slate-200"
-        /> */}
-
-        <SlideFillButton buttonText={"Add Item"} />
+        <div className=" self-center">
+          <SlideFillButton buttonText={"Add Item"} />
+        </div>
       </div>
     </form>
   );
