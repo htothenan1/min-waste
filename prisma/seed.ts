@@ -13,26 +13,36 @@ async function main() {
   //     ],
   //   });
   //   console.log(users);
-  const user = await prisma.user.create({
-    data: {
-      firstName: "Hernan",
-      email: "hernan@gmail.com",
-      items: {
-        create: [
-          {
-            name: "steak",
-          },
-          {
-            name: "chicken",
-          },
-          {
-            name: "pasta",
-          },
-        ],
-      },
-    },
-  });
-  console.log("where do i see this?");
+  // const user = await prisma.user.create({
+  //   data: {
+  //     firstName: "Hernan",
+  //     email: "hernan@gmail.com",
+  //     items: {
+  //       create: [
+  //         {
+  //           name: "steak",
+  //         },
+  //         {
+  //           name: "chicken",
+  //         },
+  //         {
+  //           name: "pasta",
+  //         },
+  //       ],
+  //     },
+  //   },
+  // });
+  // const item = await prisma.item.create({
+  //   data: {
+  //     name: "poop",
+  //     owner: {
+  //       connect: {
+  //         id: "1f0a4a5e-2ddf-4f3d-85a1-637a0ab999ff",
+  //       },
+  //     },
+  //   },
+  // });
+  // console.log("great success");
 }
 
 main()
