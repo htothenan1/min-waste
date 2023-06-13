@@ -6,8 +6,8 @@ type GroceryItemProps = {
   item: Item;
 };
 
-const TodoItem = ({ item }: GroceryItemProps) => {
-  return <li>{item.name}</li>;
+const GroceryItem = ({ item }: GroceryItemProps) => {
+  return <li className="border">{item.name}</li>;
 };
 
-export default TodoItem;
+export default GroceryItem;

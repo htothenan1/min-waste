@@ -12,6 +12,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
     "@prisma/client": "^4.15.0",
     "@types/node": "20.2.5",
     "@types/react": "18.2.9",
