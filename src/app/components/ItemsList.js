@@ -8,7 +8,6 @@ const ItemsList = ({ items }) => {
 
   const handleSelectItem = (data) => {
     setSelectedItem(data);
-    console.log(data);
   };
 
   return (
@@ -37,7 +36,7 @@ const ItemsList = ({ items }) => {
             </li>
           ))
         ) : (
-          <p className=" p-2">Add something!</p>
+          <p className=" p-2 text-center mt-2">Log a thing!</p>
         )}
       </ul>
       <EditItemForm item={selectedItem} />

@@ -9,11 +9,12 @@ export async function getItems() {
   }
 }
 
-export async function createItem(name: string) {
+export async function createItem(name: string, home: any) {
   try {
     const item = await prisma.item.create({
       data: {
         name,
+        home,
         owner: {
           connect: {
             // temporarily saves item to hernan

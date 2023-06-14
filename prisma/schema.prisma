@@ -29,7 +29,7 @@ model Item {
   expiredAt DateTime?
   owner User @relation(fields: [ownerId], references: [id])
   ownerId String
-  home Home @default(PANTRY) 
+  home Home 
 }
 
 enum Home {

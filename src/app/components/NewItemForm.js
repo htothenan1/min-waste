@@ -15,12 +15,12 @@ const NewItemForm = () => {
   const [selected, setSelected] = useState(ingredients[0]);
 
   const addItemToDb = async (data) => {
-    await createItemAction(data.name);
+    await createItemAction(data.name, data.home);
   };
 
   return (
     <div className="flex flex-col border border-blue-500 border-dashed rounded-md p-6 mx-4 bg-slate-50 h-44 w-56">
-      <h2 className="mb-2 font-medium">Log a Grocery Item</h2>
+      <h2 className="mb-2 font-medium text-center">Log a Grocery Item</h2>
 
       <div>
         <Listbox value={selected} onChange={setSelected}>
