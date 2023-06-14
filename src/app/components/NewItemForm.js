@@ -30,9 +30,8 @@ const NewItemForm = () => {
                 <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
                     <span
-                      aria-label={selected.online ? "Online" : "Offline"}
                       className={classNames(
-                        selected.online ? "bg-green-400" : "bg-gray-200",
+                        selected.color,
                         "inline-block h-2 w-2 flex-shrink-0 rounded-full"
                       )}
                     />
@@ -72,9 +71,7 @@ const NewItemForm = () => {
                             <div className="flex items-center">
                               <span
                                 className={classNames(
-                                  ingredient.online
-                                    ? "bg-green-400"
-                                    : "bg-gray-200",
+                                  ingredient.color,
                                   "inline-block h-2 w-2 flex-shrink-0 rounded-full"
                                 )}
                                 aria-hidden="true"
@@ -86,10 +83,6 @@ const NewItemForm = () => {
                                 )}
                               >
                                 {ingredient.name}
-                                <span className="sr-only">
-                                  {" "}
-                                  is {ingredient.online ? "online" : "offline"}
-                                </span>
                               </span>
                             </div>
 
