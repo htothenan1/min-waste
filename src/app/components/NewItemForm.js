@@ -17,7 +17,10 @@ const NewItemForm = () => {
 
   const addItem = async (data) => {
     await createItemAction(data.name, data.home);
-    toast(`item added`);
+    toast.success(`${data.name} added!`, {
+      position: "top-center",
+      autoClose: 2000,
+    });
   };
 
   return (

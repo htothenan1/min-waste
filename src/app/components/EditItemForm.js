@@ -1,8 +1,13 @@
+import { toast } from "react-toastify";
 import { deleteItemAction } from "../_actions";
 
 const EditItemForm = ({ item }) => {
   const deleteItem = async (data) => {
     await deleteItemAction(data.id);
+    toast.info(`${data.name} deleted!`, {
+      position: "top-center",
+      autoClose: 2000,
+    });
   };
 
   return (
