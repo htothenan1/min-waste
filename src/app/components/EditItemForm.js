@@ -1,5 +1,3 @@
-"use client";
-
 import { deleteItemAction } from "../_actions";
 
 const EditItemForm = ({ item }) => {

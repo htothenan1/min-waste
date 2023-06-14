@@ -3,6 +3,7 @@
 import { useState, Fragment } from "react";
 import { createItemAction } from "../_actions";
 import SlideFillButton from "./SlideFillButton";
+import { toast } from "react-toastify";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { ingredients } from "../data/ingredients";
@@ -16,6 +17,7 @@ const NewItemForm = () => {
 
   const addItem = async (data) => {
     await createItemAction(data.name, data.home);
+    toast(`item added`);
   };
 
   return (
