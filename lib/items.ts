@@ -39,6 +39,19 @@ export async function getItemById(id: string) {
   }
 }
 
+export async function deleteItemById(id: string) {
+  try {
+    const item = await prisma.item.delete({
+      where: {
+        id,
+      },
+    });
+    return { item };
+  } catch (error) {
+    return { error };
+  }
+}
+
 // export async function updateItem(id: string, isExpired: boolean) {
 //   try {
 //     const item = await prisma.item.update({

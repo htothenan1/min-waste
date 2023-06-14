@@ -1,6 +1,12 @@
 "use client";
 
+import { deleteItemAction } from "../_actions";
+
 const EditItemForm = ({ item }) => {
+  const deleteItem = async (data) => {
+    await deleteItemAction(data.id);
+  };
+
   return (
     <div className="flex flex-col items-center border border-red-500 rounded-md mx-4 w-96">
       <h1 className="underline my-4">Item Details</h1>
@@ -11,7 +17,10 @@ const EditItemForm = ({ item }) => {
             item.expired ? "yes" : "Not yet"
           }`}</h1>
           <h1 className="my-2">{`Item Type: ${item.home}`}</h1>
-          <button className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500 text-white">
+          <button
+            onClick={() => deleteItem(item)}
+            className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500 text-white"
+          >
             Delete This Item
           </button>
         </>

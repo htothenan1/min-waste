@@ -14,7 +14,7 @@ function classNames(...classes) {
 const NewItemForm = () => {
   const [selected, setSelected] = useState(ingredients[0]);
 
-  const addItemToDb = async (data) => {
+  const addItem = async (data) => {
     await createItemAction(data.name, data.home);
   };
 
@@ -112,7 +112,7 @@ const NewItemForm = () => {
 
         <SlideFillButton
           buttonText={"Add Item"}
-          handleClick={() => addItemToDb(selected)}
+          handleClick={() => addItem(selected)}
         />
       </div>
     </div>
