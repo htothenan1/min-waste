@@ -19,7 +19,7 @@ const NewItemForm = () => {
     await createItemAction(data.name, data.home);
     toast.success(`${data.name} added!`, {
       position: "top-center",
-      autoClose: 2000,
+      autoClose: 1250,
     });
   };
 
