@@ -1,7 +1,7 @@
 "use client";
 
 import EditItemForm from "./EditItemForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ItemsList = ({ items }) => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -9,6 +9,10 @@ const ItemsList = ({ items }) => {
   const handleSelectItem = (data) => {
     setSelectedItem(data);
   };
+
+  useEffect(() => {
+    setSelectedItem(null);
+  }, [items]);
 
   return (
     <div className="flex">

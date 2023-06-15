@@ -52,14 +52,14 @@ export async function deleteItemById(id: string) {
   }
 }
 
-// export async function updateItem(id: string, isExpired: boolean) {
-//   try {
-//     const item = await prisma.item.update({
-//       where: { id },
-//       data: { is }
-//     })
-//     return { todo }
-//   } catch (error) {
-//     return { error }
-//   }
-// }
+export async function updateItemById(id: string, name: string) {
+  try {
+    const item = await prisma.item.update({
+      where: { id },
+      data: { name },
+    });
+    return { item };
+  } catch (error) {
+    return { error };
+  }
+}

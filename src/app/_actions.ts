@@ -1,6 +1,6 @@
 "use server";
 
-import { createItem, deleteItemById } from "../../lib/items";
+import { createItem, deleteItemById, updateItemById } from "../../lib/items";
 import { revalidatePath } from "next/cache";
 
 export async function createItemAction(name: string, home: any) {
@@ -10,5 +10,10 @@ export async function createItemAction(name: string, home: any) {
 
 export async function deleteItemAction(id: string) {
   await deleteItemById(id);
+  revalidatePath("/");
+}
+
+export async function updateItemAction(id: string, name: string) {
+  await updateItemById(id, name);
   revalidatePath("/");
 }

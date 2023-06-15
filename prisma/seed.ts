@@ -5,6 +5,16 @@ const prisma = new PrismaClient();
 async function main() {
   // do your database stuff here, if you will
   // then run this file
+  const item = await prisma.item.update({
+    where: {
+      // ... provide filter here
+      id: "634c3d28-61db-472f-89f2-5454fc9ece31",
+    },
+    data: {
+      // ... provide data here
+      name: "White Grapes",
+    },
+  });
 }
 
 main()
