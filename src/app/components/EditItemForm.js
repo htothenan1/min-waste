@@ -4,12 +4,14 @@ import { toast } from "react-toastify";
 import { deleteItemAction, updateItemAction } from "../_actions";
 import { useState, Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import DatePicker from "react-date-picker";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 const EditItemForm = ({ item }) => {
   const [editMode, setEditMode] = useState(false);
   const [itemName, setItemName] = useState("");
   const [open, setOpen] = useState(false);
+  const [expiryDate, setExpiryDate] = useState(new Date());
 
   const cancelButtonRef = useRef(null);
 
@@ -23,7 +25,7 @@ const EditItemForm = ({ item }) => {
   };
 
   const updateItem = async (data, newName) => {
-    await updateItemAction(data.id, newName);
+    await updateItemAction(data.id, newName, expiryDate);
     toast.info(`Item updated!`, {
       position: "top-center",
       autoClose: 1250,
@@ -126,10 +128,17 @@ const EditItemForm = ({ item }) => {
             ) : (
               <h1 className="my-2">{item.name}</h1>
             )}
-
-            <h1 className="my-2">{`Expiration Date: ${
-              item.expired ? "yes" : "Not set"
-            }`}</h1>
+            {editMode ? (
+              <DatePicker
+                calendarClassName={" rounded-md"}
+                onChange={setExpiryDate}
+                value={expiryDate}
+              />
+            ) : (
+              <h1 className="my-2">{`Use By : ${
+                item.expiredAt ? item.expiredAt.toDateString() : "Not set"
+              }`}</h1>
+            )}
             <h1 className="my-2">{`Item Type: ${item.home}`}</h1>
             {editMode ? (
               <button

@@ -13,7 +13,11 @@ export async function deleteItemAction(id: string) {
   revalidatePath("/");
 }
 
-export async function updateItemAction(id: string, name: string) {
-  await updateItemById(id, name);
+export async function updateItemAction(
+  id: string,
+  name: string,
+  expiredAt: string
+) {
+  await updateItemById(id, name, expiredAt);
   revalidatePath("/");
 }

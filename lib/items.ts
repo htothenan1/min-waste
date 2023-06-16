@@ -52,11 +52,15 @@ export async function deleteItemById(id: string) {
   }
 }
 
-export async function updateItemById(id: string, name: string) {
+export async function updateItemById(
+  id: string,
+  name: string,
+  expiredAt: string
+) {
   try {
     const item = await prisma.item.update({
       where: { id },
-      data: { name },
+      data: { name, expiredAt },
     });
     return { item };
   } catch (error) {
