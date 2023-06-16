@@ -32,6 +32,7 @@ const EditItemForm = ({ item }) => {
     });
     setEditMode(!editMode);
     setItemName("");
+    setExpiryDate(new Date());
   };
 
   return (
@@ -113,65 +114,68 @@ const EditItemForm = ({ item }) => {
           </div>
         </Dialog>
       </Transition.Root>
-      <div className="flex flex-col items-center border border-red-500 rounded-md mx-4 w-96">
-        <h1 className="underline my-4">Item Details</h1>
 
-        {item ? (
-          <>
-            {editMode ? (
-              <input
-                className="text-center"
-                placeholder={item.name}
-                value={itemName}
-                onChange={(e) => setItemName(e.target.value)}
-              />
-            ) : (
-              <h1 className="my-2">{item.name}</h1>
-            )}
-            {editMode ? (
-              <DatePicker
-                calendarClassName={" rounded-md"}
-                onChange={setExpiryDate}
-                value={expiryDate}
-              />
-            ) : (
-              <h1 className="my-2">{`Use By : ${
-                item.expiredAt ? item.expiredAt.toDateString() : "Not set"
-              }`}</h1>
-            )}
-            <h1 className="my-2">{`Item Type: ${item.home}`}</h1>
-            {editMode ? (
-              <button
-                onClick={() => {
-                  updateItem(item, itemName);
-                }}
-                className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-500 text-white"
-              >
-                Confirm Changes
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={() => {
-                  setEditMode(true);
-                }}
-                className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-500 text-white"
-              >
-                Update Item
-              </button>
-            )}
-            {editMode ? null : (
-              <button
-                onClick={() => setOpen(true)}
-                className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500 text-white"
-              >
-                Delete Item
-              </button>
-            )}
-          </>
-        ) : (
-          <h1 className="text-center my-4">no item selected</h1>
-        )}
+      <div className="flex flex-col">
+        <h2 className="mb-2 font-medium text-center">Single Item View</h2>
+
+        <div className="flex flex-col items-center border border-red-500 rounded-md mx-4 w-96 py-4">
+          {item ? (
+            <>
+              {editMode ? (
+                <input
+                  className="text-center"
+                  placeholder={item.name}
+                  value={itemName}
+                  onChange={(e) => setItemName(e.target.value)}
+                />
+              ) : (
+                <h1 className="my-2">{item.name}</h1>
+              )}
+              {editMode ? (
+                <DatePicker
+                  calendarClassName={" rounded-md"}
+                  onChange={setExpiryDate}
+                  value={expiryDate}
+                />
+              ) : (
+                <h1 className="my-2">{`Use By : ${
+                  item.expiredAt ? item.expiredAt.toDateString() : "Not set"
+                }`}</h1>
+              )}
+              <h1 className="my-2">{`Item Type: ${item.home}`}</h1>
+              {editMode ? (
+                <button
+                  onClick={() => {
+                    updateItem(item, itemName);
+                  }}
+                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-500 text-white"
+                >
+                  Confirm Changes
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditMode(true);
+                  }}
+                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-500 text-white"
+                >
+                  Update Item
+                </button>
+              )}
+              {editMode ? null : (
+                <button
+                  onClick={() => setOpen(true)}
+                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500 text-white"
+                >
+                  Delete Item
+                </button>
+              )}
+            </>
+          ) : (
+            <h1 className="text-center my-4">no item selected</h1>
+          )}
+        </div>
       </div>
     </>
   );

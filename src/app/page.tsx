@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <section className="py-20">
-      <div className="flex mx-12">
+      <div className="flex mx-12 justify-center">
         <NewItemForm />
         <ItemsList items={items} />
       </div>
