@@ -29,11 +29,5 @@ model Item {
   expiredAt DateTime?
   owner User @relation(fields: [ownerId], references: [id])
   ownerId String
-  home Home 
-}
-
-enum Home {
-  PANTRY
-  FRIDGE
-  FREEZER
+  home String?
 }

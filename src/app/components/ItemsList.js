@@ -59,7 +59,7 @@ const ItemsList = ({ items }) => {
               </li>
             ))
           ) : (
-            <p className=" p-2 text-center mt-2">Log a thing!</p>
+            <p className=" p-2 text-center mt-2">Add an item!</p>
           )}
         </ul>
       </div>

@@ -16,8 +16,9 @@ export async function deleteItemAction(id: string) {
 export async function updateItemAction(
   id: string,
   name: string,
-  expiredAt: string
+  expiredAt: string,
+  home: any
 ) {
-  await updateItemById(id, name, expiredAt);
+  await updateItemById(id, name, expiredAt, home);
   revalidatePath("/");
 }

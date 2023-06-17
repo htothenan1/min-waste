@@ -3,7 +3,7 @@
 import { toast } from "react-toastify";
 import { deleteItemAction, updateItemAction } from "../_actions";
 import { useState, Fragment, useRef } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import { Listbox, Transition, Dialog } from "@headlessui/react";
 import {
   Tooltip,
   TooltipContent,
@@ -12,14 +12,26 @@ import {
 } from "../common/ToolTip";
 import DatePicker from "react-date-picker";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+
+const homes = [
+  { id: 1, name: "pantry" },
+  { id: 2, name: "fridge" },
+  { id: 3, name: "freezer" },
+];
 
 const EditItemForm = ({ item }) => {
   const [editMode, setEditMode] = useState(false);
   const [itemName, setItemName] = useState("");
   const [open, setOpen] = useState(false);
   const [expiryDate, setExpiryDate] = useState(new Date());
+  const [selected, setSelected] = useState(homes[0]);
 
   const cancelButtonRef = useRef(null);
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
 
   const deleteItem = async (data) => {
     await deleteItemAction(data.id);
@@ -30,8 +42,8 @@ const EditItemForm = ({ item }) => {
     setOpen(false);
   };
 
-  const updateItem = async (data, newName) => {
-    await updateItemAction(data.id, newName, expiryDate);
+  const updateItem = async (data, newName, newHome) => {
+    await updateItemAction(data.id, newName, expiryDate, newHome.name);
     toast.info(`Item updated!`, {
       position: "top-center",
       autoClose: 1250,
@@ -39,6 +51,7 @@ const EditItemForm = ({ item }) => {
     setEditMode(!editMode);
     setItemName("");
     setExpiryDate(new Date());
+    setSelected(homes[0]);
   };
 
   return (
@@ -158,11 +171,89 @@ const EditItemForm = ({ item }) => {
                   item.expiredAt ? item.expiredAt.toDateString() : "Not set"
                 }`}</h1>
               )}
-              <h1 className="my-2">{`Item Type: ${item.home}`}</h1>
+              {editMode ? (
+                <Listbox value={selected} onChange={setSelected}>
+                  {({ open }) => (
+                    <>
+                      <div className="relative mt-2">
+                        <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          <span className="block truncate">
+                            {selected.name}
+                          </span>
+                          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                            <ChevronUpDownIcon
+                              className="h-5 w-5 text-gray-400"
+                              aria-hidden="true"
+                            />
+                          </span>
+                        </Listbox.Button>
+
+                        <Transition
+                          show={open}
+                          as={Fragment}
+                          leave="transition ease-in duration-100"
+                          leaveFrom="opacity-100"
+                          leaveTo="opacity-0"
+                        >
+                          <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                            {homes.map((home) => (
+                              <Listbox.Option
+                                key={home.id}
+                                className={({ active }) =>
+                                  classNames(
+                                    active
+                                      ? "bg-indigo-600 text-white"
+                                      : "text-gray-900",
+                                    "relative cursor-default select-none py-2 pl-3 pr-9"
+                                  )
+                                }
+                                value={home}
+                              >
+                                {({ selected, active }) => (
+                                  <>
+                                    <span
+                                      className={classNames(
+                                        selected
+                                          ? "font-semibold"
+                                          : "font-normal",
+                                        "block truncate"
+                                      )}
+                                    >
+                                      {home.name}
+                                    </span>
+
+                                    {selected ? (
+                                      <span
+                                        className={classNames(
+                                          active
+                                            ? "text-white"
+                                            : "text-indigo-600",
+                                          "absolute inset-y-0 right-0 flex items-center pr-4"
+                                        )}
+                                      >
+                                        <CheckIcon
+                                          className="h-5 w-5"
+                                          aria-hidden="true"
+                                        />
+                                      </span>
+                                    ) : null}
+                                  </>
+                                )}
+                              </Listbox.Option>
+                            ))}
+                          </Listbox.Options>
+                        </Transition>
+                      </div>
+                    </>
+                  )}
+                </Listbox>
+              ) : (
+                <h1 className="my-2">{`Item Type: ${item.home.toLowerCase()}`}</h1>
+              )}
               {editMode ? (
                 <button
                   onClick={() => {
-                    updateItem(item, itemName);
+                    updateItem(item, itemName, selected);
                   }}
                   className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-500 text-white"
                 >
