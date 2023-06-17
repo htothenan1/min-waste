@@ -26,7 +26,7 @@ const ItemsList = ({ items }) => {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <h2 className="mb-2 font-medium text-center cursor-default">
+              <h2 className="mb-2 font-medium text-slate-600 text-center cursor-default">
                 Your Kitchen
               </h2>
             </TooltipTrigger>
@@ -37,20 +37,20 @@ const ItemsList = ({ items }) => {
         </TooltipProvider>
         <ul
           role="list"
-          className="flex flex-col divide-y divide-gray-200 h-96 border border-blue-400 rounded-md overflow-scroll w-36"
+          className="flex flex-col divide-y divide-gray-200 h-96 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-md rounded-md overflow-scroll w-36"
         >
           {items.length ? (
             items.map((item) => (
               <li
                 onClick={() => handleSelectItem(item)}
                 key={item.id}
-                className="relative bg-white px-4 py-5 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 hover:bg-gray-50"
+                className="relative bg-white/60 shadow-md px-4 py-5 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-400 hover:bg-gray-50 rounded-md"
               >
                 <div className="flex justify-between space-x-3">
                   <div className="min-w-0 flex-1">
                     <a href="#" className="block focus:outline-none">
                       <span className="absolute inset-0" aria-hidden="true" />
-                      <p className="truncate text-sm font-medium text-gray-900">
+                      <p className="truncate cursor-default text-sm font-medium text-slate-600">
                         {item.name}
                       </p>
                     </a>
@@ -59,7 +59,9 @@ const ItemsList = ({ items }) => {
               </li>
             ))
           ) : (
-            <p className=" p-2 text-center mt-2">Add an item!</p>
+            <p className=" p-2 cursor-default text-center text-slate-600 mt-2">
+              Add an item!
+            </p>
           )}
         </ul>
       </div>

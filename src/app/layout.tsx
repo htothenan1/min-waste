@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import CustomToastContainer from "../app/components/CustomToastContainer";
-// import NavBar from "../app/components/NavBar";
+import NavBar from "../app/components/NavBar";
 import "react-toastify/dist/ReactToastify.css";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
@@ -20,8 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {/* <NavBar /> */}
+      <body className={`${inter.className} bg-slate-100`}>
+        <NavBar />
         <CustomToastContainer />
         {children}
       </body>

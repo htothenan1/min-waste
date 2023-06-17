@@ -15,9 +15,9 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 const homes = [
-  { id: 1, name: "pantry" },
-  { id: 2, name: "fridge" },
-  { id: 3, name: "freezer" },
+  { id: 1, name: "Pantry" },
+  { id: 2, name: "Fridge" },
+  { id: 3, name: "Freezer" },
 ];
 
 const EditItemForm = ({ item }) => {
@@ -138,36 +138,38 @@ const EditItemForm = ({ item }) => {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <h2 className="mb-2 font-medium text-center cursor-default">
+              <h2 className="mb-2 font-medium text-center text-slate-600 cursor-default">
                 Single Item View
               </h2>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Update or Delete Item</p>
+              <p className="text-slate-600">Update or Delete Item</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <div className="flex flex-col items-center border border-red-500 rounded-md mx-4 w-96 py-4">
+        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-96 py-4">
           {item ? (
             <>
               {editMode ? (
                 <input
-                  className="text-center my-2"
+                  className="text-center text-slate-600 my-2 bg-slate-50"
                   placeholder={item.name}
                   value={itemName}
                   onChange={(e) => setItemName(e.target.value)}
                 />
               ) : (
-                <h1 className="my-2">{item.name}</h1>
+                <h1 className="my-2 text-slate-600 font-semibold cursor-default">
+                  {item.name}
+                </h1>
               )}
               {editMode ? (
                 <DatePicker
-                  calendarClassName={" rounded-md"}
+                  calendarClassName={" rounded-md text-slate-600"}
                   onChange={setExpiryDate}
                   value={expiryDate}
                 />
               ) : (
-                <h1 className="my-2">{`Use By : ${
+                <h1 className="my-2 text-slate-600 cursor-default">{`Use By: ${
                   item.expiredAt ? item.expiredAt.toDateString() : "Not set"
                 }`}</h1>
               )}
@@ -176,8 +178,8 @@ const EditItemForm = ({ item }) => {
                   {({ open }) => (
                     <>
                       <div className="relative mt-2">
-                        <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                          <span className="block truncate">
+                        <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          <span className="block truncate text-slate-600">
                             {selected.name}
                           </span>
                           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -203,7 +205,7 @@ const EditItemForm = ({ item }) => {
                                   classNames(
                                     active
                                       ? "bg-indigo-600 text-white"
-                                      : "text-gray-900",
+                                      : "text-slate-600",
                                     "relative cursor-default select-none py-2 pl-3 pr-9"
                                   )
                                 }
@@ -248,14 +250,14 @@ const EditItemForm = ({ item }) => {
                   )}
                 </Listbox>
               ) : (
-                <h1 className="my-2">{`Item Type: ${item.home.toLowerCase()}`}</h1>
+                <h1 className="my-2 text-slate-600 cursor-default">{`Item Type: ${item.home}`}</h1>
               )}
               {editMode ? (
                 <button
                   onClick={() => {
                     updateItem(item, itemName, selected);
                   }}
-                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-500 text-white"
+                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-300 text-white"
                 >
                   Confirm Changes
                 </button>
@@ -265,7 +267,7 @@ const EditItemForm = ({ item }) => {
                   onClick={() => {
                     setEditMode(true);
                   }}
-                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-500 text-white"
+                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-indigo-600/80 text-white"
                 >
                   Update Item
                 </button>
@@ -273,14 +275,16 @@ const EditItemForm = ({ item }) => {
               {editMode ? null : (
                 <button
                   onClick={() => setOpen(true)}
-                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500 text-white"
+                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500/80 text-white"
                 >
                   Delete Item
                 </button>
               )}
             </>
           ) : (
-            <h1 className="text-center my-4">no item selected</h1>
+            <h1 className="text-center cursor-default text-slate-600 my-4">
+              no item selected
+            </h1>
           )}
         </div>
       </div>

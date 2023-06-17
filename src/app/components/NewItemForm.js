@@ -34,7 +34,7 @@ const NewItemForm = () => {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <h2 className="mb-2 font-medium text-center cursor-default">
+            <h2 className="mb-2 text-slate-600 font-medium text-center cursor-default">
               Log Item
             </h2>
           </TooltipTrigger>
@@ -43,7 +43,7 @@ const NewItemForm = () => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      <div className="flex flex-col border border-blue-500 border-dashed rounded-md p-6 mx-4 bg-slate-50 h-40 w-56">
+      <div className="flex flex-col bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-blue-200 via-green-200 to-yellow-200 shadow-md rounded-md p-6 mx-4 h-40 w-56">
         <div>
           <Listbox value={selected} onChange={setSelected}>
             {({ open }) => (
@@ -57,7 +57,7 @@ const NewItemForm = () => {
                           "inline-block h-2 w-2 flex-shrink-0 rounded-full"
                         )}
                       />
-                      <span className="ml-3 block truncate">
+                      <span className="ml-3 text-slate-600 block truncate">
                         {selected.name}
                       </span>
                     </span>

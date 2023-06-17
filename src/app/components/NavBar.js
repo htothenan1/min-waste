@@ -1,29 +1,28 @@
 "use client";
 
 import { Navbar } from "flowbite-react";
+import Image from "next/image";
+import logo from "../../../public/firstLogo.png";
 
 const NavBar = () => {
   return (
     <Navbar fluid={true} rounded={true}>
-      <Navbar.Brand href="https://flowbite.com/">
-        <img
-          src="https://flowbite.com/docs/images/logo.svg"
-          className="mr-3 h-6 sm:h-9"
-          alt="Flowbite Logo"
+      <Navbar.Brand>
+        <Image
+          src={logo}
+          className="w-14 rounded-full mr-2"
+          alt="Waste-Not Logo"
         />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Flowbite
+        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white text-slate-600">
+          Waste-Not
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="/navbars" active={true}>
+        <Navbar.Link href="/" active={true}>
           Home
         </Navbar.Link>
-        <Navbar.Link href="/navbars">About</Navbar.Link>
-        <Navbar.Link href="/navbars">Services</Navbar.Link>
-        <Navbar.Link href="/navbars">Pricing</Navbar.Link>
-        <Navbar.Link href="/navbars">Contact</Navbar.Link>
+        <Navbar.Link href="/">About</Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
