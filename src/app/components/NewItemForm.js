@@ -4,6 +4,12 @@ import { useState, Fragment } from "react";
 import { createItemAction } from "../_actions";
 import SlideFillButton from "./SlideFillButton";
 import { toast } from "react-toastify";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../common/ToolTip";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { ingredients } from "../data/ingredients";
@@ -25,7 +31,18 @@ const NewItemForm = () => {
 
   return (
     <div>
-      <h2 className="mb-2 font-medium text-center">Item Logger</h2>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <h2 className="mb-2 font-medium text-center cursor-default">
+              Log Item
+            </h2>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>If you can't find your item, use 'Custom'</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
       <div className="flex flex-col border border-blue-500 border-dashed rounded-md p-6 mx-4 bg-slate-50 h-40 w-56">
         <div>
           <Listbox value={selected} onChange={setSelected}>

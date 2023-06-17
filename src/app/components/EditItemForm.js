@@ -4,6 +4,12 @@ import { toast } from "react-toastify";
 import { deleteItemAction, updateItemAction } from "../_actions";
 import { useState, Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../common/ToolTip";
 import DatePicker from "react-date-picker";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
@@ -116,14 +122,24 @@ const EditItemForm = ({ item }) => {
       </Transition.Root>
 
       <div className="flex flex-col">
-        <h2 className="mb-2 font-medium text-center">Single Item View</h2>
-
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <h2 className="mb-2 font-medium text-center cursor-default">
+                Single Item View
+              </h2>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Update or Delete Item</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <div className="flex flex-col items-center border border-red-500 rounded-md mx-4 w-96 py-4">
           {item ? (
             <>
               {editMode ? (
                 <input
-                  className="text-center"
+                  className="text-center my-2"
                   placeholder={item.name}
                   value={itemName}
                   onChange={(e) => setItemName(e.target.value)}

@@ -1,6 +1,12 @@
 "use client";
 
 import EditItemForm from "./EditItemForm";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../common/ToolTip";
 import { useState, useEffect } from "react";
 
 const ItemsList = ({ items }) => {
@@ -17,8 +23,18 @@ const ItemsList = ({ items }) => {
   return (
     <div className="flex">
       <div>
-        <h2 className="mb-2 font-medium text-center">My Kitchen</h2>
-
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <h2 className="mb-2 font-medium text-center cursor-default">
+                Your Kitchen
+              </h2>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Keep track of your items</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <ul
           role="list"
           className="flex flex-col divide-y divide-gray-200 h-96 border border-blue-400 rounded-md overflow-scroll w-36"
