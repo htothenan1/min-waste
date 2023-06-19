@@ -1,6 +1,7 @@
 "use client";
 
 import EditItemForm from "./EditItemForm";
+import RecipesList from "./RecipesList";
 import {
   Tooltip,
   TooltipContent,
@@ -8,20 +9,40 @@ import {
   TooltipTrigger,
 } from "../common/ToolTip";
 import { useState, useEffect } from "react";
+import { getRecipesAction } from "../_actions";
 
 const ItemsList = ({ items }) => {
   const [selectedItem, setSelectedItem] = useState(null);
+  const [fetchedRecipes, setFetchedRecipes] = useState(null);
 
   const handleSelectItem = (data) => {
     setSelectedItem(data);
   };
 
+  const fetchRecipes = async () => {
+    // await getRecipesAction(selectedItem.name);
+    // console.log(fetchedRecipes);
+    const res = await fetch(
+      `https://api.edamam.com/api/recipes/v2?type=public&q=${selectedItem.name}&app_id=53197589&app_key=e5b705b274508e7de4de1f3a3a726545&diet=balanced&random=true`
+    );
+
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error("Failed to fetch data");
+    }
+    const recipes = await res.json();
+    console.log(recipes.hits);
+    setFetchedRecipes(recipes.hits);
+    // return res.json();
+  };
+
   useEffect(() => {
     setSelectedItem(null);
+    setFetchedRecipes(null);
   }, [items]);
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       <div>
         <TooltipProvider>
           <Tooltip>
@@ -37,7 +58,7 @@ const ItemsList = ({ items }) => {
         </TooltipProvider>
         <ul
           role="list"
-          className="flex flex-col divide-y divide-gray-200 h-96 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-md rounded-md overflow-scroll w-36"
+          className="flex flex-col divide-y divide-gray-200 h-96 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-md rounded-md overflow-scroll w-36 mx-10 mb-10"
         >
           {items.length ? (
             items.map((item) => (
@@ -65,7 +86,10 @@ const ItemsList = ({ items }) => {
           )}
         </ul>
       </div>
-      <EditItemForm item={selectedItem} />
+      <EditItemForm item={selectedItem} handleRecipesFetch={fetchRecipes} />
+      <div>
+        <RecipesList recipes={fetchedRecipes} selectedItem={selectedItem} />
+      </div>
     </div>
   );
 };

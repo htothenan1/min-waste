@@ -4,7 +4,6 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
   darkMode: ["class"],
   content: [
-    "./node_modules/flowbite-react/**/*.js",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -82,9 +81,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/forms"),
-    require("flowbite/plugin"),
-    require("tailwindcss-animate"),
-  ],
+  plugins: [require("@tailwindcss/forms"), require("tailwindcss-animate")],
 };

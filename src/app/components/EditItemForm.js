@@ -20,7 +20,7 @@ const homes = [
   { id: 3, name: "Freezer" },
 ];
 
-const EditItemForm = ({ item }) => {
+const EditItemForm = ({ item, handleRecipesFetch }) => {
   const [editMode, setEditMode] = useState(false);
   const [itemName, setItemName] = useState("");
   const [open, setOpen] = useState(false);
@@ -147,7 +147,7 @@ const EditItemForm = ({ item }) => {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-96 py-4">
+        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-96 h-80 py-4">
           {item ? (
             <>
               {editMode ? (
@@ -158,7 +158,7 @@ const EditItemForm = ({ item }) => {
                   onChange={(e) => setItemName(e.target.value)}
                 />
               ) : (
-                <h1 className="my-2 text-slate-600 font-semibold cursor-default">
+                <h1 className="my-2 text-slate-600 text-lg font-semibold cursor-default">
                   {item.name}
                 </h1>
               )}
@@ -273,16 +273,24 @@ const EditItemForm = ({ item }) => {
                 </button>
               )}
               {editMode ? null : (
-                <button
-                  onClick={() => setOpen(true)}
-                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500/80 text-white"
-                >
-                  Delete Item
-                </button>
+                <>
+                  <button
+                    onClick={() => setOpen(true)}
+                    className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500/80 text-white"
+                  >
+                    Delete Item
+                  </button>
+                  <button
+                    onClick={() => handleRecipesFetch(item)}
+                    className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-green-500/80 text-white"
+                  >
+                    Get Recipes
+                  </button>
+                </>
               )}
             </>
           ) : (
-            <h1 className="text-center cursor-default text-slate-600 my-4">
+            <h1 className="text-center my-auto cursor-default text-slate-600">
               no item selected
             </h1>
           )}

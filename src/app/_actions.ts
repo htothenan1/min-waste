@@ -2,6 +2,7 @@
 
 import { createItem, deleteItemById, updateItemById } from "../../lib/items";
 import { revalidatePath } from "next/cache";
+import { getRecipes } from "../../lib/recipes";
 
 export async function createItemAction(name: string, home: any) {
   await createItem(name, home);
@@ -20,5 +21,10 @@ export async function updateItemAction(
   home: any
 ) {
   await updateItemById(id, name, expiredAt, home);
+  revalidatePath("/");
+}
+
+export async function getRecipesAction(item: string) {
+  await getRecipes(item);
   revalidatePath("/");
 }
