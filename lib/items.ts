@@ -17,7 +17,7 @@ export async function createItem(name: string, home: any) {
         home,
         owner: {
           connect: {
-            // temporarily saves item to hernan
+            // temporarily saves item to hernan, TODO for when authentication happens
             id: "1f0a4a5e-2ddf-4f3d-85a1-637a0ab999ff",
             // id: ownerId,
           },

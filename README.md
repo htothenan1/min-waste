@@ -12,4 +12,16 @@ Empower users to live a minimum-waste life. My hope is to provide an easy-to-use
 
 The only way this problem goes away is if we can collectively improve our behavior.
 
+## What tech am I using?
+
+- Next.js 13.4.4, featuring App router (built on React Server Components)
+- PostgreSQL
+- Prisma
+- TailwindCSS
+- React Toastify
+- Edamam API
+- React Date Picker
+
+Current progress:
+
 ![019](https://github.com/htothenan1/min-waste/assets/50812996/89a7eb9c-0dd5-4c8f-bf75-9264133828c8)

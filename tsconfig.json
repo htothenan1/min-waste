@@ -29,8 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/CustomSearch.js",
-    "src/app/components/NewItemForm.js",
-    "src/app/components/SlideFillButton.js"
+    "src/app/components/ItemLogger.js",
+    "src/app/common/SlideFillButton.js"
   ],
   "exclude": ["node_modules"]
 }

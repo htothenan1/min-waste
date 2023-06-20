@@ -3,8 +3,8 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  // do your database stuff here, if you will
-  // then run this file
+  // do your database stuff here
+  // then run the file
   const item = await prisma.item.update({
     where: {
       // ... provide filter here

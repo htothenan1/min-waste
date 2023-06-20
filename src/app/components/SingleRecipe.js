@@ -1,43 +1,32 @@
-"use client";
-
-// import { useState } from "react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../common/ToolTip";
+import TitleTooltip from "../common/TitleTooltip";
 
 const SingleRecipe = ({ recipe }) => {
   return (
-    <>
-      {recipe ? (
-        <div className="flex flex-col">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <h2 className="mb-2 font-medium text-center text-slate-600 cursor-default">
-                  Single Recipe View
-                </h2>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p className="text-slate-600">Ummmm, its a recipe...</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 p-4">
-            {recipe ? (
-              <>
-                <h2 className=" text-">{recipe.label}</h2>
-                <img src={recipe.image}></img>
-              </>
-            ) : (
-              <h2>there is no recipe</h2>
-            )}
-          </div>
-        </div>
-      ) : null}
-    </>
+    <div className="mx-6">
+      <TitleTooltip
+        titleText={"Single Recipe View"}
+        tooltipText={"Recipe based on selected Item"}
+      />
+      <div className=" flex flex-col bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md w-96 h-80 overflow-scroll">
+        {recipe ? (
+          <>
+            <div className="flex items-center">
+              <img className="w-32 h-32 rounded-md" src={recipe.image} />
+              <h2 className="m-auto text-slate-600">{recipe.label}</h2>
+            </div>
+            <div className="my-2">
+              {recipe.ingredientLines.map((line) => (
+                <p className="px-4 text-sm text-slate-600">{line}</p>
+              ))}
+            </div>
+          </>
+        ) : (
+          <h2 className="text-center my-auto cursor-default text-slate-600">
+            No recipe selected
+          </h2>
+        )}
+      </div>
+    </div>
   );
 };
 

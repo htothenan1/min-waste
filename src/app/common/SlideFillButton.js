@@ -3,9 +3,9 @@ const SlideFillButton = ({ buttonText, handleClick }) => {
     <button
       type="submit"
       onClick={handleClick}
-      className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-md font-light shadow-lg my-4 ml-8"
+      className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
     >
-      <div className="absolute inset-0 w-4 bg-zinc-400 transition-all duration-[800ms] group-hover:w-full"></div>
+      <div className="absolute inset-0 w-4 bg-zinc-400 transition-all duration-700 group-hover:w-full"></div>
       <span className="relative text-gray-500 group-hover:text-white">
         {buttonText}
       </span>

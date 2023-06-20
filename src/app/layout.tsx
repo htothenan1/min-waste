@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import CustomToastContainer from "../app/components/CustomToastContainer";
-import NavBar from "../app/components/NavBar";
+import CustomToastContainer from "./common/CustomToastContainer";
+import NavBar from "./common/NavBar";
 import "react-toastify/dist/ReactToastify.css";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";

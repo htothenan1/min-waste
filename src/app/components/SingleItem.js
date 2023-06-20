@@ -4,21 +4,11 @@ import { toast } from "react-toastify";
 import { deleteItemAction, updateItemAction } from "../_actions";
 import { useState, Fragment, useRef } from "react";
 import { Listbox, Transition, Dialog } from "@headlessui/react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../common/ToolTip";
 import DatePicker from "react-date-picker";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-
-const homes = [
-  { id: 1, name: "Pantry" },
-  { id: 2, name: "Fridge" },
-  { id: 3, name: "Freezer" },
-];
+import { homes } from "../data/homes";
+import TitleTooltip from "../common/TitleTooltip";
 
 const EditItemForm = ({ item, handleRecipesFetch }) => {
   const [editMode, setEditMode] = useState(false);
@@ -135,7 +125,7 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
       </Transition.Root>
 
       <div className="flex flex-col">
-        <TooltipProvider>
+        {/* <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
               <h2 className="mb-2 font-medium text-center text-slate-600 cursor-default">
@@ -146,7 +136,11 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
               <p className="text-slate-600">Update or Delete Item</p>
             </TooltipContent>
           </Tooltip>
-        </TooltipProvider>
+        </TooltipProvider> */}
+        <TitleTooltip
+          titleText={"Single Item View"}
+          tooltipText={"Update or Delete a single item, or find recipes"}
+        />
         <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-96 h-80 py-4">
           {item ? (
             <>
@@ -291,7 +285,7 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
             </>
           ) : (
             <h1 className="text-center my-auto cursor-default text-slate-600">
-              no item selected
+              No item selected
             </h1>
           )}
         </div>
