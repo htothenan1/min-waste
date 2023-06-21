@@ -5,7 +5,7 @@ export default async function Home() {
   const { items } = await getItems();
 
   return (
-    <section className=" p-36">
+    <section className=" p-24">
       <Kitchen items={items} />
     </section>
   );

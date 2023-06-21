@@ -125,18 +125,6 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
       </Transition.Root>
 
       <div className="flex flex-col">
-        {/* <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <h2 className="mb-2 font-medium text-center text-slate-600 cursor-default">
-                Single Item View
-              </h2>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p className="text-slate-600">Update or Delete Item</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider> */}
         <TitleTooltip
           titleText={"Single Item View"}
           tooltipText={"Update or Delete a single item, or find recipes"}

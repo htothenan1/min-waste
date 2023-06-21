@@ -11,7 +11,6 @@ const Kitchen = ({ items }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [fetchedRecipes, setFetchedRecipes] = useState(null);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
-  const [open, setOpen] = useState(false);
 
   const handleSelectItem = (data) => {
     setSelectedItem(data);
@@ -39,7 +38,7 @@ const Kitchen = ({ items }) => {
   }, [items]);
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex justify-evenly flex-wrap">
       <div className="flex flex-col items-center mx-6">
         <ItemLogger />
         <ItemsList items={items} handleSelectItem={handleSelectItem} />

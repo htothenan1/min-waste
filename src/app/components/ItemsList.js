@@ -9,7 +9,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
       />
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-56 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-md rounded-md overflow-scroll w-36"
+        className="flex flex-col divide-y divide-gray-200 h-56 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-red-100 via-orange-100 to-gray-100 shadow-md rounded-md overflow-scroll w-36"
       >
         {items.length ? (
           items.map((item) => (
@@ -20,10 +20,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
             >
               <div className="flex justify-between space-x-3">
                 <div className="min-w-0 flex-1">
-                  <a
-                    href="javascript:void(0);"
-                    className="block focus:outline-none"
-                  >
+                  <a className="block focus:outline-none">
                     <span className="absolute inset-0" aria-hidden="true" />
                     <p className="truncate cursor-default text-sm font-medium text-slate-600">
                       {item.name}

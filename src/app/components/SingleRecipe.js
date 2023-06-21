@@ -1,3 +1,4 @@
+import Link from "next/link";
 import TitleTooltip from "../common/TitleTooltip";
 
 const SingleRecipe = ({ recipe }) => {
@@ -7,16 +8,24 @@ const SingleRecipe = ({ recipe }) => {
         titleText={"Single Recipe View"}
         tooltipText={"Recipe based on selected Item"}
       />
-      <div className=" flex flex-col bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md w-96 h-80 overflow-scroll">
+      <div className=" flex flex-col bg-gradient-to-t from-orange-200 to-sky-200 shadow-md rounded-md w-96 h-80 overflow-scroll">
         {recipe ? (
           <>
             <div className="flex items-center">
               <img className="w-32 h-32 rounded-md" src={recipe.image} />
-              <h2 className="m-auto text-slate-600">{recipe.label}</h2>
+              <Link
+                href={recipe.url}
+                target="_blank"
+                className="m-auto text-slate-600"
+              >
+                {recipe.label}
+              </Link>
             </div>
             <div className="my-2">
               {recipe.ingredientLines.map((line) => (
-                <p className="px-4 text-sm text-slate-600">{line}</p>
+                <p key={line.id} className="px-4 text-sm text-slate-600">
+                  {line}
+                </p>
               ))}
             </div>
           </>
