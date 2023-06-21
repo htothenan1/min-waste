@@ -30,12 +30,12 @@ const NavBar = () => {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <Image
-                    className="block h-12 w-auto lg:hidden"
+                    className="block h-16 w-auto lg:hidden"
                     src={logo}
                     alt="Your Company"
                   />
                   <Image
-                    className="hidden h-12 w-auto lg:block"
+                    className="hidden h-14 w-auto lg:block"
                     src={logo}
                     alt="Your Company"
                   />
@@ -53,9 +53,9 @@ const NavBar = () => {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gray-400">
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-slate-400 to-gray-300">
                         <span className="text-lg font-medium leading-none text-white">
                           HB
                         </span>

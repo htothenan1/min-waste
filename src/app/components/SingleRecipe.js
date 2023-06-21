@@ -8,7 +8,7 @@ const SingleRecipe = ({ recipe }) => {
         titleText={"Single Recipe View"}
         tooltipText={"Recipe based on selected Item"}
       />
-      <div className=" flex flex-col bg-gradient-to-t from-orange-200 to-sky-200 shadow-md rounded-md w-96 h-80 overflow-scroll">
+      <div className=" flex flex-col bg-gradient-to-t from-orange-100 to-sky-100 shadow-md rounded-md w-72 h-80 overflow-scroll">
         {recipe ? (
           <>
             <div className="flex items-center">
@@ -16,14 +16,17 @@ const SingleRecipe = ({ recipe }) => {
               <Link
                 href={recipe.url}
                 target="_blank"
-                className="m-auto text-slate-600"
+                className="m-auto text-slate-600 pl-2 font-semibold"
               >
                 {recipe.label}
               </Link>
             </div>
-            <div className="my-2">
+            <div className="my-2 px-4">
+              <h2 className="text-slate-600 underline font-light">
+                Ingredients
+              </h2>
               {recipe.ingredientLines.map((line) => (
-                <p key={line.id} className="px-4 text-sm text-slate-600">
+                <p key={line.id} className="text-sm text-slate-600">
                   {line}
                 </p>
               ))}

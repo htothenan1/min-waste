@@ -129,7 +129,7 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
           titleText={"Single Item View"}
           tooltipText={"Update or Delete a single item, or find recipes"}
         />
-        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-96 h-80 py-4">
+        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-72 h-80 py-4 mb-10">
           {item ? (
             <>
               {editMode ? (

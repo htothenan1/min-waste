@@ -26,7 +26,7 @@ const ItemLogger = () => {
   };
 
   return (
-    <div className="mb-6">
+    <div className="mb-10">
       <TitleTooltip
         titleText={"Item Logger"}
         tooltipText={"If you can't find your item, use 'Custom'"}

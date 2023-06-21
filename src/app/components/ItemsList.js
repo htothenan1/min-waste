@@ -2,7 +2,7 @@ import TitleTooltip from "../common/TitleTooltip";
 
 const ItemsList = ({ items, handleSelectItem }) => {
   return (
-    <div className="mb-6">
+    <div className="mb-10">
       <TitleTooltip
         titleText={"Items List"}
         tooltipText={"Keep track of your items"}
