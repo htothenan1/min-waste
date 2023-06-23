@@ -33,8 +33,8 @@ export default async function Home() {
             food to consumers are immense. The only way this problem goes away
             is if we can collectively improve our behavior, and stop wasting so
             much damn food. Additionally, on a less altruistic note, the less
-            food you waste, the more money you save. So let&apos;s do this
-            thing!
+            food you waste, the more money you save. So let&apos;s make a
+            change!
           </p>
           <h1 className="text-lg text-slate-600 font-semibold">
             What tech am I utilizing?
