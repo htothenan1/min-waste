@@ -56,7 +56,7 @@ const NavBar = () => {
                   <div>
                     <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-slate-400 to-gray-300">
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
                         <span className="text-lg font-medium leading-none text-white">
                           User
                         </span>
@@ -92,7 +92,7 @@ const NavBar = () => {
                           <button
                             onClick={() =>
                               signOut({
-                                callbackUrl: "http://localhost:3000/login",
+                                callbackUrl: "/login",
                               })
                             }
                             className={classNames(
