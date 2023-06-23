@@ -1,15 +1,31 @@
 import prisma from "./prisma";
 
-export async function getItems() {
+export async function getItems(email: string) {
   try {
-    const items = await prisma.item.findMany();
+    const items = await prisma.item.findMany({});
     return { items };
   } catch (err) {
     return { err };
   }
 }
 
-export async function createItem(name: string, home: any) {
+export async function getUser(email: string) {
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+      include: {
+        items: true,
+      },
+    });
+    return { user };
+  } catch (err) {
+    return { err };
+  }
+}
+
+export async function createItem(email: string, name: string, home: any) {
   try {
     const item = await prisma.item.create({
       data: {
@@ -17,9 +33,7 @@ export async function createItem(name: string, home: any) {
         home,
         owner: {
           connect: {
-            // temporarily saves item to hernan, TODO for when authentication happens
-            id: "1f0a4a5e-2ddf-4f3d-85a1-637a0ab999ff",
-            // id: ownerId,
+            email,
           },
         },
       },

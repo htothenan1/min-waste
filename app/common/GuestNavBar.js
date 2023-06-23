@@ -1,16 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import logo from "../../../public/logo.png";
+import logo from "../../public/smile_logo.png";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const NavBar = () => {
+const GuestNavBar = () => {
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -40,14 +41,14 @@ const NavBar = () => {
                     alt="Your Company"
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   <a
                     href="#"
                     className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
                   >
                     Dashboard
                   </a>
-                </div>
+                </div> */}
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
@@ -56,8 +57,8 @@ const NavBar = () => {
                     <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
                       <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-slate-400 to-gray-300">
-                        <span className="text-lg font-medium leading-none text-white">
-                          HB
+                        <span className="text-md font-medium leading-none text-white">
+                          Guest
                         </span>
                       </span>
                     </Menu.Button>
@@ -74,29 +75,29 @@ const NavBar = () => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            href={"/login"}
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
-                            Your Profile
-                          </a>
+                            Login
+                          </Link>
                         )}
                       </Menu.Item>
 
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            href={"/register"}
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
-                            Sign out
-                          </a>
+                            Sign Up
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -123,4 +124,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default GuestNavBar;

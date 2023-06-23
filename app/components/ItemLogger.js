@@ -4,7 +4,7 @@ import { useState, Fragment } from "react";
 import { createItemAction } from "../_actions";
 import SlideFillButton from "../common/SlideFillButton";
 import { toast } from "react-toastify";
-
+import { useSession } from "next-auth/react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { ingredients } from "../data/ingredients";
@@ -16,10 +16,15 @@ function classNames(...classes) {
 
 const ItemLogger = () => {
   const [selected, setSelected] = useState(ingredients[0]);
+  const { data: session } = useSession();
 
-  const addItem = async (data) => {
-    await createItemAction(data.name, data.home);
-    toast.success(`${data.name} added!`, {
+  const addItem = async (clientData) => {
+    await createItemAction(
+      session.user.email,
+      clientData.name,
+      clientData.home
+    );
+    toast.success(`${clientData.name} added!`, {
       position: "top-center",
       autoClose: 1250,
     });

@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import CustomToastContainer from "./common/CustomToastContainer";
-import NavBar from "./common/NavBar";
+import Provider from "./context/AuthContext";
 import "react-toastify/dist/ReactToastify.css";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
@@ -19,11 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-slate-100`}>
-        <NavBar />
-        <CustomToastContainer />
-        {children}
+    <html className="h-full bg-slate-100" lang="en">
+      <body className={`${inter.className} bg-slate-100 h-full`}>
+        <Provider>
+          <CustomToastContainer />
+          {children}
+        </Provider>
       </body>
     </html>
   );

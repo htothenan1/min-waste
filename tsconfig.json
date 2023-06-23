@@ -20,7 +20,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./app/*"]
     }
   },
   "include": [
@@ -28,9 +28,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/components/CustomSearch.js",
-    "src/app/components/ItemLogger.js",
-    "src/app/common/SlideFillButton.js"
+    "app/components/CustomSearch.js",
+    "app/components/ItemLogger.js",
+    "app/common/SlideFillButton.js",
+    "app/page.js"
   ],
   "exclude": ["node_modules"]
 }
