@@ -3,8 +3,8 @@
 import { createItem, deleteItemById, updateItemById } from "./lib/items";
 import { revalidatePath } from "next/cache";
 
-export async function createItemAction(name: string, home: any) {
-  await createItem(name, home);
+export async function createItemAction(email: string, name: string, home: any) {
+  await createItem(email, name, home);
   revalidatePath("/");
 }
 

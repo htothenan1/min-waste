@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import logo from "../../public/smile_logo.png";
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { signOut } from "next-auth/react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -57,7 +58,7 @@ const NavBar = () => {
                       <span className="sr-only">Open user menu</span>
                       <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-slate-400 to-gray-300">
                         <span className="text-lg font-medium leading-none text-white">
-                          HB
+                          User
                         </span>
                       </span>
                     </Menu.Button>
@@ -72,7 +73,7 @@ const NavBar = () => {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <a
                             href="#"
@@ -84,19 +85,23 @@ const NavBar = () => {
                             Your Profile
                           </a>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
 
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <button
+                            onClick={() =>
+                              signOut({
+                                callbackUrl: "http://localhost:3000/login",
+                              })
+                            }
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Sign out
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </Menu.Items>

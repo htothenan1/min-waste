@@ -8,7 +8,7 @@ const SingleRecipe = ({ recipe }) => {
         titleText={"Single Recipe View"}
         tooltipText={"Recipe based on selected Item"}
       />
-      <div className=" flex flex-col bg-gradient-to-t from-orange-100 to-sky-100 shadow-md rounded-md w-72 h-80 overflow-scroll">
+      <div className=" flex flex-col bg-gradient-to-t from-orange-100 to-sky-100 shadow-md rounded-md w-72 h-80 overflow-scroll hover:scale-125 hover:mb-20">
         {recipe ? (
           <>
             <div className="flex items-center">
