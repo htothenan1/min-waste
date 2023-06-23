@@ -113,7 +113,7 @@ export default function Login() {
             </div>
             <div className="text-sm">
               <h2>
-                Don't have an account yet?{" "}
+                Don&apos;t have an account yet?{" "}
                 <span>
                   <a
                     href="/register"
