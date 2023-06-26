@@ -4,17 +4,32 @@ import { toast } from "react-toastify";
 import { deleteItemAction, updateItemAction } from "../_actions";
 import { useState, Fragment, useRef } from "react";
 import { Listbox, Transition, Dialog } from "@headlessui/react";
-import DatePicker from "react-date-picker";
+import { format, addDays } from "date-fns";
+import { cn } from "../lib/utils";
+import { Button } from "./ui/button";
+import { Calendar } from "./ui/calendar";
+import { CalendarIcon } from "@radix-ui/react-icons";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { homes } from "../data/homes";
 import TitleTooltip from "../common/TitleTooltip";
 
-const EditItemForm = ({ item, handleRecipesFetch }) => {
-  const [editMode, setEditMode] = useState(false);
-  const [itemName, setItemName] = useState("");
+const EditItemForm = ({
+  item,
+  handleRecipesFetch,
+  handleEditToggle,
+  editStatus,
+}) => {
+  const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
-  const [expiryDate, setExpiryDate] = useState(new Date());
   const [selected, setSelected] = useState(homes[0]);
 
   const cancelButtonRef = useRef(null);
@@ -32,15 +47,14 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
     setOpen(false);
   };
 
-  const updateItem = async (data, newName, newHome) => {
-    await updateItemAction(data.id, newName, expiryDate, newHome.name);
+  const updateItem = async (data, newHome) => {
+    await updateItemAction(data.id, data.name, date, newHome.name);
     toast.info(`Item updated!`, {
       position: "top-center",
       autoClose: 1250,
     });
-    setEditMode(!editMode);
-    setItemName("");
-    setExpiryDate(new Date());
+    handleEditToggle(false);
+    setDate(new Date());
     setSelected(homes[0]);
   };
 
@@ -132,30 +146,67 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
         <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-72 h-80 py-4 mb-10">
           {item ? (
             <>
-              {editMode ? (
-                <input
-                  className="text-center text-slate-600 my-2 bg-slate-50"
-                  placeholder={item.name}
-                  value={itemName}
-                  onChange={(e) => setItemName(e.target.value)}
-                />
-              ) : (
-                <h1 className="my-2 text-slate-600 text-lg font-semibold cursor-default">
-                  {item.name}
-                </h1>
-              )}
-              {editMode ? (
-                <DatePicker
-                  calendarClassName={" rounded-md text-slate-600"}
-                  onChange={setExpiryDate}
-                  value={expiryDate}
-                />
+              <h1 className="my-2 text-slate-600 text-lg font-semibold cursor-default">
+                {item.name}
+              </h1>
+              {editStatus ? (
+                <Popover>
+                  <PopoverTrigger asChild on>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        "w-[240px] justify-start text-left font-normal",
+                        !date && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {item.expiredAt ? (
+                        format(date, "PPP")
+                      ) : (
+                        <span>Pick a date</span>
+                      )}
+                      {/* <span>Pick a date</span> */}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    align="start"
+                    className="flex w-auto flex-col space-y-2 p-2"
+                  >
+                    <Select
+                      onValueChange={(value) =>
+                        setDate(addDays(new Date(), parseInt(value)))
+                      }
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select an interval of time" />
+                      </SelectTrigger>
+                      <SelectContent position="popper">
+                        <SelectItem value="3">In 3 days</SelectItem>
+                        <SelectItem value="7">In 1 week</SelectItem>
+                        <SelectItem value="10">In 10 days</SelectItem>
+                        <SelectItem value="14">In 2 weeks</SelectItem>
+                        <SelectItem value="182">In 6 months</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <div className="rounded-md border">
+                      <Calendar
+                        mode="single"
+                        selected={
+                          item.expiredAt
+                            ? item.expiredAt.toDateString()
+                            : new Date()
+                        }
+                        onSelect={setDate}
+                      />
+                    </div>
+                  </PopoverContent>
+                </Popover>
               ) : (
                 <h1 className="my-2 text-slate-600 cursor-default">{`Use By: ${
                   item.expiredAt ? item.expiredAt.toDateString() : "Not set"
                 }`}</h1>
               )}
-              {editMode ? (
+              {editStatus ? (
                 <Listbox value={selected} onChange={setSelected}>
                   {({ open }) => (
                     <>
@@ -232,12 +283,12 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
                   )}
                 </Listbox>
               ) : (
-                <h1 className="my-2 text-slate-600 cursor-default">{`Item Type: ${item.home}`}</h1>
+                <h1 className="my-2 text-slate-600 cursor-default">{`Item Home: ${item.home}`}</h1>
               )}
-              {editMode ? (
+              {editStatus ? (
                 <button
                   onClick={() => {
-                    updateItem(item, itemName, selected);
+                    updateItem(item, item.name, selected);
                   }}
                   className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-300 text-white"
                 >
@@ -247,14 +298,14 @@ const EditItemForm = ({ item, handleRecipesFetch }) => {
                 <button
                   type="button"
                   onClick={() => {
-                    setEditMode(true);
+                    handleEditToggle(true);
                   }}
                   className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-indigo-600/80 text-white"
                 >
                   Update Item
                 </button>
               )}
-              {editMode ? null : (
+              {editStatus ? null : (
                 <>
                   <button
                     onClick={() => setOpen(true)}

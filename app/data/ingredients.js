@@ -1,6 +1,6 @@
 export const ingredients = [
-  { id: 1, name: "Custom", home: "", color: "bg-gray-200" },
-  { id: 2, name: "Bread", home: "Pantry", color: "bg-gray-200" },
+  { id: 1, name: "Bread", home: "Pantry", color: "bg-gray-200" },
+  { id: 2, name: "Bagels", home: "Pantry", color: "bg-gray-200" },
   { id: 3, name: "Wine", home: "Pantry", color: "bg-gray-200" },
   { id: 4, name: "Beans", home: "Pantry", color: "bg-gray-200" },
   { id: 5, name: "Bananas", home: "Pantry", color: "bg-gray-200" },

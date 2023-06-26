@@ -11,6 +11,7 @@ const Kitchen = ({ items }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [fetchedRecipes, setFetchedRecipes] = useState(null);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [editMode, setEditMode] = useState(false);
 
   const handleSelectItem = (data) => {
     setSelectedItem(data);
@@ -39,11 +40,27 @@ const Kitchen = ({ items }) => {
 
   return (
     <div className="flex justify-evenly flex-wrap">
-      <div className="flex flex-col items-center mx-6">
-        <ItemLogger />
-        <ItemsList items={items} handleSelectItem={handleSelectItem} />
-      </div>
-      <SingleItem item={selectedItem} handleRecipesFetch={fetchRecipes} />
+      {editMode ? (
+        <div className="flex flex-col justify-center w-44 mx-2">
+          <h1>Confirm changes to add or view items</h1>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center mx-6">
+          <ItemLogger />
+          <ItemsList
+            editStatus={editMode}
+            items={items}
+            handleSelectItem={handleSelectItem}
+          />
+        </div>
+      )}
+
+      <SingleItem
+        handleEditToggle={setEditMode}
+        editStatus={editMode}
+        item={selectedItem}
+        handleRecipesFetch={fetchRecipes}
+      />
       <RecipesList
         recipes={fetchedRecipes}
         handleSelectRecipe={handleSelectRecipe}
