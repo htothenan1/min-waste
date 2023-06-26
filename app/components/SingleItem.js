@@ -160,12 +160,7 @@ const EditItemForm = ({
                       )}
                     >
                       <CalendarIcon className="mr-2 h-4 w-4" />
-                      {item.expiredAt ? (
-                        format(date, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      {/* <span>Pick a date</span> */}
+                      {date ? format(date, "PPP") : <span>Pick a date</span>}
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent
