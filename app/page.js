@@ -5,7 +5,7 @@ export default async function Home() {
   return (
     <section>
       <GuestNavBar />
-      <div className="flex justify-center p-6">
+      <div className="flex justify-center p-6 flex-wrap">
         <div className="flex flex-col justify-center items-center border shadow-md rounded-md sm:w-3/4 md:w-1/2 p-4">
           <h1 className="text-lg text-slate-600 font-semibold">
             What am I building?
@@ -50,17 +50,17 @@ export default async function Home() {
             save! I recommend watching this video for a great breakdown of the
             issue at hand:
           </p>
-
-          <iframe
-            className="rounded-md mt-4 border shadow-md sm:max-w-sm md:max-w-lg"
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/ishA6kry8nc"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+          <div className="flex justify-center w-full aspect-video max-w-xs md:max-w-lg">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ishA6kry8nc"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
       <Footer />
