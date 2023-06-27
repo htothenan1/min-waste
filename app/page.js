@@ -52,7 +52,7 @@ export default async function Home() {
           </p>
 
           <iframe
-            className="rounded-md mt-4 border shadow-md"
+            className="rounded-md mt-4 border shadow-md sm:max-w-sm md:max-w-lg"
             width="560"
             height="315"
             src="https://www.youtube.com/embed/ishA6kry8nc"
