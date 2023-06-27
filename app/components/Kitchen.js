@@ -51,7 +51,7 @@ const Kitchen = ({ items }) => {
         </div>
       ) : (
         <div className="flex flex-col items-center mx-6">
-          <ItemLogger editStatus={editMode} />
+          <ItemLogger items={items} editStatus={editMode} />
           <ItemsList
             editStatus={editMode}
             items={items}

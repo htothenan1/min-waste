@@ -1,11 +1,12 @@
 import GuestNavBar from "./common/GuestNavBar";
+import Footer from "./common/Footer";
 
 export default async function Home() {
   return (
     <section>
       <GuestNavBar />
-      <div className="flex justify-center">
-        <div className="flex flex-col justify-center items-center border md:hover:scale-110 rounded-md mt-20 sm:w-3/4 md:w-1/2 p-4">
+      <div className="flex justify-center p-6">
+        <div className="flex flex-col justify-center items-center border rounded-md sm:w-3/4 md:w-1/2 p-4">
           <h1 className="text-lg text-slate-600 font-semibold">
             What am I building?
           </h1>
@@ -36,6 +37,7 @@ export default async function Home() {
             food you waste, the more money you save. So let&apos;s make a
             change!
           </p>
+
           <h1 className="text-lg text-slate-600 font-semibold">
             What tech am I utilizing?
           </h1>
@@ -46,6 +48,7 @@ export default async function Home() {
           </p>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

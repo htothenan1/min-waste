@@ -4,9 +4,9 @@ const ItemsList = ({ items, handleSelectItem }) => {
   return (
     <div className="mb-10">
       <div className="flex justify-center">
-        <h2 className="text-center">Item List</h2>
+        <h2 className="text-center">Items List</h2>
         <span>
-          <TitleTooltip tooltipText={"Sorted by Use By Date"} />
+          <TitleTooltip tooltipText={"Use the top items first"} />
         </span>
       </div>
 

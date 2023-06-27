@@ -77,7 +77,7 @@ export default function Register() {
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-slate-600"
               >
-                Email address
+                Email address (can be fake, just for logging in!)
               </label>
               <div className="mt-2">
                 <input
@@ -104,14 +104,14 @@ export default function Register() {
                 <span>
                   {showPassword ? (
                     <div
-                      className=" text-sm cursor-pointer"
+                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1"
                       onClick={() => setShowPassword(false)}
                     >
                       hide password
                     </div>
                   ) : (
                     <div
-                      className=" cursor-pointer text-sm"
+                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1"
                       onClick={() => setShowPassword(true)}
                     >
                       show password

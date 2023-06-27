@@ -185,16 +185,14 @@ const EditItemForm = ({
                         <SelectItem value="7">In 1 week</SelectItem>
                         <SelectItem value="10">In 10 days</SelectItem>
                         <SelectItem value="14">In 2 weeks</SelectItem>
-                        <SelectItem value="182">In 6 months</SelectItem>
                       </SelectContent>
                     </Select>
                     <div className="rounded-md border">
                       <Calendar
+                        required
                         mode="single"
                         selected={
-                          item.expiredAt
-                            ? item.expiredAt.toDateString()
-                            : new Date()
+                          item.expired ? item.expiredAt.toDateString() : date
                         }
                         onSelect={setDate}
                       />

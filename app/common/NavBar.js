@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import logo from "../../public/smile_logo.png";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { signOut } from "next-auth/react";
@@ -11,13 +11,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
           <div className="mx-8 mr-10">
-            <div className="relative flex h-16 justify-between">
+            <div className="relative flex justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Open main menu</span>
@@ -29,7 +29,7 @@ const NavBar = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex flex-shrink-0 items-center py-2">
                   <Image
                     className="block h-16 w-auto lg:hidden"
                     src={logo}
@@ -51,14 +51,13 @@ const NavBar = () => {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
                       <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
                         <span className="text-lg font-medium leading-none text-white">
-                          User
+                          {user[0].toUpperCase()}
                         </span>
                       </span>
                     </Menu.Button>
@@ -92,7 +91,7 @@ const NavBar = () => {
                           <button
                             onClick={() =>
                               signOut({
-                                callbackUrl: "/login",
+                                callbackUrl: "/",
                               })
                             }
                             className={classNames(

@@ -1,7 +1,7 @@
 import { getUser } from "../../lib/items";
 import { getServerSession } from "next-auth";
 import NavBar from "../../common/NavBar";
-
+import Footer from "../../common/Footer";
 import Kitchen from "../../components/Kitchen";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
 
@@ -11,10 +11,11 @@ export default async function Home() {
 
   return (
     <>
-      <NavBar />
+      <NavBar user={user?.name} />
       <div className="p-12">
         <Kitchen items={user?.items} />
       </div>
+      <Footer />
     </>
   );
 }

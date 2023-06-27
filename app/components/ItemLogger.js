@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { createItemAction } from "../_actions";
 import SlideFillButton from "../common/SlideFillButton";
 import { toast } from "react-toastify";
@@ -14,39 +14,43 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const ItemLogger = () => {
+const ItemLogger = ({ items }) => {
   const [selected, setSelected] = useState(ingredients[0]);
   const { data: session } = useSession();
 
   const addItem = async (clientData) => {
-    await createItemAction(
-      session.user.email,
-      clientData.name,
-      clientData.home
-    );
-    toast.success(`${clientData.name} added!`, {
+    await createItemAction(session.user.email, clientData, "Pantry");
+    toast.success(`${clientData} added!`, {
       position: "top-center",
       autoClose: 1250,
     });
+    setSelected(filteredItems[0]);
   };
+
+  const filteredItems = ingredients.filter((el) => {
+    return !items.find((el2) => {
+      return el2.name === el;
+    });
+  });
 
   return (
     <div className="mb-10">
       <div className="flex justify-center">
         <h2 className="text-center">Item Logger</h2>
         <span>
-          <TitleTooltip tooltipText={"Find your item"} />
+          <TitleTooltip tooltipText={"Add an item to your list"} />
         </span>
       </div>
       <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-300 to-indigo-200 shadow-md rounded-md p-4">
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (
             <>
+              {/* <Listbox.Label>Select an Item</Listbox.Label> */}
               <div className="relative ">
                 <Listbox.Button className="relative w-40 cursor-default rounded-md bg-white py-1.5 pl-2 pr-12 text-left text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
                     <span className="ml-3 text-slate-600 block truncate">
-                      {selected.name}
+                      {selected}
                     </span>
                   </span>
                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -65,7 +69,7 @@ const ItemLogger = () => {
                   leaveTo="opacity-0"
                 >
                   <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {ingredients.map((ingredient) => (
+                    {filteredItems.map((ingredient) => (
                       <Listbox.Option
                         key={ingredient.id}
                         className={({ active }) =>
@@ -87,14 +91,14 @@ const ItemLogger = () => {
                                   "ml-3 block truncate"
                                 )}
                               >
-                                {ingredient.name}
+                                {ingredient}
                               </span>
                             </div>
 
                             {selected ? (
                               <span
                                 className={classNames(
-                                  active ? "text-white" : "text-indigo-600",
+                                  active ? "text-white" : "text-orange-400",
                                   "absolute inset-y-0 right-0 flex items-center pr-4"
                                 )}
                               >

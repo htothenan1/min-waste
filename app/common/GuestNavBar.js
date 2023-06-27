@@ -16,9 +16,9 @@ const GuestNavBar = () => {
       {({ open }) => (
         <>
           <div className="mx-8 mr-10">
-            <div className="relative flex h-16 justify-between">
+            <div className="relative flex justify-between">
               <div className="flex flex-1 items-center justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex flex-shrink-0 items-center py-2">
                   <Image
                     className="block h-16 w-auto"
                     src={logo}
@@ -49,7 +49,7 @@ const GuestNavBar = () => {
                       <span className="sr-only">Open user menu</span>
                       <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
                         <span className="text-md font-medium leading-none text-white">
-                          Guest
+                          Go!
                         </span>
                       </span>
                     </Menu.Button>

@@ -90,14 +90,14 @@ export default function Login() {
                 <span>
                   {showPassword ? (
                     <div
-                      className=" cursor-pointer text-sm"
+                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1"
                       onClick={() => setShowPassword(false)}
                     >
                       hide password
                     </div>
                   ) : (
                     <div
-                      className=" cursor-pointer text-sm"
+                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1"
                       onClick={() => setShowPassword(true)}
                     >
                       show password
