@@ -1,14 +1,5 @@
 import prisma from "./prisma";
 
-export async function getItems(email: string) {
-  try {
-    const items = await prisma.item.findMany({});
-    return { items };
-  } catch (err) {
-    return { err };
-  }
-}
-
 export async function getUser(email: string) {
   try {
     const user = await prisma.user.findUnique({
@@ -16,7 +7,14 @@ export async function getUser(email: string) {
         email,
       },
       include: {
-        items: true,
+        items: {
+          orderBy: {
+            expiredAt: {
+              sort: "asc",
+              nulls: "last",
+            },
+          },
+        },
       },
     });
     return { user };

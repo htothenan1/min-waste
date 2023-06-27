@@ -32,10 +32,7 @@ const ItemLogger = () => {
 
   return (
     <div className="mb-10">
-      <TitleTooltip
-        titleText={"Item Logger"}
-        tooltipText={"If you can't find your item, use 'Custom'"}
-      />
+      <TitleTooltip titleText={"Item Logger"} tooltipText={"Find your item"} />
       <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-300 to-indigo-200 shadow-md rounded-md p-4">
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (
@@ -43,12 +40,6 @@ const ItemLogger = () => {
               <div className="relative ">
                 <Listbox.Button className="relative w-40 cursor-default rounded-md bg-white py-1.5 pl-2 pr-12 text-left text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
-                    <span
-                      className={classNames(
-                        selected.color,
-                        "inline-block h-2 w-2 flex-shrink-0 rounded-full"
-                      )}
-                    />
                     <span className="ml-3 text-slate-600 block truncate">
                       {selected.name}
                     </span>
@@ -85,13 +76,6 @@ const ItemLogger = () => {
                         {({ selected, active }) => (
                           <>
                             <div className="flex items-center">
-                              <span
-                                className={classNames(
-                                  ingredient.color,
-                                  "inline-block h-2 w-2 flex-shrink-0 rounded-full"
-                                )}
-                                aria-hidden="true"
-                              />
                               <span
                                 className={classNames(
                                   selected ? "font-semibold" : "font-normal",

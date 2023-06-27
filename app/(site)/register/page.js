@@ -13,6 +13,7 @@ export default function Register() {
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const registerUser = async (e) => {
@@ -100,6 +101,23 @@ export default function Register() {
                 >
                   Password
                 </label>
+                <span>
+                  {showPassword ? (
+                    <div
+                      className=" text-sm cursor-pointer"
+                      onClick={() => setShowPassword(false)}
+                    >
+                      hide password
+                    </div>
+                  ) : (
+                    <div
+                      className=" cursor-pointer text-sm"
+                      onClick={() => setShowPassword(true)}
+                    >
+                      show password
+                    </div>
+                  )}
+                </span>
               </div>
               <div className="mt-2">
                 <input
@@ -109,7 +127,7 @@ export default function Register() {
                   }
                   id="password"
                   name="password"
-                  type="password"
+                  type={`${showPassword ? "text" : "password"}`}
                   autoComplete="current-password"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"

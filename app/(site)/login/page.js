@@ -14,6 +14,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     if (session?.status === "authenticated") {
@@ -86,12 +87,29 @@ export default function Login() {
                 >
                   Password
                 </label>
+                <span>
+                  {showPassword ? (
+                    <div
+                      className=" cursor-pointer text-sm"
+                      onClick={() => setShowPassword(false)}
+                    >
+                      hide password
+                    </div>
+                  ) : (
+                    <div
+                      className=" cursor-pointer text-sm"
+                      onClick={() => setShowPassword(true)}
+                    >
+                      show password
+                    </div>
+                  )}
+                </span>
               </div>
               <div className="mt-2">
                 <input
                   id="password"
                   name="password"
-                  type="password"
+                  type={`${showPassword ? "text" : "password"}`}
                   autoComplete="current-password"
                   required
                   value={data.password}
