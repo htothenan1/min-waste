@@ -32,7 +32,12 @@ const ItemLogger = () => {
 
   return (
     <div className="mb-10">
-      <TitleTooltip titleText={"Item Logger"} tooltipText={"Find your item"} />
+      <div className="flex justify-center">
+        <h2 className="text-center">Item Logger</h2>
+        <span>
+          <TitleTooltip tooltipText={"Find your item"} />
+        </span>
+      </div>
       <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-300 to-indigo-200 shadow-md rounded-md p-4">
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (

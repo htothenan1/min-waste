@@ -41,9 +41,13 @@ const Kitchen = ({ items }) => {
   return (
     <div className="flex justify-evenly flex-wrap">
       {editMode ? (
-        <div className="flex flex-col justify-center w-44 mx-2 border">
-          <div className="border"></div>
-          <div></div>
+        <div className="flex flex-col justify-center items-center w-48 mx-6 my-5">
+          <div className="h-52 text-center">
+            LOGGER DISABLED WHILE IN EDIT MODE
+          </div>
+          <div className="h-56 text-center">
+            LIST DISABLED WHILE IN EDIT MODE
+          </div>
         </div>
       ) : (
         <div className="flex flex-col items-center mx-6">

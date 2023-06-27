@@ -49,7 +49,7 @@ const EditItemForm = ({
 
   const updateItem = async (data, newHome) => {
     await updateItemAction(data.id, data.name, date, newHome.name);
-    toast.info(`Item updated!`, {
+    toast.info(`${data.name} updated!`, {
       position: "top-center",
       autoClose: 1250,
     });
@@ -139,10 +139,15 @@ const EditItemForm = ({
       </Transition.Root>
 
       <div className="flex flex-col">
-        <TitleTooltip
-          titleText={"Single Item View"}
-          tooltipText={"Update or Delete a single item, or find recipes"}
-        />
+        <div className="flex justify-center">
+          <h2 className="text-center">Single Item View</h2>
+          <span>
+            <TitleTooltip
+              tooltipText={"Update or Delete a single item, or find recipes"}
+            />
+          </span>
+        </div>
+
         <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-72 h-80 py-4 mb-10">
           {item ? (
             <>
@@ -285,7 +290,7 @@ const EditItemForm = ({
                   onClick={() => {
                     updateItem(item, item.name, selected);
                   }}
-                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-blue-300 text-white"
+                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-indigo-600/80 text-white"
                 >
                   Confirm Changes
                 </button>

@@ -5,10 +5,13 @@ import TitleTooltip from "../common/TitleTooltip";
 const RecipesList = ({ recipes, handleSelectRecipe }) => {
   return (
     <div className="mx-6 mb-10">
-      <TitleTooltip
-        titleText={"Recipes List"}
-        tooltipText={"A list of recipes based on a selected item"}
-      />
+      <div className="flex justify-center">
+        <h2 className="text-center">Recipes List</h2>
+        <span>
+          <TitleTooltip tooltipText={"Recipes based on selected item"} />
+        </span>
+      </div>
+
       <ul
         role="list"
         className="flex flex-col divide-y divide-gray-200 h-52 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-md rounded-md overflow-scroll w-64"

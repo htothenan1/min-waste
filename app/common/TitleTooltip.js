@@ -4,15 +4,14 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "./ToolTip";
+import InfoCircle from "@heroicons/react/24/outline/InformationCircleIcon";
 
-const TitleTooltip = ({ titleText, tooltipText }) => {
+const TitleTooltip = ({ tooltipText }) => {
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <h2 className="my-2 font-medium text-slate-600 text-center cursor-default">
-            {titleText}
-          </h2>
+          <InfoCircle className="w-4 ml-1" />
         </TooltipTrigger>
         <TooltipContent>
           <p>{tooltipText}</p>

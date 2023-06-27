@@ -4,22 +4,27 @@ import TitleTooltip from "../common/TitleTooltip";
 const SingleRecipe = ({ recipe }) => {
   return (
     <div className="mx-6">
-      <TitleTooltip
-        titleText={"Single Recipe View"}
-        tooltipText={"Recipe based on selected Item"}
-      />
-      <div className=" flex flex-col bg-gradient-to-t from-orange-100 to-sky-100 shadow-md rounded-md w-72 h-80 overflow-scroll hover:scale-125 hover:mb-20">
+      <div className="flex justify-center">
+        <h2 className="text-center">Single Recipe View</h2>
+        <span>
+          <TitleTooltip tooltipText={"Click title for full recipe"} />
+        </span>
+      </div>
+
+      <div className=" flex flex-col bg-gradient-to-t from-orange-100 to-sky-100 shadow-md rounded-md w-72 h-80 overflow-scroll">
         {recipe ? (
           <>
             <div className="flex items-center">
               <img className="w-32 h-32 rounded-md" src={recipe.image} />
-              <Link
-                href={recipe.url}
-                target="_blank"
-                className="m-auto text-slate-600 pl-2 font-semibold"
-              >
-                {recipe.label}
-              </Link>
+              <div className="px-2">
+                <Link
+                  href={recipe.url}
+                  target="_blank"
+                  className="text-slate-600 font-semibold"
+                >
+                  {recipe.label}
+                </Link>
+              </div>
             </div>
             <div className="my-2 px-4">
               <h2 className="text-slate-600 underline font-light">
