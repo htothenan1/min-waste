@@ -45,9 +45,8 @@ const ItemLogger = ({ items }) => {
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (
             <>
-              {/* <Listbox.Label>Select an Item</Listbox.Label> */}
               <div className="relative ">
-                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-white py-1.5 pl-2 pr-12 text-left text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-white py-1.5 pl-2 pr-12 text-left text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-green-300/30 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
                     <span className="ml-3 text-slate-600 block truncate">
                       {selected}
@@ -74,9 +73,7 @@ const ItemLogger = ({ items }) => {
                         key={ingredient.id}
                         className={({ active }) =>
                           classNames(
-                            active
-                              ? "bg-indigo-600 text-white"
-                              : "text-gray-900",
+                            active ? "bg-green-300/40" : "text-gray-900",
                             "relative cursor-default select-none py-2 pl-3 pr-9"
                           )
                         }
@@ -98,7 +95,7 @@ const ItemLogger = ({ items }) => {
                             {selected ? (
                               <span
                                 className={classNames(
-                                  active ? "text-white" : "text-orange-400",
+                                  active ? "text-white" : "text-green-300/30",
                                   "absolute inset-y-0 right-0 flex items-center pr-4"
                                 )}
                               >

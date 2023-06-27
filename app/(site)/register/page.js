@@ -58,7 +58,7 @@ export default function Register() {
                 htmlFor="name"
                 className="block text-sm font-medium leading-6 text-slate-600"
               >
-                Name
+                First Name
               </label>
               <div className="mt-2">
                 <input

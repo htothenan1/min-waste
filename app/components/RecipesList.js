@@ -21,7 +21,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
             <li
               onClick={() => handleSelectRecipe(recipe.recipe)}
               key={recipe.id}
-              className="relative bg-white/60 shadow-md px-4 py-3 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-400 hover:bg-gray-50 rounded-md"
+              className="relative bg-white/60 shadow-md px-4 py-3 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-300/30 hover:bg-green-300/30 rounded-md"
             >
               <div className="flex justify-between space-x-3">
                 <div className="min-w-0 flex-1">
