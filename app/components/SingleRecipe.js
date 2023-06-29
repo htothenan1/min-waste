@@ -3,7 +3,7 @@ import TitleTooltip from "../common/TitleTooltip";
 
 const SingleRecipe = ({ recipe }) => {
   return (
-    <div className="m-6">
+    <div className="mt-6 mb-32 md:mb-10">
       <div className="flex justify-center">
         <h2 className="text-center">Single Recipe View</h2>
         <span>

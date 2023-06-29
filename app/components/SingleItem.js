@@ -139,7 +139,7 @@ const EditItemForm = ({
 
       <div className="flex flex-col m-6">
         <div className="flex justify-center">
-          <h2 className="text-center">Single Item View</h2>
+          <h2 className="text-center mb-1">Single Item View</h2>
           <span>
             <TitleTooltip
               tooltipText={"Update or Delete a single item, or find recipes"}

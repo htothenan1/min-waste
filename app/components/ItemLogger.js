@@ -36,7 +36,7 @@ const ItemLogger = ({ items }) => {
   return (
     <div className="m-6">
       <div className="flex justify-center">
-        <h2 className="text-center">Item Logger</h2>
+        <h2 className="text-center pb-1">Item Logger</h2>
         <span>
           <TitleTooltip tooltipText={"Add an item to your list"} />
         </span>
