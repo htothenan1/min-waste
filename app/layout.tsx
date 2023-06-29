@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Waste-Not",
-  description: "Created by H",
+  description: "A web app to help users reduce their food waste",
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="h-full bg-white" lang="en">
+    <html className="h-full bg-slate-50/50" lang="en">
       <body className={`${inter.className} bg-slate-50/50 h-full`}>
         <Provider>
           <CustomToastContainer />

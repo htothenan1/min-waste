@@ -52,10 +52,10 @@ export default async function Home() {
           landfills, and ends up being a terrible producer of greenhouse gasses.
           The amount of resources that are used to produce and deliver uneaten
           food to consumers is immense. The only way this problem goes away is
-          if we can collectively improve our behavior, and stop being so
-          reckless with our food. Also, the less food you waste, the more money
-          you save! So sign up, start logging, and stop wasting! I recommend
-          watching this video for a quick breakdown of the issue at hand:
+          if we can collectively improve our behavior, and stop being reckless
+          with our food. Also, the less food you waste, the more money you save!
+          So sign up, start logging, and stop wasting! I recommend watching this
+          video for a quick breakdown of the issue at hand:
         </p>
         <div className="w-full aspect-video mt-4 mb-20 bg-slate-50/50">
           <iframe
