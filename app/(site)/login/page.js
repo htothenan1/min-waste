@@ -124,7 +124,7 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300"
               >
                 Sign in
               </button>
@@ -135,7 +135,7 @@ export default function Login() {
                 <span>
                   <a
                     href="/register"
-                    className="font-semibold text-green-600 hover:text-indigo-500"
+                    className="font-semibold text-green-500 hover:text-orange-300"
                   >
                     Sign up here!
                   </a>
@@ -143,20 +143,6 @@ export default function Login() {
               </h2>
             </div>
           </form>
-          {/* <h1>Sign into Github below</h1>
-          <button
-            onClick={() => signIn("github")}
-            className="bg-black text-white w-full"
-          >
-            Sign In
-          </button>
-          <h1>Sign into Google below</h1>
-          <button
-            onClick={() => signIn("google")}
-            className="bg-red-500 text-white w-full"
-          >
-            Sign In
-          </button> */}
         </div>
       </div>
     </>

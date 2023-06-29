@@ -4,7 +4,7 @@ import TitleTooltip from "../common/TitleTooltip";
 
 const RecipesList = ({ recipes, handleSelectRecipe }) => {
   return (
-    <div className="mx-6 mb-10">
+    <div className="m-6">
       <div className="flex justify-center">
         <h2 className="text-center">Recipes List</h2>
         <span>
@@ -14,7 +14,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
 
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-52 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-md rounded-md overflow-scroll w-64"
+        className="flex flex-col divide-y divide-gray-200 h-64 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-md rounded-md overflow-scroll w-64"
       >
         {recipes ? (
           recipes.map((recipe) => (

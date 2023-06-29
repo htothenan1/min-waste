@@ -16,10 +16,10 @@ const NavBar = ({ user }) => {
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="mx-8 mr-10">
+          <div className="mx-8">
             <div className="relative flex justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-300">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -44,7 +44,7 @@ const NavBar = ({ user }) => {
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
+                    className="inline-flex items-center border-b-2 border-orange-300 px-1 pt-1 text-sm font-medium text-slate-600"
                   >
                     Dashboard
                   </a>
@@ -53,7 +53,7 @@ const NavBar = ({ user }) => {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
                       <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
                         <span className="text-lg font-medium leading-none text-white">
@@ -115,7 +115,7 @@ const NavBar = ({ user }) => {
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+                className="block border-l-4 border-orange-300 bg-orange-50 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
               >
                 Dashboard
               </Disclosure.Button>

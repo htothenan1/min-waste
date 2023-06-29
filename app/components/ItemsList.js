@@ -2,7 +2,7 @@ import TitleTooltip from "../common/TitleTooltip";
 
 const ItemsList = ({ items, handleSelectItem }) => {
   return (
-    <div className="mb-10">
+    <div className="m-6">
       <div className="flex justify-center">
         <h2 className="text-center">Items List</h2>
         <span>
@@ -12,7 +12,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
 
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-56 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-red-100 via-orange-100 to-gray-100 shadow-md rounded-md overflow-scroll w-36"
+        className="flex flex-col divide-y divide-gray-200 h-64 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-red-100 via-orange-100 to-gray-100 shadow-md rounded-md overflow-scroll w-36"
       >
         {items.length ? (
           items.map((item) => (

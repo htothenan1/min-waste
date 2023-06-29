@@ -32,7 +32,6 @@ const navigation = [
         height="1.5em"
         viewBox="0 0 512 512"
         {...props}
-        className={`w-full h-auto`}
       >
         <path fill="none" d="M0 0h512v512H0z" />
         <path
@@ -59,8 +58,8 @@ const navigation = [
 
 export default function Example() {
   return (
-    <footer className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+    <footer className="bg-white fixed bottom-0 left-0 w-full">
+      <div className="mx-auto max-w-7xl px-6 py-4 md:flex md:items-center md:justify-between">
         <div className="flex justify-center space-x-6 md:order-2">
           <p className="text-center text-xs leading-5 text-gray-500">
             Created by{" "}
@@ -83,7 +82,7 @@ export default function Example() {
             </a>
           ))}
         </div>
-        <div className="mt-8 md:order-1 md:mt-0">
+        <div className="mt-2 md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-gray-500">
             &copy;2023 Waste-Not LLC. All rights reserved.
           </p>

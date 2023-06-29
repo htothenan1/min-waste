@@ -18,7 +18,6 @@ import {
   SelectValue,
 } from "./ui/select";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { homes } from "../data/homes";
 import TitleTooltip from "../common/TitleTooltip";
 
@@ -138,7 +137,7 @@ const EditItemForm = ({
         </Dialog>
       </Transition.Root>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col m-6">
         <div className="flex justify-center">
           <h2 className="text-center">Single Item View</h2>
           <span>
@@ -148,10 +147,10 @@ const EditItemForm = ({
           </span>
         </div>
 
-        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md mx-4 w-72 h-80 py-4 mb-10">
+        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md w-64 h-64">
           {item ? (
             <>
-              <h1 className="my-2 text-slate-600 text-lg font-semibold cursor-default">
+              <h1 className="pt-4 pb-3 text-slate-600 text-lg font-semibold cursor-default">
                 {item.name}
               </h1>
               {editStatus ? (
@@ -200,95 +199,23 @@ const EditItemForm = ({
                   </PopoverContent>
                 </Popover>
               ) : (
-                <h1 className="my-2 text-slate-600 cursor-default">{`Use By: ${
-                  item.expiredAt ? item.expiredAt.toDateString() : "Not set"
+                <h1 className="text-slate-600 cursor-default mb-4">{`Use By: ${
+                  item.expiredAt
+                    ? item.expiredAt.toLocaleString("en-En", {
+                        weekday: "short",
+                        month: "long",
+                        day: "numeric",
+                      })
+                    : "Not set"
                 }`}</h1>
               )}
-              {editStatus ? (
-                <Listbox value={selected} onChange={setSelected}>
-                  {({ open }) => (
-                    <>
-                      <div className="relative mt-2">
-                        <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-green-300/30 sm:text-sm sm:leading-6">
-                          <span className="block truncate text-slate-600">
-                            {selected.name}
-                          </span>
-                          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                            <ChevronUpDownIcon
-                              className="h-5 w-5 text-gray-400"
-                              aria-hidden="true"
-                            />
-                          </span>
-                        </Listbox.Button>
 
-                        <Transition
-                          show={open}
-                          as={Fragment}
-                          leave="transition ease-in duration-100"
-                          leaveFrom="opacity-100"
-                          leaveTo="opacity-0"
-                        >
-                          <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                            {homes.map((home) => (
-                              <Listbox.Option
-                                key={home.id}
-                                className={({ active }) =>
-                                  classNames(
-                                    active
-                                      ? "bg-green-300/30"
-                                      : "text-slate-600",
-                                    "relative cursor-default select-none py-2 pl-3 pr-9"
-                                  )
-                                }
-                                value={home}
-                              >
-                                {({ selected, active }) => (
-                                  <>
-                                    <span
-                                      className={classNames(
-                                        selected
-                                          ? "font-semibold"
-                                          : "font-normal",
-                                        "block truncate"
-                                      )}
-                                    >
-                                      {home.name}
-                                    </span>
-
-                                    {selected ? (
-                                      <span
-                                        className={classNames(
-                                          active
-                                            ? "text-white"
-                                            : "text-green-300/30",
-                                          "absolute inset-y-0 right-0 flex items-center pr-4"
-                                        )}
-                                      >
-                                        <CheckIcon
-                                          className="h-5 w-5"
-                                          aria-hidden="true"
-                                        />
-                                      </span>
-                                    ) : null}
-                                  </>
-                                )}
-                              </Listbox.Option>
-                            ))}
-                          </Listbox.Options>
-                        </Transition>
-                      </div>
-                    </>
-                  )}
-                </Listbox>
-              ) : (
-                <h1 className="my-2 text-slate-600 cursor-default">{`Item Home: ${item.home}`}</h1>
-              )}
               {editStatus ? (
                 <button
                   onClick={() => {
                     updateItem(item, item.name, selected);
                   }}
-                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-indigo-600/80 text-white"
+                  className="border border-bg-slate-700 my-3 py-1 px-2 rounded-md bg-indigo-600/80 text-white text-sm"
                 >
                   Confirm Changes
                 </button>
@@ -298,22 +225,22 @@ const EditItemForm = ({
                   onClick={() => {
                     handleEditToggle(true);
                   }}
-                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-indigo-600/80 text-white"
+                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-indigo-600/80 text-white text-sm"
                 >
-                  Update Item
+                  Set Use By Date
                 </button>
               )}
               {editStatus ? null : (
                 <>
                   <button
                     onClick={() => setOpen(true)}
-                    className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500/80 text-white"
+                    className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500/80 text-white text-sm"
                   >
                     Delete Item
                   </button>
                   <button
                     onClick={() => handleRecipesFetch(item)}
-                    className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-green-500/80 text-white"
+                    className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-green-500/80 text-white text-sm"
                   >
                     Get Recipes
                   </button>

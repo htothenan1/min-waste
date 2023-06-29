@@ -34,7 +34,7 @@ const ItemLogger = ({ items }) => {
   });
 
   return (
-    <div className="mb-10">
+    <div className="m-6">
       <div className="flex justify-center">
         <h2 className="text-center">Item Logger</h2>
         <span>
@@ -67,7 +67,7 @@ const ItemLogger = ({ items }) => {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Listbox.Options className="absolute z-10 mt-1 max-h-48 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     {filteredItems.map((ingredient) => (
                       <Listbox.Option
                         key={ingredient.id}

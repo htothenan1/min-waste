@@ -3,7 +3,7 @@ import TitleTooltip from "../common/TitleTooltip";
 
 const SingleRecipe = ({ recipe }) => {
   return (
-    <div className="mx-6">
+    <div className="m-6">
       <div className="flex justify-center">
         <h2 className="text-center">Single Recipe View</h2>
         <span>
@@ -11,7 +11,7 @@ const SingleRecipe = ({ recipe }) => {
         </span>
       </div>
 
-      <div className=" flex flex-col bg-gradient-to-t from-orange-100 to-sky-100 shadow-md rounded-md w-72 h-80 overflow-scroll">
+      <div className=" flex flex-col bg-gradient-to-t from-orange-100 to-sky-100 shadow-md rounded-md w-64 h-64 overflow-scroll">
         {recipe ? (
           <>
             <div className="flex items-center">
