@@ -119,7 +119,7 @@ const EditItemForm = ({
                         deleteItem(item);
                       }}
                     >
-                      Yes, I'm done!
+                      Yes, I&apos;m done!
                     </button>
                     <button
                       type="button"
