@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html className="h-full bg-white" lang="en">
-      <body className={`${inter.className} bg-white h-full`}>
+      <body className={`${inter.className} bg-slate-50/50 h-full`}>
         <Provider>
           <CustomToastContainer />
           {children}

@@ -102,11 +102,11 @@ const EditItemForm = ({
                         as="h3"
                         className="text-base font-semibold leading-6 text-gray-900"
                       >
-                        Delete Item
+                        Item Consumed
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Are you sure you want to delete this item?
+                          Are you sure your done with this item?
                         </p>
                       </div>
                     </div>
@@ -119,7 +119,7 @@ const EditItemForm = ({
                         deleteItem(item);
                       }}
                     >
-                      Yes, Delete!
+                      Yes, I'm done!
                     </button>
                     <button
                       type="button"
@@ -236,7 +236,7 @@ const EditItemForm = ({
                     onClick={() => setOpen(true)}
                     className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500/80 text-white text-sm"
                   >
-                    Delete Item
+                    Item Done
                   </button>
                   <button
                     onClick={() => handleRecipesFetch(item)}

@@ -39,7 +39,7 @@ const Kitchen = ({ items }) => {
   }, [items]);
 
   return (
-    <div className="flex justify-center flex-wrap mb-20">
+    <div className="flex justify-center flex-wrap mb-20 bg-slate-50/50">
       {editMode ? (
         <div className="flex flex-col justify-center items-center w-64 h-64 m-16 my-20">
           <div className=" text-center">

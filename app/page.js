@@ -5,7 +5,7 @@ export default async function Home() {
   return (
     <section>
       <GuestNavBar />
-      <div className="flex flex-col text-center w-3/4 mx-auto mt-6">
+      <div className="flex flex-col text-center w-3/4 mx-auto mt-6 bg-slate-50/50">
         <h1 className=" text-slate-600 font-semibold mt-4 text-lg md:text-2xl">
           What am I building?
         </h1>
@@ -57,7 +57,7 @@ export default async function Home() {
           you save! So sign up, start logging, and stop wasting! I recommend
           watching this video for a quick breakdown of the issue at hand:
         </p>
-        <div className="w-full aspect-video mt-4 mb-20">
+        <div className="w-full aspect-video mt-4 mb-20 bg-slate-50/50">
           <iframe
             className="rounded-md shadow-md mx-auto max-w-sm md:max-w-lg"
             width="560"

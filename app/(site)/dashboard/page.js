@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div className="p-12">
+      <div className="bg-slate-50/50">
         <Kitchen items={user?.items} />
       </div>
       <Footer />
