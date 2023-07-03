@@ -1,8 +1,13 @@
 "use client";
 
 import { toast } from "react-toastify";
-import { deleteItemAction, updateItemAction } from "../_actions";
+import {
+  deleteItemAction,
+  incrementCounterAction,
+  updateItemAction,
+} from "../_actions";
 import { useState, Fragment, useRef } from "react";
+import { useSession } from "next-auth/react";
 import { Listbox, Transition, Dialog } from "@headlessui/react";
 import { format, addDays } from "date-fns";
 import { cn } from "../lib/utils";
@@ -27,19 +32,26 @@ const EditItemForm = ({
   handleEditToggle,
   editStatus,
 }) => {
+  const { data: session } = useSession();
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(homes[0]);
 
   const cancelButtonRef = useRef(null);
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
-
   const deleteItem = async (data) => {
     await deleteItemAction(data.id);
-    toast.info(`${data.name} deleted!`, {
+    await incrementCounterAction(session.user.email);
+    toast.success(`${data.name} consumed!`, {
+      position: "top-center",
+      autoClose: 1250,
+    });
+    setOpen(false);
+  };
+
+  const deleteItemWithWaste = async (data) => {
+    await deleteItemAction(data.id);
+    toast.success("Its ok, next time will be better", {
       position: "top-center",
       autoClose: 1250,
     });
@@ -48,7 +60,7 @@ const EditItemForm = ({
 
   const updateItem = async (data, newHome) => {
     await updateItemAction(data.id, data.name, date, newHome.name);
-    toast.info(`${data.name} updated!`, {
+    toast.info(`${data.name} Use By Date set!`, {
       position: "top-center",
       autoClose: 1250,
     });
@@ -102,11 +114,11 @@ const EditItemForm = ({
                         as="h3"
                         className="text-base font-semibold leading-6 text-gray-900"
                       >
-                        Item Consumed
+                        Item Done
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Are you sure your done with this item?
+                          Was any of this item wasted?
                         </p>
                       </div>
                     </div>
@@ -114,12 +126,21 @@ const EditItemForm = ({
                   <div className="mt-5 sm:ml-10 sm:mt-4 sm:flex sm:pl-4">
                     <button
                       type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:w-auto"
+                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:w-auto"
                       onClick={() => {
                         deleteItem(item);
                       }}
                     >
-                      Yes, I&apos;m done!
+                      Nope!
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                      onClick={() => {
+                        deleteItemWithWaste(item);
+                      }}
+                    >
+                      Yes...
                     </button>
                     <button
                       type="button"
@@ -150,7 +171,7 @@ const EditItemForm = ({
         <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md w-64 h-64">
           {item ? (
             <>
-              <h1 className="pt-4 pb-3 text-slate-600 text-lg font-semibold cursor-default">
+              <h1 className="py-3 text-slate-600 text-lg font-semibold cursor-default">
                 {item.name}
               </h1>
               {editStatus ? (
@@ -199,7 +220,7 @@ const EditItemForm = ({
                   </PopoverContent>
                 </Popover>
               ) : (
-                <h1 className="text-slate-600 cursor-default mb-4">{`Use By: ${
+                <h1 className="text-slate-600 cursor-default mb-1">{`Use By: ${
                   item.expiredAt
                     ? item.expiredAt.toLocaleString("en-En", {
                         weekday: "short",
@@ -225,7 +246,7 @@ const EditItemForm = ({
                   onClick={() => {
                     handleEditToggle(true);
                   }}
-                  className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-indigo-600/80 text-white text-sm"
+                  className="border border-bg-slate-700 py-1 px-2 my-1 rounded-md bg-indigo-600/80 text-white text-sm"
                 >
                   Set Use By Date
                 </button>
@@ -233,17 +254,21 @@ const EditItemForm = ({
               {editStatus ? null : (
                 <>
                   <button
-                    onClick={() => setOpen(true)}
-                    className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-red-500/80 text-white text-sm"
-                  >
-                    Item Done
-                  </button>
-                  <button
                     onClick={() => handleRecipesFetch(item)}
-                    className="border border-bg-slate-700 my-2 py-1 px-2 rounded-md bg-green-500/80 text-white text-sm"
+                    className="border border-bg-slate-700 py-1 px-2 my-1 rounded-md bg-green-500/80 text-white text-sm"
                   >
                     Get Recipes
                   </button>
+                  <button
+                    onClick={() => setOpen(true)}
+                    className="border border-bg-slate-700 py-1 px-2 my-1 rounded-md bg-red-500/80 text-white text-sm"
+                  >
+                    Item Done
+                  </button>
+                  <p className=" text-xs font-semibold my-1">Storage Tip:</p>
+                  <p className=" text-xs px-1 text-center">
+                    {item.storageTip ? item.storageTip : "None available"}
+                  </p>
                 </>
               )}
             </>

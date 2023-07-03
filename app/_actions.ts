@@ -1,10 +1,19 @@
 "use server";
 
-import { createItem, deleteItemById, updateItemById } from "./lib/items";
+import {
+  createItem,
+  deleteItemById,
+  updateItemById,
+  incrementCounter,
+} from "./lib/items";
 import { revalidatePath } from "next/cache";
 
-export async function createItemAction(email: string, name: string, home: any) {
-  await createItem(email, name, home);
+export async function createItemAction(
+  email: string,
+  name: string,
+  storageTip: string
+) {
+  await createItem(email, name, storageTip);
   revalidatePath("/");
 }
 
@@ -16,9 +25,13 @@ export async function deleteItemAction(id: string) {
 export async function updateItemAction(
   id: string,
   name: string,
-  expiredAt: string,
-  home: any
+  expiredAt: string
 ) {
-  await updateItemById(id, name, expiredAt, home);
+  await updateItemById(id, name, expiredAt);
+  revalidatePath("/");
+}
+
+export async function incrementCounterAction(email: string) {
+  await incrementCounter(email);
   revalidatePath("/");
 }

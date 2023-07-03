@@ -39,9 +39,9 @@ const Kitchen = ({ items }) => {
   }, [items]);
 
   return (
-    <div className="flex justify-center flex-wrap bg-slate-50/50 p-12">
+    <div className="flex justify-center flex-wrap bg-slate-50/50">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-64 h-64 m-16 my-20">
+        <div className="flex flex-col justify-center items-center w-64 h-64 m-20 my-20">
           <div className=" text-center">
             LOGGER AND LIST DISABLED WHILE IN EDIT MODE
           </div>

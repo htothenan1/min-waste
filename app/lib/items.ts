@@ -23,12 +23,16 @@ export async function getUser(email: string) {
   }
 }
 
-export async function createItem(email: string, name: string, home: any) {
+export async function createItem(
+  email: string,
+  name: string,
+  storageTip: string
+) {
   try {
     const item = await prisma.item.create({
       data: {
         name,
-        home,
+        storageTip,
         owner: {
           connect: {
             email,
@@ -67,15 +71,26 @@ export async function deleteItemById(id: string) {
 export async function updateItemById(
   id: string,
   name: string,
-  expiredAt: string,
-  home: any
+  expiredAt: string
 ) {
   try {
     const item = await prisma.item.update({
       where: { id },
-      data: { name, expiredAt, home },
+      data: { name, expiredAt },
     });
     return { item };
+  } catch (error) {
+    return { error };
+  }
+}
+
+export async function incrementCounter(email: string) {
+  try {
+    const user = await prisma.user.update({
+      where: { email },
+      data: { itemsCounter: { increment: 1 } },
+    });
+    return { user };
   } catch (error) {
     return { error };
   }

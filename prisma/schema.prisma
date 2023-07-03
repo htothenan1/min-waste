@@ -15,6 +15,7 @@ model User {
   email String  @unique
   emailVerified  DateTime?
   name  String?
+  itemsCounter Int @default(0)
   image          String?
   hashedPassword String?
   createdAt DateTime @default(now())
@@ -27,6 +28,7 @@ model User {
 model Item {
   id String @id @default(uuid())
   name String
+  storageTip String @default("")
   expired Boolean? @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment } from "react";
 import { createItemAction } from "../_actions";
 import SlideFillButton from "../common/SlideFillButton";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import { ingredients } from "../data/ingredients";
+import { ingredientsObjects } from "../data/ingredients";
 import TitleTooltip from "../common/TitleTooltip";
 
 function classNames(...classes) {
@@ -15,23 +15,33 @@ function classNames(...classes) {
 }
 
 const ItemLogger = ({ items }) => {
-  const [selected, setSelected] = useState(ingredients[0]);
+  const [selected, setSelected] = useState("Select Item");
   const { data: session } = useSession();
 
-  const addItem = async (clientData) => {
-    await createItemAction(session.user.email, clientData, "Pantry");
-    toast.success(`${clientData} added!`, {
-      position: "top-center",
-      autoClose: 1250,
-    });
-    setSelected(filteredItems[0]);
-  };
-
-  const filteredItems = ingredients.filter((el) => {
-    return !items.find((el2) => {
-      return el2.name === el;
+  const filteredItems = ingredientsObjects.filter((el1) => {
+    return !items.some((el2) => {
+      return el2.name === el1.name;
     });
   });
+
+  const addItem = async (clientData) => {
+    if (clientData !== "Select Item") {
+      const tip = ingredientsObjects.find(
+        (el) => el.name === selected
+      ).storageTip;
+      await createItemAction(session.user.email, clientData, tip);
+      toast.success(`${clientData} added!`, {
+        position: "top-center",
+        autoClose: 1250,
+      });
+      setSelected("Select Item");
+    } else {
+      toast.error("Please select an item", {
+        position: "top-center",
+        autoClose: 1250,
+      });
+    }
+  };
 
   return (
     <div className="m-6">
@@ -48,7 +58,7 @@ const ItemLogger = ({ items }) => {
               <div className="relative ">
                 <Listbox.Button className="relative w-40 cursor-default rounded-md bg-white py-1.5 pl-2 pr-12 text-left text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-green-300/30 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
-                    <span className="ml-3 text-slate-600 block truncate">
+                    <span className="ml-3 text-slate-600 block">
                       {selected}
                     </span>
                   </span>
@@ -68,6 +78,7 @@ const ItemLogger = ({ items }) => {
                   leaveTo="opacity-0"
                 >
                   <Listbox.Options className="absolute z-10 mt-1 max-h-48 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    {/* <Listbox.Option>Select an option</Listbox.Option> */}
                     {filteredItems.map((ingredient) => (
                       <Listbox.Option
                         key={ingredient.id}
@@ -77,7 +88,7 @@ const ItemLogger = ({ items }) => {
                             "relative cursor-default select-none py-2 pl-3 pr-9"
                           )
                         }
-                        value={ingredient}
+                        value={ingredient.name}
                       >
                         {({ selected, active }) => (
                           <>
@@ -88,7 +99,7 @@ const ItemLogger = ({ items }) => {
                                   "ml-3 block truncate"
                                 )}
                               >
-                                {ingredient}
+                                {ingredient.name}
                               </span>
                             </div>
 
@@ -115,13 +126,34 @@ const ItemLogger = ({ items }) => {
             </>
           )}
         </Listbox>
-
+        {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+        {/* <select
+            {...register("item", { required: true })}
+            aria-invalid={errors.item ? "true" : "false"}
+            onChange={(e) => {
+              setSelected(e.target.value);
+            }}
+          >
+            <option value="">Choose Item</option>
+            {/* <option value="female">female</option>
+            <option value="male">male</option>
+          <option value="other">other</option> */}
+        {/* {filteredItems.map((item) => (
+              <option key={item.id} value={item.name}>
+                {item.name}
+              </option>
+            ))} */}
+        {/* </select> */}
+        {/* {errors.item?.type === "required" && (
+          <p role="alert">Choice is required</p>
+        )} */}
         <div className="mt-3">
           <SlideFillButton
             buttonText={"Add Item"}
             handleClick={() => addItem(selected)}
           />
         </div>
+        {/* </form> */}
       </div>
     </div>
   );
