@@ -19,17 +19,11 @@ export default async function FoodForThought() {
           This section is meant for you to spend time learning about the issues
           surrounding food waste, and what efforts are being done to solve the
           problem. These videos will help you identify the root causes of why we
-          waste food as a society, and why it is such a moral tragedy. You'll
-          learn about the arduous journey your ingredients took to get to you,
-          and what actually happens to those items once you decide to toss them
-          into the trash.
+          waste food as a society, and why it is such a moral tragedy.
+          You&apos;ll learn about the arduous journey your ingredients took to
+          get to you, and what actually happens to those items once you decide
+          to toss them into the trash.
         </p>
-        {/* <h1 className="text-slate-600 font-semibold my-2 text-lg md:text-xl">
-          What is my goal?
-        </h1> */}
-        {/* <p className="my-2 text-green-800 text-sm md:text-base">
-          To empower users to live a minimum-waste lifestyle. My hope is to
-        </p> */}
 
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
           <iframe
