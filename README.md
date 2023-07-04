@@ -20,7 +20,6 @@ The only way this problem goes away is if we can collectively improve our behavi
 - TailwindCSS
 - React Toastify
 - Edamam API
-- React Date Picker
 
 Current progress:
 
