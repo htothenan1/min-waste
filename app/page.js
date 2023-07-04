@@ -59,7 +59,7 @@ export default async function Home() {
         </p>
         <div className="w-full aspect-video mt-4 mb-20 bg-slate-50/50">
           <iframe
-            className="rounded-md shadow-md mx-auto max-w-xsm md:max-w-lg"
+            className="rounded-md shadow-md mx-auto max-w-xs md:max-w-lg"
             width="560"
             height="315"
             src="https://www.youtube.com/embed/ishA6kry8nc"
