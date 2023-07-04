@@ -36,10 +36,13 @@ const EditItemForm = ({
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(homes[0]);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [wasteLoading, setWasteLoading] = useState(false);
 
   const cancelButtonRef = useRef(null);
 
   const deleteItem = async (data) => {
+    setDeleteLoading(true);
     await deleteItemAction(data.id);
     await incrementCounterAction(session.user.email);
     toast.success(`${data.name} consumed!`, {
@@ -47,15 +50,18 @@ const EditItemForm = ({
       autoClose: 1250,
     });
     setOpen(false);
+    setDeleteLoading(false);
   };
 
   const deleteItemWithWaste = async (data) => {
+    setWasteLoading(true);
     await deleteItemAction(data.id);
     toast.success("Its ok, next time will be better", {
       position: "top-center",
       autoClose: 1250,
     });
     setOpen(false);
+    setWasteLoading(false);
   };
 
   const updateItem = async (data, newHome) => {
@@ -114,7 +120,7 @@ const EditItemForm = ({
                         as="h3"
                         className="text-base font-semibold leading-6 text-gray-900"
                       >
-                        Item Done
+                        Item Finished
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
@@ -130,8 +136,9 @@ const EditItemForm = ({
                       onClick={() => {
                         deleteItem(item);
                       }}
+                      disabled={deleteLoading}
                     >
-                      Nope!
+                      {deleteLoading ? "Consuming..." : "Nope!"}
                     </button>
                     <button
                       type="button"
@@ -139,8 +146,9 @@ const EditItemForm = ({
                       onClick={() => {
                         deleteItemWithWaste(item);
                       }}
+                      disabled={wasteLoading}
                     >
-                      Yes...
+                      {wasteLoading ? "Discarding..." : "Yes..."}
                     </button>
                     <button
                       type="button"

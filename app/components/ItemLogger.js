@@ -2,10 +2,9 @@
 
 import { useState, Fragment } from "react";
 import { createItemAction } from "../_actions";
-import SlideFillButton from "../common/SlideFillButton";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
-import { Listbox, Transition } from "@headlessui/react";
+import { Listbox, Transition, Combobox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { ingredientsObjects } from "../data/ingredients";
 import TitleTooltip from "../common/TitleTooltip";
@@ -15,8 +14,11 @@ function classNames(...classes) {
 }
 
 const ItemLogger = ({ items }) => {
-  const [selected, setSelected] = useState("Select Item");
+  const [selected, setSelected] = useState("Select an Item");
   const { data: session } = useSession();
+  const [loading, setLoading] = useState(false);
+  const [customLoading, setCustomLoading] = useState(false);
+  const [customItem, setCustomItem] = useState("");
 
   const filteredItems = ingredientsObjects.filter((el1) => {
     return !items.some((el2) => {
@@ -26,6 +28,7 @@ const ItemLogger = ({ items }) => {
 
   const addItem = async (clientData) => {
     if (clientData !== "Select Item") {
+      setLoading(true);
       const tip = ingredientsObjects.find(
         (el) => el.name === selected
       ).storageTip;
@@ -41,6 +44,26 @@ const ItemLogger = ({ items }) => {
         autoClose: 1250,
       });
     }
+    setLoading(false);
+  };
+
+  const addCustomItem = async (clientData) => {
+    if (clientData !== "") {
+      setCustomLoading(true);
+      const tip = "Not available for custom items";
+      await createItemAction(session.user.email, clientData, tip);
+      toast.success(`${clientData} added!`, {
+        position: "top-center",
+        autoClose: 1250,
+      });
+      setCustomItem("");
+    } else {
+      toast.error("Cannot be blank", {
+        position: "top-center",
+        autoClose: 1250,
+      });
+    }
+    setCustomLoading(false);
   };
 
   return (
@@ -56,7 +79,7 @@ const ItemLogger = ({ items }) => {
           {({ open }) => (
             <>
               <div className="relative ">
-                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-white py-1.5 pl-2 pr-12 text-left text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-green-300/30 sm:text-sm sm:leading-6">
+                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-green-100/40 py-1.5 pl-2 text-left text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-green-300/30 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
                     <span className="ml-3 text-slate-600 block">
                       {selected}
@@ -78,7 +101,6 @@ const ItemLogger = ({ items }) => {
                   leaveTo="opacity-0"
                 >
                   <Listbox.Options className="absolute z-10 mt-1 max-h-48 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {/* <Listbox.Option>Select an option</Listbox.Option> */}
                     {filteredItems.map((ingredient) => (
                       <Listbox.Option
                         key={ingredient.id}
@@ -126,34 +148,41 @@ const ItemLogger = ({ items }) => {
             </>
           )}
         </Listbox>
-        {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-        {/* <select
-            {...register("item", { required: true })}
-            aria-invalid={errors.item ? "true" : "false"}
-            onChange={(e) => {
-              setSelected(e.target.value);
-            }}
-          >
-            <option value="">Choose Item</option>
-            {/* <option value="female">female</option>
-            <option value="male">male</option>
-          <option value="other">other</option> */}
-        {/* {filteredItems.map((item) => (
-              <option key={item.id} value={item.name}>
-                {item.name}
-              </option>
-            ))} */}
-        {/* </select> */}
-        {/* {errors.item?.type === "required" && (
-          <p role="alert">Choice is required</p>
-        )} */}
         <div className="mt-3">
-          <SlideFillButton
-            buttonText={"Add Item"}
-            handleClick={() => addItem(selected)}
-          />
+          <button
+            type="submit"
+            onClick={() => addItem(selected)}
+            className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
+          >
+            <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-green-400 to-indigo-200 transition-all duration-700 group-hover:w-full"></div>
+            <span className="relative text-gray-500 group-hover:text-white">
+              {loading ? "Adding..." : "Add"}
+            </span>
+          </button>
         </div>
-        {/* </form> */}
+        <h2 className=" text-slate-600 my-4">- or -</h2>
+        <div>
+          <Combobox>
+            <Combobox.Input
+              value={customItem}
+              onChange={(e) => setCustomItem(e.target.value)}
+              placeholder="Add your own"
+              className="relative w-40 cursor-default rounded-md bg-blue-100/40 py-1.5 pl-5 text-slate-600 shadow-sm  focus:outline-none sm:text-sm sm:leading-6"
+            />
+          </Combobox>
+        </div>
+        <div className="mt-3">
+          <button
+            type="submit"
+            onClick={() => addCustomItem(customItem)}
+            className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
+          >
+            <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-blue-200 via-slate-600 to-blue-200 transition-all duration-700 group-hover:w-full"></div>
+            <span className="relative text-gray-500 group-hover:text-white">
+              {customLoading ? "Adding..." : "Add"}
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );
