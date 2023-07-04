@@ -43,10 +43,16 @@ const NavBar = ({ user }) => {
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   <a
-                    href="#"
+                    href="dashboard"
                     className="inline-flex items-center border-b-2 border-orange-300 px-1 pt-1 text-sm font-medium text-slate-600"
                   >
                     Dashboard
+                  </a>
+                  <a
+                    href="food_for_thought"
+                    className="inline-flex items-center border-b-2 border-orange-300 px-1 pt-1 text-sm font-medium text-slate-600"
+                  >
+                    Food For Thought
                   </a>
                 </div>
               </div>
@@ -114,10 +120,17 @@ const NavBar = ({ user }) => {
             <div className="space-y-1 pb-4 pt-2">
               <Disclosure.Button
                 as="a"
-                href="#"
+                href="dashboard"
                 className="block border-l-4 border-orange-300 bg-orange-50 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
               >
                 Dashboard
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href="food_for_thought"
+                className="block border-l-4 border-orange-300 bg-orange-50 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
+              >
+                Food For Thought
               </Disclosure.Button>
             </div>
           </Disclosure.Panel>

@@ -263,7 +263,7 @@ const EditItemForm = ({
                     onClick={() => setOpen(true)}
                     className="border border-bg-slate-700 py-1 px-2 my-1 rounded-md bg-red-500/80 text-white text-sm"
                   >
-                    Item Done
+                    Item Finished
                   </button>
                   <p className=" text-xs font-semibold my-1">Storage Tip:</p>
                   <p className=" text-xs px-1 text-center">

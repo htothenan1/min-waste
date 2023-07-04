@@ -13,7 +13,7 @@ export default async function Home() {
     <>
       <NavBar user={user?.name} />
       <div className="bg-slate-50/50">
-        <h1 className="text-center m-8">{`${user?.name} has kept ${user?.itemsCounter} complete items out of the landfill!`}</h1>
+        <h1 className="text-center m-8">{`${user?.name} has kept ${user?.itemsCounter} items out of the landfill!`}</h1>
         <Kitchen items={user?.items} />
       </div>
       <Footer />

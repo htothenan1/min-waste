@@ -1,0 +1,15 @@
+export const thought = [
+  "Over 90% of wasted food in the US ends up in landfills",
+  "1.3B tons of food is wasted every year",
+  "The annual cost of food waste globally is 1 trillion dollars",
+  "Food production is the single biggest cause of deforestation, water extraction, habitat loss, biodiversity loss",
+  "The people that are connected with their food learn to respect it. You don’t throw away something that you consider valuable and important",
+  `“Every cuisine that has lasted generations, they all have dishes that would be called wasted, but in fact are iconic cultural dishes.” - Dan Barber`,
+  `10 million tons of produce go unharvested each year`,
+  `“You can fight against food waste for several reasons. For me, the most important one is feeding the hungry people.” -Lia Celi`,
+  `“It’s inconceivable that one in five children in America doesn’t have enough to eat, in the richest time of the richest country’s history” -Mario Batali`,
+  "The average American family spends $1500 a year on wasted food",
+  "Composting is great, but consuming the item before it gets to compost is even better. Food waste is food waste.",
+  "Outside of poultry, meats, dairy, and baby food, you should rely on your senses instead of confusing expiration dates.",
+  "Expiration dates are set by the manufacturer, not any health and safety authority. They are designed to buy product sooner.",
+];
