@@ -15,7 +15,7 @@ export default async function FoodForThought() {
         <h1 className=" text-slate-600 font-semibold mt-4 text-lg md:text-2xl">
           Food For Thought
         </h1>
-        <p className="my-2 text-orange-600/80 font-semibold text-sm">
+        <p className="my-2 text-orange-600/80 font-semibold text-sm md:text-base">
           This section is meant for you to spend time learning about the issues
           surrounding food waste, and what efforts are being done to solve the
           problem. These videos will help you identify the root causes of why we

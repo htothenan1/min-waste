@@ -8,6 +8,7 @@ import { Listbox, Transition, Combobox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { ingredientsObjects } from "../data/ingredients";
 import TitleTooltip from "../common/TitleTooltip";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -156,7 +157,14 @@ const ItemLogger = ({ items }) => {
           >
             <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-green-400 to-indigo-200 transition-all duration-700 group-hover:w-full"></div>
             <span className="relative text-gray-500 group-hover:text-white">
-              {loading ? "Adding..." : "Add"}
+              {loading ? (
+                <div className="flex justify-center items-center">
+                  Adding...
+                  <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                </div>
+              ) : (
+                "Add"
+              )}
             </span>
           </button>
         </div>
@@ -164,6 +172,9 @@ const ItemLogger = ({ items }) => {
         <div>
           <Combobox>
             <Combobox.Input
+              type="text"
+              minLength="2"
+              maxLength="10"
               value={customItem}
               onChange={(e) => setCustomItem(e.target.value)}
               placeholder="Add your own"
@@ -173,13 +184,19 @@ const ItemLogger = ({ items }) => {
         </div>
         <div className="mt-3">
           <button
-            type="submit"
             onClick={() => addCustomItem(customItem)}
             className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
           >
             <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-blue-200 via-slate-600 to-blue-200 transition-all duration-700 group-hover:w-full"></div>
             <span className="relative text-gray-500 group-hover:text-white">
-              {customLoading ? "Adding..." : "Add"}
+              {customLoading ? (
+                <div className="flex justify-center items-center">
+                  Adding...
+                  <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                </div>
+              ) : (
+                "Add"
+              )}
             </span>
           </button>
         </div>

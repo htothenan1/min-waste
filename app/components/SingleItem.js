@@ -13,7 +13,7 @@ import { format, addDays } from "date-fns";
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
 import { Calendar } from "./ui/calendar";
-import { CalendarIcon } from "@radix-ui/react-icons";
+import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import {
   Select,
@@ -38,6 +38,7 @@ const EditItemForm = ({
   const [selected, setSelected] = useState(homes[0]);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [wasteLoading, setWasteLoading] = useState(false);
+  const [updateLoading, setUpdateLoading] = useState(false);
 
   const cancelButtonRef = useRef(null);
 
@@ -65,6 +66,7 @@ const EditItemForm = ({
   };
 
   const updateItem = async (data, newHome) => {
+    setUpdateLoading(true);
     await updateItemAction(data.id, data.name, date, newHome.name);
     toast.info(`${data.name} Use By Date set!`, {
       position: "top-center",
@@ -73,6 +75,14 @@ const EditItemForm = ({
     handleEditToggle(false);
     setDate(new Date());
     setSelected(homes[0]);
+    setUpdateLoading(false);
+  };
+
+  const reloadButton = (buttonText) => {
+    <div className="flex justify-center items-center">
+      {buttonText}
+      <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+    </div>;
   };
 
   return (
@@ -138,7 +148,14 @@ const EditItemForm = ({
                       }}
                       disabled={deleteLoading}
                     >
-                      {deleteLoading ? "Consuming..." : "Nope!"}
+                      {deleteLoading ? (
+                        <div className="flex justify-center items-center">
+                          Consuming...
+                          <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                        </div>
+                      ) : (
+                        "Nope!"
+                      )}
                     </button>
                     <button
                       type="button"
@@ -148,7 +165,14 @@ const EditItemForm = ({
                       }}
                       disabled={wasteLoading}
                     >
-                      {wasteLoading ? "Discarding..." : "Yes..."}
+                      {wasteLoading ? (
+                        <div className="flex justify-center items-center">
+                          Discarding...
+                          <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                        </div>
+                      ) : (
+                        "Yes..."
+                      )}
                     </button>
                     <button
                       type="button"
@@ -244,9 +268,18 @@ const EditItemForm = ({
                   onClick={() => {
                     updateItem(item, item.name, selected);
                   }}
-                  className="border border-bg-slate-700 my-3 py-1 px-2 rounded-md bg-indigo-600/80 text-white text-sm"
+                  className={`border border-bg-slate-700 my-3 py-1 px-2 rounded-md ${
+                    updateLoading ? "bg-slate-400" : "bg-indigo-600/80"
+                  }   text-white text-sm`}
                 >
-                  Confirm Changes
+                  {updateLoading ? (
+                    <div className="flex justify-center items-center">
+                      Please Wait
+                      <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                    </div>
+                  ) : (
+                    "Confirm Changes"
+                  )}
                 </button>
               ) : (
                 <button
