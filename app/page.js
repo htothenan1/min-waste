@@ -73,7 +73,7 @@ export default async function Home() {
           recommend watching this quick breakdown on the issue before getting
           started:
         </p>
-        <div className="w-full aspect-video mt-4 mb-20 bg-slate-50/50">
+        <div className="flex flex-col justify-center items-center w-full aspect-video mt-4 mb-20 bg-slate-50/50">
           <iframe
             className="rounded-md shadow-md mx-auto max-w-xs md:max-w-lg"
             width="560"
@@ -84,9 +84,10 @@ export default async function Home() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-          <p>
+          <p className="text-center p-1 text-xs w-3/4">
             *Older phones may experience a{" "}
-            <span className="text-green-500">green background</span>y*
+            <span className="text-green-500">green screen error</span>. If this
+            is the case, please visit YouTube directly.*
           </p>
         </div>
       </div>

@@ -24,6 +24,11 @@ export default async function FoodForThought() {
           get to you, and what actually happens to those items once you decide
           to toss them into the trash.
         </p>
+        <p className="text-center p-1 text-xs w-3/4">
+          *Older phones may experience a{" "}
+          <span className="text-green-500">green screen error</span>. If this is
+          the case, please visit YouTube directly.*
+        </p>
 
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
           <iframe

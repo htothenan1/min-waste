@@ -46,7 +46,9 @@ const EditItemForm = ({
   const deleteItem = async (data) => {
     setDeleteLoading(true);
     await deleteItemAction(data.id);
-    await incrementCounterAction(session.user.email);
+    if (!mistaken) {
+      await incrementCounterAction(session.user.email);
+    }
     toast.success(`${data.name} ${mistaken ? "deleted!" : "consumed!"}`, {
       position: "top-center",
       autoClose: 1250,
