@@ -5,12 +5,12 @@ import TitleTooltip from "../common/TitleTooltip";
 const RecipesList = ({ recipes, handleSelectRecipe }) => {
   return (
     <div className="m-6">
-      <div className="flex justify-center">
-        <h2 className="text-center mb-1">Recipes List</h2>
-        <span>
+      {/* <div className="flex justify-center"> */}
+      <h2 className="text-center mb-1">Recipes List</h2>
+      {/* <span>
           <TitleTooltip tooltipText={"Recipes based on selected item"} />
         </span>
-      </div>
+      </div> */}
 
       <ul
         role="list"

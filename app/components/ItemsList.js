@@ -3,12 +3,12 @@ import TitleTooltip from "../common/TitleTooltip";
 const ItemsList = ({ items, handleSelectItem }) => {
   return (
     <div className="m-6">
-      <div className="flex justify-center">
-        <h2 className="text-center pb-1">Items List</h2>
-        <span>
+      {/* <div className="flex justify-center"> */}
+      <h2 className="text-center pb-1">Items List</h2>
+      {/* <span>
           <TitleTooltip tooltipText={"Use the top items first"} />
         </span>
-      </div>
+      </div> */}
 
       <ul
         role="list"

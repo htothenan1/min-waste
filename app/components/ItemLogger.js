@@ -69,12 +69,14 @@ const ItemLogger = ({ items }) => {
 
   return (
     <div className="m-6">
-      <div className="flex justify-center">
+      <h2 className="text-center pb-1">Item Logger</h2>
+
+      {/* <div className="flex justify-center">
         <h2 className="text-center pb-1">Item Logger</h2>
         <span>
           <TitleTooltip tooltipText={"Add an item to your list"} />
         </span>
-      </div>
+      </div> */}
       <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-300 to-indigo-200 shadow-md rounded-md p-4">
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (
@@ -169,18 +171,17 @@ const ItemLogger = ({ items }) => {
           </button>
         </div>
         <h2 className=" text-slate-600 my-4">- or -</h2>
-        <div>
-          <Combobox>
-            <Combobox.Input
-              type="text"
-              minLength="2"
-              value={customItem}
-              onChange={(e) => setCustomItem(e.target.value)}
-              placeholder="Add your own"
-              className="relative w-40 cursor-default rounded-md bg-blue-100/40 py-1.5 pl-5 text-slate-600 shadow-sm  focus:outline-none sm:text-sm sm:leading-6"
-            />
-          </Combobox>
-        </div>
+
+        <input
+          minLength="2"
+          value={customItem}
+          onChange={(e) => setCustomItem(e.target.value)}
+          placeholder="Add your own"
+          className="relative w-40 cursor-default
+          rounded-md bg-blue-100/40 py-1.5 pl-5 text-slate-600 shadow-sm
+          focus:outline-none sm:text-sm sm:leading-6"
+        />
+
         <div className="mt-3">
           <button
             onClick={() => addCustomItem(customItem)}
