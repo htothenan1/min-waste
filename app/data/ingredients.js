@@ -235,6 +235,11 @@ export const ingredientsObjects = [
     storageTip: "Remove greens, leave unwashed, crisper drawer",
   },
   {
+    id: "a8o3bc67",
+    name: "Rice",
+    storageTip: "Remove greens, leave unwashed, crisper drawer",
+  },
+  {
     id: "be5b25d9",
     name: "Raspberries",
     storageTip: "Remove soggy or spoiled berries before storing",
@@ -245,11 +250,6 @@ export const ingredientsObjects = [
     storageTip: "Place a piece of paper towel in the bag",
   },
   {
-    id: "99c800d5",
-    name: "Strawberries",
-    storageTip: "Remove soggy or spoiled berries before storing",
-  },
-  {
     id: "11788b79",
     name: "Sour Cream",
     storageTip: "Press plastic wrap directly onto surface",
@@ -258,6 +258,11 @@ export const ingredientsObjects = [
     id: "06f5eef4",
     name: "Squash",
     storageTip: "Keep dry, with some air circulation",
+  },
+  {
+    id: "99c800d5",
+    name: "Strawberries",
+    storageTip: "Remove soggy or spoiled berries before storing",
   },
   {
     id: "af133525",
