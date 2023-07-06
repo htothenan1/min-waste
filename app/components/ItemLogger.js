@@ -174,7 +174,6 @@ const ItemLogger = ({ items }) => {
             <Combobox.Input
               type="text"
               minLength="2"
-              maxLength="10"
               value={customItem}
               onChange={(e) => setCustomItem(e.target.value)}
               placeholder="Add your own"

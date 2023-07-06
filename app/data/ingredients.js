@@ -1,14 +1,14 @@
 export const ingredientsObjects = [
   // { id: "9fbbfeff", name: "Find an Item" },
   {
-    id: "0a5d41db",
-    name: "Apricots",
-    storageTip: "Airtight container, inside fridge",
-  },
-  {
     id: "d1d26e26",
     name: "Apples",
     storageTip: "Crisper drawer, away from other fruit",
+  },
+  {
+    id: "0a5d41db",
+    name: "Apricots",
+    storageTip: "Airtight container, inside fridge",
   },
   {
     id: "c941eaee",
@@ -27,9 +27,9 @@ export const ingredientsObjects = [
   },
   { id: "63622315", name: "Avocados", storageTip: "Leave pit attached if cut" },
   {
-    id: "ee5bb2f1",
-    name: "Basil",
-    storageTip: "Snip ends, place in jar with inch of water",
+    id: "0c2e3f6d",
+    name: "Bacon",
+    storageTip: "Airtight container, inside fridge",
   },
   {
     id: "0f17fac0",
@@ -37,14 +37,24 @@ export const ingredientsObjects = [
     storageTip: "Freeze bagels, and defrost before eating",
   },
   {
-    id: "0c2e3f6d",
-    name: "Bacon",
-    storageTip: "Airtight container, inside fridge",
-  },
-  {
     id: "36a94c18",
     name: "Bananas",
     storageTip: "if cut, sprinkle with lemon juice",
+  },
+  {
+    id: "ee5bb2f1",
+    name: "Basil",
+    storageTip: "Snip ends, place in jar with inch of water",
+  },
+  {
+    id: "ee7Vb2f1",
+    name: "Baby Carrots",
+    storageTip: "Crisper drawer",
+  },
+  {
+    id: "378ed49b",
+    name: "Baby Spinach",
+    storageTip: "Place a piece of paper towel in the bag",
   },
   {
     id: "f21ad1c0",
@@ -67,6 +77,11 @@ export const ingredientsObjects = [
     storageTip: "Remove soggy or spoiled berries before storing",
   },
   {
+    id: "37b112ce",
+    name: "Boysenberries",
+    storageTip: "Remove soggy or spoiled berries before storing",
+  },
+  {
     id: "f79b02ff",
     name: "Bread",
     storageTip: "Freeze bagels, and defrost before eating",
@@ -75,11 +90,6 @@ export const ingredientsObjects = [
     id: "cee1e4c3",
     name: "Broccoli",
     storageTip: "Keep dry, with some air circulation",
-  },
-  {
-    id: "37b112ce",
-    name: "Boysenberries",
-    storageTip: "Remove soggy or spoiled berries before storing",
   },
   {
     id: "004cb3df",
@@ -133,14 +143,14 @@ export const ingredientsObjects = [
   },
   { id: "c3cc423b", name: "Edamame", storageTip: "Always freeze for storage" },
   {
-    id: "9d0d545c",
-    name: "Eggs",
-    storageTip: "In original carton, away from smelly foods",
-  },
-  {
     id: "7dc5138e",
     name: "Eggplant",
     storageTip: "Crisper drawer, wrapped in paper towel",
+  },
+  {
+    id: "9d0d545c",
+    name: "Eggs",
+    storageTip: "In original carton, away from smelly foods",
   },
   {
     id: "88af163b",
@@ -185,14 +195,14 @@ export const ingredientsObjects = [
     storageTip: "Airtight container, inside fridge",
   },
   {
-    id: "0b0c1bd0",
-    name: "Kale",
-    storageTip: "Place a piece of paper towel in the bag",
-  },
-  {
     id: "028b2e3c",
     name: "Italian Sausage",
     storageTip: "Freeze immediately, unless using now",
+  },
+  {
+    id: "0b0c1bd0",
+    name: "Kale",
+    storageTip: "Place a piece of paper towel in the bag",
   },
   { id: "734ac0fc", name: "Lemons", storageTip: "Crisper drawer" },
   { id: "1fd58912", name: "Lettuce", storageTip: "Crisper drawer" },
@@ -232,11 +242,6 @@ export const ingredientsObjects = [
   {
     id: "6063358a",
     name: "Salad Mix",
-    storageTip: "Place a piece of paper towel in the bag",
-  },
-  {
-    id: "378ed49b",
-    name: "Baby Spinach",
     storageTip: "Place a piece of paper towel in the bag",
   },
   {
