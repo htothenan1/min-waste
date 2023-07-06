@@ -33,7 +33,7 @@ export default async function Home() {
         <p className="my-2 text-green-800 text-sm md:text-base">
           Simply put, we want our users to cook and eat more of the food that
           they purchase on a regular basis. The user should (1) log all current
-          kitchen items found from the list, (2) update the items with a
+          kitchen items found from the list, (2) and update the items with a
           responsibly set Use-By Date. The date that you set has less to do with
           food safety, and more about setting a reasonable, attainable plan in
           motion to consume your foods. (3) Try your best to consume the items
@@ -84,6 +84,10 @@ export default async function Home() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
+          <p>
+            *Older phones may experience a{" "}
+            <span className="text-green-500">green background</span>y*
+          </p>
         </div>
       </div>
       <Footer />
