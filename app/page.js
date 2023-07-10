@@ -87,7 +87,7 @@ export default async function Home() {
           <p className="text-center p-1 text-xs w-3/4">
             *Older phones may experience a{" "}
             <span className="text-green-500">green screen error</span>. If this
-            is the case, please visit YouTube directly.*
+            is the case, please watch on YouTube directly.*
           </p>
         </div>
       </div>

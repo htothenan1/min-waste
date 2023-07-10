@@ -11,7 +11,7 @@ export default async function FoodForThought() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div className="flex flex-col text-center w-3/4 mx-auto mt-6 bg-slate-50/50">
+      <div className="flex flex-col text-center justify-center items-center w-3/4 mx-auto mt-6 bg-slate-50/50">
         <h1 className=" text-slate-600 font-semibold mt-4 text-lg md:text-2xl">
           Food For Thought
         </h1>
@@ -24,13 +24,12 @@ export default async function FoodForThought() {
           get to you, and what actually happens to those items once you decide
           to toss them into the trash.
         </p>
-        <p className="text-center p-1 text-xs w-3/4">
+        <p className="text-center p-1 text-xs w-3/4 my-3">
           *Older phones may experience a{" "}
           <span className="text-green-500">green screen error</span>. If this is
-          the case, please visit YouTube directly.*
+          the case, please watch on YouTube directly.*
         </p>
-
-        <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
+        <div className="w-full aspect-video mb-20 bg-slate-50/50">
           <iframe
             className="rounded-md shadow-md mx-auto max-w-xs md:max-w-lg"
             width="560"
