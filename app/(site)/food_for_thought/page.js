@@ -11,18 +11,16 @@ export default async function FoodForThought() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div className="flex flex-col text-center justify-center items-center w-3/4 mx-auto mt-6 bg-slate-50/50">
+      <div className="flex flex-col text-left justify-center items-center w-3/4 md:w-1/2 mt-10 bg-slate-50/50">
         <h1 className=" text-slate-600 font-semibold mt-4 text-lg md:text-2xl">
           Food For Thought
         </h1>
         <p className="my-2 text-orange-600/80 font-semibold text-sm md:text-base">
-          This section is meant for you to spend time learning about the issues
-          surrounding food waste, and what efforts are being done to solve the
-          problem. These videos will help you identify the root causes of why we
-          waste food as a society, and why it is such a moral tragedy.
-          You&apos;ll learn about the arduous journey your ingredients took to
-          get to you, and what actually happens to those items once you decide
-          to toss them into the trash.
+          These videos will help you identify the root causes of why we waste
+          food as a society, and why it is such a moral tragedy. You&apos;ll
+          learn about the arduous journey your ingredients took to get to you,
+          and what actually happens to those items once you decide to toss them
+          into the trash.
         </p>
         <p className="text-center p-1 text-xs w-3/4 my-3">
           *Older phones may experience a{" "}
