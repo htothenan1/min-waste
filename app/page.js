@@ -20,8 +20,8 @@ export default async function Home() {
                   </span>
                 </h2>
                 <p className="mt-4 text-lg leading-6 text-slate-600">
-                  Our app will help you improve your behavior, reduce your food
-                  waste, and start saving money today.
+                  Our app will help improve your behavior, reduce your food
+                  waste, and start saving you money today.
                 </p>
                 <a
                   href="/register"
