@@ -52,10 +52,9 @@ export default async function Home() {
           <span className=" font-extrabold">
             2. Set a Use-By Date for your items.
           </span>{" "}
-          This should be based on what YOU feel is appropriate, NOT based on
-          whatever expiration code is written on the package. Make sure to
-          factor in your lifestyle and schedule type when setting this date.{" "}
-          <br />{" "}
+          This should be based on what YOU feel is appropriate, NOT whatever
+          expiration code is written on the package. Make sure to factor in your
+          lifestyle and schedule type when setting this date. <br />{" "}
           <span className="font-extrabold">
             3. Consume your items from the top of your list, first.
           </span>{" "}
