@@ -12,10 +12,10 @@ export default async function FoodForThought() {
     <>
       <NavBar user={user?.name} />
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 mt-10 bg-slate-50/50">
-        <h1 className=" text-slate-600 font-semibold mt-4 text-3xl">
+        <h1 className=" text-orange-600 font-bold mt-4 text-3xl">
           Food For Thought
         </h1>
-        <p className="my-2 text-orange-600/80 font-semibold text-sm md:text-base text-center w-3/4">
+        <p className="my-2 text-slate-600 font-semibold text-sm md:text-base text-center w-3/4">
           These videos will help you identify the root causes of why we waste
           food, and what we can do to improve the situation.
         </p>

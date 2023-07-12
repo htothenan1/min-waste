@@ -54,6 +54,12 @@ const NavBar = ({ user }) => {
                   >
                     Food For Thought
                   </a>
+                  <a
+                    href="contact_us"
+                    className="inline-flex items-center border-b-2 border-orange-300 px-1 pt-1 text-sm font-medium text-slate-600"
+                  >
+                    Contact Us
+                  </a>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -131,6 +137,13 @@ const NavBar = ({ user }) => {
                 className="block border-l-4 border-orange-300 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
               >
                 Food For Thought
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href="food_for_thought"
+                className="block border-l-4 border-orange-300 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
+              >
+                Contact Us
               </Disclosure.Button>
             </div>
           </Disclosure.Panel>
