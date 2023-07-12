@@ -121,14 +121,14 @@ const NavBar = ({ user }) => {
               <Disclosure.Button
                 as="a"
                 href="dashboard"
-                className="block border-l-4 border-orange-300 bg-orange-50 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
+                className="block border-l-4 border-orange-300 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
               >
                 Dashboard
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="food_for_thought"
-                className="block border-l-4 border-orange-300 bg-orange-50 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
+                className="block border-l-4 border-orange-300 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
               >
                 Food For Thought
               </Disclosure.Button>
