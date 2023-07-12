@@ -9,16 +9,16 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     const data = new FormData(event.target);
     console.log(data.getAll("name"));
     toast.success("Message Sent!", {
       position: "top-center",
       autoClose: 1250,
     });
-    setFirstName("");
-    setEmail("");
-    setMessage("");
+    // setFirstName("");
+    // setEmail("");
+    // setMessage("");
   };
   return (
     <div className="bg-slate-50 px-6 py-24 sm:py-32 lg:px-8">
