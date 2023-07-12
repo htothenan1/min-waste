@@ -9,7 +9,7 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const data = new FormData(event.target);
     console.log(data.getAll("name"));
     toast.success("Message Sent!", {
