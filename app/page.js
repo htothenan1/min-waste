@@ -68,6 +68,11 @@ export default async function Home() {
           </span>{" "}
           We will keep count of the items you fully consume, so that you can
           track your overall progress.
+          <br /> <span className="font-extrabold">
+            5. Take it with you.
+          </span>{" "}
+          Our app is mobile friendly, so use it as a grocery shopping tool.
+          Never double buy an item again!
         </p>
 
         <h1 className=" text-slate-600 font-semibold mt-4 text-lg text-2xl md:text-3xl text-center">
