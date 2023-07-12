@@ -42,7 +42,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="flex flex-col w-3/4 mx-auto mt-6 bg-slate-50/50">
-        <h1 className="text-slate-600 text-center font-semibold mt-4 text-lg md:text-2xl">
+        <h1 className="text-slate-600 text-center font-semibold mt-4 text-2xl md:text-3xl">
           How to get the most out of Waste-Not
         </h1>
         <p className="my-2 text-green-800 text-sm md:text-base">
@@ -58,7 +58,10 @@ export default async function Home() {
           <span className="font-extrabold">
             3. Consume your items from the top of your list, first.
           </span>{" "}
-          This is our core principle: Always eat what should be eaten next.
+          This is our core principle:{" "}
+          <span className="text-orange-600">
+            Always eat what should be eaten next.
+          </span>
           <br />{" "}
           <span className="font-extrabold">
             4. Update your Items List when an item is finished.
@@ -67,7 +70,7 @@ export default async function Home() {
           track your overall progress.
         </p>
 
-        <h1 className=" text-slate-600 font-semibold mt-4 text-lg md:text-2xl text-center">
+        <h1 className=" text-slate-600 font-semibold mt-4 text-lg text-2xl md:text-3xl text-center">
           What&apos;s so bad about food waste?
         </h1>
         <p className="my-2 text-green-800 text-sm md:text-base">

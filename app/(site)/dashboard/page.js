@@ -32,7 +32,10 @@ export default async function Home() {
             <span className="font-extrabold">
               3. Consume your items from the top of your list, first.
             </span>{" "}
-            Use our recipe search tool to get ideas on how to cook those items.
+            This is our core principle:{" "}
+            <span className="text-orange-600">
+              Always eat what should be eaten next.
+            </span>
             <br />{" "}
             <span className="font-extrabold">
               4. Update your Items List when an item is finished.
