@@ -26,7 +26,7 @@ const GuestNavBar = () => {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <h1>Get started</h1>
+              <h1 className="text-slate-600">Get started</h1>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
