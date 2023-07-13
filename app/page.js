@@ -9,7 +9,7 @@ export default async function Home() {
     <section>
       <GuestNavBar />
       <div className="bg-slate-50/50">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="overflow-hidden rounded-lg bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-blue-100 to-yellow-100 shadow-lg lg:grid lg:grid-cols-2 lg:gap-4">
             <div className="px-6 pb-12 pt-10 sm:px-16 sm:pt-16 lg:py-16 lg:pr-0 xl:px-20 xl:py-20">
               <div className="lg:self-center">
