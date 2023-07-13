@@ -1,5 +1,6 @@
 import NavBar from "@/common/NavBar";
 import ContactForm from "../../components/ContactForm";
+import Footer from "../../common/Footer";
 import { getUser } from "../../lib/items";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
@@ -12,6 +13,7 @@ export default async function Contact() {
     <>
       <NavBar user={user?.name} />
       <ContactForm />
+      <Footer />
     </>
   );
 }

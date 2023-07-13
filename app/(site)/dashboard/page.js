@@ -17,11 +17,11 @@ export default async function Home() {
         <h1 className=" text-orange-600 font-bold text-4xl text-center">
           Dashboard
         </h1>
-        <h1 className="my-2 text-slate-600 text-sm md:text-lg text-center w-3/4 mx-auto">
+        <h1 className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 mx-auto">
           {`${user?.name} has consumed ` + itemsCount + ` complete items!`}
         </h1>
         <Kitchen items={user?.items} />
-        <div className="flex flex-col w-2/3 m-auto bg-slate-50/50 mt-12">
+        <div className="flex flex-col w-2/3 m-auto bg-slate-50/50 my-12">
           <h1 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
             How to get the most out of{" "}
             <span className="text-orange-600">Waste-Not</span>

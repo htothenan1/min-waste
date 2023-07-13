@@ -1,27 +1,6 @@
-"use client";
-
-import { useState } from "react";
-import { toast } from "react-toastify";
-
 export default function ContactForm() {
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  // const handleSubmit = (event) => {
-  //   // event.preventDefault();
-  //   const data = new FormData(event.target);
-  //   console.log(data.getAll("name"));
-  //   toast.success("Message Sent!", {
-  //     position: "top-center",
-  //     autoClose: 1250,
-  //   });
-  //   // setFirstName("");
-  //   // setEmail("");
-  //   // setMessage("");
-  // };
   return (
-    <div className="bg-slate-50 px-6 py-12 lg:px-8">
+    <div className="bg-slate-50 px-6 pt-12 pb-24 lg:px-8">
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -44,7 +23,6 @@ export default function ContactForm() {
       <form
         action="https://formsubmit.co/hberissodev@gmail.com"
         method="POST"
-        // onSubmit={handleSubmit}
         className="mx-auto mt-16 max-w-xl sm:mt-20"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -58,8 +36,6 @@ export default function ContactForm() {
             <div className="mt-2.5">
               <input
                 type="text"
-                onChange={(e) => setFirstName(e.target.value)}
-                value={firstName}
                 name="first-name"
                 id="first-name"
                 autoComplete="given-name"
@@ -79,8 +55,6 @@ export default function ContactForm() {
             <div className="mt-2.5">
               <input
                 type="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
                 name="email"
                 id="email"
                 autoComplete="email"
@@ -100,8 +74,6 @@ export default function ContactForm() {
               <textarea
                 required
                 name="message"
-                onChange={(e) => setMessage(e.target.value)}
-                value={message}
                 id="message"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
