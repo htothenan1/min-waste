@@ -8,20 +8,20 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (event) => {
-    // event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(data.getAll("name"));
-    toast.success("Message Sent!", {
-      position: "top-center",
-      autoClose: 1250,
-    });
-    // setFirstName("");
-    // setEmail("");
-    // setMessage("");
-  };
+  // const handleSubmit = (event) => {
+  //   // event.preventDefault();
+  //   const data = new FormData(event.target);
+  //   console.log(data.getAll("name"));
+  //   toast.success("Message Sent!", {
+  //     position: "top-center",
+  //     autoClose: 1250,
+  //   });
+  //   // setFirstName("");
+  //   // setEmail("");
+  //   // setMessage("");
+  // };
   return (
-    <div className="bg-slate-50 px-6 py-24 sm:py-32 lg:px-8">
+    <div className="bg-slate-50 px-6 py-12 lg:px-8">
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -35,19 +35,16 @@ export default function ContactForm() {
         />
       </div>
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-orange-600 sm:text-4xl">
-          Contact us
-        </h2>
+        <h2 className="text-4xl font-bold text-orange-600">Contact us</h2>
         <p className="mt-2 text-lg leading-8 text-slate-600">
-          We rely on user feedback to guide what features we build. So feel free
-          to leave us a message about what you think! Found a bug? Help squash
-          it by reporting it in detail!
+          Have an idea for a great new feature? We&apos;d love to hear about it!
+          Found a bug? Help squash it by reporting it in detail!
         </p>
       </div>
       <form
         action="https://formsubmit.co/hberissodev@gmail.com"
         method="POST"
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         className="mx-auto mt-16 max-w-xl sm:mt-20"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -95,7 +92,7 @@ export default function ContactForm() {
           <div className="sm:col-span-2">
             <label
               htmlFor="message"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-slate-600"
             >
               Message
             </label>

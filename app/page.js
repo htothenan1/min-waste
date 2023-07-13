@@ -41,8 +41,8 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-3/4 mx-auto mt-6 bg-slate-50/50">
-        <h1 className="text-slate-600 text-center font-semibold mt-4 text-2xl md:text-3xl">
+      <div className="flex flex-col w-2/3 mx-auto mt-6 bg-slate-50/50">
+        <h1 className="text-slate-600 text-center font-semibold my-4 text-2xl md:text-3xl">
           How to get the most out of{" "}
           <span className="text-orange-600">Waste-Not</span>
         </h1>
@@ -81,10 +81,10 @@ export default async function Home() {
           buy an item again!
         </p>
 
-        <h1 className=" text-slate-600 font-semibold mt-4 text-lg text-2xl md:text-3xl text-center">
+        <h1 className=" text-slate-600 font-semibold mb-4 mt-8 text-lg md:text-3xl text-center">
           What&apos;s so bad about food waste?
         </h1>
-        <p className="my-2 text-green-800 text-sm md:text-base">
+        <p className="my-2 text-green-800 text-sm md:text-base mb-4">
           It&apos;s probably worse than you think. Nearly 40 percent of food in
           the US goes to waste! At the same time, 1 in 8 Americans don&apos;t
           have enough food to eat. Isn&apos;t that absurd? That wasted food also

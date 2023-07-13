@@ -13,13 +13,16 @@ export default async function Home() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div className="bg-slate-50/50 mb-10">
-        <h1 className="text-center m-8">
+      <div className="bg-slate-50/50 py-12">
+        <h1 className=" text-orange-600 font-bold text-4xl text-center">
+          Dashboard
+        </h1>
+        <h1 className="my-2 text-slate-600 text-sm md:text-lg text-center w-3/4 mx-auto">
           {`${user?.name} has consumed ` + itemsCount + ` complete items!`}
         </h1>
         <Kitchen items={user?.items} />
-        <div className="flex flex-col w-3/4 m-auto pb-24 bg-slate-50/50">
-          <h1 className="text-slate-600 text-center font-semibold mt-4 text-2xl md:text-3xl">
+        <div className="flex flex-col w-2/3 m-auto bg-slate-50/50 mt-12">
+          <h1 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
             How to get the most out of{" "}
             <span className="text-orange-600">Waste-Not</span>
           </h1>

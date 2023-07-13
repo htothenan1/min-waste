@@ -3,13 +3,34 @@
 import Image from "next/image";
 import logo from "../../public/smile_logo.png";
 import { Fragment } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
+const CustomLink = ({ href, title, className = "" }) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  console.log("pathname ->", pathname);
+
+  return (
+    <Link href={href} className={`${className} relative group`}>
+      {title}
+      <span
+        className={` h-[2px] inline-block bg-orange-600 absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 
+        ${pathname === href ? "w-full" : "w-0"}
+        `}
+      >
+        &nbsp;
+      </span>
+    </Link>
+  );
+};
 
 const NavBar = ({ user }) => {
   return (
@@ -42,24 +63,34 @@ const NavBar = ({ user }) => {
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  <a
-                    href="dashboard"
-                    className="inline-flex items-center border-b-2 border-orange-300 px-1 pt-1 text-sm font-medium text-slate-600"
-                  >
-                    Dashboard
-                  </a>
-                  <a
-                    href="food_for_thought"
+                  <CustomLink
+                    href={"/dashboard"}
+                    title={"Dashboard"}
+                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
+                  />
+                  <CustomLink
+                    href={"/food-for-thought"}
+                    title={"Food For Thought"}
+                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
+                  />
+                  <CustomLink
+                    href={"/contact"}
+                    title={"Contact Us"}
+                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
+                  />
+
+                  {/* <a
+                    href="food-for-thought"
                     className="inline-flex items-center border-b-2 border-orange-300 px-1 pt-1 text-sm font-medium text-slate-600"
                   >
                     Food For Thought
                   </a>
                   <a
-                    href="contact_us"
+                    href="contact"
                     className="inline-flex items-center border-b-2 border-orange-300 px-1 pt-1 text-sm font-medium text-slate-600"
                   >
                     Contact Us
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -133,14 +164,14 @@ const NavBar = ({ user }) => {
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="food_for_thought"
+                href="food-for-thought"
                 className="block border-l-4 border-orange-300 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
               >
                 Food For Thought
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="contact_us"
+                href="contact-us"
                 className="block border-l-4 border-orange-300 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
               >
                 Contact Us

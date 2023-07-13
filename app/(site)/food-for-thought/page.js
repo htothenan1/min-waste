@@ -11,15 +11,15 @@ export default async function FoodForThought() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 mt-10 bg-slate-50/50">
-        <h1 className=" text-orange-600 font-bold mt-4 text-3xl">
+      <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
+        <h1 className=" text-orange-600 font-bold text-4xl">
           Food For Thought
         </h1>
-        <p className="my-2 text-slate-600 font-semibold text-sm md:text-base text-center w-3/4">
+        <p className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 md:w-1/2">
           These videos will help you identify the root causes of why we waste
           food, and what we can do to improve the situation.
         </p>
-        <p className="text-center p-1 text-xs my-3">
+        <p className="text-center p-1 text-xs my-3 w-2/3">
           *Older phones may experience a{" "}
           <span className="text-green-500">green screen error</span>. If this is
           the case, please watch on YouTube directly.*
