@@ -140,7 +140,7 @@ const NavBar = ({ user }) => {
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="food_for_thought"
+                href="contact_us"
                 className="block border-l-4 border-orange-300 py-2 pl-3 pr-4 text-base font-medium text-orange-300"
               >
                 Contact Us
