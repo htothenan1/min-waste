@@ -85,11 +85,10 @@ export default async function Home() {
           What&apos;s so bad about food waste?
         </h1>
         <p className="my-2 text-green-800 text-sm md:text-base mb-4">
-          It&apos;s probably worse than you think. Nearly 40 percent of food in
-          the US goes to waste! At the same time, 1 in 8 Americans don&apos;t
-          have enough food to eat. Isn&apos;t that absurd? That wasted food also
-          makes up 20 percent of all landfills, which produces extreme amounts
-          of methane (look up{" "}
+          Nearly 40 percent of food in the US goes to waste! At the same time, 1
+          in 8 Americans don&apos;t have enough food to eat. Isn&apos;t that
+          absurd? That wasted food also makes up 20 percent of all landfills,
+          which produces extreme amounts of methane gas (look up{" "}
           <Link
             className="text-orange-600"
             href={
@@ -99,11 +98,10 @@ export default async function Home() {
           >
             anaerobic decomposition
           </Link>
-          ). The amount of resources that are used to produce and deliver
-          uneaten food to consumers is also immense. The only way this problem
-          goes away is if we collectively improve our personal food waste
-          behaviors and attitudes. We recommend watching this quick breakdown on
-          the issue before getting started:
+          ). The resources used to produce and deliver wasted food to consumers
+          is also immense. The only way this problem gets under control is if we
+          collectively improve our personal food waste behaviors and attitudes.
+          Watch this quick breakdown on the issue before getting started:
         </p>
         <div className="flex flex-col justify-center items-center w-full aspect-video mt-4 mb-20 bg-slate-50/50">
           <iframe

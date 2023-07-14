@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TitleTooltip from "../common/TitleTooltip";
+import Image from "next/image";
 
 const SingleRecipe = ({ recipe }) => {
   return (
@@ -15,7 +16,12 @@ const SingleRecipe = ({ recipe }) => {
         {recipe ? (
           <>
             <div className="flex items-center">
-              <img className="w-32 h-32 rounded-md" src={recipe.image} />
+              <Image
+                className="w-32 h-32 rounded-md"
+                src={recipe.image}
+                alt="A picture of the selected recipe"
+              />
+              {/* <img className="w-32 h-32 rounded-md" src={recipe.image} /> */}
               <div className="px-2">
                 <Link
                   href={recipe.url}
