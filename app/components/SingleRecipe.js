@@ -16,12 +16,16 @@ const SingleRecipe = ({ recipe }) => {
         {recipe ? (
           <>
             <div className="flex items-center">
-              <Image
+              {/* <Image
+                className="w-32 h-32 rounded-md"
+                src={recipe.image}
+                alt="A picture of the selected recipe"
+              /> */}
+              <img
                 className="w-32 h-32 rounded-md"
                 src={recipe.image}
                 alt="A picture of the selected recipe"
               />
-              {/* <img className="w-32 h-32 rounded-md" src={recipe.image} /> */}
               <div className="px-2">
                 <Link
                   href={recipe.url}
