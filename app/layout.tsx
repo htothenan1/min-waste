@@ -12,6 +12,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Waste-Not App",
   description: "An app to help reduce your food waste",
+  alternates: {
+    canonical: "https://wastenot-app.com",
+  },
+  verification: {
+    google:
+      "google-site-verification=kmR4sAUO7i4PlQcI2NSS3LRAV9GCtmUDalVjRadlDK4",
+  },
 };
 
 export default function RootLayout({
