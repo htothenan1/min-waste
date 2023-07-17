@@ -2,6 +2,7 @@
 
 import { toast } from "react-toastify";
 import {
+  createItemAction,
   deleteItemAction,
   incrementCounterAction,
   updateItemAction,
@@ -12,6 +13,7 @@ import { Listbox, Transition, Dialog } from "@headlessui/react";
 import { format, addDays } from "date-fns";
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
+import { PlusIcon } from "@radix-ui/react-icons";
 import { Calendar } from "./ui/calendar";
 import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
@@ -24,7 +26,7 @@ import {
 } from "./ui/select";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { homes } from "../data/homes";
-import TitleTooltip from "../common/TitleTooltip";
+// import TitleTooltip from "../common/TitleTooltip";
 
 const EditItemForm = ({
   item,
@@ -39,9 +41,21 @@ const EditItemForm = ({
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [wasteLoading, setWasteLoading] = useState(false);
   const [updateLoading, setUpdateLoading] = useState(false);
+  const [repurchaseLoading, setRepurchaseLoading] = useState(false);
   const [mistaken, setMistaken] = useState(false);
 
   const cancelButtonRef = useRef(null);
+
+  const repurchaseItem = async (clientData) => {
+    setRepurchaseLoading(true);
+    const tip = "Duplicate";
+    await createItemAction(session.user.email, clientData, tip);
+    toast.success(`${clientData} repurchased!`, {
+      position: "top-center",
+      autoClose: 1250,
+    });
+    setRepurchaseLoading(false);
+  };
 
   const deleteItem = async (data) => {
     setDeleteLoading(true);
@@ -222,7 +236,7 @@ const EditItemForm = ({
         <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md w-64 h-64">
           {item ? (
             <>
-              <h1 className="py-3 text-slate-600 text-lg font-semibold cursor-default">
+              <h1 className="pt-2 text-slate-600 text-lg font-semibold cursor-default">
                 {item.name}
               </h1>
               {editStatus ? (
@@ -271,7 +285,7 @@ const EditItemForm = ({
                   </PopoverContent>
                 </Popover>
               ) : (
-                <h1 className="text-slate-600 cursor-default mb-1">{`Use By: ${
+                <h1 className="text-slate-600 cursor-default">{`Use By: ${
                   item.expiredAt
                     ? item.expiredAt.toLocaleString("en-En", {
                         weekday: "short",
@@ -308,7 +322,7 @@ const EditItemForm = ({
                   }}
                   className="border border-bg-slate-700 py-1 px-2 my-1 rounded-md bg-indigo-600/80 text-white text-sm"
                 >
-                  Set Use By Date
+                  Set Date
                 </button>
               )}
               {editStatus ? null : (
@@ -327,8 +341,22 @@ const EditItemForm = ({
                   </button>
                   {/* <p className=" text-xs font-semibold my-1">Storage Tip:</p> */}
                   <button
+                    disabled={repurchaseLoading}
+                    onClick={() => repurchaseItem(item.name)}
+                    className="flex text-xs text-center text-black border border-black py-1 px-2 my-1 rounded-md"
+                  >
+                    {repurchaseLoading ? (
+                      "Repurchasing..."
+                    ) : (
+                      <>
+                        <p className="pr-1">Repurchase</p>
+                        <PlusIcon className="w-3 text-slate-900" />
+                      </>
+                    )}
+                  </button>
+                  <button
                     onClick={handleMistake}
-                    className=" text-xs my-3 text-center border border-black py-1 px-2 rounded-md"
+                    className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-1 rounded-md"
                   >
                     Added by mistake?
                     {/* {item.storageTip ? item.storageTip : "None available"} */}

@@ -174,6 +174,7 @@ const ItemLogger = ({ items }) => {
 
         <input
           minLength="2"
+          maxLength="25"
           value={customItem}
           onChange={(e) => setCustomItem(e.target.value)}
           placeholder="Add your own"
