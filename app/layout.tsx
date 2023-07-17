@@ -10,8 +10,8 @@ import "react-calendar/dist/Calendar.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Waste-Not",
-  description: "A web app to help users reduce their food waste",
+  title: "Waste-Not App",
+  description: "An app to help reduce your food waste",
 };
 
 export default function RootLayout({
