@@ -12,7 +12,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
         return "bg-green-300/30 hover:bg-green-200/30";
       }
     } else {
-      return "bg-slate-200/30 hover: bg-slate-100/30";
+      return "bg-slate-200/30 hover:bg-slate-100/30";
     }
   };
   return (
@@ -37,7 +37,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
               }}
               key={item.id}
               className={`${calcDaysFrom(item)} relative shadow-md px-4 py-3 
-                focus-within:ring-2 focus-within:ring-green-200 hover:bg-slate-200 rounded-md`}
+                focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
             >
               <div className="flex justify-between space-x-3">
                 <div className="min-w-0 flex-1">
