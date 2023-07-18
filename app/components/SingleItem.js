@@ -57,6 +57,12 @@ const EditItemForm = ({
     setRepurchaseLoading(false);
   };
 
+  const adjustDate = (date) => {
+    date.setHours(date.getHours() + 18);
+
+    return date;
+  };
+
   const deleteItem = async (data) => {
     setDeleteLoading(true);
     await deleteItemAction(data.id);
@@ -85,7 +91,8 @@ const EditItemForm = ({
 
   const updateItem = async (data, newHome) => {
     setUpdateLoading(true);
-    await updateItemAction(data.id, data.name, date, newHome.name);
+    const finalDate = adjustDate(date);
+    await updateItemAction(data.id, data.name, finalDate, newHome.name);
     toast.info(`${data.name} Use By Date set!`, {
       position: "top-center",
       autoClose: 1250,
@@ -233,10 +240,10 @@ const EditItemForm = ({
           </span>
         </div> */}
 
-        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md w-64 h-64">
+        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-md rounded-md w-64 h-80">
           {item ? (
             <>
-              <h1 className="pt-2 text-slate-600 text-lg font-semibold cursor-default">
+              <h1 className="mt-5 text-slate-600 text-lg font-semibold cursor-default">
                 {item.name}
               </h1>
               {editStatus ? (
@@ -285,7 +292,7 @@ const EditItemForm = ({
                   </PopoverContent>
                 </Popover>
               ) : (
-                <h1 className="text-slate-600 cursor-default">{`Use By: ${
+                <h1 className="text-slate-600 cursor-default mb-2">{`Use By: ${
                   item.expiredAt
                     ? item.expiredAt.toLocaleString("en-En", {
                         weekday: "short",
@@ -320,7 +327,7 @@ const EditItemForm = ({
                   onClick={() => {
                     handleEditToggle(true);
                   }}
-                  className="border border-bg-slate-700 py-1 px-2 my-1 rounded-md bg-indigo-600/80 text-white text-sm"
+                  className="border border-bg-slate-700 py-1 px-2 my-2 rounded-md bg-indigo-600/80 text-white text-sm"
                 >
                   Set Date
                 </button>
@@ -329,13 +336,13 @@ const EditItemForm = ({
                 <>
                   <button
                     onClick={() => handleRecipesFetch(item)}
-                    className="border border-bg-slate-700 py-1 px-2 my-1 rounded-md bg-green-500/80 text-white text-sm"
+                    className="border border-bg-slate-700 py-1 px-2 my-2 rounded-md bg-green-500/80 text-white text-sm"
                   >
                     Get Recipes
                   </button>
                   <button
                     onClick={() => setOpen(true)}
-                    className="border border-bg-slate-700 py-1 px-2 my-1 rounded-md bg-red-500/80 text-white text-sm"
+                    className="border border-bg-slate-700 py-1 px-2 my-2 rounded-md bg-red-500/80 text-white text-sm"
                   >
                     Item Finished
                   </button>
@@ -356,7 +363,7 @@ const EditItemForm = ({
                   </button>
                   <button
                     onClick={handleMistake}
-                    className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-1 rounded-md"
+                    className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md"
                   >
                     Added by mistake?
                     {/* {item.storageTip ? item.storageTip : "None available"} */}

@@ -14,7 +14,7 @@ export default function ContactForm() {
         />
       </div>
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold text-orange-600">Contact us</h2>
+        <h2 className="text-4xl font-bold text-orange-600/70">Contact us</h2>
         <p className="mt-2 text-lg leading-8 text-slate-600">
           Have an idea for a great new feature? We&apos;d love to hear about it!
           Found a bug? Help squash it by reporting it in detail!
@@ -84,7 +84,7 @@ export default function ContactForm() {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-orange-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+            className="block w-full rounded-md bg-orange-600/70 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
           >
             Send Message
           </button>

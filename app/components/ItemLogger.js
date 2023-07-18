@@ -77,12 +77,12 @@ const ItemLogger = ({ items }) => {
           <TitleTooltip tooltipText={"Add an item to your list"} />
         </span>
       </div> */}
-      <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-300 to-indigo-200 shadow-md rounded-md p-4">
+      <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-200 to-indigo-200 shadow-md rounded-md p-4">
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (
             <>
               <div className="relative ">
-                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-green-100/40 py-1.5 pl-2 text-left text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-green-300/30 sm:text-sm sm:leading-6">
+                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-green-200/30 py-1.5 pl-2 text-left text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-green-300/30 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
                     <span className="ml-3 text-slate-600 block">
                       {selected}
@@ -151,13 +151,13 @@ const ItemLogger = ({ items }) => {
             </>
           )}
         </Listbox>
-        <div className="mt-3">
+        <div className="mt-4">
           <button
             type="submit"
             onClick={() => addItem(selected)}
             className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
           >
-            <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-green-400 to-indigo-200 transition-all duration-700 group-hover:w-full"></div>
+            <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-400 to-gray-200 transition-all duration-700 group-hover:w-full"></div>
             <span className="relative text-gray-500 group-hover:text-white">
               {loading ? (
                 <div className="flex justify-center items-center">
@@ -170,7 +170,7 @@ const ItemLogger = ({ items }) => {
             </span>
           </button>
         </div>
-        <h2 className=" text-slate-600 my-4">- or -</h2>
+        <h2 className=" text-slate-600 my-8">- or -</h2>
 
         <input
           minLength="2"
@@ -179,16 +179,16 @@ const ItemLogger = ({ items }) => {
           onChange={(e) => setCustomItem(e.target.value)}
           placeholder="Add your own"
           className="relative w-40 cursor-default
-          rounded-md bg-blue-100/40 py-1.5 pl-5 text-slate-600 shadow-sm
+          rounded-md bg-purple-300/30 py-1.5 pl-5 text-slate-600 shadow-sm
           focus:outline-none sm:text-sm sm:leading-6"
         />
 
-        <div className="mt-3">
+        <div className="mt-4">
           <button
             onClick={() => addCustomItem(customItem)}
             className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
           >
-            <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-blue-200 via-slate-600 to-blue-200 transition-all duration-700 group-hover:w-full"></div>
+            <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-purple-200 via-slate-400 to-purple-200 transition-all duration-700 group-hover:w-full"></div>
             <span className="relative text-gray-500 group-hover:text-white">
               {customLoading ? (
                 <div className="flex justify-center items-center">

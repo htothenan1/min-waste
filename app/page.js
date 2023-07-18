@@ -16,7 +16,7 @@ export default async function Home() {
                 <h2 className="text-3xl font-bold tracking-tight text-slate-600 sm:text-4xl">
                   <span className="block">Want to stop wasting food?</span>
                   <span className="block">
-                    Try <span className=" text-orange-600/80">Waste-Not!</span>
+                    Try <span className=" text-orange-600/70">Waste-Not!</span>
                   </span>
                 </h2>
                 <p className="mt-4 text-lg leading-6 text-slate-600">
@@ -44,7 +44,7 @@ export default async function Home() {
       <div className="flex flex-col w-2/3 mx-auto mt-6 bg-slate-50/50">
         <h1 className="text-slate-600 text-center font-semibold my-4 text-2xl md:text-3xl">
           How to get the most out of{" "}
-          <span className="text-orange-600">Waste-Not</span>
+          <span className="text-orange-600/70">Waste-Not</span>
         </h1>
         <p className="my-2 text-green-800 text-sm md:text-base">
           <span className=" font-extrabold">1. Log your kitchen items.</span>{" "}
@@ -64,7 +64,7 @@ export default async function Home() {
             3. Consume your items from the top of your list, first.
           </span>{" "}
           This is our core principle:{" "}
-          <span className="text-orange-600">
+          <span className="text-orange-600/70">
             Always eat what should be eaten next.
           </span>
         </p>
@@ -90,7 +90,7 @@ export default async function Home() {
           absurd? That wasted food also makes up 20 percent of all landfills,
           which produces extreme amounts of methane gas (look up{" "}
           <Link
-            className="text-orange-600"
+            className="text-orange-600/70"
             href={
               "https://www.epa.gov/lmop/basic-information-about-landfill-gas"
             }

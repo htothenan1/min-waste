@@ -12,7 +12,7 @@ export default async function FoodForThought() {
     <>
       <NavBar user={user?.name} />
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
-        <h1 className=" text-orange-600 font-bold text-4xl">
+        <h1 className=" text-orange-600/70 font-bold text-4xl">
           Food For Thought
         </h1>
         <p className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 md:w-1/2">

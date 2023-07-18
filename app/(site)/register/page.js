@@ -149,7 +149,7 @@ export default function Register() {
                 <span>
                   <a
                     href="/login"
-                    className="font-semibold text-green-500 hover:text-orange-600"
+                    className="font-semibold text-green-500/70 hover:text-orange-600/70"
                   >
                     Sign in here!
                   </a>

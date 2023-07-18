@@ -134,28 +134,28 @@ const NavBar = ({ user }) => {
               <Disclosure.Button
                 as="a"
                 href="dashboard"
-                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600"
+                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600/70"
               >
                 Dashboard
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="food-for-thought"
-                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600"
+                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600/70"
               >
                 Food For Thought
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="resources"
-                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600"
+                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600/70"
               >
                 Resources
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="contact"
-                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600"
+                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600/70"
               >
                 Contact Us
               </Disclosure.Button>

@@ -1,6 +1,20 @@
 import TitleTooltip from "../common/TitleTooltip";
 
 const ItemsList = ({ items, handleSelectItem }) => {
+  const calcDaysFrom = (data) => {
+    if (data.expiredAt) {
+      const daysFrom =
+        (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24);
+
+      if (daysFrom < 2) {
+        return "bg-red-300/30 hover:bg-red-200";
+      } else {
+        return "bg-green-300/30 hover:bg-green-200/30";
+      }
+    } else {
+      return "bg-slate-200/30 hover: bg-slate-100/30";
+    }
+  };
   return (
     <div className="m-6">
       {/* <div className="flex justify-center"> */}
@@ -12,14 +26,18 @@ const ItemsList = ({ items, handleSelectItem }) => {
 
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-64 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-red-100 via-orange-100 to-gray-100 shadow-md rounded-md overflow-scroll w-36"
+        className="flex flex-col divide-y divide-gray-200 h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-100 via-slate-100 to-gray-100 shadow-md rounded-md overflow-scroll w-36"
       >
         {items.length ? (
           items.map((item) => (
             <li
-              onClick={() => handleSelectItem(item)}
+              onClick={() => {
+                handleSelectItem(item);
+                console.log("yay gettin it done");
+              }}
               key={item.id}
-              className="relative bg-white/60 shadow-md px-4 py-3 focus-within:ring-2 focus-within:ring-green-400 hover:bg-orange-300 rounded-md"
+              className={`${calcDaysFrom(item)} relative shadow-md px-4 py-3 
+                focus-within:ring-2 focus-within:ring-green-200 hover:bg-slate-200 rounded-md`}
             >
               <div className="flex justify-between space-x-3">
                 <div className="min-w-0 flex-1">

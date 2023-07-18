@@ -14,7 +14,7 @@ export default async function Home() {
     <>
       <NavBar user={user?.name} />
       <div className="bg-slate-50/50 py-12">
-        <h1 className=" text-orange-600 font-bold text-4xl text-center">
+        <h1 className=" text-orange-600/70 font-bold text-4xl text-center">
           Dashboard
         </h1>
         <h1 className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 mx-auto">
@@ -24,7 +24,7 @@ export default async function Home() {
         <div className="flex flex-col w-2/3 m-auto bg-slate-50/50 my-12">
           <h1 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
             How to get the most out of{" "}
-            <span className="text-orange-600">Waste-Not</span>
+            <span className="text-orange-600/70">Waste-Not</span>
           </h1>
           <p className="my-2 text-green-800 text-sm md:text-base">
             <span className=" font-extrabold">1. Log your kitchen items.</span>{" "}
@@ -44,7 +44,7 @@ export default async function Home() {
               3. Consume your items from the top of your list, first.
             </span>{" "}
             This is our core principle:{" "}
-            <span className="text-orange-600">
+            <span className="text-orange-600/70">
               Always eat what should be eaten next.
             </span>
           </p>
