@@ -12,7 +12,7 @@ const SingleRecipe = ({ recipe }) => {
         </span>
       </div> */}
 
-      <div className=" flex flex-col bg-gradient-to-t from-orange-100 to-red-100 shadow-lg rounded-md w-64 h-80 overflow-scroll">
+      <div className=" flex flex-col bg-gradient-to-t from-red-100 to-red-200 shadow-lg rounded-md w-64 h-80 overflow-scroll">
         {recipe ? (
           <>
             <div className="flex items-center">

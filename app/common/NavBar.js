@@ -20,7 +20,7 @@ const CustomLink = ({ href, title, className = "" }) => {
     <Link href={href} className={`${className} relative group`}>
       {title}
       <span
-        className={` h-[2px] inline-block bg-orange-600 absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 
+        className={` h-[2px] inline-block bg-orange-600/70 absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 
         ${pathname === href ? "w-full" : "w-0"}
         `}
       >
@@ -38,7 +38,7 @@ const NavBar = ({ user }) => {
           <div className="mx-8">
             <div className="relative flex justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600/70">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -86,7 +86,7 @@ const NavBar = ({ user }) => {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-offset-2">
+                    <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-600/70 focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
                       <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
                         <span className="text-lg font-medium leading-none text-white">

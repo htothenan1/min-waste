@@ -44,7 +44,7 @@ const GuestNavBar = () => {
 
               <Menu as="div" className="relative ml-3">
                 <div>
-                  <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+                  <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/70 focus:ring-offset-2">
                     <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
                       <span className="text-md font-medium leading-none text-white">
                         Go!

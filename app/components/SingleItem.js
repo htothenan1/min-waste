@@ -240,7 +240,7 @@ const EditItemForm = ({
           </span>
         </div> */}
 
-        <div className="flex flex-col items-center bg-gradient-to-br from-[#e1dffb] to-[#fcf2f2] shadow-lg rounded-md w-64 h-80">
+        <div className="flex flex-col items-center bg-gradient-to-br from-[#d0cdfc] to-[#fcf2f2] shadow-lg rounded-md w-64 h-80">
           {item ? (
             <>
               <h1 className="mt-5 text-slate-600 text-lg font-semibold cursor-default">
@@ -308,8 +308,8 @@ const EditItemForm = ({
                   onClick={() => {
                     updateItem(item, item.name, selected);
                   }}
-                  className={`border border-bg-slate-700 my-3 py-1 px-2 rounded-md ${
-                    updateLoading ? "bg-slate-400" : "bg-indigo-600/80"
+                  className={`shadow-lg my-3 py-1 px-2 rounded-md ${
+                    updateLoading ? "bg-slate-400" : "bg-indigo-500/80"
                   }   text-white text-sm`}
                 >
                   {updateLoading ? (
@@ -327,7 +327,7 @@ const EditItemForm = ({
                   onClick={() => {
                     handleEditToggle(true);
                   }}
-                  className="py-1 px-2 my-2 rounded-md bg-indigo-600/80 text-white text-sm shadow-lg"
+                  className="py-1 px-2 my-2 rounded-md bg-indigo-500/80 text-white text-sm shadow-lg"
                 >
                   Set Date
                 </button>
@@ -336,13 +336,13 @@ const EditItemForm = ({
                 <>
                   <button
                     onClick={() => handleRecipesFetch(item)}
-                    className="py-1 px-2 my-2 rounded-md bg-green-500/80 text-white text-sm shadow-lg"
+                    className="py-1 px-2 my-2 rounded-md bg-orange-400/70 text-white text-sm shadow-lg"
                   >
                     Get Recipes
                   </button>
                   <button
                     onClick={() => setOpen(true)}
-                    className="py-1 px-2 my-2 rounded-md bg-red-500/80 text-white text-sm shadow-lg"
+                    className="py-1 px-2 my-2 rounded-md bg-red-500/70 text-white text-sm shadow-lg"
                   >
                     Item Finished
                   </button>
