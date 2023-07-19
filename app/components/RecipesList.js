@@ -14,14 +14,14 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
 
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-md rounded-md overflow-scroll w-64"
+        className="flex flex-col divide-y divide-gray-200 h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-emerald-100 to-yellow-100 shadow-lg rounded-md overflow-scroll w-64"
       >
         {recipes ? (
           recipes.map((recipe) => (
             <li
               onClick={() => handleSelectRecipe(recipe.recipe)}
               key={recipe.id}
-              className="relative bg-white/60 shadow-md px-4 py-3 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-300/30 hover:bg-green-300/30 rounded-md"
+              className="relative bg-white/60 shadow-lg px-4 py-3 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-300/30 hover:bg-green-300/30 rounded-md"
             >
               <div className="flex justify-between space-x-3">
                 <div className="min-w-0 flex-1">

@@ -26,7 +26,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
 
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-100 via-slate-100 to-gray-100 shadow-md rounded-md overflow-scroll w-36"
+        className="flex flex-col divide-y divide-gray-200 h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-100 via-slate-100 to-gray-100 shadow-lg rounded-md overflow-scroll w-36"
       >
         {items.length ? (
           items.map((item) => (
@@ -36,7 +36,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
                 console.log("yay gettin it done");
               }}
               key={item.id}
-              className={`${calcDaysFrom(item)} relative shadow-md px-4 py-3 
+              className={`${calcDaysFrom(item)} relative shadow-lg px-4 py-3 
                 focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
             >
               <div className="flex justify-between space-x-3">

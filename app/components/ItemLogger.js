@@ -77,12 +77,12 @@ const ItemLogger = ({ items }) => {
           <TitleTooltip tooltipText={"Add an item to your list"} />
         </span>
       </div> */}
-      <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-200 to-indigo-200 shadow-md rounded-md p-4">
+      <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-200 to-indigo-200 shadow-lg rounded-md p-4">
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (
             <>
               <div className="relative ">
-                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-green-200/30 py-1.5 pl-2 text-left text-slate-600 shadow-md focus:outline-none sm:text-sm sm:leading-6">
+                <Listbox.Button className="relative w-40 cursor-default rounded-md shadow-lg bg-green-200/30 py-1.5 pl-2 text-left outline outline-1 outline-slate-400 text-slate-600 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
                     <span className="ml-3 text-slate-600 block">
                       {selected}
@@ -179,8 +179,8 @@ const ItemLogger = ({ items }) => {
           onChange={(e) => setCustomItem(e.target.value)}
           placeholder="Add your own"
           className="relative w-40 cursor-default
-          rounded-md bg-green-200/30 py-1.5 pl-5 text-slate-600 shadow-md
-          focus:outline-none sm:text-sm sm:leading-6"
+         bg-green-200/30 rounded-md shadow-lg py-1.5 pl-5 outline outline-1 outline-slate-400 text-slate-600
+          sm:text-sm sm:leading-6"
         />
 
         <div className="mt-4">
