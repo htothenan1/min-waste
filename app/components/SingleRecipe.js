@@ -41,22 +41,26 @@ const SingleRecipe = ({ recipe }) => {
               <h2 className="text-slate-600 underline font-light">
                 Ingredients
               </h2>
-              <ul className="list-inside">
-                {recipe.extendedIngredients.map((ingredient) => (
-                  <li
-                    key={ingredient.id}
-                    className="text-sm text-slate-600 list-disc"
-                  >
-                    {ingredient.original}
-                  </li>
-                ))}
-              </ul>
+              {recipe.extendedIngredients ? (
+                <ul className="list-inside">
+                  {recipe.extendedIngredients.map((ingredient) => (
+                    <li
+                      key={ingredient.id}
+                      className="text-sm text-slate-600 list-disc"
+                    >
+                      {ingredient.original}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                "Sorry, ingredients not available"
+              )}
               <h2 className="text-slate-600 underline font-light">
                 Instructions
               </h2>
-              <ol className=" list-inside">
-                {recipe.analyzedInstructions ? (
-                  <>
+              {recipe.analyzedInstructions[0].steps ? (
+                <>
+                  <ol className=" list-inside">
                     {recipe.analyzedInstructions[0].steps.map((step) => (
                       <li
                         className="text-sm text-slate-600 px-1 list-decimal"
@@ -65,11 +69,16 @@ const SingleRecipe = ({ recipe }) => {
                         {step.step}
                       </li>
                     ))}
-                  </>
-                ) : (
-                  "no instructions available"
-                )}
-              </ol>
+                  </ol>
+                </>
+              ) : (
+                <p>
+                  Sorry, not available.{" "}
+                  <Link href={recipe.sourceUrl}>
+                    Click here to visit the source!
+                  </Link>
+                </p>
+              )}
             </div>
           </>
         ) : (
