@@ -82,7 +82,7 @@ const ItemLogger = ({ items }) => {
           {({ open }) => (
             <>
               <div className="relative ">
-                <Listbox.Button className="relative w-40 cursor-default rounded-md shadow-lg bg-green-200/30 py-1.5 pl-2 text-left outline outline-1 outline-slate-400 text-slate-600 sm:text-sm sm:leading-6">
+                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-green-200/30 py-1.5 pl-2 text-left outline outline-1 outline-slate-400 text-slate-600 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
                     <span className="ml-3 text-slate-600 block">
                       {selected}
@@ -179,7 +179,7 @@ const ItemLogger = ({ items }) => {
           onChange={(e) => setCustomItem(e.target.value)}
           placeholder="Add your own"
           className="relative w-40 cursor-default
-         bg-green-200/30 rounded-md shadow-lg py-1.5 pl-5 outline outline-1 outline-slate-400 text-slate-600
+         bg-green-200/30 rounded-md py-1.5 pl-5 outline outline-1 outline-slate-400 text-slate-600
           sm:text-sm sm:leading-6"
         />
 
