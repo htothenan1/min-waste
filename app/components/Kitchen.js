@@ -6,12 +6,14 @@ import SingleItem from "./SingleItem";
 import RecipesList from "./RecipesList";
 import SingleRecipe from "./SingleRecipe";
 import ItemLogger from "./ItemLogger";
+import { thought } from "../data/thoughts";
 
 const Kitchen = ({ items }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [fetchedRecipes, setFetchedRecipes] = useState(null);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [editMode, setEditMode] = useState(false);
+  const [currentThought, setCurrentThought] = useState("");
 
   const handleSelectItem = (data) => {
     setSelectedItem(data);
@@ -34,17 +36,18 @@ const Kitchen = ({ items }) => {
   };
 
   useEffect(() => {
+    const randomIdx = Math.floor(Math.random() * thought.length);
     setSelectedItem(null);
     setFetchedRecipes(null);
+    setCurrentThought(thought[randomIdx]);
   }, [items]);
 
   return (
     <div className="flex justify-center flex-wrap bg-slate-50/50 mt-12">
       {editMode ? (
         <div className="flex flex-col justify-center items-center w-64 h-64 m-20 my-20">
-          <div className=" text-center">
-            LOGGER AND LIST DISABLED WHILE IN EDIT MODE
-          </div>
+          <div className=" text-center">{currentThought}</div>
+          {/* <div className=" text-center">this works</div> */}
         </div>
       ) : (
         <>

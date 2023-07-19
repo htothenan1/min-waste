@@ -50,7 +50,7 @@ export default async function FoodForThought() {
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
           <iframe
-            className="rounded-md shadow-md mx-auto max-w-xs md:max-w-lg"
+            className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
             width="560"
             height="315"
             src="https://www.youtube.com/embed/6RlxySFrkIM"
@@ -62,7 +62,7 @@ export default async function FoodForThought() {
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
           <iframe
-            className="rounded-md shadow-md mx-auto max-w-xs md:max-w-lg"
+            className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
             width="560"
             height="315"
             src="https://www.youtube.com/embed/VgUYTgwPKn8"
