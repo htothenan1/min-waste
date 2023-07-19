@@ -16,7 +16,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
     }
   };
   return (
-    <div className="m-6">
+    <div className="m-6 mb-2">
       {/* <div className="flex justify-center"> */}
       <h2 className="text-center pb-1">Items List</h2>
       {/* <span>
@@ -26,15 +26,12 @@ const ItemsList = ({ items, handleSelectItem }) => {
 
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-100 via-slate-100 to-gray-100 shadow-lg rounded-md overflow-scroll w-36"
+        className="flex flex-col divide-y divide-gray-200 h-60 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-100 via-slate-100 to-gray-100 shadow-lg rounded-md overflow-scroll w-36"
       >
         {items.length ? (
           items.map((item) => (
             <li
-              onClick={() => {
-                handleSelectItem(item);
-                console.log("yay gettin it done");
-              }}
+              onClick={() => handleSelectItem(item)}
               key={item.id}
               className={`${calcDaysFrom(item)} relative shadow-lg px-4 py-3 
                 focus-within:ring-2 focus-within:ring-green-200 rounded-md`}

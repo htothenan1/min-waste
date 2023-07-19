@@ -27,24 +27,49 @@ const SingleRecipe = ({ recipe }) => {
                 alt="A picture of the selected recipe"
               />
               <div className="px-2">
-                <Link
+                <h2 className="text-slate-600 font-semibold">{recipe.title}</h2>
+                {/* <Link
                   href={recipe.url}
                   target="_blank"
                   className="text-slate-600 font-semibold"
                 >
                   {recipe.label}
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="my-2 px-4">
               <h2 className="text-slate-600 underline font-light">
                 Ingredients
               </h2>
-              {recipe.ingredientLines.map((line) => (
-                <p key={line.id} className="text-sm text-slate-600">
-                  {line}
-                </p>
-              ))}
+              <ul className="list-inside">
+                {recipe.extendedIngredients.map((ingredient) => (
+                  <li
+                    key={ingredient.id}
+                    className="text-sm text-slate-600 list-disc"
+                  >
+                    {ingredient.original}
+                  </li>
+                ))}
+              </ul>
+              <h2 className="text-slate-600 underline font-light">
+                Instructions
+              </h2>
+              <ol className=" list-inside">
+                {recipe.analyzedInstructions ? (
+                  <>
+                    {recipe.analyzedInstructions[0].steps.map((step) => (
+                      <li
+                        className="text-sm text-slate-600 px-1 list-decimal"
+                        key={step.id}
+                      >
+                        {step.step}
+                      </li>
+                    ))}
+                  </>
+                ) : (
+                  "no instructions available"
+                )}
+              </ol>
             </div>
           </>
         ) : (

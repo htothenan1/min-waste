@@ -15,24 +15,67 @@ const Kitchen = ({ items }) => {
   const [editMode, setEditMode] = useState(false);
   const [currentThought, setCurrentThought] = useState("");
 
+  const calcDaysFrom = (data) => {
+    const daysFrom =
+      (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24);
+
+    return daysFrom;
+  };
+
+  const fetchRedItemRecipes = (data) => {
+    const redItems = data.filter((item) => calcDaysFrom(item) < 2);
+    let namesArray = [];
+    redItems.map((item) => namesArray.push(item.name));
+    const finalString = namesArray.join(",+");
+    fetch(
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=757d368ebb304fb3bf99a64e38c11942&ingredients=${finalString}`
+    )
+      .then((response) => response.json())
+      .then((resItems) => setFetchedRecipes(resItems));
+
+    // const redItemRecipes = res.json();
+    // console.log(redItemRecipes);
+  };
+
   const handleSelectItem = (data) => {
     setSelectedItem(data);
   };
 
   const handleSelectRecipe = (data) => {
-    setSelectedRecipe(data);
+    // fetch(
+    `https://api.spoonacular.com/recipes/${data}/information?apiKey=757d368ebb304fb3bf99a64e38c11942&includeNutrition=false`;
+    // )
+    //   .then((response) => response.json)
+    //   .then((res) => console.log(res));
+    // console.log(data);
+    fetch(
+      `https://api.spoonacular.com/recipes/${data}/information?apiKey=757d368ebb304fb3bf99a64e38c11942&includeNutrition=false`
+    )
+      .then((res) => res.json())
+      .then((recipe) => {
+        setSelectedRecipe(recipe);
+      });
+    // setSelectedRecipe(data);
   };
 
-  const fetchRecipes = async () => {
-    const res = await fetch(
-      `https://api.edamam.com/api/recipes/v2?type=public&q=${selectedItem.name}&app_id=53197589&app_key=e5b705b274508e7de4de1f3a3a726545&diet=balanced&random=true`
-    );
+  const fetchRecipes = () => {
+    // const res = fetch(
+    //   `https://api.edamam.com/api/recipes/v2?type=public&q=${selectedItem.name}&app_id=53197589&app_key=e5b705b274508e7de4de1f3a3a726545&diet=balanced&random=true`
+    // );
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    const recipes = await res.json();
-    setFetchedRecipes(recipes.hits);
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=757d368ebb304fb3bf99a64e38c11942&query=${selectedItem.name}`
+    )
+      .then((res) => res.json())
+      .then((recipes) => {
+        setFetchedRecipes(recipes.results);
+      });
+
+    // if (!res.ok) {
+    //   throw new Error("Failed to fetch data");
+    // }
+    // const recipes =  res.json();
+    // setFetchedRecipes(recipes.hits);
   };
 
   useEffect(() => {
@@ -52,11 +95,19 @@ const Kitchen = ({ items }) => {
       ) : (
         <>
           <ItemLogger items={items} editStatus={editMode} />
-          <ItemsList
-            editStatus={editMode}
-            items={items}
-            handleSelectItem={handleSelectItem}
-          />
+          <div className="flex flex-col items-center">
+            <ItemsList
+              editStatus={editMode}
+              items={items}
+              handleSelectItem={handleSelectItem}
+            />
+            <button
+              onClick={() => fetchRedItemRecipes(items)}
+              className="py-1 px-2 my-2 rounded-md bg-red-500/50 text-white text-sm shadow-lg"
+            >
+              Red Item Recipes
+            </button>
+          </div>
         </>
       )}
 

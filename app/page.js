@@ -47,7 +47,9 @@ export default async function Home() {
           <span className="text-orange-600/70">Waste-Not</span>
         </h1>
         <p className="my-2 text-green-800 text-sm md:text-base">
-          <span className=" font-extrabold">1. Log your kitchen items.</span>{" "}
+          <span className=" font-extrabold">
+            1. Log your kitchen items regularly.
+          </span>{" "}
           The more accurate you keep your Items List, the more effective the app
           will be.
         </p>

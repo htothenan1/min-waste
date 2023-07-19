@@ -19,7 +19,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
         {recipes && recipes.length > 0 ? (
           recipes.map((recipe) => (
             <li
-              onClick={() => handleSelectRecipe(recipe.recipe)}
+              onClick={() => handleSelectRecipe(recipe.id)}
               key={recipe.id}
               className="relative shadow-lg px-4 py-3 hover:bg-orange-100/50 rounded-md"
             >
@@ -28,7 +28,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
                   <a className="block focus:outline-none">
                     <span className="absolute inset-0" aria-hidden="true" />
                     <p className="truncate cursor-default text-sm font-medium text-slate-600">
-                      {recipe.recipe.label}
+                      {recipe.title}
                     </p>
                   </a>
                 </div>
