@@ -63,7 +63,7 @@ export default async function Home() {
           <p className="my-2 text-slate-600 text-sm md:text-base">
             <span className="font-extrabold">5. Take it with you.</span> Our app
             is mobile friendly, so use it as a grocery shopping tool. Never
-            double buy an item again!
+            double-buy an item again!
           </p>
         </div>
       </div>

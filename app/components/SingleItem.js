@@ -240,7 +240,7 @@ const EditItemForm = ({
           </span>
         </div> */}
 
-        <div className="flex flex-col items-center bg-gradient-to-br from-[#d0cdfc] to-[#fcf2f2] shadow-lg rounded-md w-64 h-80">
+        <div className="flex flex-col items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-64 h-80">
           {item ? (
             <>
               <h1 className="mt-5 text-slate-600 text-lg font-semibold cursor-default">
