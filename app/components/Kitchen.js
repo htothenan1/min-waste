@@ -23,7 +23,9 @@ const Kitchen = ({ items }) => {
   };
 
   const fetchRedItemRecipes = (data) => {
-    const redItems = data.filter((item) => calcDaysFrom(item) < 2);
+    const redItems = data.filter(
+      (item) => item.expiredAt && calcDaysFrom(item) < 2
+    );
     let namesArray = [];
     redItems.map((item) => namesArray.push(item.name));
     const finalString = namesArray.join(",+");
@@ -32,9 +34,6 @@ const Kitchen = ({ items }) => {
     )
       .then((response) => response.json())
       .then((resItems) => setFetchedRecipes(resItems));
-
-    // const redItemRecipes = res.json();
-    // console.log(redItemRecipes);
   };
 
   const handleSelectItem = (data) => {
@@ -42,12 +41,6 @@ const Kitchen = ({ items }) => {
   };
 
   const handleSelectRecipe = (data) => {
-    // fetch(
-    `https://api.spoonacular.com/recipes/${data}/information?apiKey=757d368ebb304fb3bf99a64e38c11942&includeNutrition=false`;
-    // )
-    //   .then((response) => response.json)
-    //   .then((res) => console.log(res));
-    // console.log(data);
     fetch(
       `https://api.spoonacular.com/recipes/${data}/information?apiKey=757d368ebb304fb3bf99a64e38c11942&includeNutrition=false`
     )
@@ -55,14 +48,9 @@ const Kitchen = ({ items }) => {
       .then((recipe) => {
         setSelectedRecipe(recipe);
       });
-    // setSelectedRecipe(data);
   };
 
   const fetchRecipes = () => {
-    // const res = fetch(
-    //   `https://api.edamam.com/api/recipes/v2?type=public&q=${selectedItem.name}&app_id=53197589&app_key=e5b705b274508e7de4de1f3a3a726545&diet=balanced&random=true`
-    // );
-
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=757d368ebb304fb3bf99a64e38c11942&query=${selectedItem.name}`
     )
@@ -70,12 +58,6 @@ const Kitchen = ({ items }) => {
       .then((recipes) => {
         setFetchedRecipes(recipes.results);
       });
-
-    // if (!res.ok) {
-    //   throw new Error("Failed to fetch data");
-    // }
-    // const recipes =  res.json();
-    // setFetchedRecipes(recipes.hits);
   };
 
   useEffect(() => {
@@ -88,9 +70,8 @@ const Kitchen = ({ items }) => {
   return (
     <div className="flex justify-center flex-wrap bg-slate-50/50 mt-12">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-64 h-64 m-20 my-20">
+        <div className="flex flex-col justify-center items-center w-64 h-80 m-20 my-20">
           <div className=" text-center">{currentThought}</div>
-          {/* <div className=" text-center">this works</div> */}
         </div>
       ) : (
         <>

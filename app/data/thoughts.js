@@ -3,7 +3,7 @@ export const thought = [
   "1.3B tons of food is wasted every year",
   "The annual cost of food waste globally is 1 trillion dollars",
   "Food production is the single biggest cause of deforestation, water extraction, habitat loss, biodiversity loss",
-  "The people that are connected with their food learn to respect it. You don’t throw away something that you consider valuable and important",
+  "The people that are connected with their food learn to respect it. You don’t throw away something that you consider valuable and important.",
   `“Every cuisine that has lasted generations, they all have dishes that would be called wasted, but in fact are iconic cultural dishes.” - Dan Barber`,
   `10 million tons of produce go unharvested each year`,
   `“You can fight against food waste for several reasons. For me, the most important one is feeding the hungry people.” -Lia Celi`,

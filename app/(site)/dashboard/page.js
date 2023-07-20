@@ -43,7 +43,7 @@ export default async function Home() {
           </p>
           <p className="my-2 text-slate-600 text-sm md:text-base">
             <span className="font-extrabold">
-              3. Consume your items from the top of your list, first.
+              3. Consume your items from the top of the list, first.
             </span>{" "}
             Try to always eat what should be eaten next. If your item has a{" "}
             <span className="text-red-500/70">red background</span>, that means
