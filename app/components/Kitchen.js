@@ -70,7 +70,7 @@ const Kitchen = ({ items }) => {
   return (
     <div className="flex justify-center flex-wrap bg-slate-50/50 mt-12">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-64 h-80 m-20 my-20">
+        <div className="flex flex-col justify-center items-center w-80 h-80 m-20 my-20">
           <div className=" text-center">{currentThought}</div>
         </div>
       ) : (

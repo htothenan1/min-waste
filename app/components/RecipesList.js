@@ -14,7 +14,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
 
       <ul
         role="list"
-        className="flex flex-col divide-y h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-orange-200 via-orange-200 to-yellow-100 shadow-lg rounded-md overflow-scroll w-64"
+        className="flex flex-col divide-y h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-orange-200 via-orange-200 to-yellow-100 shadow-lg rounded-md overflow-scroll w-80"
       >
         {recipes && recipes.length > 0 ? (
           recipes.map((recipe) => (

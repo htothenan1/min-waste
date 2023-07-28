@@ -67,6 +67,11 @@ const NavBar = ({ user }) => {
                     className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
                   />
                   <CustomLink
+                    href={"/learn"}
+                    title={"Learn"}
+                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
+                  />
+                  <CustomLink
                     href={"/food-for-thought"}
                     title={"Food For Thought"}
                     className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
@@ -137,6 +142,13 @@ const NavBar = ({ user }) => {
                 className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600/70"
               >
                 Dashboard
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href="learn"
+                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600/70"
+              >
+                Learn
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
