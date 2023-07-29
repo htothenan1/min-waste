@@ -61,12 +61,12 @@ export default async function FoodForThought() {
               Now that you&apos;ve learned how to preserve and protect your food
               items, it&apos;s time to learn the basics of cooking those
               deliciously kept ingredients! By the end of this step, you will
-              become an expert in preparing what we call the "4 S&apos;s of
-              consuming your stuff": Smoothies, Salads, Soups and Stirfries. The
-              focus will be on the logical side of combining ingredients, as
-              opposed to learning specific and advanced recipes. We want you to
-              be completely comfortable knowing what to cook, no matter what you
-              have in the fridge.
+              become an expert in preparing what we call the &quot;4 S&apos;s of
+              consuming your stuff&quot;: Smoothies, Salads, Soups and
+              Stirfries. The focus will be on the logical side of combining
+              ingredients, as opposed to learning specific and advanced recipes.
+              We want you to be completely comfortable knowing what to cook, no
+              matter what you have in the fridge.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
@@ -91,8 +91,8 @@ export default async function FoodForThought() {
               transport, and at the grocery store levels. Although it may seem
               like consumer behaviors and attitutes are unrelated to these
               losses, our fifth step will attempt to prove otherwise. We will
-              show how forces, such as consumer demands for "perfect" food, are
-              causing those very losses along the chain.
+              show how forces, such as consumer demands for &quot;perfect&quot;
+              food, are causing those very losses along the chain.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
