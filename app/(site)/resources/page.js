@@ -21,10 +21,10 @@ export default async function Resources() {
       <NavBar user={user?.name} />
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
         <h1 className=" text-orange-600/70 font-bold text-4xl">Resources</h1>
-        <p className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 md:w-1/2">
+        <h2 className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 md:w-1/2">
           These are the organizations and projects that helped define the goals
           and values of this app. They deserve a closer look!
-        </p>
+        </h2>
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-wrap -m-4">
             <div class="lg:w-1/3 sm:w-1/2 p-4">
@@ -40,9 +40,9 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
                     ReFED
-                  </h1>
+                  </h2>
                   <p class="leading-relaxed">
                     ReFED is a national nonprofit dedicated to ending food loss
                     and waste by advancing data-driven solutions.
@@ -63,9 +63,9 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
                     The Global Foodbanking Network
-                  </h1>
+                  </h2>
                   <p class="leading-relaxed">
                     Hunger Relief Now. Powering Communities. Advancing Food
                     Banks. Helping connect people to safe food.
@@ -89,9 +89,9 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
                     The Farmlink Project
-                  </h1>
+                  </h2>
                   <p class="leading-relaxed">
                     Their mission is to make the worlds abundance of produce
                     accessible to everyone.
@@ -117,9 +117,9 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
                     Feeding America
-                  </h1>
+                  </h2>
                   <p class="leading-relaxed">
                     Feeding America is the largest charity working to end hunger
                     in the United States.
@@ -143,9 +143,9 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
                     Food Waste Reduction Alliance
-                  </h1>
+                  </h2>
                   <p class="leading-relaxed">
                     FWRA’s objectives are to reduce our environmental footprint
                     while helping those suffering from hunger.
@@ -166,9 +166,9 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
                     James Beard Foundation
-                  </h1>
+                  </h2>
                   <p class="leading-relaxed">
                     A nonprofit organization whose mission is to support the
                     people behind America’s food culture
@@ -178,7 +178,6 @@ export default async function Resources() {
             </div>
           </div>
         </div>
-        ;
       </div>
       <Footer />
     </>

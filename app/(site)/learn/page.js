@@ -19,16 +19,15 @@ export default async function FoodForThought() {
       <NavBar user={user?.name} />
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
         <h1 className=" text-orange-600/70 font-bold text-4xl">Learn</h1>
-        <h1 className=" text-slate-600/70 font-bold text-2xl">
+        <h2 className=" text-slate-600/70 font-bold text-2xl">
           *Currently In Development*
-        </h1>
+        </h2>
 
         <p className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 md:w-1/2">
           Our 5-step process for improving your food waste behavior. Designed to
           be a practical, holistic approach that users can utilize to see real
           change in their food waste behaviors.
         </p>
-        {/* <div className=" w-3/4"> */}
         <Accordion type="single" collapsible className=" w-full md:w-1/2 my-20">
           <AccordionItem value="item-1">
             <AccordionTrigger>1. Prep your Kitchen</AccordionTrigger>
@@ -96,7 +95,6 @@ export default async function FoodForThought() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-        {/* </div> */}
       </div>
       <Footer />
     </>

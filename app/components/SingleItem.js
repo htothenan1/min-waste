@@ -236,9 +236,9 @@ const EditItemForm = ({
         <div className="flex flex-col items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-80 h-80">
           {item ? (
             <>
-              <h1 className="mt-5 text-slate-600 text-lg font-semibold cursor-default">
+              <h2 className="mt-5 text-slate-600 text-lg font-semibold cursor-default">
                 {item.name}
-              </h1>
+              </h2>
               {editStatus ? (
                 <Popover>
                   <PopoverTrigger asChild on>
@@ -285,7 +285,7 @@ const EditItemForm = ({
                   </PopoverContent>
                 </Popover>
               ) : (
-                <h1 className="text-slate-600 cursor-default mb-2">{`Use By: ${
+                <h2 className="text-slate-600 cursor-default mb-2">{`Use By: ${
                   item.expiredAt
                     ? item.expiredAt.toLocaleString("en-En", {
                         weekday: "short",
@@ -293,7 +293,7 @@ const EditItemForm = ({
                         day: "numeric",
                       })
                     : "Not set"
-                }`}</h1>
+                }`}</h2>
               )}
 
               {editStatus ? (
@@ -363,9 +363,9 @@ const EditItemForm = ({
               )}
             </>
           ) : (
-            <h1 className="text-center my-auto cursor-default text-slate-600">
+            <h2 className="text-center my-auto cursor-default text-slate-600">
               No item selected
-            </h1>
+            </h2>
           )}
         </div>
       </div>

@@ -15,17 +15,17 @@ export default async function Home() {
       <NavBar user={user?.name} />
       <div className="bg-slate-50/50 py-12">
         <div className="flex flex-col items-center">
-          <h2 className=" text-orange-600/70 font-bold text-4xl">Dashboard</h2>
+          <h1 className=" text-orange-600/70 font-bold text-4xl">Dashboard</h1>
           <h2 className="my-2 text-slate-600 text-md md:text-lg">
             {`${user?.name} has consumed ` + itemsCount + ` complete items!`}
           </h2>
         </div>
         <Kitchen items={user?.items} />
         <div className="flex flex-col w-2/3 m-auto bg-slate-50/50 my-12">
-          <h1 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
+          <h2 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
             How to get the most out of{" "}
             <span className="text-orange-600/70">Waste-Not</span>
-          </h1>
+          </h2>
           <p className="my-2 text-slate-600 text-sm md:text-base">
             <span className=" font-extrabold">
               1. Log your kitchen items regularly.

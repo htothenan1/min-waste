@@ -13,12 +13,12 @@ export default async function Home() {
           <div className="overflow-hidden rounded-lg bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-blue-100 to-yellow-100 shadow-lg lg:grid lg:grid-cols-2 lg:gap-4">
             <div className="px-6 pb-12 pt-10 sm:px-16 sm:pt-16 lg:py-16 lg:pr-0 xl:px-20 xl:py-20">
               <div className="lg:self-center">
-                <h2 className="text-3xl font-bold tracking-tight text-slate-600 sm:text-4xl">
+                <h1 className="text-3xl font-bold tracking-tight text-slate-600 sm:text-4xl">
                   <span className="block">Want to stop wasting food?</span>
                   <span className="block">
                     Try <span className=" text-orange-600/70">Waste-Not!</span>
                   </span>
-                </h2>
+                </h1>
                 <p className="mt-4 text-lg leading-6 text-slate-600">
                   Our app will help improve your behavior, reduce your food
                   waste, and start saving you money today.
@@ -42,10 +42,10 @@ export default async function Home() {
         </div>
       </div>
       <div className="flex flex-col w-2/3 mx-auto mt-6 bg-slate-50/50">
-        <h1 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
+        <h2 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
           How to get the most out of{" "}
           <span className="text-orange-600/70">Waste-Not</span>
-        </h1>
+        </h2>
         <p className="my-2 text-slate-600 text-sm md:text-base">
           <span className=" font-extrabold">
             1. Log your kitchen items regularly.
@@ -86,9 +86,9 @@ export default async function Home() {
           double-buy an item again!
         </p>
 
-        <h1 className=" text-slate-600 font-semibold mb-4 mt-8 text-lg md:text-3xl text-center">
+        <h2 className=" text-slate-600 font-semibold mb-4 mt-8 text-lg md:text-3xl text-center">
           What&apos;s so bad about food waste?
-        </h1>
+        </h2>
         <p className="my-2 text-slate-600 text-sm md:text-base mb-4">
           Nearly 40 percent of food in the US goes to waste! At the same time, 1
           in 8 Americans don&apos;t have enough food to eat. Isn&apos;t that
