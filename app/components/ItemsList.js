@@ -1,5 +1,3 @@
-import TitleTooltip from "../common/TitleTooltip";
-
 const ItemsList = ({ items, handleSelectItem }) => {
   const calcDaysFrom = (data) => {
     if (data.expiredAt) {
@@ -17,12 +15,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
   };
   return (
     <div className="m-6 mb-2">
-      {/* <div className="flex justify-center"> */}
       <h2 className="text-center pb-1">Items List</h2>
-      {/* <span>
-          <TitleTooltip tooltipText={"Use the top items first"} />
-        </span>
-      </div> */}
 
       <ul
         role="list"

@@ -231,16 +231,9 @@ const EditItemForm = ({
       </Transition.Root>
 
       <div className="flex flex-col m-6">
-        {/* <div className="flex justify-center"> */}
         <h2 className="text-center mb-1">Single Item View</h2>
-        {/* <span>
-            <TitleTooltip
-              tooltipText={"Update or Delete a single item, or find recipes"}
-            />
-          </span>
-        </div> */}
 
-        <div className="flex flex-col items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-64 h-80">
+        <div className="flex flex-col items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-80 h-80">
           {item ? (
             <>
               <h1 className="mt-5 text-slate-600 text-lg font-semibold cursor-default">
@@ -346,7 +339,6 @@ const EditItemForm = ({
                   >
                     Item Finished
                   </button>
-                  {/* <p className=" text-xs font-semibold my-1">Storage Tip:</p> */}
                   <button
                     disabled={repurchaseLoading}
                     onClick={() => repurchaseItem(item.name)}
@@ -366,7 +358,6 @@ const EditItemForm = ({
                     className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md shadow-lg"
                   >
                     Added by mistake?
-                    {/* {item.storageTip ? item.storageTip : "None available"} */}
                   </button>
                 </>
               )}

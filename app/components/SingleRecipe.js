@@ -12,7 +12,7 @@ const SingleRecipe = ({ recipe }) => {
         </span>
       </div> */}
 
-      <div className=" flex flex-col bg-gradient-to-t from-red-100 to-red-200 shadow-lg rounded-md w-64 h-80 overflow-scroll">
+      <div className=" flex flex-col bg-gradient-to-t from-red-100 to-red-200 shadow-lg rounded-md w-80 h-80 overflow-scroll">
         {recipe ? (
           <>
             <div className="flex items-center">
@@ -22,7 +22,7 @@ const SingleRecipe = ({ recipe }) => {
                 alt="A picture of the selected recipe"
               /> */}
               <img
-                className="w-32 h-32 rounded-md"
+                className=" w-36 h-36 rounded-md"
                 src={recipe.image}
                 alt="A picture of the selected recipe"
               />

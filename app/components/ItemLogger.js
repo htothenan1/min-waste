@@ -7,7 +7,6 @@ import { useSession } from "next-auth/react";
 import { Listbox, Transition, Combobox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { ingredientsObjects } from "../data/ingredients";
-import TitleTooltip from "../common/TitleTooltip";
 import { ReloadIcon } from "@radix-ui/react-icons";
 
 function classNames(...classes) {
@@ -71,12 +70,6 @@ const ItemLogger = ({ items }) => {
     <div className="m-6">
       <h2 className="text-center pb-1">Item Logger</h2>
 
-      {/* <div className="flex justify-center">
-        <h2 className="text-center pb-1">Item Logger</h2>
-        <span>
-          <TitleTooltip tooltipText={"Add an item to your list"} />
-        </span>
-      </div> */}
       <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-200 to-indigo-200 shadow-lg rounded-md p-4">
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (
