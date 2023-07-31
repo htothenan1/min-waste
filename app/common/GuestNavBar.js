@@ -19,7 +19,7 @@ const GuestNavBar = () => {
             <div className="flex flex-1 items-center justify-start">
               <div className="flex flex-shrink-0 items-center py-2">
                 <Image
-                  className="block h-16 w-auto"
+                  className="block h-20 w-auto"
                   src={logo}
                   alt="Your Company"
                 />

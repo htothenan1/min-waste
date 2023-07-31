@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Waste-Not Dashboard",
+  title: "Waste-Not App Dashboard",
   description: "Log your items, track your goals, find recipes",
 };
 

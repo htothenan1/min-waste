@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Waste-Not Resources",
+  title: "Waste-Not App Resources",
   description:
     "List of organizations and projects that help with food waste reduction.",
 };

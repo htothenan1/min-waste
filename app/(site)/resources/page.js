@@ -22,8 +22,8 @@ export default async function Resources() {
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
         <h1 className=" text-orange-600/70 font-bold text-4xl">Resources</h1>
         <h2 className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 md:w-1/2">
-          These are the organizations and projects that helped define the goals
-          and values of this app. They deserve a closer look!
+          The organizations, projects, and videos that helped shape the goals
+          and values of this app.
         </h2>
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-wrap -m-4">
@@ -177,6 +177,66 @@ export default async function Resources() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full aspect-video mb-20 bg-slate-50/50">
+          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+            Food Waste: Last Week Tonight with John Oliver
+          </h2>
+          <iframe
+            className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/i8xwLWb0lLY"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
+          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+            Tristram Stuart: The global food waste scandal
+          </h2>
+          <iframe
+            className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/cWC_zDdF74s"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
+          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+            Food waste is the world's dumbest problem
+          </h2>
+          <iframe
+            className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/6RlxySFrkIM"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
+          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+            South Korea's push to cut back on Food Waste
+          </h2>
+          <iframe
+            className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/VgUYTgwPKn8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
       <Footer />

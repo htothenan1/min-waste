@@ -50,12 +50,12 @@ const NavBar = ({ user }) => {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center py-2">
                   <Image
-                    className="block h-16 w-auto lg:hidden"
+                    className="block h-20 w-auto lg:hidden"
                     src={logo}
                     alt="Waste Not App"
                   />
                   <Image
-                    className="hidden h-14 w-auto lg:block"
+                    className="hidden h-20 w-auto lg:block"
                     src={logo}
                     alt="Waste Not App"
                   />
@@ -67,18 +67,13 @@ const NavBar = ({ user }) => {
                     className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
                   />
                   <CustomLink
-                    href={"/learn"}
-                    title={"Learn"}
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
-                  />
-                  <CustomLink
-                    href={"/food-for-thought"}
-                    title={"Food For Thought"}
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
-                  />
-                  <CustomLink
                     href={"/resources"}
                     title={"Resources"}
+                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
+                  />
+                  <CustomLink
+                    href={"/learn"}
+                    title={"Learn"}
                     className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
                   />
                   <CustomLink
@@ -150,13 +145,7 @@ const NavBar = ({ user }) => {
               >
                 Learn
               </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="food-for-thought"
-                className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600/70"
-              >
-                Food For Thought
-              </Disclosure.Button>
+
               <Disclosure.Button
                 as="a"
                 href="resources"

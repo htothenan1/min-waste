@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Waste-Not Contact Form",
+  title: "Waste-Not App Contact Form",
   description: "Send us your comments, questions, and concerns.",
 };
 

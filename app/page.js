@@ -16,7 +16,8 @@ export default async function Home() {
                 <h1 className="text-3xl font-bold tracking-tight text-slate-600 sm:text-4xl">
                   <span className="block">Want to stop wasting food?</span>
                   <span className="block">
-                    Try <span className=" text-orange-600/70">Waste-Not!</span>
+                    Try{" "}
+                    <span className=" text-orange-600/70">Waste-Not App!</span>
                   </span>
                 </h1>
                 <p className="mt-4 text-lg leading-6 text-slate-600">
@@ -44,7 +45,7 @@ export default async function Home() {
       <div className="flex flex-col w-2/3 mx-auto mt-6 bg-slate-50/50">
         <h2 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
           How to get the most out of{" "}
-          <span className="text-orange-600/70">Waste-Not</span>
+          <span className="text-orange-600/70">Waste-Not App</span>
         </h2>
         <p className="my-2 text-slate-600 text-sm md:text-base">
           <span className=" font-extrabold">
