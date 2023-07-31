@@ -210,7 +210,7 @@ export default async function Resources() {
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
           <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
-            Food waste is the world's dumbest problem
+            Food waste is the world&apos;s dumbest problem
           </h2>
           <iframe
             className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
@@ -225,7 +225,7 @@ export default async function Resources() {
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
           <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
-            South Korea's push to cut back on Food Waste
+            South Korea&apos;s push to cut back on Food Waste
           </h2>
           <iframe
             className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"

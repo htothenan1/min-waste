@@ -34,6 +34,7 @@ export default async function Home() {
             </div>
             <div className="aspect-h-3 aspect-w-5 -mt-6 md:aspect-h-1 md:aspect-w-2">
               <Image
+                priority
                 className="translate-x-6 translate-y-6 transform rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
                 src={screenshot}
                 alt="App screenshot"
