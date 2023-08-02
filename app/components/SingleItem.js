@@ -1,32 +1,33 @@
-"use client";
+"use client"
 
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
 import {
   createItemAction,
   deleteItemAction,
   incrementCounterAction,
   updateItemAction,
-} from "../_actions";
-import { useState, Fragment, useRef } from "react";
-import { useSession } from "next-auth/react";
-import { Listbox, Transition, Dialog } from "@headlessui/react";
-import { format, addDays } from "date-fns";
-import { cn } from "../lib/utils";
-import { Button } from "./ui/button";
-import { PlusIcon } from "@radix-ui/react-icons";
-import { Calendar } from "./ui/calendar";
-import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+} from "../_actions"
+import { useState, Fragment, useRef } from "react"
+import { useSession } from "next-auth/react"
+import { Transition, Dialog } from "@headlessui/react"
+import { format, addDays } from "date-fns"
+import { cn } from "../lib/utils"
+import { Button } from "./ui/button"
+import { PlusIcon } from "@radix-ui/react-icons"
+import { Calendar } from "./ui/calendar"
+import { ingredientsObjects } from "../data/ingredients"
+import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons"
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { homes } from "../data/homes";
-// import TitleTooltip from "../common/TitleTooltip";
+} from "./ui/select"
+import { ExclamationTriangleIcon } from "@heroicons/react/24/outline"
+import { homes } from "../data/homes"
+import { useSpring, a } from "@react-spring/web"
 
 const EditItemForm = ({
   item,
@@ -34,88 +35,96 @@ const EditItemForm = ({
   handleEditToggle,
   editStatus,
 }) => {
-  const { data: session } = useSession();
-  const [date, setDate] = useState(new Date());
-  const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(homes[0]);
-  const [deleteLoading, setDeleteLoading] = useState(false);
-  const [wasteLoading, setWasteLoading] = useState(false);
-  const [updateLoading, setUpdateLoading] = useState(false);
-  const [repurchaseLoading, setRepurchaseLoading] = useState(false);
-  const [mistaken, setMistaken] = useState(false);
+  const { data: session } = useSession()
+  const [date, setDate] = useState(new Date())
+  const [open, setOpen] = useState(false)
+  const [selected, setSelected] = useState(homes[0])
+  const [deleteLoading, setDeleteLoading] = useState(false)
+  const [wasteLoading, setWasteLoading] = useState(false)
+  const [updateLoading, setUpdateLoading] = useState(false)
+  const [repurchaseLoading, setRepurchaseLoading] = useState(false)
+  const [mistaken, setMistaken] = useState(false)
+  const [flipped, set] = useState(false)
+  const { transform, opacity } = useSpring({
+    opacity: flipped ? 1 : 0,
+    transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
+    config: { mass: 5, tension: 500, friction: 80 },
+  })
 
-  const cancelButtonRef = useRef(null);
+  const cancelButtonRef = useRef(null)
 
   const repurchaseItem = async (clientData) => {
-    setRepurchaseLoading(true);
-    const tip = "Duplicate";
-    await createItemAction(session.user.email, clientData, tip);
+    setRepurchaseLoading(true)
+    const tip = ingredientsObjects.find(
+      (el) => el.name === clientData
+    ).storageTip
+    await createItemAction(session.user.email, clientData, tip)
     toast.success(`${clientData} repurchased!`, {
       position: "top-center",
       autoClose: 1250,
-    });
-    setRepurchaseLoading(false);
-  };
+    })
+    setRepurchaseLoading(false)
+  }
 
   const adjustDate = (date) => {
-    date.setHours(date.getHours() + 18);
+    date.setHours(date.getHours() + 18)
 
-    return date;
-  };
+    return date
+  }
 
   const deleteItem = async (data) => {
-    setDeleteLoading(true);
-    await deleteItemAction(data.id);
+    setDeleteLoading(true)
+    await deleteItemAction(data.id)
     if (!mistaken) {
-      await incrementCounterAction(session.user.email);
+      await incrementCounterAction(session.user.email)
     }
     toast.success(`${data.name} ${mistaken ? "deleted!" : "consumed!"}`, {
       position: "top-center",
       autoClose: 1250,
-    });
-    setOpen(false);
-    setDeleteLoading(false);
-    setMistaken(false);
-  };
+    })
+    setOpen(false)
+    setDeleteLoading(false)
+    setMistaken(false)
+  }
 
   const deleteItemWithWaste = async (data) => {
-    setWasteLoading(true);
-    await deleteItemAction(data.id);
+    setWasteLoading(true)
+    await deleteItemAction(data.id)
     toast.success("Its ok, next time will be better", {
       position: "top-center",
       autoClose: 1250,
-    });
-    setOpen(false);
-    setWasteLoading(false);
-  };
+    })
+    setOpen(false)
+    setWasteLoading(false)
+  }
 
   const updateItem = async (data, newHome) => {
-    setUpdateLoading(true);
-    const finalDate = adjustDate(date);
-    await updateItemAction(data.id, data.name, finalDate, newHome.name);
+    setUpdateLoading(true)
+    const finalDate = adjustDate(date)
+    await updateItemAction(data.id, data.name, finalDate, newHome.name)
     toast.info(`${data.name} Use By Date set!`, {
       position: "top-center",
       autoClose: 1250,
-    });
-    handleEditToggle(false);
-    setDate(new Date());
-    setSelected(homes[0]);
-    setUpdateLoading(false);
-  };
+    })
+    handleEditToggle(false)
+    setDate(new Date())
+    setSelected(homes[0])
+    setUpdateLoading(false)
+  }
 
   const handleMistake = () => {
-    setMistaken(true);
-    setOpen(true);
-  };
+    setMistaken(true)
+    setOpen(true)
+  }
 
   const handleCancel = () => {
     if (mistaken) {
-      setOpen(false);
-      setMistaken(false);
+      setOpen(false)
+      setMistaken(false)
     } else {
-      setOpen(false);
+      setOpen(false)
     }
-  };
+  }
 
   return (
     <>
@@ -182,7 +191,7 @@ const EditItemForm = ({
                       type="button"
                       className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:w-auto"
                       onClick={() => {
-                        deleteItem(item);
+                        deleteItem(item)
                       }}
                       disabled={deleteLoading}
                     >
@@ -200,7 +209,7 @@ const EditItemForm = ({
                         type="button"
                         className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                         onClick={() => {
-                          deleteItemWithWaste(item);
+                          deleteItemWithWaste(item)
                         }}
                         disabled={wasteLoading}
                       >
@@ -231,146 +240,185 @@ const EditItemForm = ({
       </Transition.Root>
 
       <div className="flex flex-col m-6">
-        <h2 className="text-center mb-1">Single Item View</h2>
+        <h2 className="text-center pb-2">Single Item View</h2>
 
-        <div className="flex flex-col items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-80 h-80">
-          {item ? (
-            <>
-              <h2 className="mt-5 text-slate-600 text-lg font-semibold cursor-default">
-                {item.name}
-              </h2>
-              {editStatus ? (
-                <Popover>
-                  <PopoverTrigger asChild on>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] justify-start text-left font-normal",
-                        !date && "text-muted-foreground"
-                      )}
+        <div className="flex items-center h-full justify-center">
+          <a.div
+            className="flex flex-col z-10 items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-80 h-80"
+            style={{ opacity: opacity.to((o) => 1 - o), transform }}
+          >
+            {item ? (
+              <>
+                <button
+                  className="bg-white rounded-b-md p-1 text-sm"
+                  onClick={() => set((state) => !state)}
+                >
+                  Flip Me
+                </button>
+                <h2 className="mt-2 text-slate-600 text-lg font-semibold cursor-default">
+                  {item.name}
+                </h2>
+                {editStatus ? (
+                  <Popover>
+                    <PopoverTrigger asChild on>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-[240px] justify-start text-left font-normal",
+                          !date && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {date ? format(date, "PPP") : <span>Pick a date</span>}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      align="start"
+                      className="flex w-auto flex-col space-y-2 p-2"
                     >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
-                      {date ? format(date, "PPP") : <span>Pick a date</span>}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    align="start"
-                    className="flex w-auto flex-col space-y-2 p-2"
-                  >
-                    <Select
-                      onValueChange={(value) =>
-                        setDate(addDays(new Date(), parseInt(value)))
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select an interval of time" />
-                      </SelectTrigger>
-                      <SelectContent position="popper">
-                        <SelectItem value="3">In 3 days</SelectItem>
-                        <SelectItem value="7">In 1 week</SelectItem>
-                        <SelectItem value="10">In 10 days</SelectItem>
-                        <SelectItem value="14">In 2 weeks</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <div className="rounded-md border">
-                      <Calendar
-                        required
-                        mode="single"
-                        selected={
-                          item.expired ? item.expiredAt.toDateString() : date
+                      <Select
+                        onValueChange={(value) =>
+                          setDate(addDays(new Date(), parseInt(value)))
                         }
-                        onSelect={setDate}
-                      />
-                    </div>
-                  </PopoverContent>
-                </Popover>
-              ) : (
-                <h2 className="text-slate-600 cursor-default mb-2">{`Use By: ${
-                  item.expiredAt
-                    ? item.expiredAt.toLocaleString("en-En", {
-                        weekday: "short",
-                        month: "long",
-                        day: "numeric",
-                      })
-                    : "Not set"
-                }`}</h2>
-              )}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select an interval of time" />
+                        </SelectTrigger>
+                        <SelectContent position="popper">
+                          <SelectItem value="3">In 3 days</SelectItem>
+                          <SelectItem value="7">In 1 week</SelectItem>
+                          <SelectItem value="10">In 10 days</SelectItem>
+                          <SelectItem value="14">In 2 weeks</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <div className="rounded-md border">
+                        <Calendar
+                          required
+                          mode="single"
+                          selected={
+                            item.expired ? item.expiredAt.toDateString() : date
+                          }
+                          onSelect={setDate}
+                        />
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+                ) : (
+                  <h2 className="text-slate-600 cursor-default mb-2">{`Use By: ${
+                    item.expiredAt
+                      ? item.expiredAt.toLocaleString("en-En", {
+                          weekday: "short",
+                          month: "long",
+                          day: "numeric",
+                        })
+                      : "Not set"
+                  }`}</h2>
+                )}
 
-              {editStatus ? (
-                <button
-                  onClick={() => {
-                    updateItem(item, item.name, selected);
-                  }}
-                  className={`shadow-lg my-3 py-1 px-2 rounded-md ${
-                    updateLoading ? "bg-slate-400" : "bg-indigo-500/80"
-                  }   text-white text-sm`}
-                >
-                  {updateLoading ? (
-                    <div className="flex justify-center items-center">
-                      Please Wait
-                      <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
-                    </div>
-                  ) : (
-                    "Confirm Changes"
-                  )}
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => {
-                    handleEditToggle(true);
-                  }}
-                  className="py-1 px-2 my-2 rounded-md bg-indigo-500/80 text-white text-sm shadow-lg"
-                >
-                  Set Date
-                </button>
-              )}
-              {editStatus ? null : (
-                <>
+                {editStatus ? (
                   <button
-                    onClick={() => handleRecipesFetch(item)}
-                    className="py-1 px-2 my-2 rounded-md bg-orange-400/70 text-white text-sm shadow-lg"
+                    onClick={() => {
+                      updateItem(item, item.name, selected)
+                    }}
+                    className={`shadow-lg my-3 py-1 px-2 rounded-md ${
+                      updateLoading ? "bg-slate-400" : "bg-indigo-500/80"
+                    }   text-white text-sm`}
                   >
-                    Get Recipes
-                  </button>
-                  <button
-                    onClick={() => setOpen(true)}
-                    className="py-1 px-2 my-2 rounded-md bg-red-500/70 text-white text-sm shadow-lg"
-                  >
-                    Item Finished
-                  </button>
-                  <button
-                    disabled={repurchaseLoading}
-                    onClick={() => repurchaseItem(item.name)}
-                    className="flex text-xs text-center text-black border border-black py-1 px-2 my-1 rounded-md shadow-lg"
-                  >
-                    {repurchaseLoading ? (
-                      "Repurchasing..."
+                    {updateLoading ? (
+                      <div className="flex justify-center items-center">
+                        Please Wait
+                        <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                      </div>
                     ) : (
-                      <>
-                        <p className="pr-1">Repurchase</p>
-                        <PlusIcon className="w-3 text-slate-900" />
-                      </>
+                      "Confirm Changes"
                     )}
                   </button>
+                ) : (
                   <button
-                    onClick={handleMistake}
-                    className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md shadow-lg"
+                    disabled={flipped}
+                    type="button"
+                    onClick={() => {
+                      handleEditToggle(true)
+                    }}
+                    className="py-1 px-2 my-2 rounded-md bg-indigo-500/80 text-white text-sm shadow-lg"
                   >
-                    Added by mistake?
+                    Set Date
                   </button>
-                </>
-              )}
-            </>
-          ) : (
-            <h2 className="text-center my-auto cursor-default text-slate-600">
-              No item selected
-            </h2>
-          )}
+                )}
+                {editStatus ? null : (
+                  <>
+                    <button
+                      disabled={flipped}
+                      onClick={() => handleRecipesFetch(item)}
+                      className="py-1 px-2 my-2 rounded-md bg-orange-400/70 text-white text-sm shadow-lg"
+                    >
+                      Get Recipes
+                    </button>
+                    <button
+                      disabled={flipped}
+                      onClick={() => setOpen(true)}
+                      className="py-1 px-2 my-2 rounded-md bg-red-500/70 text-white text-sm shadow-lg"
+                    >
+                      Item Finished
+                    </button>
+                    <button
+                      disabled={flipped}
+                      onClick={() => repurchaseItem(item.name)}
+                      className="flex text-xs text-center text-black border border-black py-1 px-2 my-1 rounded-md shadow-lg"
+                    >
+                      {repurchaseLoading ? (
+                        "Repurchasing..."
+                      ) : (
+                        <>
+                          <p className="pr-1">Repurchase</p>
+                          <PlusIcon className="w-3 text-slate-900" />
+                        </>
+                      )}
+                    </button>
+                    <button
+                      disabled={flipped}
+                      onClick={handleMistake}
+                      className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md shadow-lg"
+                    >
+                      Added by mistake?
+                    </button>
+                  </>
+                )}
+              </>
+            ) : (
+              <h2 className="text-center my-auto cursor-default text-slate-600">
+                No item selected
+              </h2>
+            )}
+          </a.div>
+          <a.div
+            className="flex flex-col absolute items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-80 h-80"
+            style={{
+              opacity,
+              transform,
+              rotateX: "180deg",
+            }}
+          >
+            {item ? (
+              <>
+                <h2 className="my-3 text-slate-600 text-lg font-semibold cursor-default underline">
+                  {`Storage Tips for ${item.name}`}
+                </h2>
+                <p className="px-10 text-center">{item.storageTip}</p>
+                <div className="absolute bottom-0 bg-white rounded-t-md p-1 text-sm">
+                  Flip Back
+                </div>
+              </>
+            ) : (
+              <h2 className="text-center my-auto cursor-default text-slate-600">
+                No item selected
+              </h2>
+            )}
+          </a.div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default EditItemForm;
+export default EditItemForm

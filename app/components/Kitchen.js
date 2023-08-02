@@ -1,44 +1,44 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import ItemsList from "./ItemsList";
-import SingleItem from "./SingleItem";
-import RecipesList from "./RecipesList";
-import SingleRecipe from "./SingleRecipe";
-import ItemLogger from "./ItemLogger";
-import { thought } from "../data/thoughts";
+import { useState, useEffect } from "react"
+import ItemsList from "./ItemsList"
+import SingleItem from "./SingleItem"
+import RecipesList from "./RecipesList"
+import SingleRecipe from "./SingleRecipe"
+import ItemLogger from "./ItemLogger"
+import { thought } from "../data/thoughts"
 
 const Kitchen = ({ items }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [fetchedRecipes, setFetchedRecipes] = useState(null);
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
-  const [editMode, setEditMode] = useState(false);
-  const [currentThought, setCurrentThought] = useState("");
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [fetchedRecipes, setFetchedRecipes] = useState(null)
+  const [selectedRecipe, setSelectedRecipe] = useState(null)
+  const [editMode, setEditMode] = useState(false)
+  const [currentThought, setCurrentThought] = useState("")
 
   const calcDaysFrom = (data) => {
     const daysFrom =
-      (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24);
+      (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
 
-    return daysFrom;
-  };
+    return daysFrom
+  }
 
   const fetchRedItemRecipes = (data) => {
     const redItems = data.filter(
       (item) => item.expiredAt && calcDaysFrom(item) < 2
-    );
-    let namesArray = [];
-    redItems.map((item) => namesArray.push(item.name));
-    const finalString = namesArray.join(",+");
+    )
+    let namesArray = []
+    redItems.map((item) => namesArray.push(item.name))
+    const finalString = namesArray.join(",+")
     fetch(
       `https://api.spoonacular.com/recipes/findByIngredients?apiKey=757d368ebb304fb3bf99a64e38c11942&ingredients=${finalString}`
     )
       .then((response) => response.json())
-      .then((resItems) => setFetchedRecipes(resItems));
-  };
+      .then((resItems) => setFetchedRecipes(resItems))
+  }
 
   const handleSelectItem = (data) => {
-    setSelectedItem(data);
-  };
+    setSelectedItem(data)
+  }
 
   const handleSelectRecipe = (data) => {
     fetch(
@@ -46,9 +46,9 @@ const Kitchen = ({ items }) => {
     )
       .then((res) => res.json())
       .then((recipe) => {
-        setSelectedRecipe(recipe);
-      });
-  };
+        setSelectedRecipe(recipe)
+      })
+  }
 
   const fetchRecipes = () => {
     fetch(
@@ -56,21 +56,21 @@ const Kitchen = ({ items }) => {
     )
       .then((res) => res.json())
       .then((recipes) => {
-        setFetchedRecipes(recipes.results);
-      });
-  };
+        setFetchedRecipes(recipes.results)
+      })
+  }
 
   useEffect(() => {
-    const randomIdx = Math.floor(Math.random() * thought.length);
-    setSelectedItem(null);
-    setFetchedRecipes(null);
-    setCurrentThought(thought[randomIdx]);
-  }, [items]);
+    const randomIdx = Math.floor(Math.random() * thought.length)
+    setSelectedItem(null)
+    setFetchedRecipes(null)
+    setCurrentThought(thought[randomIdx])
+  }, [items])
 
   return (
     <div className="flex justify-center flex-wrap bg-slate-50/50 mt-12">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-80 h-80 m-20 my-20">
+        <div className="flex flex-col justify-center items-center w-80 h-72 m-20 my-20">
           <div className=" text-center">{currentThought}</div>
         </div>
       ) : (
@@ -104,7 +104,7 @@ const Kitchen = ({ items }) => {
       />
       <SingleRecipe recipe={selectedRecipe} />
     </div>
-  );
-};
+  )
+}
 
-export default Kitchen;
+export default Kitchen

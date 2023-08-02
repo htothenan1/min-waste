@@ -1,31 +1,31 @@
-import { getUser } from "../../lib/items";
-import { getServerSession } from "next-auth";
-import NavBar from "../../common/NavBar";
-import Footer from "../../common/Footer";
-import refedLogo from "../../../public/refed-logo.jpeg";
-import foodBankLogo from "../../../public/food-bank.png";
-import farmlinkLogo from "../../../public/farmlink-project.png";
-import feedingAmericaLogo from "../../../public/feeding-america.png";
-import fwraLogo from "../../../public/fwra.jpg";
-import jamesBeardLogo from "../../../public/james-beard-foundation.png";
-import { authOptions } from "../../api/auth/[...nextauth]/route";
-import Image from "next/image";
-import Link from "next/link";
+import { getUser } from "../../lib/items"
+import { getServerSession } from "next-auth"
+import NavBar from "../../common/NavBar"
+import Footer from "../../common/Footer"
+import refedLogo from "../../../public/refed-logo.jpeg"
+import foodBankLogo from "../../../public/food-bank.png"
+import farmlinkLogo from "../../../public/farmlink-project.png"
+import feedingAmericaLogo from "../../../public/feeding-america.png"
+import fwraLogo from "../../../public/fwra.jpg"
+import jamesBeardLogo from "../../../public/james-beard-foundation.png"
+import { authOptions } from "../../api/auth/[...nextauth]/route"
+import Image from "next/image"
+import Link from "next/link"
 
 export default async function Resources() {
-  const session = await getServerSession(authOptions);
-  const { user } = await getUser(session.user.email);
+  const session = await getServerSession(authOptions)
+  const { user } = await getUser(session.user.email)
 
   return (
     <>
       <NavBar user={user?.name} />
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
         <h1 className=" text-orange-600/70 font-bold text-4xl">Resources</h1>
-        <h2 className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 md:w-1/2">
+        <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2">
           The organizations, projects, and videos that helped shape the goals
           and values of this app.
-        </h2>
-        <div class="container px-5 py-24 mx-auto">
+        </p>
+        <div class="container px-5 mb-24 mt-16 mx-auto">
           <div class="flex flex-wrap -m-4">
             <div class="lg:w-1/3 sm:w-1/2 p-4">
               <div class="flex relative">
@@ -241,5 +241,5 @@ export default async function Resources() {
       </div>
       <Footer />
     </>
-  );
+  )
 }

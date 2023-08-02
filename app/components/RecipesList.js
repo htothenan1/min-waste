@@ -1,17 +1,9 @@
-"use client";
-
-// import TitleTooltip from "../common/TitleTooltip";
+"use client"
 
 const RecipesList = ({ recipes, handleSelectRecipe }) => {
   return (
     <div className="m-6">
-      {/* <div className="flex justify-center"> */}
-      <h2 className="text-center mb-1">Recipes List</h2>
-      {/* <span>
-          <TitleTooltip tooltipText={"Recipes based on selected item"} />
-        </span>
-      </div> */}
-
+      <h2 className="text-center pb-2">Recipes List</h2>
       <ul
         role="list"
         className="flex flex-col divide-y h-80 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-orange-200 via-orange-200 to-yellow-100 shadow-lg rounded-md overflow-scroll w-80"
@@ -42,7 +34,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
         )}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default RecipesList;
+export default RecipesList

@@ -1,74 +1,74 @@
-"use client";
+"use client"
 
-import { useState, Fragment } from "react";
-import { createItemAction } from "../_actions";
-import { toast } from "react-toastify";
-import { useSession } from "next-auth/react";
-import { Listbox, Transition, Combobox } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import { ingredientsObjects } from "../data/ingredients";
-import { ReloadIcon } from "@radix-ui/react-icons";
+import { useState, Fragment } from "react"
+import { createItemAction } from "../_actions"
+import { toast } from "react-toastify"
+import { useSession } from "next-auth/react"
+import { Listbox, Transition, Combobox } from "@headlessui/react"
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid"
+import { ingredientsObjects } from "../data/ingredients"
+import { ReloadIcon } from "@radix-ui/react-icons"
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(" ")
 }
 
 const ItemLogger = ({ items }) => {
-  const [selected, setSelected] = useState("Select an Item");
-  const { data: session } = useSession();
-  const [loading, setLoading] = useState(false);
-  const [customLoading, setCustomLoading] = useState(false);
-  const [customItem, setCustomItem] = useState("");
+  const [selected, setSelected] = useState("Select an Item")
+  const { data: session } = useSession()
+  const [loading, setLoading] = useState(false)
+  const [customLoading, setCustomLoading] = useState(false)
+  const [customItem, setCustomItem] = useState("")
 
   const filteredItems = ingredientsObjects.filter((el1) => {
     return !items.some((el2) => {
-      return el2.name === el1.name;
-    });
-  });
+      return el2.name === el1.name
+    })
+  })
 
   const addItem = async (clientData) => {
     if (clientData !== "Select Item") {
-      setLoading(true);
+      setLoading(true)
       const tip = ingredientsObjects.find(
         (el) => el.name === selected
-      ).storageTip;
-      await createItemAction(session.user.email, clientData, tip);
+      ).storageTip
+      await createItemAction(session.user.email, clientData, tip)
       toast.success(`${clientData} added!`, {
         position: "top-center",
         autoClose: 1250,
-      });
-      setSelected("Select Item");
+      })
+      setSelected("Select Item")
     } else {
       toast.error("Please select an item", {
         position: "top-center",
         autoClose: 1250,
-      });
+      })
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   const addCustomItem = async (clientData) => {
     if (clientData !== "") {
-      setCustomLoading(true);
-      const tip = "Not available for custom items";
-      await createItemAction(session.user.email, clientData, tip);
+      setCustomLoading(true)
+      const tip = "Not available for custom items"
+      await createItemAction(session.user.email, clientData, tip)
       toast.success(`${clientData} added!`, {
         position: "top-center",
         autoClose: 1250,
-      });
-      setCustomItem("");
+      })
+      setCustomItem("")
     } else {
       toast.error("Cannot be blank", {
         position: "top-center",
         autoClose: 1250,
-      });
+      })
     }
-    setCustomLoading(false);
-  };
+    setCustomLoading(false)
+  }
 
   return (
     <div className="m-6">
-      <h2 className="text-center pb-1">Item Logger</h2>
+      <h2 className="text-center pb-2">Item Logger</h2>
 
       <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-200 to-indigo-200 shadow-lg rounded-md p-4">
         <Listbox value={selected} onChange={setSelected}>
@@ -196,7 +196,7 @@ const ItemLogger = ({ items }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ItemLogger;
+export default ItemLogger

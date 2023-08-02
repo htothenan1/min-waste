@@ -15,7 +15,7 @@ export default function ContactForm() {
       </div>
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-4xl font-bold text-orange-600/70">Contact us</h2>
-        <p className="mt-2 text-md leading-8 text-slate-600">
+        <p className="mt-2 text-md text-slate-600">
           Have an idea for a great new feature? We&apos;d love to hear about it!
           Found a bug? Help squash it by reporting it in detail!
         </p>

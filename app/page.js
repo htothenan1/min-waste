@@ -1,8 +1,8 @@
-import GuestNavBar from "./common/GuestNavBar";
-import Footer from "./common/Footer";
-import screenshot from "../public/waste-not.png";
-import Link from "next/link";
-import Image from "next/image";
+import GuestNavBar from "./common/GuestNavBar"
+import Footer from "./common/Footer"
+import screenshot from "../public/waste-not.png"
+import Link from "next/link"
+import Image from "next/image"
 
 export default async function Home() {
   return (
@@ -44,18 +44,18 @@ export default async function Home() {
         </div>
       </div>
       <div className="flex flex-col w-2/3 mx-auto mt-6 bg-slate-50/50">
-        <h2 className="text-slate-600 text-center font-semibold mt-4 text-2xl">
+        <h2 className="text-slate-600 text-center font-semibold mt-4 text-2xl md:text-3xl">
           How to get the most out of{" "}
           <span className="text-orange-600/70">Waste-Not App</span>
         </h2>
-        <p className="my-2 text-slate-600 text-sm md:text-base">
+        <p className="my-2 text-slate-600 text-md">
           <span className=" font-extrabold">
             1. Log your kitchen items regularly.
           </span>{" "}
           The more accurate you keep your Items List, the more effective the app
           will be.
         </p>
-        <p className="my-2 text-slate-600 text-sm md:text-base">
+        <p className="my-2 text-slate-600 text-md">
           <span className=" font-extrabold">
             2. Set a Use-By Date for your items.
           </span>{" "}
@@ -63,7 +63,7 @@ export default async function Home() {
           expiration code on the package. Make sure to factor in your lifestyle
           and schedule when choosing this date.
         </p>
-        <p className="my-2 text-slate-600 text-sm md:text-base">
+        <p className="my-2 text-slate-600 text-md">
           <span className="font-extrabold">
             3. Consume your items from the top of the list, first.
           </span>{" "}
@@ -75,23 +75,23 @@ export default async function Home() {
           <span className="text-slate-500/70">gray ones</span> are yet to be
           set.
         </p>
-        <p className="my-2 text-slate-600 text-sm md:text-base">
+        <p className="my-2 text-slate-600 text-md">
           <span className="font-extrabold">
             4. Update your Items List when an item is finished.
           </span>{" "}
           We will keep count of the items you fully consume, so that you can
           track your overall progress.
         </p>
-        <p className="my-2 text-slate-600 text-sm md:text-base">
+        <p className="my-2 text-slate-600 text-md">
           <span className="font-extrabold">5. Take it with you.</span> Our app
           is mobile friendly, so use it as a grocery shopping tool. Never
           double-buy an item again!
         </p>
 
-        <h2 className=" text-slate-600 font-semibold mb-4 mt-8 text-lg md:text-3xl text-center">
+        <h2 className=" text-slate-600 font-semibold mt-8 text-2xl md:text-3xl text-center">
           What&apos;s so bad about food waste?
         </h2>
-        <p className="my-2 text-slate-600 text-sm md:text-base mb-4">
+        <p className="my-2 text-slate-600 text-md mb-4">
           Nearly 40 percent of food in the US goes to waste! At the same time, 1
           in 8 Americans don&apos;t have enough food to eat. Isn&apos;t that
           absurd? That wasted food also makes up 20 percent of all landfills,
@@ -130,5 +130,5 @@ export default async function Home() {
       </div>
       <Footer />
     </section>
-  );
+  )
 }

@@ -1,18 +1,18 @@
-import { getUser } from "../../lib/items";
-import { getServerSession } from "next-auth";
-import NavBar from "../../common/NavBar";
-import Footer from "../../common/Footer";
+import { getUser } from "../../lib/items"
+import { getServerSession } from "next-auth"
+import NavBar from "../../common/NavBar"
+import Footer from "../../common/Footer"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../components/ui/accordion";
-import { authOptions } from "../../api/auth/[...nextauth]/route";
+} from "../../components/ui/accordion"
+import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 export default async function FoodForThought() {
-  const session = await getServerSession(authOptions);
-  const { user } = await getUser(session.user.email);
+  const session = await getServerSession(authOptions)
+  const { user } = await getUser(session.user.email)
 
   return (
     <>
@@ -23,12 +23,16 @@ export default async function FoodForThought() {
           *Currently In Development*
         </h2>
 
-        <p className="my-2 text-slate-600 text-md md:text-lg text-center w-3/4 md:w-1/2">
+        <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2">
           Our 5-step process for improving your food waste behavior. Designed to
           be a practical, holistic approach that users can utilize to see real
           change in their food waste behaviors.
         </p>
-        <Accordion type="single" collapsible className=" w-full md:w-1/2 my-20">
+        <Accordion
+          type="single"
+          collapsible
+          className=" w-full md:w-1/2 mb-20 mt-16"
+        >
           <AccordionItem value="item-1">
             <AccordionTrigger>1. Prep your Kitchen</AccordionTrigger>
             <AccordionContent className="text-left">
@@ -98,5 +102,5 @@ export default async function FoodForThought() {
       </div>
       <Footer />
     </>
-  );
+  )
 }

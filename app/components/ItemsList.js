@@ -2,20 +2,20 @@ const ItemsList = ({ items, handleSelectItem }) => {
   const calcDaysFrom = (data) => {
     if (data.expiredAt) {
       const daysFrom =
-        (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24);
+        (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
 
       if (daysFrom < 2) {
-        return "bg-red-300/30 hover:bg-red-200";
+        return "bg-red-300/30 hover:bg-red-200"
       } else {
-        return "bg-green-300/30 hover:bg-green-200/30";
+        return "bg-green-300/30 hover:bg-green-200/30"
       }
     } else {
-      return "bg-slate-200/30 hover:bg-slate-100/30";
+      return "bg-slate-200/30 hover:bg-slate-100/30"
     }
-  };
+  }
   return (
     <div className="m-6 mb-2">
-      <h2 className="text-center pb-1">Items List</h2>
+      <h2 className="text-center pb-2">Items List</h2>
 
       <ul
         role="list"
@@ -48,7 +48,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
         )}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default ItemsList;
+export default ItemsList
