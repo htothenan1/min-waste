@@ -37,6 +37,6 @@ export const thought = [
   "In the United States, 40% of the food we produce is going to waste. – Environmental Protection Agency",
   "Over 1/3 of all food produced globally goes to waste, which is worth nearly $1 trillion at retail prices. – National Geographic",
   "An area larger than China is used to grow food that gets wasted. – Food and Agriculture Organization of the United Nations",
-  "f food waste were a country, it would be the 3rd largest emitter of greenhouse gases (after China and the United States). – Food and Agriculture Organization of the United Nations",
+  "If food waste were a country, it would be the 3rd largest emitter of greenhouse gases (after China and the United States). – Food and Agriculture Organization of the United Nations",
   "Gleaning is the act of collecting leftover crops from fields after harvest noted in the Hebrew Bible.",
-];
+]
