@@ -55,11 +55,12 @@ const EditItemForm = ({
 
   const repurchaseItem = async (clientData) => {
     setRepurchaseLoading(true)
-    const tip = ingredientsObjects.find(
-      (el) => el.name === clientData
-    ).storageTip
-    await createItemAction(session.user.email, clientData, tip)
-    toast.success(`${clientData} repurchased!`, {
+    await createItemAction(
+      session.user.email,
+      clientData.name,
+      clientData.storageTip
+    )
+    toast.success(`${clientData.name} repurchased!`, {
       position: "top-center",
       autoClose: 1250,
     })
@@ -363,7 +364,7 @@ const EditItemForm = ({
                     </button>
                     <button
                       disabled={flipped}
-                      onClick={() => repurchaseItem(item.name)}
+                      onClick={() => repurchaseItem(item)}
                       className="flex text-xs text-center text-black border border-black py-1 px-2 my-1 rounded-md shadow-lg"
                     >
                       {repurchaseLoading ? (
