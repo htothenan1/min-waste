@@ -54,7 +54,7 @@ const navigation = [
   //       </svg>
   //     ),
   //   },
-];
+]
 
 export default function Example() {
   return (
@@ -84,10 +84,10 @@ export default function Example() {
         </div>
         <div className="mt-2 md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-gray-500">
-            &copy;2023 Waste-Not LLC. All rights reserved.
+            &copy;2023 Waste-Not App. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
-  );
+  )
 }
