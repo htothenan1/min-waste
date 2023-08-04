@@ -361,9 +361,10 @@ export const ingredientsObjects = [
     storageTip: "Cool, dimly lit, and dry",
   },
   {
-    id: "f3ac4fh2",
-    name: "After opened, keep submerged in water in an airtight container. Change water daily.",
-    storageTip: "Cool, dimly lit, and dry",
+    id: "f3a34dh2",
+    name: "Tofu",
+    storageTip:
+      "After opened, keep submerged in water in an airtight container. Change water daily.",
   },
   {
     id: "af133525",
