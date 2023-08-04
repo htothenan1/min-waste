@@ -28,16 +28,19 @@ export default async function Home() {
           </h2>
           <p className="my-2 text-slate-600 text-md">
             <span className=" font-extrabold">
-              1. Log your kitchen items regularly.
+              1. Log your spoilable items regularly.
             </span>{" "}
-            The more accurate you keep your Items List, the more effective the
-            app will be.
+            The more in sync your Items List is with your kitchen, the more
+            effective the app will be. If the item you brought home can spoil in
+            the next month, make sure to log it.
           </p>
           <p className="my-2 text-slate-600 text-md">
             <span className=" font-extrabold">
               2. Set a Use-By Date for your items.
             </span>{" "}
-            This should be based on what you feel is appropriate, not the
+            Set a reasonable goal for when each item{" "}
+            <span className=" italic">should optimistically</span> be consumed
+            by. This should be based on what you feel is appropriate, not the
             expiration code on the package. Make sure to factor in your
             lifestyle and schedule when choosing this date.
           </p>
@@ -50,8 +53,8 @@ export default async function Home() {
             it is less than 2 days away from the Use-By Date.{" "}
             <span className="text-green-600">Green background</span> means you
             have more than 2 days, and the{" "}
-            <span className="text-slate-500/70">gray ones</span> are yet to be
-            set.
+            <span className="text-slate-500/70">gray ones</span> are items that
+            are yet to be set.
           </p>
           <p className="my-2 text-slate-600 text-md">
             <span className="font-extrabold">
@@ -61,7 +64,7 @@ export default async function Home() {
             track your overall progress.
           </p>
           <p className="my-2 text-slate-600 text-md">
-            <span className="font-extrabold">5. Take it with you.</span> Our app
+            <span className="font-extrabold">5. Take it with you!</span> Our app
             is mobile friendly, so use it as a grocery shopping tool. Never
             double-buy an item again!
           </p>
