@@ -169,7 +169,7 @@ export const ingredientsObjects = [
   },
   {
     id: "c9decfa7",
-    name: "Cucumber",
+    name: "Cucumbers",
     storageTip: "Wrap cucumber in plastic wrap, airtight container",
   },
   {
@@ -186,7 +186,7 @@ export const ingredientsObjects = [
   { id: "c3cc423b", name: "Edamame", storageTip: "Always freeze for storage" },
   {
     id: "7dc5138e",
-    name: "Eggplant",
+    name: "Eggplants",
     storageTip: "Store in crisper drawer, wrapped in paper towel",
   },
   {
@@ -286,7 +286,7 @@ export const ingredientsObjects = [
   { id: "b3b88e57", name: "Oranges", storageTip: "Crisper drawer" },
   {
     id: "s3h82e51",
-    name: "Papaya",
+    name: "Papayas",
     storageTip: "Leave on counter until ripe, then store in fridge",
   },
   { id: "2d82fd76", name: "Passion Fruit", storageTip: "Crisper drawer" },

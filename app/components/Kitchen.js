@@ -103,7 +103,7 @@ const Kitchen = ({ items }) => {
   return (
     <div className="flex justify-center flex-wrap bg-slate-50/50 mt-12">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-80 h-72 m-20 my-10">
+        <div className="flex flex-col justify-center items-center w-80 h-72 m-10">
           <h2 className="font-semibold text-lg text-orange-600/70">
             Food For Thought
           </h2>

@@ -10,7 +10,7 @@ export const thought = [
   `“It’s inconceivable that one in five children in America doesn’t have enough to eat, in the richest time of the richest country’s history” -Mario Batali`,
   "The average American family spends $1500 a year on wasted food",
   "Composting is great, but consuming the item before it gets to compost is even better. Food waste is food waste.",
-  "Outside of poultry, meats, dairy, and baby food, you should rely on your senses instead of confusing expiration dates.",
+  "Try to rely on your senses instead of confusing expiration dates to determine if food is safe to eat. Be extra careful with poultry, meats, dairy, and baby food",
   "Expiration dates are not set by any health and safety authorities. They are set by the manufacturers profiting from your purchase.",
   "“To me, it’s sort of funny that wasting food is not taboo. It’s one of the last environmental ills that you can just get away with.” – Jonathan Bloom",
   "“Imagine walking out of a grocery store with four bags of groceries, dropping one in the parking lot, and just not bothering to pick it up. That’s essentially what we’re doing.” – Dana Gunders",
