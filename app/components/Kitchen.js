@@ -47,6 +47,7 @@ const Kitchen = ({ items }) => {
       .then((res) => res.json())
       .then((recipe) => {
         setSelectedRecipe(recipe)
+        console.log(recipe)
       })
   }
 

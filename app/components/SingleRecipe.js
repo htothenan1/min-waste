@@ -1,6 +1,4 @@
 import Link from "next/link"
-import TitleTooltip from "../common/TitleTooltip"
-import Image from "next/image"
 
 const SingleRecipe = ({ recipe }) => {
   return (
@@ -41,7 +39,7 @@ const SingleRecipe = ({ recipe }) => {
               <h2 className="text-slate-600 underline font-light">
                 Instructions
               </h2>
-              {recipe.analyzedInstructions[1] ? (
+              {recipe.analyzedInstructions[0] ? (
                 <>
                   <ol className=" list-inside">
                     {recipe.analyzedInstructions[0].steps.map((step) => (
