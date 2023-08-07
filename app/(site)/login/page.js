@@ -1,46 +1,47 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { signIn, useSession } from "next-auth/react";
-import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
-import smileLogo from "../../../public/smile_logo.png";
-import Image from "next/image";
+import { useState, useEffect } from "react"
+import { signIn, useSession } from "next-auth/react"
+import { toast } from "react-toastify"
+import { useRouter } from "next/navigation"
+import smileLogo from "../../../public/smile_logo.png"
+import Image from "next/image"
 
 export default function Login() {
-  const session = useSession();
-  const router = useRouter();
+  const session = useSession()
+  const router = useRouter()
   const [data, setData] = useState({
     email: "",
     password: "",
-  });
-  const [showPassword, setShowPassword] = useState(false);
+  })
+  const [showPassword, setShowPassword] = useState(false)
 
-  useEffect(() => {
-    if (session?.status === "authenticated") {
-      router.push("/dashboard");
-    }
-  });
+  // useEffect(() => {
+  //   if (session?.status === "authenticated") {
+  //     router.push("/kitchen");
+  //   }
+  // });
 
   const loginUser = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     signIn("credentials", { ...data, redirect: false }).then((callback) => {
       if (callback?.error) {
         toast.error(`${callback.error}`, {
           position: "top-center",
           autoClose: 1250,
-        });
-        throw new Error(callback.error);
+        })
+        throw new Error(callback.error)
       }
 
       if (callback?.ok && !callback?.error) {
+        router.push("/kitchen")
         toast.success(`Logged in successfully!`, {
           position: "top-center",
           autoClose: 1250,
-        });
+        })
       }
-    });
-  };
+    })
+  }
 
   return (
     <>
@@ -146,5 +147,5 @@ export default function Login() {
         </div>
       </div>
     </>
-  );
+  )
 }

@@ -33,14 +33,21 @@ const Kitchen = ({ items }) => {
         position: "top-center",
         autoClose: 1250,
       })
+    } else {
+      redItems.map((item) => namesArray.push(item.name))
+      const finalString = namesArray.join(",+")
+      fetch(
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=757d368ebb304fb3bf99a64e38c11942&ingredients=${finalString}`
+      )
+        .then((response) => response.json())
+        .then((resItems) => {
+          toast.success("Red Item recipes found!", {
+            position: "top-center",
+            autoClose: 1250,
+          })
+          setFetchedRecipes(resItems)
+        })
     }
-    redItems.map((item) => namesArray.push(item.name))
-    const finalString = namesArray.join(",+")
-    fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=757d368ebb304fb3bf99a64e38c11942&ingredients=${finalString}`
-    )
-      .then((response) => response.json())
-      .then((resItems) => setFetchedRecipes(resItems))
   }
 
   const handleSelectItem = (data) => {
@@ -96,7 +103,7 @@ const Kitchen = ({ items }) => {
   return (
     <div className="flex justify-center flex-wrap bg-slate-50/50 mt-12">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-80 h-72 m-20 my-20">
+        <div className="flex flex-col justify-center items-center w-80 h-72 m-20 my-10">
           <h2 className="font-semibold text-lg text-orange-600/70">
             Food For Thought
           </h2>

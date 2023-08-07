@@ -95,7 +95,7 @@ export const ingredientsObjects = [
     id: "f79b02ff",
     name: "Bread",
     storageTip:
-      "Freeze bagels, and defrost before eating. Keep stale bread for breadcrumbs.",
+      "Freeze bread immediately, and defrost before eating. Keep stale bread for breadcrumbs.",
   },
   {
     id: "cee1e4c3",
