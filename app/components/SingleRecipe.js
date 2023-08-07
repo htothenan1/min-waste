@@ -8,16 +8,16 @@ const SingleRecipe = ({ recipe }) => {
       <div className=" flex flex-col bg-gradient-to-t from-red-100 to-red-200 shadow-lg rounded-md w-80 h-80 overflow-scroll">
         {recipe ? (
           <>
-            <div className="flex items-center">
+            <div className=" bg-transparent">
               <img
-                className=" w-36 h-36 rounded-md"
+                className="rounded-md w-full"
                 src={recipe.image}
                 alt="A picture of the selected recipe"
               />
-              <div className="px-2">
-                <h2 className="text-slate-600 font-semibold">{recipe.title}</h2>
-              </div>
             </div>
+            <h2 className="text-slate-600 font-semibold text-2xl text-center p-4">
+              {recipe.title}
+            </h2>
             <div className="my-2 px-4">
               <h2 className="text-slate-600 underline font-light">
                 Ingredients
