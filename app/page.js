@@ -108,9 +108,9 @@ export default async function Home() {
             anaerobic decomposition
           </Link>
           ). The resources used to produce and deliver wasted food to consumers
-          is also immense. If we collectively improve our personal food waste
-          behaviors and attitudes, we can truly change how we waste our food as
-          a society. Watch this quick breakdown on the issue before getting
+          is also immense. Reducing the amount you waste will not only save you
+          money in the short term, it will also be good for the planet in the
+          long term. Watch this quick breakdown on the issue before getting
           started:
         </p>
         <div className="flex flex-col justify-center items-center w-full aspect-video mt-4 mb-20 bg-slate-50/50">
