@@ -16,7 +16,7 @@ export default async function Home() {
       <div className="bg-slate-50/50 py-12">
         <div className="flex flex-col items-center">
           <h1 className=" text-orange-600/70 font-bold text-4xl">
-            MinWaste Dashboard
+            MinWaste Kitchen
           </h1>
           <h2 className="my-2 text-slate-600 text-md">
             {`${user?.name} has consumed ` + itemsCount + ` complete items!`}
@@ -26,7 +26,7 @@ export default async function Home() {
         <div className="flex flex-col w-2/3 m-auto bg-slate-50/50 my-12">
           <h2 className="text-slate-600 text-center font-semibold mt-4 text-2xl md:text-3xl">
             How to get the most out of{" "}
-            <span className="text-orange-600/70">MinWaste App</span>
+            <span className="text-orange-600/70">MinWaste</span>
           </h2>
           <p className="my-2 text-slate-600 text-md">
             <span className=" font-extrabold">
@@ -66,9 +66,11 @@ export default async function Home() {
             track your overall progress.
           </p>
           <p className="my-2 text-slate-600 text-md">
-            <span className="font-extrabold">5. Take it with you!</span> Our app
-            is mobile friendly, so use it as a grocery shopping tool. Never
-            double-buy an item again!
+            <span className="font-extrabold">
+              5. Take your kitchen with you!
+            </span>{" "}
+            Our app is mobile friendly, so use it as a grocery shopping tool.
+            Never double-buy an item again!
           </p>
         </div>
       </div>

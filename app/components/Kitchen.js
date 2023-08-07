@@ -45,6 +45,10 @@ const Kitchen = ({ items }) => {
 
   const handleSelectItem = (data) => {
     setSelectedItem(data)
+    toast.success(`${data.name} selected!`, {
+      position: "top-center",
+      autoClose: 1250,
+    })
   }
 
   const handleSelectRecipe = (data) => {
@@ -53,6 +57,10 @@ const Kitchen = ({ items }) => {
     )
       .then((res) => res.json())
       .then((recipe) => {
+        toast.success("New recipe selected!", {
+          position: "top-center",
+          autoClose: 1250,
+        })
         setSelectedRecipe(recipe)
       })
   }
@@ -65,6 +73,11 @@ const Kitchen = ({ items }) => {
       .then((recipes) => {
         if (recipes.results.length === 0) {
           toast.error("Sorry, no recipes found", {
+            position: "top-center",
+            autoClose: 1250,
+          })
+        } else {
+          toast.success(`${selectedItem.name} recipes found!`, {
             position: "top-center",
             autoClose: 1250,
           })

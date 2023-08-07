@@ -34,7 +34,7 @@ export default async function FoodForThought() {
           className=" w-full md:w-1/2 mb-20 mt-16"
         >
           <AccordionItem value="item-1">
-            <AccordionTrigger>1. Prep your Kitchen</AccordionTrigger>
+            <AccordionTrigger>1. Kitchen Prep</AccordionTrigger>
             <AccordionContent className="text-left">
               Our first step will aim to ensure that your kitchen is properly
               equipped to start reducing your personal food waste. This will

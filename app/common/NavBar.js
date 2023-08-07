@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import logo from "../../public/smile_logo.png";
-import { Fragment } from "react";
-import { usePathname } from "next/navigation";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { signOut } from "next-auth/react";
-import Link from "next/link";
+import Image from "next/image"
+import logo from "../../public/smile_logo.png"
+import { Fragment } from "react"
+import { usePathname } from "next/navigation"
+import { Disclosure, Menu, Transition } from "@headlessui/react"
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
+import { signOut } from "next-auth/react"
+import Link from "next/link"
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(" ")
 }
 
 const CustomLink = ({ href, title, className = "" }) => {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <Link href={href} className={`${className} relative group`}>
@@ -27,8 +27,8 @@ const CustomLink = ({ href, title, className = "" }) => {
         &nbsp;
       </span>
     </Link>
-  );
-};
+  )
+}
 
 const NavBar = ({ user }) => {
   return (
@@ -62,8 +62,8 @@ const NavBar = ({ user }) => {
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   <CustomLink
-                    href={"/dashboard"}
-                    title={"Dashboard"}
+                    href={"/kitchen"}
+                    title={"Kitchen"}
                     className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600"
                   />
                   <CustomLink
@@ -133,10 +133,10 @@ const NavBar = ({ user }) => {
             <div className="space-y-1 pb-4 pt-2">
               <Disclosure.Button
                 as="a"
-                href="dashboard"
+                href="kitchen"
                 className="block border-l-4 border-orange-600 py-2 pl-3 pr-4 text-base font-medium text-orange-600/70"
               >
-                Dashboard
+                Kitchen
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
@@ -165,7 +165,7 @@ const NavBar = ({ user }) => {
         </>
       )}
     </Disclosure>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
