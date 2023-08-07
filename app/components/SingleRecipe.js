@@ -18,6 +18,15 @@ const SingleRecipe = ({ recipe }) => {
             <h2 className="text-slate-600 font-semibold text-2xl text-center p-4">
               {recipe.title}
             </h2>
+            <p className="text-center text-slate-600">{`Serves ${recipe.servings}`}</p>
+            <p className="text-center text text-slate-600">{`Ready in ${recipe.readyInMinutes} minutes`}</p>
+            <Link
+              target="_blank"
+              href={recipe.sourceUrl}
+              className="text-center text text-orange-600/70"
+            >
+              Click to visit the source
+            </Link>{" "}
             <div className="my-2 px-4">
               <h2 className="text-slate-600 underline font-light">
                 Ingredients

@@ -69,6 +69,7 @@ const Kitchen = ({ items }) => {
           autoClose: 1250,
         })
         setSelectedRecipe(recipe)
+        console.log(recipe)
       })
   }
 
