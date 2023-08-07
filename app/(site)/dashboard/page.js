@@ -15,7 +15,9 @@ export default async function Home() {
       <NavBar user={user?.name} />
       <div className="bg-slate-50/50 py-12">
         <div className="flex flex-col items-center">
-          <h1 className=" text-orange-600/70 font-bold text-4xl">Dashboard</h1>
+          <h1 className=" text-orange-600/70 font-bold text-4xl">
+            MinWaste Dashboard
+          </h1>
           <h2 className="my-2 text-slate-600 text-md">
             {`${user?.name} has consumed ` + itemsCount + ` complete items!`}
           </h2>

@@ -19,7 +19,7 @@ export default async function FoodForThought() {
       <NavBar user={user?.name} />
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
         <h1 className=" text-orange-600/70 font-bold text-4xl">Learn</h1>
-        <h2 className=" text-slate-600/70 font-bold text-2xl">
+        <h2 className=" text-slate-600/70 font-bold text-lg">
           *Currently In Development*
         </h2>
 
