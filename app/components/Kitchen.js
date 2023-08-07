@@ -6,6 +6,7 @@ import SingleItem from "./SingleItem"
 import RecipesList from "./RecipesList"
 import SingleRecipe from "./SingleRecipe"
 import ItemLogger from "./ItemLogger"
+import { toast } from "react-toastify"
 import { thought } from "../data/thoughts"
 
 const Kitchen = ({ items }) => {
@@ -27,6 +28,12 @@ const Kitchen = ({ items }) => {
       (item) => item.expiredAt && calcDaysFrom(item) < 2
     )
     let namesArray = []
+    if (redItems.length === 0) {
+      toast.error("You don't have red items!", {
+        position: "top-center",
+        autoClose: 1250,
+      })
+    }
     redItems.map((item) => namesArray.push(item.name))
     const finalString = namesArray.join(",+")
     fetch(
@@ -47,7 +54,6 @@ const Kitchen = ({ items }) => {
       .then((res) => res.json())
       .then((recipe) => {
         setSelectedRecipe(recipe)
-        console.log(recipe)
       })
   }
 
@@ -57,6 +63,12 @@ const Kitchen = ({ items }) => {
     )
       .then((res) => res.json())
       .then((recipes) => {
+        if (recipes.results.length === 0) {
+          toast.error("Sorry, no recipes found", {
+            position: "top-center",
+            autoClose: 1250,
+          })
+        }
         setFetchedRecipes(recipes.results)
       })
   }
