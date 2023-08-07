@@ -180,6 +180,21 @@ export default async function Resources() {
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50">
           <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+            Eating Trash: The Chefs Turning Food Waste Into Trendy Eats
+          </h2>
+          <iframe
+            className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/4xS-grlssPw"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div className="w-full aspect-video mb-20 bg-slate-50/50">
+          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
             Food Waste: Last Week Tonight with John Oliver
           </h2>
           <iframe

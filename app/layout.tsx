@@ -1,30 +1,30 @@
-import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import { Inter } from "next/font/google";
-import CustomToastContainer from "./common/CustomToastContainer";
-import Provider from "./context/AuthContext";
-import "react-toastify/dist/ReactToastify.css";
-import "react-date-picker/dist/DatePicker.css";
-import "react-calendar/dist/Calendar.css";
+import "./globals.css"
+import { Analytics } from "@vercel/analytics/react"
+import { Inter } from "next/font/google"
+import CustomToastContainer from "./common/CustomToastContainer"
+import Provider from "./context/AuthContext"
+import "react-toastify/dist/ReactToastify.css"
+import "react-date-picker/dist/DatePicker.css"
+import "react-calendar/dist/Calendar.css"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Waste-Not App",
+  title: "MinWaste App",
   description: "An app to help reduce your food waste",
-  alternates: {
-    canonical: "https://wastenot-app.com",
-  },
+  // alternates: {
+  //   canonical: "https://wastenot-app.com",
+  // },
   verification: {
     google:
       "google-site-verification=kmR4sAUO7i4PlQcI2NSS3LRAV9GCtmUDalVjRadlDK4",
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html className="h-full bg-slate-50/50" lang="en">
@@ -36,5 +36,5 @@ export default function RootLayout({
         </Provider>
       </body>
     </html>
-  );
+  )
 }

@@ -41,7 +41,7 @@ const SingleRecipe = ({ recipe }) => {
               <h2 className="text-slate-600 underline font-light">
                 Instructions
               </h2>
-              {recipe.analyzedInstructions[0].steps ? (
+              {recipe.analyzedInstructions[1] ? (
                 <>
                   <ol className=" list-inside">
                     {recipe.analyzedInstructions[0].steps.map((step) => (
@@ -57,7 +57,7 @@ const SingleRecipe = ({ recipe }) => {
               ) : (
                 <p>
                   Sorry, not available.{" "}
-                  <Link href={recipe.sourceUrl}>
+                  <Link target="_blank" href={recipe.sourceUrl}>
                     Click here to visit the source!
                   </Link>
                 </p>

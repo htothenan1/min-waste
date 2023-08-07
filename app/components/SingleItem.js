@@ -15,7 +15,6 @@ import { cn } from "../lib/utils"
 import { Button } from "./ui/button"
 import { PlusIcon } from "@radix-ui/react-icons"
 import { Calendar } from "./ui/calendar"
-import { ingredientsObjects } from "../data/ingredients"
 import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import {
@@ -198,7 +197,7 @@ const EditItemForm = ({
                     >
                       {deleteLoading ? (
                         <div className="flex justify-center items-center">
-                          {mistaken ? "Deleting..." : "Consuming..."}
+                          {mistaken ? "Deleting..." : "Yay!"}
                           <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
                         </div>
                       ) : (

@@ -1,6 +1,6 @@
 ## What am I building?
 
-Waste-Not.
+MinWaste App.
 
 ## What is my goal?
 

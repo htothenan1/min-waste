@@ -1,5 +1,5 @@
 {
-  "name": "waste-not-app",
+  "name": "minwaste-app",
   "version": "0.1.0",
   "private": true,
   "prisma": {

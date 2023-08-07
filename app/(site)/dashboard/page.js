@@ -24,7 +24,7 @@ export default async function Home() {
         <div className="flex flex-col w-2/3 m-auto bg-slate-50/50 my-12">
           <h2 className="text-slate-600 text-center font-semibold mt-4 text-2xl md:text-3xl">
             How to get the most out of{" "}
-            <span className="text-orange-600/70">Waste-Not App</span>
+            <span className="text-orange-600/70">MinWaste App</span>
           </h2>
           <p className="my-2 text-slate-600 text-md">
             <span className=" font-extrabold">

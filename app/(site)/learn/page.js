@@ -24,9 +24,9 @@ export default async function FoodForThought() {
         </h2>
 
         <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2">
-          Our 5-step process for improving your food waste behavior. Designed to
-          be a practical, holistic approach that users can utilize to see real
-          change in their food waste behaviors.
+          Our 5-step process for becoming your own food waste therapist.
+          Designed to be a practical, holistic approach that users can utilize
+          to see real, lasting change in their food waste behaviors.
         </p>
         <Accordion
           type="single"
@@ -92,10 +92,13 @@ export default async function FoodForThought() {
               Food waste doesn&apos;t only happen after it arrives at your home.
               A significant amount of food loss occurs on the farm, in
               transport, and at the grocery store levels. Although it may seem
-              like consumer behaviors and attitutes are unrelated to these
+              like consumer behaviors and attitudes are unrelated to these
               losses, our fifth step will attempt to prove otherwise. We will
-              show how forces, such as consumer demands for &quot;perfect&quot;
-              food, are causing those very losses along the chain.
+              show how certain forces, such as consumer demands for
+              &quot;perfect&quot; fruits and vegetables, are causing those very
+              losses along the supply chain. By the conclusion of the fifth and
+              final step, you will hopefully have the tools and confidence to
+              create better food waste behaviors.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
