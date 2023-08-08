@@ -67,7 +67,7 @@ const ItemLogger = ({ items }) => {
   }
 
   return (
-    <div className="m-6">
+    <div className="my-6 mx-0 md:mx-6">
       <h2 className="text-center pb-2">Item Logger</h2>
 
       <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-200 via-slate-200 to-indigo-200 shadow-lg rounded-md p-4">

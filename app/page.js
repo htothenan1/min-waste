@@ -226,7 +226,7 @@ export default async function Home() {
                   Get recipes
                 </h2>
                 <p class="leading-relaxed text-base text-slate-600">
-                  Gain instant access to over 5000 recipes, based on what you
+                  Gain instant access to over 5,000 recipes, based on what you
                   have in your kitchen.
                 </p>
 

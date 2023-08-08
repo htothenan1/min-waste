@@ -104,14 +104,14 @@ const Kitchen = ({ items }) => {
   return (
     <div className="flex justify-center flex-wrap bg-slate-50/50">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-80 h-72 mx-14 border-4 rounded-md shadow-xl my-auto">
+        <div className="flex flex-col justify-center items-center w-80 h-80 border-4 rounded-md shadow-xl my-3">
           <h2 className="font-semibold text-lg text-orange-600/70">
             Food For Thought
           </h2>
           <p className="text-center text-slate-600 p-2">{currentThought}</p>
         </div>
       ) : (
-        <>
+        <div className="flex">
           <ItemLogger items={items} editStatus={editMode} />
           <div className="flex flex-col items-center">
             <ItemsList
@@ -126,7 +126,7 @@ const Kitchen = ({ items }) => {
               Red Item Recipes
             </button>
           </div>
-        </>
+        </div>
       )}
 
       <SingleItem
