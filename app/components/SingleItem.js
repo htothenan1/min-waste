@@ -197,7 +197,7 @@ const EditItemForm = ({
                     >
                       {deleteLoading ? (
                         <div className="flex justify-center items-center">
-                          {mistaken ? "Deleting..." : "Yay!"}
+                          {mistaken ? "Deleting..." : "Yay"}
                           <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
                         </div>
                       ) : (
@@ -242,7 +242,7 @@ const EditItemForm = ({
       <div className="flex flex-col m-6">
         <h2 className="text-center pb-2">Single Item View</h2>
 
-        <div className="flex items-center h-full justify-center">
+        <div className="flex items-center justify-center">
           <a.div
             className="flex flex-col z-10 items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-80 h-80"
             style={{ opacity: opacity.to((o) => 1 - o), transform }}

@@ -52,10 +52,10 @@ const Kitchen = ({ items }) => {
 
   const handleSelectItem = (data) => {
     setSelectedItem(data)
-    toast.success(`${data.name} selected!`, {
-      position: "top-center",
-      autoClose: 1250,
-    })
+    // toast.success(`${data.name} selected!`, {
+    //   position: "top-center",
+    //   autoClose: 1250,
+    // })
   }
 
   const handleSelectRecipe = (data) => {
@@ -102,9 +102,9 @@ const Kitchen = ({ items }) => {
   }, [items])
 
   return (
-    <div className="flex justify-center flex-wrap bg-slate-50/50 mt-12">
+    <div className="flex justify-center flex-wrap bg-slate-50/50">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-80 h-72 m-10">
+        <div className="flex flex-col justify-center items-center w-80 h-72 mx-14 border-4 rounded-md shadow-xl my-auto">
           <h2 className="font-semibold text-lg text-orange-600/70">
             Food For Thought
           </h2>

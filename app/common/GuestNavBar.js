@@ -1,13 +1,13 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import logo from "../../public/smile_logo.png";
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import Link from "next/link";
+import Image from "next/image"
+import logo from "../../public/smile_logo.png"
+import { Fragment } from "react"
+import { Disclosure, Menu, Transition } from "@headlessui/react"
+import Link from "next/link"
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(" ")
 }
 
 const GuestNavBar = () => {
@@ -26,7 +26,7 @@ const GuestNavBar = () => {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <h1 className="text-slate-600">Get started</h1>
+              <h1 className="text-slate-600">Login or Sign up</h1>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -97,7 +97,7 @@ const GuestNavBar = () => {
         </div>
       </>
     </Disclosure>
-  );
-};
+  )
+}
 
-export default GuestNavBar;
+export default GuestNavBar

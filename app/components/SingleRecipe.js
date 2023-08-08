@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const SingleRecipe = ({ recipe }) => {
   return (
-    <div className="mt-6 mb-10">
+    <div className="m-6 mb-10">
       <h2 className="text-center pb-2">Single Recipe View</h2>
 
       <div className=" flex flex-col bg-gradient-to-t from-red-100 to-red-200 shadow-lg rounded-md w-80 h-80 overflow-scroll">
