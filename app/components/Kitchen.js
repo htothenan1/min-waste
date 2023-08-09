@@ -37,7 +37,7 @@ const Kitchen = ({ items }) => {
       redItems.map((item) => namesArray.push(item.name))
       const finalString = namesArray.join(",+")
       fetch(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=757d368ebb304fb3bf99a64e38c11942&ingredients=${finalString}&number=20`
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=757d368ebb304fb3bf99a64e38c11942&ingredients=${finalString}&number=15`
       )
         .then((response) => response.json())
         .then((resItems) => {
@@ -71,7 +71,7 @@ const Kitchen = ({ items }) => {
 
   const fetchRecipes = () => {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=757d368ebb304fb3bf99a64e38c11942&query=${selectedItem.name}&number=20`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=757d368ebb304fb3bf99a64e38c11942&query=${selectedItem.name}&number=15`
     )
       .then((res) => res.json())
       .then((recipes) => {
