@@ -52,12 +52,12 @@ const NavBar = ({ user }) => {
                   <Image
                     className="block h-20 w-auto lg:hidden"
                     src={logo}
-                    alt="Waste Not App"
+                    alt="MinWaste"
                   />
                   <Image
                     className="hidden h-20 w-auto lg:block"
                     src={logo}
-                    alt="Waste Not App"
+                    alt="MinWaste"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
