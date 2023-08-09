@@ -60,7 +60,7 @@ const Kitchen = ({ items }) => {
     )
       .then((res) => res.json())
       .then((recipe) => {
-        toast.success("New recipe selected!", {
+        toast.success(`${selectedItem.name} recipe selected!`, {
           position: "top-center",
           autoClose: 1250,
         })
