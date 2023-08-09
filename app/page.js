@@ -1,13 +1,6 @@
 import GuestNavBar from "./common/GuestNavBar"
 import Footer from "./common/Footer"
 import screenshot from "../public/waste-not.png"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../app/components/ui/accordion"
-import Link from "next/link"
 import Image from "next/image"
 
 export default async function Home() {
@@ -49,129 +42,6 @@ export default async function Home() {
         </div>
       </div>
       <div className="flex flex-col items-center w-2/3 mx-auto mt-6 bg-slate-50/50">
-        {/* <h2 className="text-slate-600 text-center font-semibold mt-4 text-2xl md:text-3xl">
-          How to get the most out of{" "}
-          <span className="text-orange-600/70">MinWaste</span>
-        </h2>
-        <p className="my-2 text-slate-600 text-md">
-          <span className=" font-extrabold">
-            1. Log your spoilable items regularly.
-          </span>{" "}
-          The more in sync your Items List is with your kitchen, the more
-          effective the app will be. If the item you brought home can spoil in
-          the next month, make sure to log it.
-        </p>
-        <p className="my-2 text-slate-600 text-md">
-          <span className=" font-extrabold">
-            2. Set a Use-By Date for your items.
-          </span>{" "}
-          Set a reasonable goal for when each item{" "}
-          <span className=" italic">should optimistically</span> be consumed by.
-          This should be based on what you feel is appropriate, not the
-          expiration code on the package. Make sure to factor in your lifestyle
-          and schedule when choosing this date.
-        </p>
-        <p className="my-2 text-slate-600 text-md">
-          <span className="font-extrabold">
-            3. Consume your items from the top of the list, first.
-          </span>{" "}
-          Try to always eat what should be eaten next. If your item has a{" "}
-          <span className="text-red-500/70">red background</span>, that means it
-          is less than 2 days away from the Use-By Date.{" "}
-          <span className="text-green-600">Green background</span> means you
-          have more than 2 days, and the{" "}
-          <span className="text-slate-500/70">gray ones</span> are items that
-          are yet to be set.
-        </p>
-        <p className="my-2 text-slate-600 text-md">
-          <span className="font-extrabold">
-            4. Update your Items List when an item is finished.
-          </span>{" "}
-          We will keep count of the items you fully consume, so that you can
-          track your overall progress.
-        </p>
-        <p className="my-2 text-slate-600 text-md">
-          <span className="font-extrabold">5. Take it with you!</span> Our app
-          is mobile friendly, so use it as a grocery shopping tool. Never
-          double-buy an item again!
-        </p> */}
-        {/* <Accordion
-          type="single"
-          collapsible
-          className=" w-full md:w-1/2 mb-20 mt-16"
-        >
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="text-center">
-              <h2 className=" text-slate-600 font-semibold mt-8 text-2xl md:text-3xl text-center">
-                What&apos;s so bad about food waste?
-              </h2>
-            </AccordionTrigger>
-            <AccordionContent className="text-left">
-              <p className="my-2 text-slate-600 text-md mb-4">
-                Nearly 40 percent of food in the US goes to waste! At the same
-                time, 1 in 8 Americans don&apos;t have enough food to eat.
-                Isn&apos;t that absurd? That wasted food also makes up 20
-                percent of all landfills, which produces extreme amounts of
-                methane gas (look up{" "}
-                <Link
-                  className="text-orange-600/70"
-                  href={
-                    "https://www.epa.gov/lmop/basic-information-about-landfill-gas"
-                  }
-                  target="_blank"
-                >
-                  anaerobic decomposition
-                </Link>
-                ). The resources used to produce and deliver wasted food to
-                consumers is also immense. Reducing the amount you waste will
-                not only save you money in the short term, it will also be good
-                for the planet in the long term. Watch this quick breakdown on
-                the issue before getting started:
-              </p>
-              <div className="flex flex-col justify-center items-center w-full aspect-video mt-4 mb-20 bg-slate-50/50">
-                <iframe
-                  className="rounded-md shadow-lg mx-auto max-w-xs md:max-w-lg"
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/ishA6kry8nc"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-                <p className="text-center p-1 text-xs w-3/4">
-                  *Older phones may experience a{" "}
-                  <span className="text-green-500">green screen error</span>. If
-                  this is the case, please watch on YouTube directly.*
-                </p>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion> */}
-
-        {/* <h2 className=" text-slate-600 font-semibold mt-8 text-2xl md:text-3xl text-center">
-          What&apos;s so bad about food waste?
-        </h2>
-        <p className="my-2 text-slate-600 text-md mb-4">
-          Nearly 40 percent of food in the US goes to waste! At the same time, 1
-          in 8 Americans don&apos;t have enough food to eat. Isn&apos;t that
-          absurd? That wasted food also makes up 20 percent of all landfills,
-          which produces extreme amounts of methane gas (look up{" "}
-          <Link
-            className="text-orange-600/70"
-            href={
-              "https://www.epa.gov/lmop/basic-information-about-landfill-gas"
-            }
-            target="_blank"
-          >
-            anaerobic decomposition
-          </Link>
-          ). The resources used to produce and deliver wasted food to consumers
-          is also immense. Reducing the amount you waste will not only save you
-          money in the short term, it will also be good for the planet in the
-          long term. Watch this quick breakdown on the issue before getting
-          started:
-        </p> */}
         <section class="text-gray-600 body-font">
           <div class="container px-5 py-12 mx-auto">
             <div class="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
@@ -188,17 +58,6 @@ export default async function Home() {
                   <path stroke="none" d="M0 0h24v24H0z" />
                   <path d="M3.5 5.5L5 7l2.5-2.5M3.5 11.5L5 13l2.5-2.5M3.5 17.5L5 19l2.5-2.5M11 6h9M11 12h9M11 18h9" />
                 </svg>
-                {/* <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  class="sm:w-16 sm:h-16 w-10 h-10"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg> */}
               </div>
               <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                 <h2 class="text-orange-600/70 text-lg title-font font-quicksandBold mb-2">
@@ -253,35 +112,10 @@ export default async function Home() {
                   <path stroke="none" d="M0 0h24v24H0z" />
                   <path d="M12 3c1.918 0 3.52 1.35 3.91 3.151A4 4 0 0118 13.874V21H6v-7.126a4.002 4.002 0 112.092-7.723A3.999 3.999 0 0112 3zM6.161 17.009L18 17" />
                 </svg>
-                {/* <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  class="sm:w-16 sm:h-16 w-10 h-10"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="6" cy="6" r="3"></circle>
-                  <circle cx="6" cy="18" r="3"></circle>
-                  <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                </svg> */}
               </div>
             </div>
             <div class="flex items-center lg:w-4/5 mx-auto sm:flex-row flex-col">
               <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-orange-100 text-orange-500 flex-shrink-0">
-                {/* <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  class="sm:w-16 sm:h-16 w-10 h-10"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg> */}
                 <svg
                   viewBox="0 0 24 24"
                   fill="currentColor"

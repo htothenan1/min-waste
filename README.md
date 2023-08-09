@@ -19,8 +19,11 @@ The only way this problem goes away is if we can collectively improve our behavi
 - Prisma
 - TailwindCSS
 - React Toastify
-- Edamam API
+- Spoonacular API
 
 Current progress:
 
-![waste not screenshot](./public/waste-not.png)
+![minWaste landing](./public//minwaste-landing.png)
+![minWaste kitchen](./public/waste-not.png)
+![minWaste resources](./public/minwaste-resources.png)
+![minWaste learn](./public/minwaste-learn.png)

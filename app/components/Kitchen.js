@@ -52,10 +52,6 @@ const Kitchen = ({ items }) => {
 
   const handleSelectItem = (data) => {
     setSelectedItem(data)
-    // toast.success(`${data.name} selected!`, {
-    //   position: "top-center",
-    //   autoClose: 1250,
-    // })
   }
 
   const handleSelectRecipe = (data) => {

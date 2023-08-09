@@ -139,12 +139,6 @@ export const ingredientsObjects = [
     storageTip:
       "Inside airtight bag, inside crisper drawer. Best stored loosely wrapped in wax paper.",
   },
-  // {
-  //   id: "2sv721br",
-  //   name: "Cheese (Soft)",
-  //   storageTip:
-  //     "Inside airtight bag, inside crisper drawer. Best stored loosely wrapped in wax paper.",
-  // },
   {
     id: "09d9bfa1",
     name: "Cherries",
