@@ -42,7 +42,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
             </li>
           ))
         ) : (
-          <p className=" p-2 cursor-default text-center text-slate-600 my-auto">
+          <p className=" p-2 cursor-default text-center text-slate-600 my-auto font-quicksand">
             Add an item!
           </p>
         )}

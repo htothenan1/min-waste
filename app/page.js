@@ -314,7 +314,7 @@ export default async function Home() {
                 href="/register"
                 className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-quicksand text-orange-600/80 shadow hover:bg-orange-50"
               >
-                Get started
+                Sign up for free
               </a>
             </div>
           </div>
