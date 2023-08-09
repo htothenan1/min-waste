@@ -26,7 +26,9 @@ const GuestNavBar = () => {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <h1 className="text-slate-600">Login or Sign up</h1>
+              <h1 className="text-slate-600 font-quicksand">
+                Login or Sign up
+              </h1>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -46,7 +48,7 @@ const GuestNavBar = () => {
                 <div>
                   <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/70 focus:ring-offset-2">
                     <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
-                      <span className="text-md font-medium leading-none text-white">
+                      <span className="text-md font-quicksandBold leading-none text-white">
                         Go!
                       </span>
                     </span>
@@ -68,7 +70,7 @@ const GuestNavBar = () => {
                           href={"/login"}
                           className={classNames(
                             active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700"
+                            "block px-4 py-2 text-sm text-gray-700 font-quicksand"
                           )}
                         >
                           Login
@@ -82,7 +84,7 @@ const GuestNavBar = () => {
                           href={"/register"}
                           className={classNames(
                             active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700"
+                            "block px-4 py-2 text-sm text-gray-700 font-quicksand"
                           )}
                         >
                           Sign Up

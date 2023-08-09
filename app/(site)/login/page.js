@@ -52,8 +52,8 @@ export default function Login() {
             src={smileLogo}
             alt="Your Company"
           />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-slate-600">
-            Sign in to your account
+          <h2 className="mt-10 text-center text-2xl font-quicksandBold leading-9 tracking-tight text-slate-600">
+            Welcome Back!
           </h2>
         </div>
 
@@ -62,7 +62,7 @@ export default function Login() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-slate-600"
+                className="block text-sm font-quicksandBold leading-6 text-slate-600"
               >
                 Email address
               </label>
@@ -84,14 +84,14 @@ export default function Login() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-slate-600"
+                  className="block text-sm font-quicksandBold leading-6 text-slate-600"
                 >
                   Password
                 </label>
                 <span>
                   {showPassword ? (
                     <div
-                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1"
+                      className=" cursor-pointer text-xs font-quicksand text-slate-200 border bg-black/70 rounded-md px-2 py-1"
                       onClick={() => setShowPassword(false)}
                     >
                       hide password
@@ -125,13 +125,13 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-quicksandBold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
               >
                 Sign in
               </button>
             </div>
             <div className="text-sm">
-              <h2>
+              <h2 className=" font-quicksand">
                 Don&apos;t have an account yet?{" "}
                 <span>
                   <a

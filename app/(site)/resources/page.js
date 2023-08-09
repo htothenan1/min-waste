@@ -20,8 +20,10 @@ export default async function Resources() {
     <>
       <NavBar user={user?.name} />
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
-        <h1 className=" text-orange-600/70 font-bold text-4xl">Resources</h1>
-        <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2">
+        <h1 className=" text-orange-600/70 font-quicksandBold text-4xl">
+          Resources
+        </h1>
+        <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2 font-quicksandBold">
           The organizations, projects, and videos that helped shape the goals
           and values of this app.
         </p>
@@ -35,15 +37,15 @@ export default async function Resources() {
                   src={refedLogo}
                 />
                 <div class="px-8 py-10 relative z-10 w-full border-4 border-orange-200 bg-white opacity-0 hover:opacity-100">
-                  <h2 class="tracking-widest text-sm title-font font-medium text-orange-500 mb-1">
+                  <h2 class="tracking-widest text-sm title-font font-quicksand text-orange-500 mb-1">
                     <Link href={"https://refed.org/"} target="_blank">
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-quicksandBold text-gray-900 mb-3">
                     ReFED
                   </h2>
-                  <p class="leading-relaxed">
+                  <p class="leading-relaxed font-quicksand">
                     ReFED is a national nonprofit dedicated to ending food loss
                     and waste by advancing data-driven solutions.
                   </p>
@@ -58,15 +60,15 @@ export default async function Resources() {
                   src={foodBankLogo}
                 />
                 <div class="px-8 py-10 relative z-10 w-full border-4 border-orange-200 bg-white opacity-0 hover:opacity-100">
-                  <h2 class="tracking-widest text-sm title-font font-medium text-orange-500 mb-1">
+                  <h2 class="tracking-widest text-sm title-font font-quicksand text-orange-500 mb-1">
                     <Link href={"https://www.foodbanking.org/"} target="_blank">
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-quicksandBold text-gray-900 mb-3">
                     The Global Foodbanking Network
                   </h2>
-                  <p class="leading-relaxed">
+                  <p class="leading-relaxed font-quicksand">
                     Hunger Relief Now. Powering Communities. Advancing Food
                     Banks. Helping connect people to safe food.
                   </p>
@@ -81,7 +83,7 @@ export default async function Resources() {
                   src={farmlinkLogo}
                 />
                 <div class="px-8 py-10 relative z-10 w-full border-4 border-orange-200 bg-white opacity-0 hover:opacity-100">
-                  <h2 class="tracking-widest text-sm title-font font-medium text-orange-500 mb-1">
+                  <h2 class="tracking-widest text-sm title-font font-quicksand text-orange-500 mb-1">
                     <Link
                       href={"https://www.farmlinkproject.org/"}
                       target="_blank"
@@ -89,10 +91,10 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-quicksandBold text-gray-900 mb-3">
                     The Farmlink Project
                   </h2>
-                  <p class="leading-relaxed">
+                  <p class="leading-relaxed font-quicksand">
                     Their mission is to make the worlds abundance of produce
                     accessible to everyone.
                   </p>
@@ -109,7 +111,7 @@ export default async function Resources() {
                   src={feedingAmericaLogo}
                 />
                 <div class="px-8 py-10 relative z-10 w-full border-4 border-orange-200 bg-white opacity-0 hover:opacity-100">
-                  <h2 class="tracking-widest text-sm title-font font-medium text-orange-500 mb-1">
+                  <h2 class="tracking-widest text-sm title-font font-quicksand text-orange-500 mb-1">
                     <Link
                       href={"https://www.feedingamerica.org/"}
                       target="_blank"
@@ -117,10 +119,10 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-quicksandBold text-gray-900 mb-3">
                     Feeding America
                   </h2>
-                  <p class="leading-relaxed">
+                  <p class="leading-relaxed font-quicksand">
                     Feeding America is the largest charity working to end hunger
                     in the United States.
                   </p>
@@ -135,7 +137,7 @@ export default async function Resources() {
                   src={fwraLogo}
                 />
                 <div class="px-8 py-10 relative z-10 w-full border-4 border-orange-200 bg-white opacity-0 hover:opacity-100">
-                  <h2 class="tracking-widest text-sm title-font font-medium text-orange-500 mb-1">
+                  <h2 class="tracking-widest text-sm title-font font-quicksand text-orange-500 mb-1">
                     <Link
                       href={"https://www.foodwastealliance.org/"}
                       target="_blank"
@@ -143,10 +145,10 @@ export default async function Resources() {
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-quicksandBold text-gray-900 mb-3">
                     Food Waste Reduction Alliance
                   </h2>
-                  <p class="leading-relaxed">
+                  <p class="leading-relaxed font-quicksand">
                     FWRA’s objectives are to reduce our environmental footprint
                     while helping those suffering from hunger.
                   </p>
@@ -161,15 +163,15 @@ export default async function Resources() {
                   src={jamesBeardLogo}
                 />
                 <div class="px-8 py-10 relative z-10 w-full border-4 border-orange-200 bg-white opacity-0 hover:opacity-100">
-                  <h2 class="tracking-widest text-sm title-font font-medium text-orange-500 mb-1">
+                  <h2 class="tracking-widest text-sm title-font font-quicksand text-orange-500 mb-1">
                     <Link href={"https://www.jamesbeard.org/"} target="_blank">
                       LEARN MORE
                     </Link>
                   </h2>
-                  <h2 class="title-font text-lg font-medium text-gray-900 mb-3">
+                  <h2 class="title-font text-lg font-quicksandBold text-gray-900 mb-3">
                     James Beard Foundation
                   </h2>
-                  <p class="leading-relaxed">
+                  <p class="leading-relaxed font-quicksand">
                     A nonprofit organization whose mission is to support the
                     people behind America’s food culture
                   </p>
@@ -179,7 +181,7 @@ export default async function Resources() {
           </div>
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50">
-          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+          <h2 className="py-1 text-md md:text-lg font-quicksandBold text-slate-600">
             Food Waste: The Hidden Cost of the Food We Throw Out{" "}
           </h2>
           <iframe
@@ -194,7 +196,7 @@ export default async function Resources() {
           ></iframe>
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50">
-          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+          <h2 className="py-1 text-md md:text-lg font-quicksandBold text-slate-600">
             Eating Trash: The Chefs Turning Food Waste Into Trendy Eats
           </h2>
           <iframe
@@ -209,7 +211,7 @@ export default async function Resources() {
           ></iframe>
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50">
-          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+          <h2 className="py-1 text-md md:text-lg font-quicksandBold text-slate-600">
             Food Waste: Last Week Tonight with John Oliver
           </h2>
           <iframe
@@ -224,7 +226,7 @@ export default async function Resources() {
           ></iframe>
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
-          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+          <h2 className="py-1 text-md md:text-lg font-quicksandBold text-slate-600">
             Tristram Stuart: The global food waste scandal
           </h2>
           <iframe
@@ -239,7 +241,7 @@ export default async function Resources() {
           ></iframe>
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
-          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+          <h2 className="py-1 text-md md:text-lg font-quicksandBold text-slate-600">
             Food waste is the world&apos;s dumbest problem
           </h2>
           <iframe
@@ -254,7 +256,7 @@ export default async function Resources() {
           ></iframe>
         </div>
         <div className="w-full aspect-video mb-20 bg-slate-50/50 my-8">
-          <h2 className="py-1 text-md md:text-lg font-semibold text-slate-600">
+          <h2 className="py-1 text-md md:text-lg font-quicksandBold text-slate-600">
             South Korea&apos;s push to cut back on Food Waste
           </h2>
           <iframe

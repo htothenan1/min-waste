@@ -1,6 +1,6 @@
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
-import { Inter } from "next/font/google"
+import { Inter, Quicksand } from "next/font/google"
 import CustomToastContainer from "./common/CustomToastContainer"
 import Provider from "./context/AuthContext"
 import "react-toastify/dist/ReactToastify.css"
@@ -21,6 +21,20 @@ export const metadata = {
   },
 }
 
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-quicksand",
+  weight: "400",
+})
+
+const quicksandBold = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-quicksandBold",
+  weight: "700",
+})
+
 export default function RootLayout({
   children,
 }: {
@@ -28,7 +42,9 @@ export default function RootLayout({
 }) {
   return (
     <html className="h-full bg-slate-50/50" lang="en">
-      <body className={`${inter.className} bg-slate-50/50 h-full`}>
+      <body
+        className={`${inter.className} ${quicksand.variable} ${quicksandBold.variable} bg-slate-50/50 h-full`}
+      >
         <Provider>
           <CustomToastContainer />
           {children}

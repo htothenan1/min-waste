@@ -61,7 +61,7 @@ export default function Example() {
     <footer className="bg-white fixed bottom-0 left-0 w-full">
       <div className="mx-auto max-w-7xl px-6 py-4 md:flex md:items-center md:justify-between">
         <div className="flex justify-center space-x-6 md:order-2">
-          <p className="text-center text-xs leading-5 text-gray-500">
+          <p className="text-center text-xs leading-5 text-gray-500 font-quicksand">
             Created by{" "}
             <a
               target="_blank"
@@ -83,7 +83,7 @@ export default function Example() {
           ))}
         </div>
         <div className="mt-2 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-gray-500">
+          <p className="text-center text-xs leading-5 text-gray-500 font-quicksand">
             &copy;2023 MinWaste, LLC. All rights reserved.
           </p>
         </div>

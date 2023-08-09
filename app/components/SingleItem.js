@@ -169,14 +169,14 @@ const EditItemForm = ({
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title
                         as="h3"
-                        className="text-base font-semibold leading-6 text-gray-900"
+                        className="text-base font-quicksandBold leading-6 text-gray-900"
                       >
                         {`${
                           mistaken ? "Item added by mistake" : "Item Finished"
                         }`}
                       </Dialog.Title>
                       <div className="mt-2">
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 font-quicksand">
                           {`${
                             mistaken
                               ? "Was this item added by mistake?"
@@ -189,7 +189,7 @@ const EditItemForm = ({
                   <div className="mt-5 sm:ml-10 sm:mt-4 sm:flex sm:pl-4">
                     <button
                       type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:w-auto"
+                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-500 sm:w-auto"
                       onClick={() => {
                         deleteItem(item)
                       }}
@@ -207,7 +207,7 @@ const EditItemForm = ({
                     {mistaken ? null : (
                       <button
                         type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                        className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                         onClick={() => {
                           deleteItemWithWaste(item)
                         }}
@@ -225,7 +225,7 @@ const EditItemForm = ({
                     )}
                     <button
                       type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:ml-3 sm:mt-0 sm:w-auto"
+                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:ml-3 sm:mt-0 sm:w-auto"
                       onClick={handleCancel}
                       ref={cancelButtonRef}
                     >
@@ -240,22 +240,22 @@ const EditItemForm = ({
       </Transition.Root>
 
       <div className="flex flex-col m-6">
-        <h2 className="text-center pb-2">Single Item View</h2>
+        <h2 className="text-center pb-2 font-quicksand">Single Item View</h2>
 
         <div className="flex items-center justify-center">
           <a.div
-            className="flex flex-col z-10 items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-80 h-80"
+            className="flex flex-col z-10 items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 h-80"
             style={{ opacity: opacity.to((o) => 1 - o), transform }}
           >
             {item ? (
               <>
                 <button
-                  className="bg-white rounded-b-md p-1 text-sm"
+                  className="bg-white rounded-b-md p-1 text-sm font-quicksand"
                   onClick={() => set((state) => !state)}
                 >
                   Flip Me
                 </button>
-                <h2 className="mt-2 text-slate-600 text-lg font-semibold cursor-default">
+                <h2 className="mt-2 text-slate-600 text-lg font-quicksandBold cursor-default">
                   {item.name}
                 </h2>
                 {editStatus ? (
@@ -264,7 +264,7 @@ const EditItemForm = ({
                       <Button
                         variant={"outline"}
                         className={cn(
-                          "w-[240px] justify-start text-left font-normal",
+                          "w-[240px] justify-start text-left font-quicksand",
                           !date && "text-muted-foreground"
                         )}
                       >
@@ -291,7 +291,7 @@ const EditItemForm = ({
                           <SelectItem value="14">In 2 weeks</SelectItem>
                         </SelectContent>
                       </Select>
-                      <div className="rounded-md border">
+                      <div className="rounded-md">
                         <Calendar
                           required
                           mode="single"
@@ -304,7 +304,7 @@ const EditItemForm = ({
                     </PopoverContent>
                   </Popover>
                 ) : (
-                  <h2 className="text-slate-600 cursor-default mb-2">{`Use By: ${
+                  <h2 className="text-slate-600 cursor-default mb-2 font-quicksand">{`Use By: ${
                     item.expiredAt
                       ? item.expiredAt.toLocaleString("en-En", {
                           weekday: "short",
@@ -340,7 +340,7 @@ const EditItemForm = ({
                     onClick={() => {
                       handleEditToggle(true)
                     }}
-                    className="py-1 px-2 my-2 rounded-md bg-indigo-500/80 text-white text-sm shadow-lg"
+                    className="py-1 px-2 my-2 rounded-md bg-indigo-500/80 text-white text-sm shadow-lg font-quicksand"
                   >
                     Set Date
                   </button>
@@ -350,14 +350,14 @@ const EditItemForm = ({
                     <button
                       disabled={flipped}
                       onClick={() => handleRecipesFetch(item)}
-                      className="py-1 px-2 my-2 rounded-md bg-orange-400/70 text-white text-sm shadow-lg"
+                      className="py-1 px-2 my-2 rounded-md bg-orange-400/70 text-white text-sm shadow-lg font-quicksand"
                     >
                       Get Recipes
                     </button>
                     <button
                       disabled={flipped}
                       onClick={() => setOpen(true)}
-                      className="py-1 px-2 my-2 rounded-md bg-red-500/70 text-white text-sm shadow-lg"
+                      className="py-1 px-2 my-2 rounded-md bg-red-500/50 text-white text-sm shadow-lg font-quicksand"
                     >
                       Item Finished
                     </button>
@@ -370,7 +370,7 @@ const EditItemForm = ({
                         "Repurchasing..."
                       ) : (
                         <>
-                          <p className="pr-1">Repurchase</p>
+                          <p className="pr-1 font-quicksand">Repurchase</p>
                           <PlusIcon className="w-3 text-slate-900" />
                         </>
                       )}
@@ -378,7 +378,7 @@ const EditItemForm = ({
                     <button
                       disabled={flipped}
                       onClick={handleMistake}
-                      className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md shadow-lg"
+                      className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md shadow-lg font-quicksand"
                     >
                       Added by mistake?
                     </button>
@@ -386,13 +386,13 @@ const EditItemForm = ({
                 )}
               </>
             ) : (
-              <h2 className="text-center my-auto cursor-default text-slate-600">
+              <h2 className="text-center my-auto cursor-default text-slate-600 font-quicksand">
                 No item selected
               </h2>
             )}
           </a.div>
           <a.div
-            className="flex flex-col absolute items-center bg-gradient-to-br from-green-200/70 to-green-100/50 shadow-lg rounded-md w-80 h-80"
+            className="flex flex-col absolute items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-lg rounded-md w-80 h-80"
             style={{
               opacity,
               transform,
@@ -401,16 +401,18 @@ const EditItemForm = ({
           >
             {item ? (
               <>
-                <h2 className="my-3 text-slate-600 text-lg font-semibold cursor-default underline">
+                <h2 className="my-3 text-slate-600 text-lg font-quicksandBold cursor-default underline">
                   {`Storage Tips for ${item.name}`}
                 </h2>
-                <p className="px-10 text-center">{item.storageTip}</p>
-                <div className="absolute bottom-0 bg-white rounded-t-md p-1 text-sm">
+                <p className="px-10 text-center font-quicksand">
+                  {item.storageTip}
+                </p>
+                <div className="absolute bottom-0 bg-white rounded-t-md p-1 text-sm font-quicksand">
                   Flip Back
                 </div>
               </>
             ) : (
-              <h2 className="text-center my-auto cursor-default text-slate-600">
+              <h2 className="text-center my-auto cursor-default text-slate-600 font-quicksand">
                 No item selected
               </h2>
             )}

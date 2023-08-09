@@ -18,12 +18,14 @@ export default async function FoodForThought() {
     <>
       <NavBar user={user?.name} />
       <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
-        <h1 className=" text-orange-600/70 font-bold text-4xl">Learn</h1>
-        <h2 className=" text-slate-600/70 font-bold text-lg">
+        <h1 className=" text-orange-600/70 font-quicksandBold text-4xl">
+          Learn
+        </h1>
+        <h2 className=" text-slate-600/70 font-quicksandBold text-lg">
           *Currently In Development*
         </h2>
 
-        <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2">
+        <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2 font-quicksandBold">
           Our 5-step process for becoming your own food waste therapist.
           Designed to be a practical, holistic approach that users can utilize
           to see real, lasting change in their food waste behaviors.
@@ -34,8 +36,10 @@ export default async function FoodForThought() {
           className=" w-full md:w-1/2 mb-20 mt-16"
         >
           <AccordionItem value="item-1">
-            <AccordionTrigger>1. Kitchen Prep</AccordionTrigger>
-            <AccordionContent className="text-left">
+            <AccordionTrigger className=" font-quicksandBold">
+              1. Kitchen Prep
+            </AccordionTrigger>
+            <AccordionContent className="text-left font-quicksand">
               Our first step will aim to ensure that your kitchen is properly
               equipped to start reducing your personal food waste. This will
               include specific product recommendations, and an interactive
@@ -45,8 +49,10 @@ export default async function FoodForThought() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>2. Extending Food Life</AccordionTrigger>
-            <AccordionContent className="text-left">
+            <AccordionTrigger className="font-quicksandBold">
+              2. Extending Food Life
+            </AccordionTrigger>
+            <AccordionContent className="text-left font-quicksand">
               Now that your kitchen is prepared, we will do a deep dive on
               precisely how to extend the life of the items that you purchase on
               a regular basis. We will begin with a basic breakdown of the
@@ -59,8 +65,10 @@ export default async function FoodForThought() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger>3. Basic Cooking Skills</AccordionTrigger>
-            <AccordionContent className="text-left">
+            <AccordionTrigger className="font-quicksandBold">
+              3. Basic Cooking Skills
+            </AccordionTrigger>
+            <AccordionContent className="text-left font-quicksand">
               Now that you&apos;ve learned how to preserve and protect your food
               items, it&apos;s time to learn the basics of cooking those
               deliciously kept ingredients! By the end of this step, you will
@@ -73,8 +81,10 @@ export default async function FoodForThought() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
-            <AccordionTrigger>4. Respecting the Journey</AccordionTrigger>
-            <AccordionContent className="text-left">
+            <AccordionTrigger className="font-quicksandBold">
+              4. Respecting the Journey
+            </AccordionTrigger>
+            <AccordionContent className="text-left font-quicksand">
               At this point, we will take a step back, and attempt to gain a
               newfound respect for the arduous journey your ingredients took to
               make it into your possession. How exactly did that bag of peaches
@@ -87,8 +97,10 @@ export default async function FoodForThought() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-5">
-            <AccordionTrigger>5. Beyond the Kitchen</AccordionTrigger>
-            <AccordionContent className="text-left">
+            <AccordionTrigger className="font-quicksandBold">
+              5. Beyond the Kitchen
+            </AccordionTrigger>
+            <AccordionContent className="text-left font-quicksand">
               Food waste doesn&apos;t only happen after it arrives at your home.
               A significant amount of food loss occurs on the farm, in
               transport, and at the grocery store levels. Although it may seem

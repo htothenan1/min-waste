@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
-import smileLogo from "../../../public/smile_logo.png";
-import axios from "axios";
-import Image from "next/image";
+import { useState } from "react"
+import { toast } from "react-toastify"
+import { useRouter } from "next/navigation"
+import smileLogo from "../../../public/smile_logo.png"
+import axios from "axios"
+import Image from "next/image"
 
 export default function Register() {
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
-  });
-  const [showPassword, setShowPassword] = useState(false);
-  const router = useRouter();
+  })
+  const [showPassword, setShowPassword] = useState(false)
+  const router = useRouter()
 
   const registerUser = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     axios
       .post("/api/register", data)
       .then(() =>
@@ -27,15 +27,15 @@ export default function Register() {
         })
       )
       .then(() => {
-        router.push("/login");
+        router.push("/login")
       })
       .catch(() =>
         toast.error("Oops, something went wrong!", {
           position: "top-center",
           autoClose: 1250,
         })
-      );
-  };
+      )
+  }
 
   return (
     <>
@@ -46,7 +46,7 @@ export default function Register() {
             src={smileLogo}
             alt="Your Company"
           />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-slate-600">
+          <h2 className="mt-10 text-center text-2xl font-quicksandBold leading-9 tracking-tight text-slate-600">
             Sign up for an account
           </h2>
         </div>
@@ -56,7 +56,7 @@ export default function Register() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium leading-6 text-slate-600"
+                className="block text-sm font-quicksandBold leading-6 text-slate-600"
               >
                 First Name
               </label>
@@ -75,7 +75,7 @@ export default function Register() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-slate-600"
+                className="block text-sm font-quicksandBold leading-6 text-slate-600"
               >
                 Email address (can be fake, just for logging in!)
               </label>
@@ -97,14 +97,14 @@ export default function Register() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-slate-600"
+                  className="block text-sm font-quicksandBold leading-6 text-slate-600"
                 >
                   Password
                 </label>
                 <span>
                   {showPassword ? (
                     <div
-                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1"
+                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1 font-quicksand"
                       onClick={() => setShowPassword(false)}
                     >
                       hide password
@@ -138,7 +138,7 @@ export default function Register() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white font-quicksandBold shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
               >
                 Register
               </button>
@@ -160,5 +160,5 @@ export default function Register() {
         </div>
       </div>
     </>
-  );
+  )
 }

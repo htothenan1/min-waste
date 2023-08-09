@@ -104,7 +104,7 @@ const Kitchen = ({ items }) => {
   return (
     <div className="flex justify-center flex-wrap bg-slate-50/50">
       {editMode ? (
-        <div className="flex flex-col justify-center items-center w-80 h-80 border-4 rounded-md shadow-xl my-4">
+        <div className="flex flex-col justify-center items-center w-80 h-80 border-2 rounded-md shadow-xl mx-12 mt-14">
           <h2 className="font-semibold text-lg text-orange-600/70">
             Food For Thought
           </h2>
@@ -121,7 +121,7 @@ const Kitchen = ({ items }) => {
             />
             <button
               onClick={() => fetchRedItemRecipes(items)}
-              className="py-1 px-2 my-2 rounded-md bg-red-500/50 text-white text-sm shadow-lg"
+              className="py-1 px-2 my-2 rounded-md bg-red-500/70 text-white text-sm font-quicksand shadow-2xl border border-slate-300/80"
             >
               Red Item Recipes
             </button>

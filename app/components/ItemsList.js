@@ -15,11 +15,11 @@ const ItemsList = ({ items, handleSelectItem }) => {
   }
   return (
     <div className="my-6 mx-0 md:mx-6">
-      <h2 className="text-center pb-2">Items List</h2>
+      <h2 className="text-center pb-2 font-quicksand">Items List</h2>
 
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-60 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-100 via-slate-100 to-gray-100 shadow-lg rounded-md overflow-scroll w-36"
+        className="flex flex-col divide-y divide-gray-200 h-60 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36"
       >
         {items.length ? (
           items.map((item) => (
@@ -33,7 +33,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
                 <div className="min-w-0 flex-1">
                   <a className="block focus:outline-none">
                     <span className="absolute inset-0" aria-hidden="true" />
-                    <p className="truncate cursor-default text-sm font-medium text-slate-600">
+                    <p className="truncate cursor-default text-sm font-medium text-slate-600 font-quicksandBold">
                       {item.name}
                     </p>
                   </a>

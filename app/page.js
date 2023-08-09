@@ -19,19 +19,19 @@ export default async function Home() {
           <div className="overflow-hidden rounded-lg bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-100 via-blue-100 to-yellow-100 shadow-lg lg:grid lg:grid-cols-2 lg:gap-4">
             <div className="px-6 pb-12 pt-10 sm:px-16 sm:pt-16 lg:py-16 lg:pr-0 xl:px-20 xl:py-20">
               <div className="lg:self-center">
-                <h1 className="text-3xl font-bold tracking-tight text-slate-600 sm:text-4xl">
+                <h1 className="text-3xl font-quicksandBold tracking-tight text-slate-600 sm:text-4xl">
                   <span className="block">Want to stop wasting food?</span>
                   <span className="block">
                     Try <span className=" text-orange-600/70">MinWaste!</span>
                   </span>
                 </h1>
-                <p className="mt-4 text-lg leading-6 text-slate-600">
+                <p className="mt-4 text-lg leading-6 text-slate-600 font-quicksand">
                   Our app will help improve your behavior, reduce your food
                   waste, and start saving you money.
                 </p>
                 <a
                   href="/register"
-                  className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-orange-600/80 shadow hover:bg-orange-50"
+                  className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-quicksand text-orange-600/80 shadow hover:bg-orange-50"
                 >
                   Get started
                 </a>
@@ -201,10 +201,10 @@ export default async function Home() {
                 </svg> */}
               </div>
               <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                <h2 class="text-orange-600/70 text-lg title-font font-medium mb-2">
+                <h2 class="text-orange-600/70 text-lg title-font font-quicksandBold mb-2">
                   Keep track of your items
                 </h2>
-                <p class="leading-relaxed text-base text-slate-600">
+                <p class="leading-relaxed text-base text-slate-600 font-quicksand">
                   Our innovative logging and tracking system will help you
                   regain control of your kitchen.
                 </p>
@@ -222,10 +222,10 @@ export default async function Home() {
             </div>
             <div class="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
               <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                <h2 class="text-orange-600/70 text-lg title-font font-medium mb-2">
+                <h2 class="text-orange-600/70 text-lg title-font font-quicksandBold mb-2">
                   Get recipes
                 </h2>
-                <p class="leading-relaxed text-base text-slate-600">
+                <p class="leading-relaxed text-base text-slate-600 font-quicksand">
                   Gain instant access to over 5,000 recipes, based on what you
                   have in your kitchen.
                 </p>
@@ -291,10 +291,10 @@ export default async function Home() {
                 </svg>
               </div>
               <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                <h2 class="text-orange-600/70 text-lg title-font font-medium mb-2">
+                <h2 class="text-orange-600/70 text-lg title-font font-quicksandBold mb-2">
                   Learn new skills
                 </h2>
-                <p class="leading-relaxed text-base text-slate-600">
+                <p class="leading-relaxed text-base text-slate-600 font-quicksand">
                   Our curated content will educate you on food waste, and give
                   you the tools to improve your behavior.
                 </p>
@@ -312,7 +312,7 @@ export default async function Home() {
             <div className="flex justify-center mb-20">
               <a
                 href="/register"
-                className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-orange-600/80 shadow hover:bg-orange-50"
+                className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-quicksand text-orange-600/80 shadow hover:bg-orange-50"
               >
                 Get started
               </a>

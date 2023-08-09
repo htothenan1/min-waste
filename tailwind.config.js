@@ -1,4 +1,4 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,6 +9,10 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      quicksand: ["var(--font-quicksand)"],
+      quicksandBold: ["var(--font-quicksandBold)"],
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -72,6 +76,8 @@ module.exports = {
         },
         fontFamily: {
           sans: ["var(--font-sans)", ...fontFamily.sans],
+          quicksand: ["var(--font-quicksand)"],
+          quicksandBold: ["var(--font-quicksandBold)"],
         },
         keyframes: {
           "accordion-down": {
@@ -100,4 +106,4 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("tailwindcss-animate"),
   ],
-};
+}
