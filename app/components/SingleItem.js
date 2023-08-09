@@ -321,7 +321,7 @@ const EditItemForm = ({
                       updateItem(item, item.name, selected)
                     }}
                     className={`shadow-lg my-3 py-1 px-2 rounded-md ${
-                      updateLoading ? "bg-slate-400" : "bg-indigo-500/80"
+                      updateLoading ? "bg-slate-400" : "bg-blue-500/80"
                     }   text-white text-sm`}
                   >
                     {updateLoading ? (
@@ -340,7 +340,7 @@ const EditItemForm = ({
                     onClick={() => {
                       handleEditToggle(true)
                     }}
-                    className="py-1 px-2 my-2 rounded-md bg-indigo-500/80 text-white text-sm shadow-lg font-quicksand"
+                    className="py-1 px-2 my-2 rounded-md bg-blue-500/80 text-white text-sm shadow-lg font-quicksand"
                   >
                     Set Date
                   </button>
@@ -350,14 +350,14 @@ const EditItemForm = ({
                     <button
                       disabled={flipped}
                       onClick={() => handleRecipesFetch(item)}
-                      className="py-1 px-2 my-2 rounded-md bg-orange-400/70 text-white text-sm shadow-lg font-quicksand"
+                      className="py-1 px-2 my-2 rounded-md bg-orange-500/70 text-white text-sm shadow-lg font-quicksand"
                     >
                       Get Recipes
                     </button>
                     <button
                       disabled={flipped}
                       onClick={() => setOpen(true)}
-                      className="py-1 px-2 my-2 rounded-md bg-red-500/50 text-white text-sm shadow-lg font-quicksand"
+                      className="py-1 px-2 my-2 rounded-md bg-green-600/50 text-white text-sm shadow-lg font-quicksand"
                     >
                       Item Finished
                     </button>
@@ -401,8 +401,8 @@ const EditItemForm = ({
           >
             {item ? (
               <>
-                <h2 className="my-3 text-slate-600 text-lg font-quicksandBold cursor-default underline">
-                  {`Storage Tips for ${item.name}`}
+                <h2 className="my-3 text-slate-600 text-lg font-quicksandBold cursor-default">
+                  {`Storage Tips for ${item.name}:`}
                 </h2>
                 <p className="px-10 text-center font-quicksand">
                   {item.storageTip}

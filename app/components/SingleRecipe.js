@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
 
 const SingleRecipe = ({ recipe }) => {
@@ -23,13 +24,13 @@ const SingleRecipe = ({ recipe }) => {
             <Link
               target="_blank"
               href={recipe.sourceUrl}
-              className="text-center text text-orange-600/70 font-quicksand"
+              className="text-center text text-orange-600/70 font-quicksandBold"
             >
-              Click to visit the source
+              Click here to visit the source
             </Link>{" "}
             <div className="my-2 px-4">
-              <h2 className="text-slate-600 underline font-light font-quicksandBold">
-                Ingredients
+              <h2 className="text-slate-600 font-quicksandBold">
+                Ingredients:
               </h2>
               {recipe.extendedIngredients ? (
                 <ul className="list-inside">
@@ -45,12 +46,12 @@ const SingleRecipe = ({ recipe }) => {
               ) : (
                 "Sorry, ingredients not available"
               )}
-              <h2 className="text-slate-600 underline font-light font-quicksandBold">
-                Instructions
+              <h2 className="text-slate-600 font-quicksandBold">
+                Instructions:
               </h2>
               {recipe.analyzedInstructions[0] ? (
                 <>
-                  <ol className=" list-inside">
+                  <ol className=" list-inside font-quicksandBold">
                     {recipe.analyzedInstructions[0].steps.map((step) => (
                       <li
                         className="text-sm text-slate-600 px-1 list-decimal font-quicksand"

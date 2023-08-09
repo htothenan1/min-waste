@@ -26,9 +26,9 @@ export default async function FoodForThought() {
         </h2>
 
         <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2 font-quicksandBold">
-          Our 5-step process for becoming your own food waste therapist.
-          Designed to be a practical, holistic approach that users can utilize
-          to see real, lasting change in their food waste behaviors.
+          5-step process for becoming your own food waste therapist. Designed to
+          be a practical, holistic program to gain real, permanent change in
+          your food waste behaviors.
         </p>
         <Accordion
           type="single"

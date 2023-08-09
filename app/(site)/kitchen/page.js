@@ -25,8 +25,8 @@ export default async function Home() {
         <Kitchen items={user?.items} />
         <div className="flex flex-col w-2/3 m-auto bg-slate-50/50 my-12">
           <h2 className="text-slate-600 text-center font-quicksandBold mt-4 text-2xl md:text-3xl">
-            How to get the most out of{" "}
-            <span className="text-orange-600/70">MinWaste</span>
+            How to get the most out of your{" "}
+            <span className="text-orange-600/70">MinWaste Kitchen:</span>
           </h2>
           <p className="my-2 text-slate-600 text-md font-quicksand">
             <span className=" font-quicksandBold">

@@ -75,9 +75,9 @@ const ItemLogger = ({ items }) => {
           {({ open }) => (
             <>
               <div className="relative ">
-                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-green-200/30 py-1.5 pl-2 text-left outline outline-1 outline-slate-400 text-slate-600 sm:text-sm sm:leading-6">
+                <Listbox.Button className="relative w-40 cursor-default rounded-md bg-white py-1.5 pl-2 text-left outline outline-1 outline-slate-400 text-slate-600 sm:text-sm sm:leading-6">
                   <span className="flex items-center">
-                    <span className="ml-3 text-slate-600 block font-quicksand">
+                    <span className="ml-3 text-slate-600 block font-quicksandBold">
                       {selected}
                     </span>
                   </span>
@@ -103,7 +103,7 @@ const ItemLogger = ({ items }) => {
                         className={({ active }) =>
                           classNames(
                             active ? "bg-green-300/40" : "text-gray-900",
-                            "relative cursor-default select-none py-2 pl-3 pr-9 font-quicksand"
+                            "relative cursor-default select-none py-2 pl-3 pr-9 font-quicksandBold"
                           )
                         }
                         value={ingredient.name}
@@ -114,8 +114,8 @@ const ItemLogger = ({ items }) => {
                               <span
                                 className={classNames(
                                   selected
-                                    ? "font-quicksand"
-                                    : "font-quicksand",
+                                    ? "font-quicksandBold"
+                                    : "font-quicksandBold",
                                   "ml-3 block truncate"
                                 )}
                               >
@@ -126,7 +126,9 @@ const ItemLogger = ({ items }) => {
                             {selected ? (
                               <span
                                 className={classNames(
-                                  active ? "text-white" : "text-green-300/30",
+                                  active
+                                    ? "text-green-500"
+                                    : "text-green-800/50",
                                   "absolute inset-y-0 right-0 flex items-center pr-4"
                                 )}
                               >
@@ -153,7 +155,7 @@ const ItemLogger = ({ items }) => {
             className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
           >
             <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-400 to-gray-200 transition-all duration-700 group-hover:w-full"></div>
-            <span className="relative text-gray-500 group-hover:text-white">
+            <span className="relative text-gray-500 group-hover:text-white font-quicksandBold">
               {loading ? (
                 <div className="flex justify-center items-center">
                   Adding...
@@ -174,8 +176,8 @@ const ItemLogger = ({ items }) => {
           onChange={(e) => setCustomItem(e.target.value)}
           placeholder="Add your own"
           className="relative w-40 cursor-default
-         bg-green-200/30 rounded-md py-1.5 pl-5 outline outline-1 outline-slate-400 text-slate-600
-          sm:text-sm sm:leading-6 font-quicksand"
+         bg-white rounded-md py-1.5 pl-5 outline outline-1 outline-slate-400 text-slate-600
+          sm:text-sm sm:leading-6 font-quicksandBold"
         />
 
         <div className="mt-4">
@@ -184,9 +186,9 @@ const ItemLogger = ({ items }) => {
             className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
           >
             <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-400 to-gray-200 transition-all duration-700 group-hover:w-full"></div>
-            <span className="relative text-gray-500 group-hover:text-white">
+            <span className="relative text-gray-500 group-hover:text-white font-quicksandBold">
               {customLoading ? (
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center font-quicksand">
                   Adding...
                   <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
                 </div>
