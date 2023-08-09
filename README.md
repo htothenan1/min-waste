@@ -23,4 +23,4 @@ The only way this problem goes away is if we can collectively improve our behavi
 
 Current progress:
 
-![019](https://github.com/htothenan1/min-waste/assets/50812996/89a7eb9c-0dd5-4c8f-bf75-9264133828c8)
+![waste not screenshot](./public/waste-not.png)
