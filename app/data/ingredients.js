@@ -44,88 +44,92 @@ export const ingredientsObjects = [
   {
     id: "0f17fac0",
     name: "Bagels",
-    storageTip: "Freeze bagels, and defrost before eating",
+    storageTip:
+      "Freeze bagels, and defrost before eating.  If you prefer toasting your bagels, you can slice them before freezing. This makes it easier to take out individual slices for toasting without needing to thaw the entire bagel.",
   },
   {
     id: "36a94c18",
     name: "Bananas",
-    storageTip: "If cut, sprinkle with lemon juice",
+    storageTip:
+      "If cut, sprinkle with lemon juice.  If your bananas are still in a bunch, consider separating them. This helps prevent them from ripening too quickly and becoming overripe.",
   },
   {
     id: "ee5bb2f1",
     name: "Basil",
-    storageTip: "Snip ends, place in jar with inch of water",
+    storageTip:
+      "Before storing basil, trim the stems by about an inch and remove any leaves that will be submerged in water. Basil is best used fresh, as it can lose its vibrant color and flavor over time.",
   },
   {
     id: "ee7Vb2f1",
     name: "Baby Carrots",
-    storageTip: "Crisper drawer",
+    storageTip:
+      "Always store in the crisper drawer. Before storing, make sure the baby carrots are dry. Excess moisture can lead to mold growth. Try to use them within a week of purchase to enjoy their crisp texture and natural sweetness.",
   },
   {
     id: "378ed49b",
     name: "Baby Spinach",
     storageTip:
-      "Place a piece of paper towel inside the bag to absorb moisture",
+      "Place a piece of paper towel inside the bag to absorb moisture. Try not to compress or pack the baby spinach too tightly when storing it.",
   },
   {
     id: "f21ad1c0",
     name: "Beets",
-    storageTip: "Remove greens, leave unwashed, keep inside crisper drawer",
+    storageTip:
+      "Before storing, trim the beet greens, leaving about an inch of stem attached to the beet. This prevents moisture from escaping and helps the beets stay fresh. Place them in a perforated plastic bag or an airtight container.",
   },
   {
     id: "d1d2905a",
     name: "Bell Peppers",
-    storageTip: "Leave dry, always keep the seeds and stems attached",
+    storageTip:
+      "Always keep the seeds and stems attached. Make sure the bell peppers are dry before storing them. Excess moisture can lead to mold growth. If they are damp, you can pat them dry with a paper towel.",
   },
   {
     id: "79630aac",
     name: "Blackberries",
     storageTip:
-      "Always seperate the soggy or spoiled berries from the good ones.",
+      "Always seperate the soggy or spoiled berries from the good ones. Blackberries are highly perishable and should be stored in the refrigerator as soon as possible. Place in shallow container lined with paper towels to absorb excess moisture.",
   },
   {
     id: "7f689d9c",
     name: "Blueberries",
     storageTip:
-      "Always seperate the soggy or spoiled berries from the good ones.",
-  },
-  {
-    id: "37b112ce",
-    name: "Boysenberries",
-    storageTip:
-      "Always seperate the soggy or spoiled berries from the good ones.",
+      "Always seperate the soggy or spoiled berries from the good ones. Blackberries are highly perishable and should be stored in the refrigerator as soon as possible. Place in shallow container lined with paper towels to absorb excess moisture.",
   },
   {
     id: "f79b02ff",
     name: "Bread",
     storageTip:
-      "Freeze bread immediately, and defrost before eating. Keep stale bread for breadcrumbs.",
+      "Store bread in a cool and dry place, away from direct sunlight and humidity. A pantry or bread box is a good option. Can be frozen, and defrosted before eating. Keep stale bread for breadcrumbs.",
   },
   {
     id: "cee1e4c3",
     name: "Broccoli",
-    storageTip: "Keep dry, with some air circulation",
+    storageTip:
+      "Make sure the broccoli is dry before storing it. Excess moisture can lead to mold growth. If the broccoli is damp, you can pat it dry with a paper towel before refrigerating.",
   },
   {
     id: "c3e1241a",
-    name: "Brussel Sprouts",
-    storageTip: "Don't wash until ready to consume",
+    name: "Brussels Sprouts",
+    storageTip:
+      "Don't wash until ready to consume.  Before storing, remove any outer leaves that are damaged or discolored. This helps prevent the spread of moisture and potential spoilage.",
   },
   {
     id: "c2e1s61d",
     name: "Butter",
     storageTip:
-      "Keep a reserve batch in the freezer. Can be kept at room temp if being used soon. Otherwise, store in cooler parts of fridge.",
+      "Keep a reserve batch in the freezer. Can be kept at room temp if being used soon. Otherwise, store in cooler parts of fridge. If you prefer to store butter outside of its original packaging, use an airtight container or a butter keeper.",
   },
   {
     id: "004cb3df",
     name: "Cabbage",
-    storageTip: "Keep in crisper drawer, plastic bag, and leave unwashed",
+    storageTip:
+      "Keep in crisper drawer, plastic bag, and leave unwashed. Before storing, remove any damaged or wilted outer leaves. This can help prevent moisture buildup and mold growth.",
   },
   {
     id: "5b86d79a",
     name: "Carrots",
-    storageTip: "Keep in airtight container, submerged in water",
+    storageTip:
+      "Carrots can wilt if they lose too much moisture. To prevent this, wrap them in a damp paper towel before placing them in a plastic bag or an airtight container.",
   },
   {
     id: "dbcaddb5",
@@ -147,7 +151,7 @@ export const ingredientsObjects = [
     id: "09d9bfa1",
     name: "Cherries",
     storageTip:
-      "Always seperate the soggy or spoiled cherries from the good ones.",
+      "Always seperate the soggy or spoiled cherries from the good ones. Cherries are highly perishable and should be stored in the refrigerator as soon as possible. Place in shallow container lined with paper towels to absorb excess moisture.",
   },
   {
     id: "f8c3e44c",
@@ -163,7 +167,7 @@ export const ingredientsObjects = [
     id: "b016b2de",
     name: "Cranberries",
     storageTip:
-      "Always seperate the soggy or spoiled berries from the good ones.",
+      "Always seperate the soggy or spoiled berries from the good ones. Cranberries are highly perishable and should be stored in the refrigerator as soon as possible. Place in shallow container lined with paper towels to absorb excess moisture.",
   },
   {
     id: "c9decfa7",
