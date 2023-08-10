@@ -4,7 +4,7 @@ import Link from "next/link"
 const SingleRecipe = ({ recipe }) => {
   return (
     <div className="m-6 mb-10">
-      <h2 className="text-center pb-2 font-quicksandBold">
+      <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
         Single Recipe View
       </h2>
 

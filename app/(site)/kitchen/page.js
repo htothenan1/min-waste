@@ -18,7 +18,7 @@ export default async function Home() {
           <h1 className=" text-orange-600/70 font-quicksandBold text-4xl">
             MinWaste Kitchen
           </h1>
-          <h2 className="my-2 text-slate-600 text-md font-quicksandBold">
+          <h2 className="my-2 text-slate-600 text-lg font-quicksandBold">
             {`${user?.name} has consumed ` + itemsCount + ` complete items!`}
           </h2>
         </div>

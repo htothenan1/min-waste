@@ -117,7 +117,7 @@ const Kitchen = ({ items }) => {
             />
             <button
               onClick={() => fetchRedItemRecipes(items)}
-              className="py-1 px-2 my-2 rounded-md bg-red-600/90 text-white text-sm font-quicksand shadow-2xl border border-slate-300/80"
+              className="py-1 px-2 my-2 rounded-md bg-red-600/90 text-white text-sm font-quicksand shadow-2xl"
             >
               Red Item Recipes
             </button>
