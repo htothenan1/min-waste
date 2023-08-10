@@ -68,7 +68,7 @@ const ItemLogger = ({ items }) => {
 
   return (
     <div className="my-6 mx-0 md:mx-6">
-      <h2 className="text-center pb-2 font-quicksand">Item Logger</h2>
+      <h2 className="text-center pb-2 font-quicksandBold">Item Logger</h2>
 
       <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg p-4">
         <Listbox value={selected} onChange={setSelected}>

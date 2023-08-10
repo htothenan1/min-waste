@@ -240,7 +240,9 @@ const EditItemForm = ({
       </Transition.Root>
 
       <div className="flex flex-col m-6">
-        <h2 className="text-center pb-2 font-quicksand">Single Item View</h2>
+        <h2 className="text-center pb-2 font-quicksandBold">
+          Single Item View
+        </h2>
 
         <div className="flex items-center justify-center">
           <a.div

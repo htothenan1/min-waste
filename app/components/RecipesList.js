@@ -3,7 +3,7 @@
 const RecipesList = ({ recipes, handleSelectRecipe }) => {
   return (
     <div className="m-6">
-      <h2 className="text-center pb-2 font-quicksand">Recipes List</h2>
+      <h2 className="text-center pb-2 font-quicksandBold">Recipes List</h2>
       <ul
         role="list"
         className="flex flex-col divide-y h-80 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-80"
