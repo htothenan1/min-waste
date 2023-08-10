@@ -26,9 +26,9 @@ export default async function FoodForThought() {
         </h2>
 
         <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2 font-quicksandBold">
-          5-step process for becoming your own food waste therapist. Designed to
-          be a practical, holistic program to gain real, permanent change in
-          your food waste behaviors.
+          5-step process for wasting less food. Designed to be a practical,
+          holistic program to gain real, permanent change in your food waste
+          behaviors. Become your own food waste therapist.
         </p>
         <Accordion
           type="single"
@@ -43,9 +43,10 @@ export default async function FoodForThought() {
               Our first step will aim to ensure that your kitchen is properly
               equipped to start reducing your personal food waste. This will
               include specific product recommendations, and an interactive
-              exploration of how best to utilize your own kitchen tools to
-              consume and preserve foods. We will make sure that when there is
-              food waste produced, that it is composted, not sent to landfill.
+              exploration of how to best utilize your kitchen to consume and
+              preserve foods. We&apos;ll make sure that when there is food waste
+              produced, that it is seperated and composted, instead of sending
+              to landfill.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -53,15 +54,15 @@ export default async function FoodForThought() {
               2. Extending Food Life
             </AccordionTrigger>
             <AccordionContent className="text-left font-quicksand">
-              Now that your kitchen is prepared, we will do a deep dive on
-              precisely how to extend the life of the items that you purchase on
-              a regular basis. We will begin with a basic breakdown of the
-              factors that go into preserving food (mainly temperature,
-              containment, moisture, and atmosphere) and how to have better
-              control over those factors. There will be a heavy focus on
-              debunking the myths behind expiration dates you find on your
-              products. Instead, you&apos;ll learn how to rely more heavily on
-              your own senses to determine if your food is safe for consumption.
+              Now that your kitchen is prepped, we&apos;ll do a deep dive on how
+              to extend the life of the items that you purchase on a regular
+              basis. It begins with a basic breakdown of the factors that go
+              into preserving food (mainly temperature, containment, moisture,
+              and atmosphere) and how to have better control over those factors.
+              There will be a heavy focus on clarifying the confusion behind
+              expiration dates you find on your products. Instead, you&apos;ll
+              learn how to rely more heavily on your own senses to determine if
+              your food is safe for consumption.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
@@ -69,15 +70,15 @@ export default async function FoodForThought() {
               3. Basic Cooking Skills
             </AccordionTrigger>
             <AccordionContent className="text-left font-quicksand">
-              Now that you&apos;ve learned how to preserve and protect your food
-              items, it&apos;s time to learn the basics of cooking those
-              deliciously kept ingredients! By the end of this step, you will
-              become an expert in preparing what we call the &quot;4 S&apos;s of
-              consuming your stuff&quot;: Smoothies, Salads, Soups and
-              Stirfries. The focus will be on the logical side of combining
+              Now that you&apos;ve learned how to preserve and protect your
+              food, it&apos;s time to learn the basics of cooking those
+              delicious ingredients! By the end of this step, you will become
+              confident in preparing what we call the &quot;4 S&apos;s of
+              consuming your stuff&quot;: Smoothies, Salads, Soups and Stir
+              fries. The focus here will be on the logical side of combining
               ingredients, as opposed to learning specific and advanced recipes.
-              We want you to be completely comfortable knowing what to cook, no
-              matter what you have in the fridge.
+              We want you to be completely comfortable knowing how to cook, no
+              matter what items you may have in your fridge.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
@@ -85,15 +86,14 @@ export default async function FoodForThought() {
               4. Respecting the Journey
             </AccordionTrigger>
             <AccordionContent className="text-left font-quicksand">
-              At this point, we will take a step back, and attempt to gain a
-              newfound respect for the arduous journey your ingredients took to
-              make it into your possession. How exactly did that bag of peaches
-              make it from the farm to my fridge? Who helped them on their
-              journey, and how many resources did it take to get it to me? What
-              actually happens to those peaches when I decide to toss them in
-              the trash? We&apos;ll answer all these questions and more. Along
-              the way, we are confident that you will gain a revitalized respect
-              for your food.
+              At this point, we will take a step back, and attempt to gain
+              respect for the arduous journey your ingredients took to make it
+              into your possession. How exactly did that bag of peaches make it
+              from the farm to my fridge? Who helped them on their journey, and
+              what resources did it require to get it to me? What actually
+              happens to those peaches when I decide to toss them in the trash?
+              We&apos;ll answer all these questions and more. Along the way, you
+              will gain a revitalized respect for your food.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-5">
@@ -102,15 +102,15 @@ export default async function FoodForThought() {
             </AccordionTrigger>
             <AccordionContent className="text-left font-quicksand">
               Food waste doesn&apos;t only happen after it arrives at your home.
-              A significant amount of food loss occurs on the farm, in
-              transport, and at the grocery store levels. Although it may seem
-              like consumer behaviors and attitudes are unrelated to these
-              losses, our fifth step will attempt to prove otherwise. We will
-              show how certain forces, such as consumer demands for
-              &quot;perfect&quot; fruits and vegetables, are causing those very
-              losses along the supply chain. By the conclusion of the fifth and
-              final step, you will hopefully have the tools and confidence to
-              create better food waste behaviors.
+              A significant amount of food is lost on the farm, in transport,
+              and at the grocery store levels. Although it may seem like
+              consumer behaviors and attitudes are unrelated to these losses,
+              our fifth step will attempt to prove otherwise. We will show how
+              certain forces, such as consumer demands for &quot;perfect&quot;
+              fruits and vegetables, are directly causing those very losses
+              along the supply chain. By the conclusion of the fifth and final
+              step, you will hopefully have the tools to create real, lasting
+              improvements in your food waste behavior.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
