@@ -8,34 +8,38 @@ export const ingredientsObjects = [
   {
     id: "0a5d41db",
     name: "Apricots",
-    storageTip: "Airtight container, inside fridge",
+    storageTip:
+      "Airtight container, inside fridge. Ripe apricots should yield slightly to gentle pressure and have a sweet aroma. Store apricots in a shallow container lined with a paper towel to absorb excess moisture.",
   },
   {
     id: "c941eaee",
     name: "Artichokes",
     storageTip:
-      "Keep in crisper drawer, plastic bag, and leave unwashed. Do not freeze raw.",
+      "Keep in crisper drawer, plastic bag, and leave unwashed. Artichokes are best when consumed soon after purchase. To prevent artichokes from drying out, wrap them loosely in a damp paper towel or cloth and place them in a plastic bag.",
   },
   {
     id: "fa0c1c6a",
     name: "Arugula",
-    storageTip: "Wrap ends with damp paper towel before putting in fridge",
+    storageTip:
+      "When you bring arugula home, remove any excess moisture by gently patting it dry with a clean paper towel. Place the arugula in a plastic bag or an airtight container lined with a paper towel. This will help absorb moisture and prevent the leaves from becoming soggy.",
   },
   {
     id: "d30fb819",
     name: "Asparagus",
-    storageTip: "Snip ends, place in jar with inch of water",
+    storageTip:
+      "Before storing, trim about 1-2 inches from the bottom ends of the stalks. This can also help the asparagus absorb water and stay fresh. Place the trimmed asparagus upright in a container or glass with about an inch of water at the bottom.",
   },
   {
     id: "63622315",
     name: "Avocados",
     storageTip:
-      "Store on counter until ripe, then refrigerate. Leave pit attached if cut.",
+      "Store on counter until ripe, then refrigerate. If you've cut an avocado and have leftover halves, keep the pit in the unused half and wrap it tightly in plastic wrap or place it in an airtight container. This helps minimize exposure to air and slows down browning.",
   },
   {
     id: "0c2e3f6d",
     name: "Bacon",
-    storageTip: "Keep container airtight",
+    storageTip:
+      "If unopened, the original packaging will protect the bacon well. Once opened, or if you've removed some slices, wrap the remaining bacon tightly in plastic wrap or aluminum foil. Consider dividing the bacon into smaller portions before freezing.",
   },
   {
     id: "0f17fac0",
@@ -260,6 +264,12 @@ export const ingredientsObjects = [
   { id: "734ac0fc", name: "Lemons", storageTip: "Crisper drawer" },
   { id: "1fd58912", name: "Lettuce", storageTip: "Crisper drawer" },
   { id: "825ca0de", name: "Limes", storageTip: "Crisper drawer" },
+  {
+    id: "8ss5cr06e",
+    name: "Mangos",
+    storageTip:
+      "Store inside crisper drawer. Place in perforated plastic bag or produce bag before storing. Keep mangoes away from fruits like bananas, apples, and avocados. ",
+  },
   {
     id: "2d5cj0d7",
     name: "Melons",
