@@ -56,7 +56,7 @@ const Kitchen = ({ items }) => {
 
   const handleSelectRecipe = (data) => {
     fetch(
-      `https://api.spoonacular.com/recipes/${data}/information?apiKey=757d368ebb304fb3bf99a64e38c11942&includeNutrition=true`
+      `https://api.spoonacular.com/recipes/${data}/information?apiKey=757d368ebb304fb3bf99a64e38c11942&includeNutrition=false`
     )
       .then((res) => res.json())
       .then((recipe) => {
