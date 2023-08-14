@@ -134,34 +134,38 @@ export const ingredientsObjects = [
   {
     id: "dbcaddb5",
     name: "Cauliflower",
-    storageTip: "Keep dry, with some air circulation",
+    storageTip:
+      "To prevent excess moisture, wrap the cauliflower head in a paper towel before placing it in a plastic bag or an airtight container. This helps absorb any moisture that might cause mold.",
   },
   {
     id: "fa599814",
     name: "Celery",
-    storageTip: "Inside airtight container, submerged in water",
+    storageTip:
+      " Celery loves moisture, so wrap the celery stalks in a damp paper towel or cloth before placing them in a plastic bag. This helps maintain the humidity and prevents the celery from drying out.  Before storing, trim the bottom ends of the celery stalks.",
   },
   {
     id: "2ff7e1be",
     name: "Cheese",
     storageTip:
-      "Inside airtight bag, inside crisper drawer. Best stored loosely wrapped in wax paper.",
+      "Store cheese in its original packaging or rewrap it in wax paper or parchment paper. Avoid using plastic wrap directly on the cheese, as it can trap moisture and affect the flavor. Keep different cheeses separate to prevent their flavors from mingling.",
   },
   {
     id: "09d9bfa1",
     name: "Cherries",
     storageTip:
-      "Always seperate the soggy or spoiled cherries from the good ones. Cherries are highly perishable and should be stored in the refrigerator as soon as possible. Place in shallow container lined with paper towels to absorb excess moisture.",
+      "Cherries are sensitive to heat, so store them in the refrigerator as soon as possible. Place them in the crisper drawer, where the temperature is slightly cooler and more humid. Avoid washing cherries before storing them.",
   },
   {
     id: "f8c3e44c",
     name: "Corn",
-    storageTip: "If still on the cob, keep seperate from other ears in fridge",
+    storageTip:
+      "If still on the cob, keep seperate from other ears in fridge. Corn is best kept cold to maintain its sweetness and texture. Store corn in the refrigerator as soon as possible after purchasing.",
   },
   {
     id: "11dg8b39",
     name: "Cottage Cheese",
-    storageTip: "Press plastic wrap directly onto surface",
+    storageTip:
+      "Keep it in the coldest part of your refrigerator, such as the back of the bottom shelf. Always tightly seal the container after each use to prevent air exposure.",
   },
   {
     id: "b016b2de",
@@ -172,238 +176,254 @@ export const ingredientsObjects = [
   {
     id: "c9decfa7",
     name: "Cucumbers",
-    storageTip: "Wrap cucumber in plastic wrap, airtight container",
+    storageTip:
+      "Moisture can cause cucumbers to rot faster. Make sure the cucumbers are dry before storing them in the refrigerator. You can gently pat them dry with a paper towel if needed.",
   },
   {
     id: "a8f70e29",
     name: "Deli Meats",
     storageTip:
-      "Airtight, original container, on the lowest shelf in the fridge",
+      "Airtight, original container, on the lowest shelf in the fridge. Deli meats are perishable and should be refrigerated as soon as possible after purchase. The 'two-hour' rule applies here - don't leave deli meats at room temperature for more than two hours.",
   },
-  {
-    id: "fb9dee16",
-    name: "Dough",
-    storageTip: "Inside airtight container, inside fridge",
-  },
-  { id: "c3cc423b", name: "Edamame", storageTip: "Always freeze for storage" },
   {
     id: "7dc5138e",
     name: "Eggplants",
-    storageTip: "Store in crisper drawer, wrapped in paper towel",
+    storageTip:
+      "Eggplants are sensitive to heat and should be refrigerated as soon as possible after purchase. Place them in the vegetable crisper drawer of your refrigerator. Moisture can cause eggplants to spoil quickly. Make sure the skin is dry before storing them.",
   },
   {
     id: "9d0d545c",
     name: "Eggs",
-    storageTip: "Keep in original carton, away from smelly foods",
-  },
-  {
-    id: "88af163b",
-    name: "Figs",
-    storageTip: "Store in crisper drawer, wrapped in paper towel",
+    storageTip:
+      "Store eggs in the refrigerator as soon as you bring them home. Fill a bowl with water and gently place an egg in it. Fresh eggs sink and lie flat at the bottom. If an egg stands upright or floats, it's less fresh and should be used soon.",
   },
   {
     id: "d6680807",
     name: "Garlic",
-    storageTip: "Store somewhere that is cool, dimly lit, and dry",
+    storageTip:
+      "Keep garlic in a cool, dry, and well-ventilated area. Avoid storing it in areas with high humidity, as moisture can cause mold growth. Place garlic bulbs in a mesh bag or a basket to allow air circulation. ",
   },
   {
     id: "d66sf71b",
     name: "Ginger",
     storageTip:
-      "Wrap in dry paper towel and store somewhere cool, dimly lit, and dry",
+      "Moisture can cause ginger to mold or become mushy. Store ginger in a dry condition and avoid washing it until you're ready to use it. For longer storage, keep unpeeled ginger in the refrigerator.",
   },
-  { id: "8b9081da", name: "Grapefruit", storageTip: "Store in crisper drawer" },
+  {
+    id: "8b9081da",
+    name: "Grapefruit",
+    storageTip:
+      "Grapefruits are sensitive to ethylene gas, which is emitted by some fruits like apples and bananas. To prevent moisture loss and maintain the grapefruit's freshness, you can place it in a perforated plastic bag before refrigerating.",
+  },
   {
     id: "c6843f6a",
     name: "Grapes",
-    storageTip: "Keep dry, with some air circulation",
+    storageTip:
+      "Grapes are highly perishable and should be refrigerated as soon as possible after purchase. Place them in the vegetable crisper drawer of your refrigerator.",
   },
   {
     id: "e4fc9e8e",
     name: "Green Beans",
-    storageTip: "Store in crisper drawer, wrapped in paper towel",
+    storageTip:
+      "Moisture can cause green beans to become mushy and spoil quickly. Make sure the green beans are dry before storing them in the refrigerator. You can gently pat them dry with a paper towel if needed.",
   },
   {
     id: "6b91eeed",
     name: "Ground Beef",
-    storageTip: "Freeze immediately, unless using very soon",
+    storageTip:
+      "Ground beef is perishable and should be refrigerated as soon as possible after purchase. For optimal quality, use ground beef within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
     id: "db68cf13",
     name: "Ground Chicken",
-    storageTip: "Freeze immediately, unless using very soon",
+    storageTip:
+      "For optimal quality, use ground chicken within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
     id: "78801d0a",
     name: "Ground Turkey",
-    storageTip: "Freeze immediately, unless using very soon",
-  },
-  {
-    id: "f2a70e29",
-    name: "Ham",
-    storageTip: "Airtight container, inside fridge",
-  },
-  {
-    id: "fra62e2d",
-    name: "Hot Dogs",
     storageTip:
-      "Airtight container, on the lowest shelf in the fridge. Tightly wrap.",
-  },
-  {
-    id: "028b2e3c",
-    name: "Italian Sausage",
-    storageTip: "Freeze immediately, unless using very soon",
+      "For optimal quality, use ground turkey within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
     id: "0b0c1bd0",
     name: "Kale",
     storageTip:
-      "Place a piece of paper towel in the bag. This will act as a wick ",
+      "Store it in the vegetable crisper drawer of your refrigerator to maintain its freshness.  Moisture can cause kale to become wilted and slimy. Make sure the kale leaves are dry before storing them.",
   },
   {
     id: "9756e066",
     name: "Leftovers",
-    storageTip: "Freeze if you think you won't be able to consume",
+    storageTip:
+      "Allow leftovers to cool down before storing them. Divide large portions into smaller containers to help them cool faster. Food should be cooled to room temperature within 2 hours of cooking.",
   },
-  { id: "734ac0fc", name: "Lemons", storageTip: "Crisper drawer" },
-  { id: "1fd58912", name: "Lettuce", storageTip: "Crisper drawer" },
-  { id: "825ca0de", name: "Limes", storageTip: "Crisper drawer" },
+  {
+    id: "734ac0fc",
+    name: "Lemons",
+    storageTip:
+      "Place them in the vegetable crisper drawer, where the temperature is slightly cooler and more humid. To prevent moisture loss, place lemons in a perforated plastic bag or an airtight container in the refrigerator.",
+  },
+  {
+    id: "1fd58912",
+    name: "Lettuce",
+    storageTip:
+      "Moisture can cause lettuce to become wilted and slimy. Make sure the lettuce leaves are dry before storing them. You can gently pat them dry with a paper towel if needed.",
+  },
+  {
+    id: "825ca0de",
+    name: "Limes",
+    storageTip:
+      "Place them in the vegetable crisper drawer, where the temperature is slightly cooler and more humid. To prevent moisture loss, place limes in a perforated plastic bag or an airtight container in the refrigerator.",
+  },
   {
     id: "8ss5cr06e",
     name: "Mangos",
     storageTip:
-      "Store inside crisper drawer. Place in perforated plastic bag or produce bag before storing. Keep mangoes away from fruits like bananas, apples, and avocados. ",
+      "If your mangoes are not fully ripe when you buy them, leave them at room temperature to ripen. They will continue to ripen and become sweeter over a few days.",
   },
   {
-    id: "2d5cj0d7",
-    name: "Melons",
-    storageTip: "If possible, store remaining sections with seeds attached",
+    id: "d7622b31",
+    name: "Milk",
+    storageTip:
+      "As soon as you bring milk home from the store, place it in the refrigerator. Store milk in its original container to maintain its freshness. The packaging is designed to protect milk from light and air exposure.",
   },
-  { id: "d7622b31", name: "Milk", storageTip: "Can be frozen" },
   {
     id: "024fa8f4",
     name: "Mushrooms",
-    storageTip: "Wrap in paper towels, in open bag",
+    storageTip:
+      "Keep them in the original packaging or transfer them to a breathable container, like a paper bag. Avoid washing mushrooms until you're ready to use them.",
   },
   {
     id: "e18c1ba8",
     name: "Nectarines",
-    storageTip: "Add lemon juice if sliced",
+    storageTip:
+      "If your nectarines are not fully ripe when you buy them, leave them at room temperature to ripen. They will continue to ripen and become sweeter over a few days.",
   },
-  { id: "6bc33491", name: "Onions", storageTip: "Cool, dimly lit, and dry" },
-  { id: "b3b88e57", name: "Oranges", storageTip: "Crisper drawer" },
   {
-    id: "s3h82e51",
-    name: "Papayas",
-    storageTip: "Leave on counter until ripe, then store in fridge",
+    id: "6bc33491",
+    name: "Onions",
+    storageTip:
+      "Cool, dimly lit, and dry. Keep onions away from potatoes, as they release moisture and gases that can cause onions to spoil more quickly. Avoid storing onions in plastic bags.",
   },
-  { id: "2d82fd76", name: "Passion Fruit", storageTip: "Crisper drawer" },
-  { id: "f7965fa6", name: "Peaches", storageTip: "Add lemon juice if sliced" },
+  {
+    id: "b3b88e57",
+    name: "Oranges",
+    storageTip:
+      "Place them in the vegetable crisper drawer, where the temperature is slightly cooler and more humid. To prevent moisture loss, place oranges in a perforated plastic bag or an airtight container in the refrigerator.",
+  },
+  {
+    id: "f7965fa6",
+    name: "Peaches",
+    storageTip:
+      "If your peaches are not fully ripe when you buy them, leave them at room temperature to ripen. They will continue to ripen and become sweeter over a few days.",
+  },
   {
     id: "f0365cl6",
     name: "Pears",
-    storageTip: "Leave unripe at room temp before storing in fridge",
+    storageTip:
+      "Pears are often picked when slightly underripe. Place them at room temperature to ripen. Check their firmness near the stem daily. Once they yield slightly to gentle pressure, they're ripe and ready to eat.",
   },
   {
-    id: "d5b64b26",
-    name: "Pickles",
-    storageTip: "Keep the vinegar for future pickling",
+    id: "c8197f9d",
+    name: "Plums",
+    storageTip:
+      "If your plums are not fully ripe when you buy them, leave them at room temperature to ripen. They will continue to ripen and become sweeter over a few days. Plums can bruise easily, so handle them gently to avoid damaging the skin.",
   },
   {
-    id: "e5b34f21",
-    name: "Pineapples",
-    storageTip: "Store on counter until ripe, then store in fridge",
+    id: "c5fc302d",
+    name: "Potatoes",
+    storageTip:
+      "Cool, dimly lit, and dry. Avoid storing potatoes near onions, as onions release gases that can cause potatoes to spoil more quickly.",
   },
-  { id: "c8197f9d", name: "Plums", storageTip: "Crisper drawer" },
-  { id: "c5fc302d", name: "Potatoes", storageTip: "Cool, dimly lit, and dry" },
   {
     id: "a8c3bc97",
     name: "Radishes",
-    storageTip: "Remove greens, leave unwashed, crisper drawer",
+    storageTip:
+      "If your radishes come with their leafy greens attached, remove the greens before storing. The greens can draw moisture and nutrients from the radishes, causing them to wilt and become soft.",
   },
   {
     id: "be5b25d9",
     name: "Raspberries",
-    storageTip: "Remove soggy or spoiled berries before storing",
-  },
-  {
-    id: "a8o3bc67",
-    name: "Rice",
-    storageTip: "Remove greens, leave unwashed, crisper drawer",
+    storageTip:
+      "Remove soggy or spoiled berries before storing. Transfer raspberries to a shallow container or a paper towel-lined plate. This helps prevent crushing and allows for proper air circulation.",
   },
   {
     id: "6063358a",
     name: "Salad Mix",
-    storageTip: "Place a piece of paper towel in the bag",
+    storageTip:
+      "Store it in the vegetable crisper drawer of your refrigerator to maintain its freshness.  Moisture can cause kale to become wilted and slimy. Make sure the kale leaves are dry before storing them.",
+  },
+  {
+    id: "028b2e3c",
+    name: "Sausage",
+    storageTip:
+      "For optimal quality, use sausage within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
     id: "6ba21fg1",
     name: "Scallions",
     storageTip:
-      "Cool, dimly lit, and dry. Soak ends of roots with cold water to retain revive.",
+      "Cool, dimly lit, and dry. Place scallions in a glass or jar with enough water to cover the roots. Cover the top loosely with a plastic bag or plastic wrap to create a mini greenhouse effect. Change the water every few days.",
   },
   {
     id: "rba2dfh3",
     name: "Shrimp",
     storageTip:
-      "Freeze if not being consumed very soon. Eat as soon as possible.",
+      "Fresh raw shrimp should be used within 1-2 days of purchase. If you won't be using them within that time, consider freezing them to extend their shelf life.",
   },
   {
     id: "11788b79",
     name: "Sour Cream",
-    storageTip: "Press plastic wrap directly onto surface",
-  },
-  {
-    id: "06f5eef4",
-    name: "Squash",
-    storageTip: "Keep dry, with some air circulation",
+    storageTip:
+      "After purchasing sour cream, refrigerate it promptly. Keep it in the coldest part of your refrigerator, which is typically the back of the main compartment.",
   },
   {
     id: "99c800d5",
     name: "Strawberries",
-    storageTip: "Remove soggy or spoiled berries before storing",
-  },
-  {
-    id: "c5ac305d",
-    name: "Sweet Potatoes",
-    storageTip: "Cool, dimly lit, and dry",
+    storageTip:
+      "Store strawberries unwashed and remove any damaged or moldy ones.  Strawberries are delicate fruits that can bruise easily. Handle them gently when washing, moving, or storing to prevent damage.",
   },
   {
     id: "f3a34dh2",
     name: "Tofu",
     storageTip:
-      "After opened, keep submerged in water in an airtight container. Change water daily.",
+      "After opened, keep submerged in water in an airtight container. Change water daily.  If you have extra tofu that you won't use within a week, you can freeze it. Simply drain, cut into cubes, and freeze in airtight container.",
   },
   {
     id: "af133525",
     name: "Tomatoes",
-    storageTip: "Keep as whole as possible, cover exposed sides",
+    storageTip:
+      "If your tomatoes are not fully ripe, you can leave them at room temperature to ripen. Once they are ripe, you can transfer them to the refrigerator to slow down further ripening.",
   },
   {
     id: "32db8c5a",
     name: "Turkey",
-    storageTip: "Airtight container, inside fridge",
+    storageTip:
+      "Airtight container, inside fridge. Cooked turkey should be consumed within 3-4 days of cooking. If you won't use it within that time, consider freezing it.",
   },
   {
     id: "9c9e209d",
     name: "Turnips",
-    storageTip: "Remove greens, leave unwashed, crisper drawer",
+    storageTip:
+      "Store turnip roots and greens separately. The greens release moisture and can cause the roots to become wilted. Wrap the greens in a damp paper towel and store them in a separate bag or container.",
   },
   {
     id: "1k9e203d",
     name: "Watermelon",
     storageTip:
-      "Avoid storing near apples, bananas, or avocados. Seeds can be toasted like sunflower seeds.",
+      "Once you've cut into the watermelon, store the cut pieces in the refrigerator. Use an airtight container or cover them with plastic wrap to prevent them from drying out and absorbing odors.",
   },
   {
     id: "01c15407",
     name: "Yogurt",
-    storageTip: "Store towards back of fridge",
+    storageTip:
+      "Store towards back of fridge. Ensure the container's lid is tightly sealed after each use. This helps prevent moisture and contaminants from entering the yogurt container.",
   },
   {
     id: "243f63e5",
     name: "Zucchini",
-    storageTip: "Keep dry, with some air circulation",
+    storageTip:
+      "Moisture can cause zucchini to mold and spoil. Make sure the zucchini are dry before storing them in the refrigerator. You can pat them dry with a paper towel if needed.",
   },
 ]
 

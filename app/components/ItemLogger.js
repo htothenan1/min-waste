@@ -50,7 +50,8 @@ const ItemLogger = ({ items }) => {
   const addCustomItem = async (clientData) => {
     if (clientData !== "") {
       setCustomLoading(true)
-      const tip = "Not available for custom items"
+      const tip =
+        "Not available for custom items. Please consider quickly researching this particular item before storing."
       await createItemAction(session.user.email, clientData, tip)
       toast.success(`${clientData} added!`, {
         position: "top-center",
