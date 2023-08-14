@@ -9,6 +9,8 @@ import {
 } from "../_actions"
 import { useState, Fragment, useRef } from "react"
 import { useSession } from "next-auth/react"
+import Lottie from "lottie-react"
+import confetti from "../../public/confetti.json"
 import { Transition, Dialog } from "@headlessui/react"
 import { format, addDays } from "date-fns"
 import { cn } from "../lib/utils"
@@ -44,6 +46,7 @@ const EditItemForm = ({
   const [repurchaseLoading, setRepurchaseLoading] = useState(false)
   const [mistaken, setMistaken] = useState(false)
   const [flipped, set] = useState(false)
+  const [confettiActive, setConfettiActive] = useState(false)
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
@@ -82,6 +85,9 @@ const EditItemForm = ({
       position: "top-center",
       autoClose: 1250,
     })
+    if (!mistaken) {
+      setConfettiActive(true)
+    }
     setOpen(false)
     setDeleteLoading(false)
     setMistaken(false)
@@ -124,6 +130,15 @@ const EditItemForm = ({
     } else {
       setOpen(false)
     }
+  }
+
+  const confettiStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+    height: 600,
   }
 
   return (
@@ -240,6 +255,15 @@ const EditItemForm = ({
       </Transition.Root>
 
       <div className="flex flex-col m-6">
+        {confettiActive && (
+          <Lottie
+            animationData={confetti}
+            style={confettiStyle}
+            loop={false}
+            onComplete={() => setConfettiActive(false)}
+          />
+        )}
+
         <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
           Single Item View
         </h2>
