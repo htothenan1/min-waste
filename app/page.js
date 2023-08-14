@@ -82,10 +82,10 @@ export default async function Home() {
             <div class="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
               <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                 <h2 class="text-orange-600/70 text-lg title-font font-quicksandBold mb-2">
-                  Get recipes
+                  Customized recipes on demand
                 </h2>
                 <p class="leading-relaxed text-base text-slate-600 font-quicksand">
-                  Gain instant access to over 5,000 recipes, based on what you
+                  Get instant access to over 5,000 recipes, based on what you
                   have in your kitchen.
                 </p>
 

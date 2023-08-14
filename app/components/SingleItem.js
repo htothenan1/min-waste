@@ -134,7 +134,7 @@ const EditItemForm = ({
 
   const confettiStyle = {
     position: "absolute",
-    top: 0,
+    top: 150,
     left: 0,
     right: 0,
     margin: "0 auto",
