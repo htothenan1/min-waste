@@ -91,14 +91,14 @@ export default function Login() {
                 <span>
                   {showPassword ? (
                     <div
-                      className=" cursor-pointer text-xs font-quicksand text-slate-200 border bg-black/70 rounded-md px-2 py-1"
+                      className=" cursor-pointer text-xs font-quicksand text-slate-200 border bg-black/70 rounded-md px-2 py-1 active:bg-slate-600"
                       onClick={() => setShowPassword(false)}
                     >
                       hide password
                     </div>
                   ) : (
                     <div
-                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1"
+                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1 active:bg-slate-600"
                       onClick={() => setShowPassword(true)}
                     >
                       show password
@@ -125,7 +125,7 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-quicksandBold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-quicksandBold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 active:ring-2 active:ring-orange-500/70 active:ring-offset-2"
               >
                 Sign in
               </button>

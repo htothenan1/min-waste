@@ -11,7 +11,6 @@ import { useState, Fragment, useRef } from "react"
 import { useSession } from "next-auth/react"
 import Lottie from "lottie-react"
 import confetti from "../../public/confetti.json"
-import confetti2 from "../../public/confetti2.json"
 import { Transition, Dialog } from "@headlessui/react"
 import { format, addDays } from "date-fns"
 import { cn } from "../lib/utils"
@@ -133,14 +132,6 @@ const EditItemForm = ({
     }
   }
 
-  // div {
-  //   position: fixed;
-  //   left: 50%;
-  //   bottom: 20px;
-  //   transform: translate(-50%, -50%);
-  //   margin: 0 auto;
-  // }
-
   const confettiStyle = {
     position: "fixed",
     left: "50%",
@@ -149,12 +140,6 @@ const EditItemForm = ({
     width: "100vw",
     height: 950,
     margin: "0 auto",
-    // height: 950,
-    // left: 0,
-    // right: 0,
-    // margin: "auto",
-    // height: "100vh",
-    // width: "100vw",
   }
 
   return (

@@ -1,7 +1,13 @@
+"use client"
+
 import GuestNavBar from "./common/GuestNavBar"
 import Footer from "./common/Footer"
 import screenshot from "../public/waste-not.png"
 import Image from "next/image"
+import Lottie from "lottie-react"
+import recipes from "../public/recipes.json"
+import grocerylist from "../public/grocerylist.json"
+import ideas from "../public/ideas.json"
 
 export default async function Home() {
   return (
@@ -24,7 +30,7 @@ export default async function Home() {
                 </p>
                 <a
                   href="/register"
-                  className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-quicksand text-orange-600/80 shadow hover:bg-orange-50"
+                  className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-quicksand text-orange-600/80 shadow hover:bg-orange-50 active:bg-orange-100"
                 >
                   Get started
                 </a>
@@ -46,7 +52,8 @@ export default async function Home() {
           <div class="container px-5 py-12 mx-auto">
             <div class="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
               <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-orange-100 text-orange-500 flex-shrink-0">
-                <svg
+                <Lottie animationData={grocerylist} />
+                {/* <svg
                   fill="none"
                   stroke="currentColor"
                   strokeLinecap="round"
@@ -57,7 +64,7 @@ export default async function Home() {
                 >
                   <path stroke="none" d="M0 0h24v24H0z" />
                   <path d="M3.5 5.5L5 7l2.5-2.5M3.5 11.5L5 13l2.5-2.5M3.5 17.5L5 19l2.5-2.5M11 6h9M11 12h9M11 18h9" />
-                </svg>
+                </svg> */}
               </div>
               <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                 <h2 class="text-orange-600/70 text-lg title-font font-quicksandBold mb-2">
@@ -100,7 +107,8 @@ export default async function Home() {
                 ></svg>
               </div>
               <div class="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-orange-100 text-orange-500 flex-shrink-0">
-                <svg
+                <Lottie animationData={recipes} />
+                {/* <svg
                   fill="none"
                   stroke="currentColor"
                   strokeLinecap="round"
@@ -111,18 +119,19 @@ export default async function Home() {
                 >
                   <path stroke="none" d="M0 0h24v24H0z" />
                   <path d="M12 3c1.918 0 3.52 1.35 3.91 3.151A4 4 0 0118 13.874V21H6v-7.126a4.002 4.002 0 112.092-7.723A3.999 3.999 0 0112 3zM6.161 17.009L18 17" />
-                </svg>
+                </svg> */}
               </div>
             </div>
             <div class="flex items-center lg:w-4/5 mx-auto sm:flex-row flex-col">
               <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-orange-100 text-orange-500 flex-shrink-0">
-                <svg
+                <Lottie animationData={ideas} />
+                {/* <svg
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   class="sm:w-16 sm:h-16 w-10 h-10"
-                >
+                  >
                   <path d="M20 11h3v2h-3v-2M1 11h3v2H1v-2M13 1v3h-2V1h2M4.92 3.5l2.13 2.14-1.42 1.41L3.5 4.93 4.92 3.5m12.03 2.13l2.12-2.13 1.43 1.43-2.13 2.12-1.42-1.42M12 6a6 6 0 016 6c0 2.22-1.21 4.16-3 5.2V19a1 1 0 01-1 1h-4a1 1 0 01-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6 6 0 016-6m2 15v1a1 1 0 01-1 1h-2a1 1 0 01-1-1v-1h4m-3-3h2v-2.13c1.73-.44 3-2.01 3-3.87a4 4 0 00-4-4 4 4 0 00-4 4c0 1.86 1.27 3.43 3 3.87V18z" />
-                </svg>
+                </svg> */}
               </div>
               <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                 <h2 class="text-orange-600/70 text-lg title-font font-quicksandBold mb-2">
@@ -146,7 +155,7 @@ export default async function Home() {
             <div className="flex justify-center mb-20">
               <a
                 href="/register"
-                className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-quicksand text-orange-600/80 shadow hover:bg-orange-50"
+                className="mt-8 inline-flex items-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-quicksand text-orange-600/80 shadow hover:bg-orange-50 active:bg-orange-200"
               >
                 Sign up for free
               </a>

@@ -46,7 +46,7 @@ const GuestNavBar = () => {
 
               <Menu as="div" className="relative ml-3">
                 <div>
-                  <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/70 focus:ring-offset-2">
+                  <Menu.Button className="flex rounded-full bg-white focus:outline-none active:ring-2 active:ring-orange-500/70 active:ring-offset-2">
                     <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
                       <span className="text-md font-quicksandBold leading-none text-white">
                         Go!
@@ -70,7 +70,7 @@ const GuestNavBar = () => {
                           href={"/login"}
                           className={classNames(
                             active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700 font-quicksand"
+                            "block px-4 py-2 text-sm text-gray-700 font-quicksand active:bg-gray-200"
                           )}
                         >
                           Login
@@ -84,7 +84,7 @@ const GuestNavBar = () => {
                           href={"/register"}
                           className={classNames(
                             active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700 font-quicksand"
+                            "block px-4 py-2 text-sm text-gray-700 font-quicksand active:bg-gray-200"
                           )}
                         >
                           Sign Up

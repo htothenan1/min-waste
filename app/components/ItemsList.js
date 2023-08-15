@@ -14,7 +14,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
     }
   }
   return (
-    <div className="my-6 mx-0 md:mx-6">
+    <div className="mt-6 mb-4 mx-0 md:mx-6">
       <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
         Items List
       </h2>
