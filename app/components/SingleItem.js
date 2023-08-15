@@ -11,6 +11,7 @@ import { useState, Fragment, useRef } from "react"
 import { useSession } from "next-auth/react"
 import Lottie from "lottie-react"
 import confetti from "../../public/confetti.json"
+import confetti2 from "../../public/confetti2.json"
 import { Transition, Dialog } from "@headlessui/react"
 import { format, addDays } from "date-fns"
 import { cn } from "../lib/utils"
@@ -132,13 +133,28 @@ const EditItemForm = ({
     }
   }
 
+  // div {
+  //   position: fixed;
+  //   left: 50%;
+  //   bottom: 20px;
+  //   transform: translate(-50%, -50%);
+  //   margin: 0 auto;
+  // }
+
   const confettiStyle = {
-    position: "absolute",
-    top: 120,
-    left: 0,
+    position: "fixed",
+    left: "50%",
+    top: 350,
+    transform: "translate(-50%, -50%)",
+    width: "100vw",
     height: 950,
-    width: "100%",
     margin: "0 auto",
+    // height: 950,
+    // left: 0,
+    // right: 0,
+    // margin: "auto",
+    // height: "100vh",
+    // width: "100vw",
   }
 
   return (
@@ -255,16 +271,6 @@ const EditItemForm = ({
       </Transition.Root>
 
       <div className="flex flex-col m-6">
-        {confettiActive && (
-          <Lottie
-            animationData={confetti}
-            style={confettiStyle}
-            loop={false}
-            onComplete={() => setConfettiActive(false)}
-            id="confetti"
-          />
-        )}
-
         <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
           Single Item View
         </h2>
@@ -446,6 +452,14 @@ const EditItemForm = ({
           </a.div>
         </div>
       </div>
+      {confettiActive && (
+        <Lottie
+          animationData={confetti}
+          style={confettiStyle}
+          loop={false}
+          onComplete={() => setConfettiActive(false)}
+        />
+      )}
     </>
   )
 }
