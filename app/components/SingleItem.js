@@ -88,6 +88,7 @@ const EditItemForm = ({
     if (!mistaken) {
       setConfettiActive(true)
     }
+    window.scrollTo({ top: 100, left: 0, behavior: "smooth" })
     setOpen(false)
     setDeleteLoading(false)
     setMistaken(false)
@@ -134,7 +135,7 @@ const EditItemForm = ({
 
   const confettiStyle = {
     position: "absolute",
-    top: 150,
+    top: 100,
     left: 0,
     right: 0,
     margin: "0 auto",
