@@ -155,10 +155,10 @@ const ItemLogger = ({ items }) => {
           <button
             type="submit"
             onClick={() => addItem(selected)}
-            className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
+            className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg "
           >
             <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-400 to-gray-200 transition-all duration-700 group-hover:w-full"></div>
-            <span className="relative text-gray-500 group-hover:text-white font-quicksandBold">
+            <span className="relative text-gray-500 group-hover:text-white font-quicksandBold group-active:text-slate-500">
               {loading ? (
                 <div className="flex justify-center items-center">
                   Adding...
@@ -189,7 +189,7 @@ const ItemLogger = ({ items }) => {
             className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
           >
             <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-400 to-gray-200 transition-all duration-700 group-hover:w-full"></div>
-            <span className="relative text-gray-500 group-hover:text-white font-quicksandBold">
+            <span className="relative text-gray-500 group-hover:text-white font-quicksandBold group-active:text-slate-500">
               {customLoading ? (
                 <div className="flex justify-center items-center font-quicksand">
                   Adding...

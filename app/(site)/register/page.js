@@ -77,7 +77,7 @@ export default function Register() {
                 htmlFor="email"
                 className="block text-sm font-quicksandBold leading-6 text-slate-600"
               >
-                Email address (can be fake, just for logging in!)
+                Email address
               </label>
               <div className="mt-2">
                 <input
@@ -104,14 +104,14 @@ export default function Register() {
                 <span>
                   {showPassword ? (
                     <div
-                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1 font-quicksand"
+                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1 font-quicksand active:bg-slate-600"
                       onClick={() => setShowPassword(false)}
                     >
                       hide password
                     </div>
                   ) : (
                     <div
-                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1"
+                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1 active:bg-slate-600"
                       onClick={() => setShowPassword(true)}
                     >
                       show password
@@ -144,12 +144,12 @@ export default function Register() {
               </button>
             </div>
             <div className="text-sm">
-              <h2>
+              <h2 className=" font-quicksand">
                 Already have an account?{" "}
                 <span>
                   <a
                     href="/login"
-                    className="font-semibold text-green-500/70 hover:text-orange-600/70"
+                    className="font-semibold text-green-500/70 hover:text-orange-600/70 active:text-orange-700"
                   >
                     Sign in here!
                   </a>

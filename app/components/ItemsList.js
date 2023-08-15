@@ -5,12 +5,12 @@ const ItemsList = ({ items, handleSelectItem }) => {
         (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
 
       if (daysFrom < 2) {
-        return "bg-red-300/30 hover:bg-red-200"
+        return "bg-red-300/30 hover:bg-red-200 active:bg-red-500/80"
       } else {
-        return "bg-green-300/30 hover:bg-green-200/30"
+        return "bg-green-300/30 hover:bg-green-200/30 active:bg-green-400/80"
       }
     } else {
-      return "bg-slate-200/30 hover:bg-slate-100/30"
+      return "bg-slate-200/30 hover:bg-slate-100/30 active:bg-slate-400/30"
     }
   }
   return (

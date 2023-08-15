@@ -205,7 +205,7 @@ const EditItemForm = ({
                   <div className="mt-5 sm:ml-10 sm:mt-4 sm:flex sm:pl-4">
                     <button
                       type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-500 sm:w-auto"
+                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-700 active:bg-green-800 sm:w-auto"
                       onClick={() => {
                         deleteItem(item)
                       }}
@@ -223,7 +223,7 @@ const EditItemForm = ({
                     {mistaken ? null : (
                       <button
                         type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                        className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-red-600 active:bg-red-700 sm:ml-3 sm:w-auto"
                         onClick={() => {
                           deleteItemWithWaste(item)
                         }}
@@ -241,7 +241,7 @@ const EditItemForm = ({
                     )}
                     <button
                       type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:ml-3 sm:mt-0 sm:w-auto"
+                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-200 sm:ml-3 sm:mt-0 sm:w-auto"
                       onClick={handleCancel}
                       ref={cancelButtonRef}
                     >
@@ -268,7 +268,7 @@ const EditItemForm = ({
             {item ? (
               <>
                 <button
-                  className="bg-white rounded-b-md p-1 text-sm font-quicksand"
+                  className="bg-white rounded-b-md p-1 text-sm font-quicksand hover:bg-slate-50 active:bg-slate-100"
                   onClick={() => set((state) => !state)}
                 >
                   Flip Me
@@ -339,7 +339,9 @@ const EditItemForm = ({
                       updateItem(item, item.name, selected)
                     }}
                     className={`shadow-lg my-3 py-1 px-2 rounded-md ${
-                      updateLoading ? "bg-slate-400" : "bg-blue-500/80"
+                      updateLoading
+                        ? "bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+                        : "bg-blue-500/80 hover:bg-blue-600/80 active:bg-blue-700/80"
                     }   text-white text-sm`}
                   >
                     {updateLoading ? (
@@ -358,7 +360,7 @@ const EditItemForm = ({
                     onClick={() => {
                       handleEditToggle(true)
                     }}
-                    className="py-1 px-2 my-2 rounded-md bg-blue-500/80 text-white text-sm shadow-lg font-quicksand"
+                    className="py-1 px-2 my-2 rounded-md bg-blue-500/80 hover:bg-blue-600/80 active:bg-blue-700/80 text-white text-sm shadow-lg font-quicksand"
                   >
                     Set Date
                   </button>
@@ -368,21 +370,21 @@ const EditItemForm = ({
                     <button
                       disabled={flipped}
                       onClick={() => handleRecipesFetch(item)}
-                      className="py-1 px-2 my-2 rounded-md bg-orange-500/70 text-white text-sm shadow-lg font-quicksand"
+                      className="py-1 px-2 my-2 rounded-md bg-orange-500/70 hover:bg-orange-600/70 active:bg-orange-700/70 text-white text-sm shadow-lg font-quicksand"
                     >
                       Get Recipes
                     </button>
                     <button
                       disabled={flipped}
                       onClick={() => setOpen(true)}
-                      className="py-1 px-2 my-2 rounded-md bg-green-600/50 text-white text-sm shadow-lg font-quicksand"
+                      className="py-1 px-2 my-2 rounded-md bg-green-600/50 hover:bg-green-700/50 active:bg-green-800/50 text-white text-sm shadow-lg font-quicksand"
                     >
                       Item Finished
                     </button>
                     <button
                       disabled={flipped}
                       onClick={() => repurchaseItem(item)}
-                      className="flex text-xs text-center text-black border border-black py-1 px-2 my-1 rounded-md shadow-lg"
+                      className="flex text-xs text-center text-black border border-black bg-white hover:bg-slate-100 active:bg-slate-200/50 py-1 px-2 my-1 rounded-md shadow-lg"
                     >
                       {repurchaseLoading ? (
                         "Repurchasing..."
@@ -396,7 +398,7 @@ const EditItemForm = ({
                     <button
                       disabled={flipped}
                       onClick={handleMistake}
-                      className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md shadow-lg font-quicksand"
+                      className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md shadow-lg font-quicksand bg-white hover:bg-slate-100 active:bg-slate-200/50"
                     >
                       Added by mistake?
                     </button>
@@ -425,9 +427,10 @@ const EditItemForm = ({
                 <p className="px-10 text-center font-quicksand">
                   {item.storageTip}
                 </p>
-                <div className="absolute bottom-0 bg-white rounded-t-md p-1 text-sm font-quicksand">
+
+                <button className="absolute bottom-0 bg-white rounded-t-md p-1 text-sm font-quicksand">
                   Flip Back
-                </div>
+                </button>
               </>
             ) : (
               <h2 className="text-center my-auto cursor-default text-slate-600 font-quicksand">

@@ -136,7 +136,7 @@ export default function Login() {
                 <span>
                   <a
                     href="/register"
-                    className="font-semibold text-green-500/70 hover:text-orange-600/70"
+                    className="font-semibold text-green-500/70 hover:text-orange-600/70 active:text-orange-800"
                   >
                     Sign up here!
                   </a>
