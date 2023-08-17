@@ -443,7 +443,7 @@ const EditItemForm = ({
       </div>
       {confettiActive && (
         <Lottie
-          animationData={confetti2}
+          animationData={confetti}
           style={confettiStyle}
           loop={false}
           onComplete={() => setConfettiActive(false)}
