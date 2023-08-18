@@ -12,6 +12,7 @@ import { useSession } from "next-auth/react"
 import Lottie from "lottie-react"
 import confetti from "../../public/confetti.json"
 import confetti2 from "../../public/confetti2.json"
+import confetti3 from "../../public/confetti3.json"
 import { Transition, Dialog } from "@headlessui/react"
 import { format, addDays } from "date-fns"
 import { cn } from "../lib/utils"
@@ -443,7 +444,7 @@ const EditItemForm = ({
       </div>
       {confettiActive && (
         <Lottie
-          animationData={confetti}
+          animationData={confetti3}
           style={confettiStyle}
           loop={false}
           onComplete={() => setConfettiActive(false)}
