@@ -68,7 +68,7 @@ const ItemLogger = ({ items }) => {
   }
 
   return (
-    <div className="my-6 mx-0 md:mx-6">
+    <div id="itemLogger" className="my-6 mx-0 md:mx-6">
       <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
         Item Logger
       </h2>

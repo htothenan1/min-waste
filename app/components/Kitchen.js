@@ -6,6 +6,7 @@ import SingleItem from "./SingleItem"
 import RecipesList from "./RecipesList"
 import SingleRecipe from "./SingleRecipe"
 import ItemLogger from "./ItemLogger"
+import { Steps } from "intro.js-react"
 
 import { toast } from "react-toastify"
 import { thought } from "../data/thoughts"
@@ -16,6 +17,8 @@ const Kitchen = ({ items, itemsCount, userName }) => {
   const [selectedRecipe, setSelectedRecipe] = useState(null)
   const [editMode, setEditMode] = useState(false)
   const [currentThought, setCurrentThought] = useState("")
+  const [stepsEnabled, setStepsEnabled] = useState(false)
+  const [initialStep, setInitialStep] = useState(0)
 
   const calcDaysFrom = (data) => {
     const daysFrom =
@@ -91,6 +94,53 @@ const Kitchen = ({ items, itemsCount, userName }) => {
       })
   }
 
+  const onExit = () => {
+    setStepsEnabled(false)
+  }
+
+  const steps = [
+    {
+      element: "#title",
+      intro:
+        "Welcome to your MinWaste Kitchen! Let's see how to use this app to reduce your food waste!",
+    },
+    {
+      element: "#itemLogger",
+      intro:
+        "This is your Logger! Add grocery items you have from the top first, then log any other spoilable items not found on the list.",
+    },
+    {
+      element: "#itemsList",
+      intro:
+        "Here's your Items List! It should contain all of your spoilable items that you want to keep track of. Eat from the top of the list, first!",
+    },
+    {
+      element: "#singleItemView",
+      intro:
+        "This window shows details of single selected items. Storage tips are on the back. Set a use-by date, delete the item, or get recipes!",
+    },
+    {
+      element: "#recipesList",
+      intro:
+        "This is where your recipes will show up, once you start a search. If one looks yummy, click it to show the recipe details!",
+    },
+    {
+      element: "#singleRecipeView",
+      intro:
+        "This is where the details of your selected recipe are shown. Displays servings, prep time, ingredients, and instructions.",
+    },
+    {
+      element: "#redItemRecipes",
+      intro:
+        "This will search for recipes that hopefully have a combination of all the red items you have. Eat those up!",
+    },
+    {
+      element: "#itemsCount",
+      intro:
+        "This is meant to keep track of your long term progress with the app. Enjoy, MinWasters!",
+    },
+  ]
+
   useEffect(() => {
     const randomIdx = Math.floor(Math.random() * thought.length)
     setSelectedItem(null)
@@ -100,13 +150,31 @@ const Kitchen = ({ items, itemsCount, userName }) => {
 
   return (
     <>
+      <Steps
+        enabled={stepsEnabled}
+        steps={steps}
+        initialStep={initialStep}
+        onExit={onExit}
+      />
       <div className="flex flex-col items-center">
-        <h1 className=" text-orange-600/70 font-quicksandBold text-4xl">
+        <h1
+          id="title"
+          className=" text-orange-600/70 font-quicksandBold text-4xl"
+        >
           MinWaste Kitchen
         </h1>
-        <h2 className="my-2 text-slate-600 text-lg font-quicksandBold">
+        <h2
+          id="itemsCount"
+          className="my-2 text-slate-600 text-lg font-quicksandBold"
+        >
           {`${userName} has consumed ` + itemsCount + ` complete items!`}
         </h2>
+        <button
+          onClick={() => setStepsEnabled(true)}
+          className="text-green-600 text-sm font-quicksand border-2 shadow-md px-2 py-1 rounded-md"
+        >
+          Quick Tutorial
+        </button>
       </div>
       <div className="flex justify-center flex-wrap bg-slate-50/50">
         {editMode ? (
@@ -126,6 +194,7 @@ const Kitchen = ({ items, itemsCount, userName }) => {
                 handleSelectItem={handleSelectItem}
               />
               <button
+                id="redItemRecipes"
                 onClick={() => fetchRedItemRecipes(items)}
                 className="py-1 px-2 rounded-md bg-red-600/90 text-white text-sm font-quicksand shadow-2xl active:bg-red-700/80"
               >

@@ -2,7 +2,7 @@
 
 const RecipesList = ({ recipes, handleSelectRecipe }) => {
   return (
-    <div className="m-6">
+    <div id="recipesList" className="m-6">
       <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
         Recipes List
       </h2>
