@@ -10,7 +10,7 @@ import ItemLogger from "./ItemLogger"
 import { toast } from "react-toastify"
 import { thought } from "../data/thoughts"
 
-const Kitchen = ({ items }) => {
+const Kitchen = ({ items, itemsCount, userName }) => {
   const [selectedItem, setSelectedItem] = useState(null)
   const [fetchedRecipes, setFetchedRecipes] = useState(null)
   const [selectedRecipe, setSelectedRecipe] = useState(null)
@@ -99,45 +99,55 @@ const Kitchen = ({ items }) => {
   }, [items])
 
   return (
-    <div className="flex justify-center flex-wrap bg-slate-50/50">
-      {editMode ? (
-        <div className="flex flex-col justify-center items-center w-80 h-80 border-2 rounded-md shadow-xl mx-14 mt-14 mb-1">
-          <h2 className="font-semibold text-lg text-orange-600/70">
-            Food For Thought
-          </h2>
-          <p className="text-center text-slate-600 p-2">{currentThought}</p>
-        </div>
-      ) : (
-        <div className="flex">
-          <ItemLogger items={items} editStatus={editMode} />
-          <div className="flex flex-col items-center">
-            <ItemsList
-              editStatus={editMode}
-              items={items}
-              handleSelectItem={handleSelectItem}
-            />
-            <button
-              onClick={() => fetchRedItemRecipes(items)}
-              className="py-1 px-2 rounded-md bg-red-600/90 text-white text-sm font-quicksand shadow-2xl active:bg-red-700/80"
-            >
-              Red Item Recipes
-            </button>
+    <>
+      <div className="flex flex-col items-center">
+        <h1 className=" text-orange-600/70 font-quicksandBold text-4xl">
+          MinWaste Kitchen
+        </h1>
+        <h2 className="my-2 text-slate-600 text-lg font-quicksandBold">
+          {`${userName} has consumed ` + itemsCount + ` complete items!`}
+        </h2>
+      </div>
+      <div className="flex justify-center flex-wrap bg-slate-50/50">
+        {editMode ? (
+          <div className="flex flex-col justify-center items-center w-80 h-80 border-2 rounded-md shadow-xl mx-14 mt-14 mb-1">
+            <h2 className="font-semibold text-lg text-orange-600/70">
+              Food For Thought
+            </h2>
+            <p className="text-center text-slate-600 p-2">{currentThought}</p>
           </div>
-        </div>
-      )}
+        ) : (
+          <div className="flex">
+            <ItemLogger items={items} editStatus={editMode} />
+            <div className="flex flex-col items-center">
+              <ItemsList
+                editStatus={editMode}
+                items={items}
+                handleSelectItem={handleSelectItem}
+              />
+              <button
+                onClick={() => fetchRedItemRecipes(items)}
+                className="py-1 px-2 rounded-md bg-red-600/90 text-white text-sm font-quicksand shadow-2xl active:bg-red-700/80"
+              >
+                Red Item Recipes
+              </button>
+            </div>
+          </div>
+        )}
 
-      <SingleItem
-        handleEditToggle={setEditMode}
-        editStatus={editMode}
-        item={selectedItem}
-        handleRecipesFetch={fetchRecipes}
-      />
-      <RecipesList
-        recipes={fetchedRecipes}
-        handleSelectRecipe={handleSelectRecipe}
-      />
-      <SingleRecipe recipe={selectedRecipe} />
-    </div>
+        <SingleItem
+          handleEditToggle={setEditMode}
+          editStatus={editMode}
+          item={selectedItem}
+          handleRecipesFetch={fetchRecipes}
+        />
+        <RecipesList
+          recipes={fetchedRecipes}
+          handleSelectRecipe={handleSelectRecipe}
+        />
+        <SingleRecipe recipe={selectedRecipe} />
+      </div>
+    </>
   )
 }
 
