@@ -79,7 +79,7 @@ const ItemsChecklist = ({ items }) => {
               onClick={() => handleItemSelect(index)}
               key={item.id}
               className={`${calcDaysFrom(item)} ${
-                checkedState[index] ? "bg-orange-600/60" : ""
+                checkedState[index] ? "bg-black" : ""
               } relative shadow-lg px-4 py-3 
               focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
             >
