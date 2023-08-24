@@ -186,6 +186,7 @@ const Kitchen = ({ items, itemsCount, userName }) => {
                 editStatus={editMode}
                 items={items}
                 handleSelectItem={handleSelectItem}
+                selectedItem={selectedItem}
               />
               {/* <button
                 id="redItemRecipes"
