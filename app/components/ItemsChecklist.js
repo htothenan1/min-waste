@@ -27,6 +27,10 @@ const ItemsChecklist = ({ items }) => {
     }
   }
 
+  const resetSelectedItems = () => {
+    setCheckedState(new Array(items.length).fill(false))
+  }
+
   const handleItemSelect = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
@@ -72,6 +76,12 @@ const ItemsChecklist = ({ items }) => {
 
   return (
     <div className="mt-6 mb-4 mx-0 md:mx-6">
+      <button
+        onClick={() => resetSelectedItems()}
+        className="py-1 px-2 rounded-md bg-blue-600/60 text-white text-sm font-quicksand shadow-2xl active:bg-red-700/80"
+      >
+        Clear Selections
+      </button>
       <ul className="grid grid-cols-3 md:grid-cols-6 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg mt-10 mb-20 mx-10">
         {items.length ? (
           items.map((item, index) => (
@@ -79,7 +89,7 @@ const ItemsChecklist = ({ items }) => {
               onClick={() => handleItemSelect(index)}
               key={item.id}
               className={`${calcDaysFrom(item)} ${
-                checkedState[index] ? "bg-black" : ""
+                checkedState[index] === true ? "bg-white shadow-lg" : ""
               } relative shadow-lg px-4 py-3 
               focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
             >
@@ -88,9 +98,7 @@ const ItemsChecklist = ({ items }) => {
                   <a className="block focus:outline-none">
                     <span className="absolute inset-0" aria-hidden="true" />
                     <p
-                      className={`truncate cursor-default text-sm font-medium text-slate-600 font-quicksandBold ${
-                        checkedState[index] ? "text-white" : ""
-                      }`}
+                      className={`truncate cursor-default text-sm font-medium text-slate-600 font-quicksandBold`}
                     >
                       {item.name}
                     </p>
