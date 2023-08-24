@@ -8,7 +8,7 @@ const SingleRecipe = ({ recipe }) => {
         Single Recipe View
       </h2>
 
-      <div className=" flex flex-col bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 h-80 overflow-scroll">
+      <div className=" flex flex-col bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 md:w-96 h-80 overflow-scroll">
         {recipe ? (
           <>
             <div className=" bg-transparent">

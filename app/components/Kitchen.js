@@ -169,16 +169,10 @@ const Kitchen = ({ items, itemsCount, userName }) => {
         >
           {`${userName} has consumed ` + itemsCount + ` complete items!`}
         </h2>
-        <button
-          onClick={() => setStepsEnabled(true)}
-          className="text-green-600 text-sm font-quicksand border-2 shadow-md px-2 py-1 rounded-md"
-        >
-          Quick Tutorial
-        </button>
       </div>
       <div className="flex justify-center flex-wrap bg-slate-50/50">
         {editMode ? (
-          <div className="flex flex-col justify-center items-center w-80 h-80 border-2 rounded-md shadow-xl mx-14 mt-14 mb-1">
+          <div className="flex flex-col justify-center items-center w-80 h-72 border-2 rounded-md shadow-xl mx-14 mt-16 mb-1">
             <h2 className="font-semibold text-lg text-orange-600/70">
               Food For Thought
             </h2>
@@ -193,13 +187,13 @@ const Kitchen = ({ items, itemsCount, userName }) => {
                 items={items}
                 handleSelectItem={handleSelectItem}
               />
-              <button
+              {/* <button
                 id="redItemRecipes"
                 onClick={() => fetchRedItemRecipes(items)}
                 className="py-1 px-2 rounded-md bg-red-600/90 text-white text-sm font-quicksand shadow-2xl active:bg-red-700/80"
               >
                 Red Item Recipes
-              </button>
+              </button> */}
             </div>
           </div>
         )}
@@ -210,11 +204,11 @@ const Kitchen = ({ items, itemsCount, userName }) => {
           item={selectedItem}
           handleRecipesFetch={fetchRecipes}
         />
-        <RecipesList
+        {/* <RecipesList
           recipes={fetchedRecipes}
           handleSelectRecipe={handleSelectRecipe}
         />
-        <SingleRecipe recipe={selectedRecipe} />
+        <SingleRecipe recipe={selectedRecipe} /> */}
       </div>
     </>
   )

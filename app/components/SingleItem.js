@@ -264,7 +264,7 @@ const EditItemForm = ({
 
         <div className="flex items-center justify-center">
           <a.div
-            className="flex flex-col z-10 items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 h-80"
+            className="flex flex-col z-10 items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 h-72"
             style={{ opacity: opacity.to((o) => 1 - o), transform }}
           >
             {item ? (
@@ -362,20 +362,20 @@ const EditItemForm = ({
                     onClick={() => {
                       handleEditToggle(true)
                     }}
-                    className="py-1 px-2 my-2 rounded-md bg-blue-500/80 hover:bg-blue-600/80 active:bg-blue-700/80 text-white text-sm shadow-lg font-quicksand"
+                    className="py-1 px-2 my-2 mt-3 rounded-md bg-blue-500/80 hover:bg-blue-600/80 active:bg-blue-700/80 text-white text-sm shadow-lg font-quicksand"
                   >
                     Set Date
                   </button>
                 )}
                 {editStatus ? null : (
                   <>
-                    <button
+                    {/* <button
                       disabled={flipped}
                       onClick={() => handleRecipesFetch(item)}
                       className="py-1 px-2 my-2 rounded-md bg-orange-500/70 hover:bg-orange-600/70 active:bg-orange-700/70 text-white text-sm shadow-lg font-quicksand"
                     >
                       Get Recipes
-                    </button>
+                    </button> */}
                     <button
                       disabled={flipped}
                       onClick={() => setOpen(true)}

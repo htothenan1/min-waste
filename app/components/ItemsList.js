@@ -21,7 +21,7 @@ const ItemsList = ({ items, handleSelectItem }) => {
 
       <ul
         role="list"
-        className="flex flex-col divide-y divide-gray-200 h-60 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36"
+        className="flex flex-col divide-y divide-gray-200 h-72 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36"
       >
         {items.length ? (
           items.map((item) => (
