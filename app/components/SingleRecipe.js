@@ -1,14 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
+import { useEffect, useRef } from "react"
 
 const SingleRecipe = ({ recipe }) => {
+  const divRef = useRef(null)
+
+  useEffect(() => {
+    divRef.current.scrollTo({ top: 0, behavior: "smooth" })
+  }, [recipe])
+
   return (
     <div id="singleRecipeView" className="m-6 mb-10">
       <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
         Single Recipe View
       </h2>
 
-      <div className=" flex flex-col bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 md:w-96 h-80 overflow-scroll">
+      <div
+        ref={divRef}
+        className=" flex flex-col bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 md:w-96 h-80 overflow-scroll"
+      >
         {recipe ? (
           <>
             <div className=" bg-transparent">
