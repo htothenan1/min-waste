@@ -7,22 +7,22 @@ const ItemsList = ({ items, handleSelectItem, selectedItem }) => {
       if (daysFrom < 2) {
         return `${
           selectedItem && data.name === selectedItem.name
-            ? "bg-red-500/80 hover:none"
+            ? "bg-red-500/80 hover:bg-red-500/80 text-white"
             : "bg-red-300/30"
-        } hover:bg-red-200 active:bg-red-500/80`
+        } hover:bg-red-200`
       } else {
         return `${
           selectedItem && data.name === selectedItem.name
-            ? "bg-green-400/80"
+            ? "bg-green-400/80 hover:bg-green-400/80 text-white"
             : "bg-green-300/30"
-        } hover:bg-green-200/30 active:bg-green-400/80`
+        } hover:bg-green-200/30`
       }
     } else {
       return `${
         selectedItem && data.name === selectedItem.name
-          ? "bg-white"
+          ? "bg-slate-500 hover:bg-slate-500 text-white"
           : "bg-slate-200/30"
-      } hover:bg-slate-100/30 active:bg-slate-400/30`
+      } hover:bg-slate-100/30`
     }
   }
   return (
@@ -47,7 +47,13 @@ const ItemsList = ({ items, handleSelectItem, selectedItem }) => {
                 <div className="min-w-0 flex-1">
                   <a className="block focus:outline-none">
                     <span className="absolute inset-0" aria-hidden="true" />
-                    <p className="truncate cursor-default text-sm font-medium text-slate-600 font-quicksandBold">
+                    <p
+                      className={`truncate cursor-default text-sm font-medium ${
+                        selectedItem && item.name === selectedItem.name
+                          ? "text-white"
+                          : "text-slate-600"
+                      } font-quicksandBold`}
+                    >
                       {item.name}
                     </p>
                   </a>

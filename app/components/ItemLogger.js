@@ -155,14 +155,12 @@ const ItemLogger = ({ items }) => {
           <button
             type="submit"
             onClick={() => addItem(selected)}
-            className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg "
+            className="group relative h-8 w-28 overflow-hidden rounded-lg bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-200 to-gray-200 text-sm shadow-lg "
           >
-            <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-400 to-gray-200 transition-all duration-700 group-hover:w-full"></div>
-            <span className="relative text-gray-500 group-hover:text-white font-quicksandBold group-active:text-slate-500">
+            <span className="relative text-gray-500 group-hover:text-gray-400 font-quicksandBold">
               {loading ? (
                 <div className="flex justify-center items-center">
                   Adding...
-                  <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
                 </div>
               ) : (
                 "Add"
@@ -186,14 +184,12 @@ const ItemLogger = ({ items }) => {
         <div className="mt-4">
           <button
             onClick={() => addCustomItem(customItem)}
-            className="group relative h-8 w-28 overflow-hidden rounded-lg bg-white text-sm shadow-lg"
+            className="group relative h-8 w-28 overflow-hidden rounded-lg bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-200 to-gray-200 text-sm shadow-lg"
           >
-            <div className="absolute inset-0 w-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-400 to-gray-200 transition-all duration-700 group-hover:w-full"></div>
-            <span className="relative text-gray-500 group-hover:text-white font-quicksandBold group-active:text-slate-500">
+            <span className="relative text-gray-500 group-hover:text-gray-400 font-quicksandBold group-active:text-slate-500">
               {customLoading ? (
                 <div className="flex justify-center items-center font-quicksand">
                   Adding...
-                  <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
                 </div>
               ) : (
                 "Add"

@@ -369,13 +369,6 @@ const EditItemForm = ({
                 )}
                 {editStatus ? null : (
                   <>
-                    {/* <button
-                      disabled={flipped}
-                      onClick={() => handleRecipesFetch(item)}
-                      className="py-1 px-2 my-2 rounded-md bg-orange-500/70 hover:bg-orange-600/70 active:bg-orange-700/70 text-white text-sm shadow-lg font-quicksand"
-                    >
-                      Get Recipes
-                    </button> */}
                     <button
                       disabled={flipped}
                       onClick={() => setOpen(true)}
@@ -423,7 +416,7 @@ const EditItemForm = ({
           >
             {item ? (
               <>
-                <h2 className="my-3 text-slate-600 text-lg font-quicksandBold cursor-default">
+                <h2 className="mt-3 text-slate-600 text-lg font-quicksandBold cursor-default">
                   {`Storage Tips for ${item.name}:`}
                 </h2>
                 <p className="px-10 text-center font-quicksand">

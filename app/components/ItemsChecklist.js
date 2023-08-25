@@ -18,12 +18,12 @@ const ItemsChecklist = ({ items }) => {
         (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
 
       if (daysFrom < 2) {
-        return "bg-red-300/30 hover:bg-red-200 active:bg-red-500/80"
+        return `bg-red-300/30 hover:bg-red-200`
       } else {
-        return "bg-green-300/30 hover:bg-green-200/30 active:bg-green-400/80"
+        return `bg-green-300/30 hover:bg-green-200/30`
       }
     } else {
-      return "bg-slate-200/30 hover:bg-slate-100/30 active:bg-slate-400/30"
+      return `bg-slate-200/30 hover:bg-slate-100/30`
     }
   }
 
@@ -76,12 +76,20 @@ const ItemsChecklist = ({ items }) => {
 
   return (
     <div className="mt-6 mb-4 mx-0 md:mx-6">
-      <button
-        onClick={() => resetSelectedItems()}
-        className="py-1 px-2 rounded-md bg-blue-600/60 text-white text-sm font-quicksand shadow-2xl active:bg-red-700/80"
-      >
-        Clear Selections
-      </button>
+      <div className="flex flex-col justify-center items-center">
+        <button
+          onClick={() => resetSelectedItems()}
+          className="py-1 px-2 rounded-md bg-blue-600/60 text-white text-sm font-quicksand shadow-2xl active:bg-blue-700/80 w-32"
+        >
+          Clear Selections
+        </button>
+        <button
+          onClick={() => fetchRecipes()}
+          className="py-1 px-2 rounded-md bg-orange-600/60 text-white text-sm font-quicksand shadow-2xl active:bg-red-700/80 w-32 my-2"
+        >
+          Get Recipes
+        </button>
+      </div>
       <ul className="grid grid-cols-3 md:grid-cols-6 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg mt-10 mb-20 mx-10">
         {items.length ? (
           items.map((item, index) => (
@@ -89,7 +97,7 @@ const ItemsChecklist = ({ items }) => {
               onClick={() => handleItemSelect(index)}
               key={item.id}
               className={`${calcDaysFrom(item)} ${
-                checkedState[index] === true ? "bg-white shadow-lg" : ""
+                checkedState[index] === true ? "bg-white hover:bg-white" : ""
               } relative shadow-lg px-4 py-3 
               focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
             >
@@ -113,12 +121,6 @@ const ItemsChecklist = ({ items }) => {
           </p>
         )}
       </ul>
-      <button
-        onClick={() => fetchRecipes()}
-        className="py-1 px-2 rounded-md bg-orange-600/60 text-white text-sm font-quicksand shadow-2xl active:bg-red-700/80"
-      >
-        Get Recipes
-      </button>
       <div className="flex justify-center flex-wrap">
         <RecipesList
           recipes={fetchedRecipes}
