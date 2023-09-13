@@ -68,7 +68,7 @@ const ItemLogger = ({ items }) => {
         autoClose: 1250,
       })
     }
-    setOpen(false)
+    // setOpen(false)
     setLoading(false)
     setDate(new Date())
   }
@@ -82,7 +82,14 @@ const ItemLogger = ({ items }) => {
       setCustomLoading(true)
       const tip =
         "Not available for custom items. Please consider quickly researching this particular item before storing."
-      await createItemAction(session.user.email, clientData, tip)
+      const fiveDaysFromToday = addDays(new Date(), 5)
+
+      await createItemAction(
+        session.user.email,
+        clientData,
+        tip,
+        fiveDaysFromToday
+      )
       toast.success(`${clientData} added!`, {
         position: "top-center",
         autoClose: 1250,
@@ -279,7 +286,7 @@ const ItemLogger = ({ items }) => {
           <div className="mt-4">
             <button
               type="submit"
-              onClick={() => setOpen(true)}
+              onClick={() => confirmAddItem(selected)}
               className="group relative h-8 w-28 overflow-hidden rounded-lg bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-200 to-gray-200 text-sm shadow-lg "
             >
               <span className="relative text-gray-500 group-hover:text-gray-400 font-quicksandBold">
