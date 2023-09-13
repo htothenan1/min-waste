@@ -5,6 +5,7 @@ import { createItemAction } from "../_actions"
 import { toast } from "react-toastify"
 import { format, addDays } from "date-fns"
 import { useSession } from "next-auth/react"
+import { generateStorageTip } from "../utils/openai"
 import { Listbox, Transition, Dialog, Combobox } from "@headlessui/react"
 import {
   Select,
@@ -80,8 +81,9 @@ const ItemLogger = ({ items }) => {
   const addCustomItem = async (clientData) => {
     if (clientData !== "") {
       setCustomLoading(true)
-      const tip =
-        "Not available for custom items. Please consider quickly researching this particular item before storing."
+      const tip = await generateStorageTip(clientData)
+      console.log(tip)
+
       const fiveDaysFromToday = addDays(new Date(), 5)
 
       await createItemAction(

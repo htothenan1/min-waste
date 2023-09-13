@@ -30,7 +30,8 @@ export default async function Home() {
             </span>{" "}
             The more in sync your Items List is with your kitchen, the more
             effective the app will be. If the item you brought home can spoil in
-            the next month, make sure to log it.
+            the next 2 weeks, make sure to log it. By default, your items will
+            have a Use-By-Date of 5 days from today, but adjust accordingly.
           </p>
           <p className="my-2 text-slate-600 text-md font-quicksand">
             <span className=" font-quicksandBold">

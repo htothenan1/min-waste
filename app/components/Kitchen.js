@@ -5,6 +5,7 @@ import ItemsList from "./ItemsList"
 import SingleItem from "./SingleItem"
 import RecipesList from "./RecipesList"
 import SingleRecipe from "./SingleRecipe"
+import { generateStorageTip } from "../utils/openai"
 import ItemLogger from "./ItemLogger"
 import { Steps } from "intro.js-react"
 
@@ -169,6 +170,7 @@ const Kitchen = ({ items, itemsCount, userName }) => {
         >
           {`${userName} has consumed ` + itemsCount + ` complete items!`}
         </h2>
+        {/* <button onClick={generateStorageTip}>Generate open ai magic</button> */}
       </div>
       <div className="flex justify-center flex-wrap bg-slate-50/50">
         {editMode ? (

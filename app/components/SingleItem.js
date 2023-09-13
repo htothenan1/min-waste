@@ -407,7 +407,7 @@ const EditItemForm = ({
             )}
           </a.div>
           <a.div
-            className="flex flex-col absolute items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-lg rounded-md w-80 h-72"
+            className="flex flex-col absolute items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-lg rounded-md w-80 h-72 overflow-scroll"
             style={{
               opacity,
               transform,
@@ -419,7 +419,7 @@ const EditItemForm = ({
                 <h2 className="mt-3 text-slate-600 text-lg font-quicksandBold cursor-default">
                   {`Storage Tips for ${item.name}:`}
                 </h2>
-                <p className="px-10 text-center font-quicksand">
+                <p className="px-10 text-center font-quicksand ">
                   {item.storageTip}
                 </p>
 
