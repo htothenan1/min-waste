@@ -340,7 +340,7 @@ const EditItemForm = ({
                     onClick={() => {
                       updateItem(item, item.name, selected)
                     }}
-                    className={`shadow-lg my-3 py-1 px-2 rounded-md ${
+                    className={`shadow-lg my-3 py-2 px-3 rounded-md ${
                       updateLoading
                         ? "bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
                         : "bg-blue-500/80 hover:bg-blue-600/80 active:bg-blue-700/80"
@@ -362,7 +362,7 @@ const EditItemForm = ({
                     onClick={() => {
                       handleEditToggle(true)
                     }}
-                    className="py-1 px-2 my-2 mt-3 rounded-md bg-blue-500/80 hover:bg-blue-600/80 active:bg-blue-700/80 text-white text-sm shadow-lg font-quicksand"
+                    className="py-2 px-3 my-3 mt-3 rounded-md bg-blue-500/80 hover:bg-blue-600/80 active:bg-blue-700/80 text-white text-sm shadow-lg font-quicksand"
                   >
                     Change Date
                   </button>
@@ -372,11 +372,11 @@ const EditItemForm = ({
                     <button
                       disabled={flipped}
                       onClick={() => setOpen(true)}
-                      className="py-1 px-2 my-2 rounded-md bg-green-600/50 hover:bg-green-700/50 active:bg-green-800/50 text-white text-sm shadow-lg font-quicksand"
+                      className="py-2 px-3 my-3 rounded-md bg-green-600/50 hover:bg-green-700/50 active:bg-green-800/50 text-white text-sm shadow-lg font-quicksand"
                     >
                       Item Finished
                     </button>
-                    <button
+                    {/* <button
                       disabled={flipped}
                       onClick={() => repurchaseItem(item)}
                       className="flex text-xs text-center text-black border border-black bg-white hover:bg-slate-100 active:bg-slate-200/50 py-1 px-2 my-1 rounded-md shadow-lg"
@@ -389,11 +389,11 @@ const EditItemForm = ({
                           <PlusIcon className="w-3 text-slate-900" />
                         </>
                       )}
-                    </button>
+                    </button> */}
                     <button
                       disabled={flipped}
                       onClick={handleMistake}
-                      className=" text-xs text-red-500 text-center border border-red-500 py-1 px-2 my-2 rounded-md shadow-lg font-quicksand bg-white hover:bg-slate-100 active:bg-slate-200/50"
+                      className=" text-xs text-red-500 text-center border border-red-500 py-2 px-3 my-3 rounded-md shadow-lg font-quicksand bg-white hover:bg-slate-100 active:bg-slate-200/50"
                     >
                       Added by mistake?
                     </button>

@@ -50,9 +50,7 @@ export default async function Home() {
             <span className="text-red-500/70">red background</span>, that means
             it is less than 2 days away from the Use-By Date.{" "}
             <span className="text-green-600">Green background</span> means you
-            have more than 2 days, and the{" "}
-            <span className="text-slate-500/70">gray ones</span> are items that
-            are yet to be set.
+            have more than 2 days to consume your item.
           </p>
           <p className="my-2 text-slate-600 text-md font-quicksand">
             <span className=" font-quicksandBold">
