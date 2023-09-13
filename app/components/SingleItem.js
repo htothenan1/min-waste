@@ -364,7 +364,7 @@ const EditItemForm = ({
                     }}
                     className="py-1 px-2 my-2 mt-3 rounded-md bg-blue-500/80 hover:bg-blue-600/80 active:bg-blue-700/80 text-white text-sm shadow-lg font-quicksand"
                   >
-                    Set Date
+                    Change Date
                   </button>
                 )}
                 {editStatus ? null : (

@@ -1,4 +1,4 @@
-import prisma from "./prisma";
+import prisma from "./prisma"
 
 export async function getUser(email: string) {
   try {
@@ -16,42 +16,44 @@ export async function getUser(email: string) {
           },
         },
       },
-    });
-    return { user };
+    })
+    return { user }
   } catch (err) {
-    return { err };
+    return { err }
   }
 }
 
 export async function createItem(
   email: string,
   name: string,
-  storageTip: string
+  storageTip: string,
+  expiredAt: string
 ) {
   try {
     const item = await prisma.item.create({
       data: {
         name,
         storageTip,
+        expiredAt,
         owner: {
           connect: {
             email,
           },
         },
       },
-    });
-    return { item };
+    })
+    return { item }
   } catch (error) {
-    return { error };
+    return { error }
   }
 }
 
 export async function getItemById(id: string) {
   try {
-    const item = await prisma.item.findUnique({ where: { id } });
-    return { item };
+    const item = await prisma.item.findUnique({ where: { id } })
+    return { item }
   } catch (error) {
-    return { error };
+    return { error }
   }
 }
 
@@ -61,10 +63,10 @@ export async function deleteItemById(id: string) {
       where: {
         id,
       },
-    });
-    return { item };
+    })
+    return { item }
   } catch (error) {
-    return { error };
+    return { error }
   }
 }
 
@@ -77,10 +79,10 @@ export async function updateItemById(
     const item = await prisma.item.update({
       where: { id },
       data: { name, expiredAt },
-    });
-    return { item };
+    })
+    return { item }
   } catch (error) {
-    return { error };
+    return { error }
   }
 }
 
@@ -89,9 +91,9 @@ export async function incrementCounter(email: string) {
     const user = await prisma.user.update({
       where: { email },
       data: { itemsCounter: { increment: 1 } },
-    });
-    return { user };
+    })
+    return { user }
   } catch (error) {
-    return { error };
+    return { error }
   }
 }
