@@ -1,7 +1,9 @@
+"use server"
+
 import OpenAI from "openai"
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 })
 
