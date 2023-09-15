@@ -58,10 +58,10 @@ const ItemLogger = ({ items }) => {
       const fiveDaysFromToday = addDays(new Date(), 5)
       const finalDate = isToday(date) ? fiveDaysFromToday : date
       await createItemAction(session.user.email, clientData, tip, finalDate)
-      toast.success(`${clientData} added!`, {
-        position: "top-center",
-        autoClose: 1250,
-      })
+      // toast.success(`${clientData} added!`, {
+      //   position: "top-center",
+      //   autoClose: 1250,
+      // })
       setSelected("Select Item")
     } else {
       toast.error("Please select an item", {
@@ -92,10 +92,10 @@ const ItemLogger = ({ items }) => {
         tip,
         fiveDaysFromToday
       )
-      toast.success(`${clientData} added!`, {
-        position: "top-center",
-        autoClose: 1250,
-      })
+      // toast.success(`${clientData} added!`, {
+      //   position: "top-center",
+      //   autoClose: 1250,
+      // })
       setCustomItem("")
     } else {
       toast.error("Cannot be blank", {
