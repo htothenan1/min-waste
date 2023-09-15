@@ -3,21 +3,12 @@
 import { useState, Fragment, useRef } from "react"
 import { createItemAction } from "../_actions"
 import { toast } from "react-toastify"
-import { format, addDays } from "date-fns"
+import { addDays } from "date-fns"
 import { useSession } from "next-auth/react"
 import { generateStorageTip } from "../utils/openai"
-import { Listbox, Transition, Dialog, Combobox } from "@headlessui/react"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select"
+import { Listbox, Transition, Dialog } from "@headlessui/react"
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid"
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline"
 import { ingredientsObjects } from "../data/ingredients"
-import { ReloadIcon } from "@radix-ui/react-icons"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
@@ -69,7 +60,6 @@ const ItemLogger = ({ items }) => {
         autoClose: 1250,
       })
     }
-    // setOpen(false)
     setLoading(false)
     setDate(new Date())
   }
@@ -108,100 +98,6 @@ const ItemLogger = ({ items }) => {
 
   return (
     <>
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-10"
-          initialFocus={cancelButtonRef}
-          onClose={setOpen}
-        >
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-          </Transition.Child>
-
-          <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex h-1/2 items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationTriangleIcon
-                        className="h-6 w-6 text-red-600"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                      <Dialog.Title
-                        as="h3"
-                        className="text-base font-quicksandBold leading-6 text-gray-900"
-                      >
-                        {`Adding ${selected}`}
-                      </Dialog.Title>
-                      <div className="mt-2">
-                        <p className="text-sm text-gray-500 font-quicksand">
-                          Please set a date and confirm. (defaults to 5 days)
-                        </p>
-                      </div>
-                      <div className="mt-2">
-                        <Select
-                          onValueChange={(value) =>
-                            setDate(addDays(new Date(), parseInt(value)))
-                          }
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select an interval of time" />
-                          </SelectTrigger>
-                          <SelectContent position="popper">
-                            <SelectItem value="3">In 3 days</SelectItem>
-                            <SelectItem value="5">In 5 days</SelectItem>
-                            <SelectItem value="7">In 7 days</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-5 sm:ml-10 sm:mt-4 sm:flex sm:pl-4">
-                    <button
-                      type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-700 active:bg-green-800 sm:w-auto"
-                      onClick={() => {
-                        confirmAddItem(selected)
-                      }}
-                    >
-                      Confirm
-                    </button>
-
-                    <button
-                      type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-200 sm:ml-3 sm:mt-0 sm:w-auto"
-                      onClick={handleCancel}
-                      ref={cancelButtonRef}
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
       <div id="itemLogger" className="my-6 mx-0 md:mx-6">
         <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
           Item Logger
