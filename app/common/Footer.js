@@ -45,7 +45,7 @@ const navigation = [
 
 export default function Example() {
   return (
-    <footer className="bg-white fixed bottom-0 left-0 w-full">
+    <footer className="bg-white bottom-0 left-0 w-full">
       <div className="mx-auto max-w-7xl px-6 py-4 md:flex md:items-center md:justify-between">
         <div className="flex justify-center space-x-6 md:order-2">
           <p className="text-center text-xs leading-5 text-gray-500 font-quicksand">

@@ -59,10 +59,10 @@ const SingleItemView = ({ item, handleEditToggle, editStatus }) => {
     if (!mistaken) {
       await incrementCounterAction(session.user.email)
     }
-    toast.success(`${data.name} ${mistaken ? "deleted!" : "consumed!"}`, {
-      position: "top-center",
-      autoClose: 1250,
-    })
+    // toast.success(`${data.name} ${mistaken ? "deleted!" : "consumed!"}`, {
+    //   position: "top-center",
+    //   autoClose: 1250,
+    // })
     if (!mistaken) {
       setConfettiActive(true)
     }
@@ -74,10 +74,10 @@ const SingleItemView = ({ item, handleEditToggle, editStatus }) => {
   const deleteItemWithWaste = async (data) => {
     setWasteLoading(true)
     await deleteItemAction(data.id)
-    toast.success("Its ok, next time will be better", {
-      position: "top-center",
-      autoClose: 1250,
-    })
+    // toast.success("Its ok, next time will be better", {
+    //   position: "top-center",
+    //   autoClose: 1250,
+    // })
     setOpen(false)
     setWasteLoading(false)
   }

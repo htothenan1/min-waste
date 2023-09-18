@@ -252,6 +252,12 @@ export const ingredientsObjects = [
       "Store it in the vegetable crisper drawer of your refrigerator to maintain its freshness.  Moisture can cause kale to become wilted and slimy. Make sure the kale leaves are dry before storing them.",
   },
   {
+    id: "4k3c9bd0",
+    name: "Kiwis",
+    storageTip:
+      "To store kiwis, keep them in the fridge when ripe to maintain freshness. Store unripe ones at room temperature until ready. Keep separate from ethylene-producing fruits like apples to prevent overripening.",
+  },
+  {
     id: "9756e066",
     name: "Leftovers",
     storageTip:

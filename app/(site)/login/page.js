@@ -27,11 +27,11 @@ export default function Login() {
       }
 
       if (callback?.ok && !callback?.error) {
+        // toast.success(`Logged in successfully!`, {
+        //   position: "top-center",
+        //   autoClose: 1250,
+        // })
         router.push("/kitchen")
-        toast.success(`Logged in successfully!`, {
-          position: "top-center",
-          autoClose: 1250,
-        })
       }
     })
   }
