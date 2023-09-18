@@ -10,7 +10,7 @@ const SingleRecipe = ({ recipe }) => {
   }, [recipe])
 
   return (
-    <div id="singleRecipeView" className="m-6 mb-10">
+    <div className="m-6 mb-10">
       <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
         Single Recipe View
       </h2>

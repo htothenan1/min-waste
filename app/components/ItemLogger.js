@@ -6,7 +6,7 @@ import { toast } from "react-toastify"
 import { addDays } from "date-fns"
 import { useSession } from "next-auth/react"
 import { generateStorageTip } from "../utils/openai"
-import { Listbox, Transition, Dialog } from "@headlessui/react"
+import { Listbox, Transition } from "@headlessui/react"
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid"
 import { ingredientsObjects } from "../data/ingredients"
 
@@ -17,7 +17,6 @@ function classNames(...classes) {
 const ItemLogger = ({ items }) => {
   const [selected, setSelected] = useState("Select an Item")
   const [date, setDate] = useState(new Date())
-  const [open, setOpen] = useState(false)
   const { data: session } = useSession()
   const [loading, setLoading] = useState(false)
   const [customLoading, setCustomLoading] = useState(false)
@@ -28,8 +27,6 @@ const ItemLogger = ({ items }) => {
       return el2.name === el1.name
     })
   })
-
-  const cancelButtonRef = useRef(null)
 
   const isToday = (someDate) => {
     const today = new Date()
@@ -64,10 +61,6 @@ const ItemLogger = ({ items }) => {
     setDate(new Date())
   }
 
-  const handleCancel = () => {
-    setOpen(false)
-  }
-
   const addCustomItem = async (clientData) => {
     if (clientData !== "") {
       setCustomLoading(true)
@@ -98,7 +91,7 @@ const ItemLogger = ({ items }) => {
 
   return (
     <>
-      <div id="itemLogger" className="my-6 mx-0 md:mx-6">
+      <div className="my-6 mx-0 md:mx-6">
         <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
           Item Logger
         </h2>

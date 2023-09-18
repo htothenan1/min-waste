@@ -2,7 +2,6 @@
 
 import { toast } from "react-toastify"
 import {
-  createItemAction,
   deleteItemAction,
   incrementCounterAction,
   updateItemAction,
@@ -11,13 +10,10 @@ import { useState, Fragment, useRef } from "react"
 import { useSession } from "next-auth/react"
 import Lottie from "lottie-react"
 import confetti from "../../public/confetti.json"
-import confetti2 from "../../public/confetti2.json"
-import confetti3 from "../../public/confetti3.json"
 import { Transition, Dialog } from "@headlessui/react"
 import { format, addDays } from "date-fns"
 import { cn } from "../lib/utils"
 import { Button } from "./ui/button"
-import { PlusIcon } from "@radix-ui/react-icons"
 import { Calendar } from "./ui/calendar"
 import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
@@ -32,12 +28,7 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline"
 import { homes } from "../data/homes"
 import { useSpring, a } from "@react-spring/web"
 
-const EditItemForm = ({
-  item,
-  handleRecipesFetch,
-  handleEditToggle,
-  editStatus,
-}) => {
+const SingleItemView = ({ item, handleEditToggle, editStatus }) => {
   const { data: session } = useSession()
   const [date, setDate] = useState(new Date())
   const [open, setOpen] = useState(false)
@@ -45,7 +36,6 @@ const EditItemForm = ({
   const [deleteLoading, setDeleteLoading] = useState(false)
   const [wasteLoading, setWasteLoading] = useState(false)
   const [updateLoading, setUpdateLoading] = useState(false)
-  const [repurchaseLoading, setRepurchaseLoading] = useState(false)
   const [mistaken, setMistaken] = useState(false)
   const [flipped, set] = useState(false)
   const [confettiActive, setConfettiActive] = useState(false)
@@ -56,20 +46,6 @@ const EditItemForm = ({
   })
 
   const cancelButtonRef = useRef(null)
-
-  const repurchaseItem = async (clientData) => {
-    setRepurchaseLoading(true)
-    await createItemAction(
-      session.user.email,
-      clientData.name,
-      clientData.storageTip
-    )
-    toast.success(`${clientData.name} repurchased!`, {
-      position: "top-center",
-      autoClose: 1250,
-    })
-    setRepurchaseLoading(false)
-  }
 
   const adjustDate = (date) => {
     date.setHours(date.getHours() + 18)
@@ -257,7 +233,7 @@ const EditItemForm = ({
         </Dialog>
       </Transition.Root>
 
-      <div id="singleItemView" className="flex flex-col m-6">
+      <div className="flex flex-col m-6">
         <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
           Single Item View
         </h2>
@@ -376,20 +352,6 @@ const EditItemForm = ({
                     >
                       Item Finished
                     </button>
-                    {/* <button
-                      disabled={flipped}
-                      onClick={() => repurchaseItem(item)}
-                      className="flex text-xs text-center text-black border border-black bg-white hover:bg-slate-100 active:bg-slate-200/50 py-1 px-2 my-1 rounded-md shadow-lg"
-                    >
-                      {repurchaseLoading ? (
-                        "Repurchasing..."
-                      ) : (
-                        <>
-                          <p className="pr-1 font-quicksand">Repurchase</p>
-                          <PlusIcon className="w-3 text-slate-900" />
-                        </>
-                      )}
-                    </button> */}
                     <button
                       disabled={flipped}
                       onClick={handleMistake}
@@ -437,7 +399,7 @@ const EditItemForm = ({
       </div>
       {confettiActive && (
         <Lottie
-          animationData={confetti3}
+          animationData={confetti}
           style={confettiStyle}
           loop={false}
           onComplete={() => setConfettiActive(false)}
@@ -447,4 +409,4 @@ const EditItemForm = ({
   )
 }
 
-export default EditItemForm
+export default SingleItemView

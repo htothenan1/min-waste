@@ -76,11 +76,6 @@ const NavBar = ({ user }) => {
                     title={"Resources"}
                     className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600 font-quicksandBold"
                   />
-                  {/* <CustomLink
-                    href={"/learn"}
-                    title={"Learn"}
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600 font-quicksandBold"
-                  /> */}
                   <CustomLink
                     href={"/contact"}
                     title={"Contact Us"}

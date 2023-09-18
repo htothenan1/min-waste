@@ -1,26 +1,19 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { signIn, useSession } from "next-auth/react"
+import { useState } from "react"
+import { signIn } from "next-auth/react"
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import smileLogo from "../../../public/smile_logo.png"
 import Image from "next/image"
 
 export default function Login() {
-  const session = useSession()
   const router = useRouter()
   const [data, setData] = useState({
     email: "",
     password: "",
   })
   const [showPassword, setShowPassword] = useState(false)
-
-  // useEffect(() => {
-  //   if (session?.status === "authenticated") {
-  //     router.push("/kitchen");
-  //   }
-  // });
 
   const loginUser = async (e) => {
     e.preventDefault()
