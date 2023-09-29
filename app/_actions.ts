@@ -15,6 +15,7 @@ export async function createItemAction(
   expiredAt: string
 ) {
   await createItem(email, name, storageTip, expiredAt)
+
   revalidatePath("/")
 }
 

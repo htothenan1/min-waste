@@ -39,8 +39,9 @@ const Kitchen = ({ items, itemsCount, userName }) => {
 
   useEffect(() => {
     const randomIdx = Math.floor(Math.random() * thought.length)
-    setSelectedItem(null)
+    // setSelectedItem(null)
     setCurrentThought(thought[randomIdx])
+    // const addedItem = items.find((el) => el.name === selected)
   }, [items])
 
   return (
@@ -63,20 +64,26 @@ const Kitchen = ({ items, itemsCount, userName }) => {
           </div>
         ) : (
           <div className="flex">
-            <ItemLogger items={items} editStatus={editMode} />
-            <div className="flex flex-col items-center">
+            <ItemLogger
+              items={items}
+              editStatus={editMode}
+              selectedItem={selectedItem}
+              handleSelectItem={handleSelectItem}
+            />
+            {/* <div className="flex flex-col items-center">
               <ItemsList
                 editStatus={editMode}
                 items={items}
                 handleSelectItem={handleSelectItem}
                 selectedItem={selectedItem}
               />
-            </div>
+            </div> */}
           </div>
         )}
 
         <SingleItem
           handleEditToggle={setEditMode}
+          handleSelectItem={handleSelectItem}
           editStatus={editMode}
           item={selectedItem}
           handleRecipesFetch={fetchRecipes}

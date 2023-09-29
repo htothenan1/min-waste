@@ -4,8 +4,8 @@ import { Inter, Quicksand } from "next/font/google"
 import CustomToastContainer from "./common/CustomToastContainer"
 import Provider from "./context/AuthContext"
 import "react-toastify/dist/ReactToastify.css"
-import "react-date-picker/dist/DatePicker.css"
-import "react-calendar/dist/Calendar.css"
+// import "react-date-picker/dist/DatePicker.css"
+// import "react-calendar/dist/Calendar.css"
 import "intro.js/introjs.css"
 
 const inter = Inter({ subsets: ["latin"] })

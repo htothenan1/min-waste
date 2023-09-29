@@ -14,8 +14,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
 }
 
-const ItemLogger = ({ items }) => {
-  const [selected, setSelected] = useState("Select an Item")
+const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
+  const [selected, setSelected] = useState(null)
   const [date, setDate] = useState(new Date())
   const { data: session } = useSession()
   const [loading, setLoading] = useState(false)
@@ -28,6 +28,39 @@ const ItemLogger = ({ items }) => {
     })
   })
 
+  const calcDaysFrom = (data) => {
+    if (data.expiredAt) {
+      const daysFrom =
+        (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
+
+      if (daysFrom < 2) {
+        return `${
+          selectedItem && data.name === selectedItem.name
+            ? "bg-red-500/80 hover:bg-red-500/80 text-white"
+            : "bg-red-300/30"
+        } hover:bg-red-200`
+      } else {
+        return `${
+          selectedItem && data.name === selectedItem.name
+            ? "bg-green-400/80 hover:bg-green-400/80 text-white"
+            : "bg-green-300/30"
+        } hover:bg-green-200/30`
+      }
+    } else {
+      return `${
+        selectedItem && data.name === selectedItem.name
+          ? "bg-slate-500 hover:bg-slate-500 text-white"
+          : "bg-slate-200/30"
+      } hover:bg-slate-100/30`
+    }
+  }
+
+  const handleOnDrag = (e, name) => {
+    // console.log(name)
+    setSelected(name)
+    // handleSelectItem(name)
+  }
+
   const isToday = (someDate) => {
     const today = new Date()
     return (
@@ -38,7 +71,7 @@ const ItemLogger = ({ items }) => {
   }
 
   const confirmAddItem = async (clientData) => {
-    if (clientData !== "Select Item") {
+    if (clientData !== null) {
       setLoading(true)
       const tip = ingredientsObjects.find(
         (el) => el.name === selected
@@ -50,7 +83,6 @@ const ItemLogger = ({ items }) => {
       //   position: "top-center",
       //   autoClose: 1250,
       // })
-      setSelected("Select Item")
     } else {
       toast.error("Please select an item", {
         position: "top-center",
@@ -59,6 +91,19 @@ const ItemLogger = ({ items }) => {
     }
     setLoading(false)
     setDate(new Date())
+  }
+
+  const handleOnDrop = () => {
+    confirmAddItem(selected)
+
+    // const addedItem = items.find((el) => el.name === selected)
+    // console.log(addedItem)
+    // handleSelectItem(addedItem)
+    console.log(selected)
+  }
+
+  const handleOnDragOver = (e) => {
+    e.preventDefault()
   }
 
   const addCustomItem = async (clientData) => {
@@ -97,7 +142,7 @@ const ItemLogger = ({ items }) => {
         </h2>
 
         <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg p-4">
-          <Listbox value={selected} onChange={setSelected}>
+          {/* <Listbox value={selected} onChange={setSelected}>
             {({ open }) => (
               <>
                 <div className="relative ">
@@ -173,8 +218,8 @@ const ItemLogger = ({ items }) => {
                 </div>
               </>
             )}
-          </Listbox>
-          <div className="mt-4">
+          </Listbox> */}
+          {/* <div className="mt-4">
             <button
               type="submit"
               onClick={() => confirmAddItem(selected)}
@@ -190,8 +235,38 @@ const ItemLogger = ({ items }) => {
                 )}
               </span>
             </button>
-          </div>
-          <h2 className=" text-slate-600 my-8 font-quicksandBold">- or -</h2>
+          </div> */}
+
+          <ul
+            role="list"
+            className="flex flex-col divide-y divide-gray-200 h-36 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36 mb-7"
+          >
+            {filteredItems.map((item) => (
+              <li
+                draggable
+                onDragStart={(e) => handleOnDrag(e, item.name)}
+                // onClick={() => handleSelectItem(item)}
+                key={item.id}
+                className={`relative shadow-lg px-4 py-3 
+            focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
+              >
+                <div className="flex justify-between space-x-3">
+                  <div className="min-w-0 flex-1">
+                    <a className="block focus:outline-none">
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      <p
+                        className={`truncate cursor-default text-sm font-medium font-quicksandBold`}
+                      >
+                        {item.name}
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* <h2 className=" text-slate-600 my-8 font-quicksandBold">- or -</h2> */}
 
           <input
             minLength="2"
@@ -220,6 +295,56 @@ const ItemLogger = ({ items }) => {
               </span>
             </button>
           </div>
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <div
+          className="mt-6 mb-4 mx-0 md:mx-6"
+          onDrop={handleOnDrop}
+          onDragOver={handleOnDragOver}
+        >
+          <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
+            Items List
+          </h2>
+
+          <ul
+            role="list"
+            className="flex flex-col divide-y divide-gray-200 h-72 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36"
+          >
+            {items.length ? (
+              items.map((item) => (
+                <li
+                  onClick={() => handleSelectItem(item)}
+                  key={item.id}
+                  className={`${calcDaysFrom(
+                    item
+                  )} relative shadow-lg px-4 py-3 
+                focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
+                >
+                  <div className="flex justify-between space-x-3">
+                    <div className="min-w-0 flex-1">
+                      <a className="block focus:outline-none">
+                        <span className="absolute inset-0" aria-hidden="true" />
+                        <p
+                          className={`truncate cursor-default text-sm font-medium ${
+                            selectedItem && item.name === selectedItem.name
+                              ? "text-white"
+                              : "text-slate-600"
+                          } font-quicksandBold`}
+                        >
+                          {item.name}
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              ))
+            ) : (
+              <p className=" p-2 cursor-default text-center text-slate-600 my-auto font-quicksand">
+                Add an item!
+              </p>
+            )}
+          </ul>
         </div>
       </div>
     </>

@@ -28,7 +28,12 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline"
 import { homes } from "../data/homes"
 import { useSpring, a } from "@react-spring/web"
 
-const SingleItemView = ({ item, handleEditToggle, editStatus }) => {
+const SingleItemView = ({
+  item,
+  handleEditToggle,
+  editStatus,
+  handleSelectItem,
+}) => {
   const { data: session } = useSession()
   const [date, setDate] = useState(new Date())
   const [open, setOpen] = useState(false)
@@ -66,6 +71,7 @@ const SingleItemView = ({ item, handleEditToggle, editStatus }) => {
     if (!mistaken) {
       setConfettiActive(true)
     }
+    handleSelectItem(null)
     setOpen(false)
     setDeleteLoading(false)
     setMistaken(false)
@@ -80,6 +86,7 @@ const SingleItemView = ({ item, handleEditToggle, editStatus }) => {
     // })
     setOpen(false)
     setWasteLoading(false)
+    handleSelectItem(null)
   }
 
   const updateItem = async (data, newHome) => {
