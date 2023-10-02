@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, Fragment, useRef } from "react"
+import { useDoubleTap } from "use-double-tap"
 import { createItemAction } from "../_actions"
 import { toast } from "react-toastify"
 import { addDays } from "date-fns"
@@ -92,6 +93,16 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
     setLoading(false)
     setDate(new Date())
   }
+
+  const handleDoubleClick = (data) => {
+    console.log(data)
+  }
+
+  const bind = useDoubleTap((event) => {
+    // Your action here
+    confirmAddItem(selected)
+    console.log(event)
+  })
 
   const handleOnDrop = () => {
     confirmAddItem(selected)
@@ -242,10 +253,12 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
             className="flex flex-col divide-y divide-gray-200 h-36 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36 mb-7"
           >
             {filteredItems.map((item) => (
-              <li
+              <button
+                {...bind}
+                // ref={drag}
                 draggable
                 onDragStart={(e) => handleOnDrag(e, item.name)}
-                // onClick={() => handleSelectItem(item)}
+                onTouchStart={() => setSelected(item.name)}
                 key={item.id}
                 className={`relative shadow-lg px-4 py-3 
             focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
@@ -262,7 +275,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
                     </a>
                   </div>
                 </div>
-              </li>
+              </button>
             ))}
           </ul>
 
@@ -294,6 +307,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
                 )}
               </span>
             </button>
+            {/* <button {...bind}>Tap me</button> */}
           </div>
         </div>
       </div>
@@ -309,7 +323,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
 
           <ul
             role="list"
-            className="flex flex-col divide-y divide-gray-200 h-72 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36"
+            className="flex flex-col divide-y divide-gray-200 h-72 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36 cursor-pointer"
           >
             {items.length ? (
               items.map((item) => (
