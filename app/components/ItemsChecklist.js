@@ -53,7 +53,7 @@ const ItemsChecklist = ({ items }) => {
       .then((resItems) => {
         toast.success("Recipes found!", {
           position: "top-center",
-          autoClose: 1250,
+          autoClose: 1000,
         })
         setFetchedRecipes(resItems)
       })
@@ -67,7 +67,7 @@ const ItemsChecklist = ({ items }) => {
       .then((recipe) => {
         toast.success(`Recipe selected!`, {
           position: "top-center",
-          autoClose: 1250,
+          autoClose: 1000,
         })
         setSelectedRecipe(recipe)
         console.log(recipe)

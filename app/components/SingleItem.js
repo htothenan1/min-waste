@@ -87,7 +87,7 @@ const SingleItemView = ({
     await updateItemAction(data.id, data.name, finalDate, newHome.name)
     toast.info(`${data.name} Use By Date set!`, {
       position: "top-center",
-      autoClose: 1250,
+      autoClose: 1000,
     })
     handleEditToggle(false)
     setDate(new Date())

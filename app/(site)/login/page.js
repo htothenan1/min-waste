@@ -21,7 +21,7 @@ export default function Login() {
       if (callback?.error) {
         toast.error(`${callback.error}`, {
           position: "top-center",
-          autoClose: 1250,
+          autoClose: 1000,
         })
         throw new Error(callback.error)
       }

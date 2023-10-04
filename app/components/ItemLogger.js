@@ -16,6 +16,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
   const { data: session } = useSession()
   const [customLoading, setCustomLoading] = useState(false)
   const [customItem, setCustomItem] = useState("")
+  const [mobileSelected, setMobileSelected] = useState(null)
 
   const filteredItems = ingredientsObjects.filter((el1) => {
     return !items.some((el2) => {
@@ -71,10 +72,14 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
       const fiveDaysFromToday = addDays(new Date(), 5)
       const finalDate = isToday(date) ? fiveDaysFromToday : date
       await createItemAction(session.user.email, clientData, tip, finalDate)
+      toast.success(`${clientData} added!`, {
+        position: "top-center",
+        autoClose: 1000,
+      })
     } else {
       toast.error("Please select an item", {
         position: "top-center",
-        autoClose: 1250,
+        autoClose: 1000,
       })
     }
     setDate(new Date())
@@ -108,7 +113,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
     } else {
       toast.error("Cannot be blank", {
         position: "top-center",
-        autoClose: 1250,
+        autoClose: 1000,
       })
     }
     setCustomLoading(false)
@@ -134,7 +139,9 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
                 onDragStart={(e) => handleOnDrag(e, item.name)}
                 onTouchStart={() => setSelected(item.name)}
                 key={item.id}
-                className={`relative shadow-lg px-4 py-3 
+                className={`${
+                  selected === item.name ? "bg-white" : ""
+                } relative shadow-lg px-4 py-3 
             focus-within:ring-2 focus-within:ring-green-200 rounded-md cursor-move`}
               >
                 <div className="flex justify-between space-x-3">

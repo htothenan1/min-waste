@@ -25,12 +25,12 @@ const Kitchen = ({ items, itemsCount, userName }) => {
         if (recipes.results.length === 0) {
           toast.error("Sorry, no recipes found", {
             position: "top-center",
-            autoClose: 1250,
+            autoClose: 1000,
           })
         } else {
           toast.success(`${selectedItem.name} recipes found!`, {
             position: "top-center",
-            autoClose: 1250,
+            autoClose: 1000,
           })
         }
       })

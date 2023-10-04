@@ -23,7 +23,7 @@ export default function Register() {
       .then(() =>
         toast.success("User has been successfully registered!", {
           position: "top-center",
-          autoClose: 1250,
+          autoClose: 1000,
         })
       )
       .then(() => {
@@ -32,7 +32,7 @@ export default function Register() {
       .catch(() =>
         toast.error("Oops, something went wrong!", {
           position: "top-center",
-          autoClose: 1250,
+          autoClose: 1000,
         })
       )
   }
