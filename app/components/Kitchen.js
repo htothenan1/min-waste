@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import ItemsList from "./ItemsList"
 import SingleItem from "./SingleItem"
 import ItemLogger from "./ItemLogger"
 
@@ -39,9 +38,7 @@ const Kitchen = ({ items, itemsCount, userName }) => {
 
   useEffect(() => {
     const randomIdx = Math.floor(Math.random() * thought.length)
-    // setSelectedItem(null)
     setCurrentThought(thought[randomIdx])
-    // const addedItem = items.find((el) => el.name === selected)
   }, [items])
 
   return (
@@ -70,14 +67,6 @@ const Kitchen = ({ items, itemsCount, userName }) => {
               selectedItem={selectedItem}
               handleSelectItem={handleSelectItem}
             />
-            {/* <div className="flex flex-col items-center">
-              <ItemsList
-                editStatus={editMode}
-                items={items}
-                handleSelectItem={handleSelectItem}
-                selectedItem={selectedItem}
-              />
-            </div> */}
           </div>
         )}
 

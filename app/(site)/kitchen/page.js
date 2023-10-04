@@ -28,29 +28,29 @@ export default async function Home() {
             <span className=" font-quicksandBold">
               1. Log your spoilable items regularly.
             </span>{" "}
-            The more in sync your Items List is with your kitchen, the more
-            effective the app will be. If the item you brought home can spoil in
-            the next 2 weeks, make sure to log it. By default, your items will
-            have a Use-By-Date of 5 days from today, but adjust accordingly.
+            Find your item, and drag it into your Items List (double tap on
+            mobile). If you add a custom item, the OpenAI API will generate the
+            storage tips. By default, your items will have a Use-By Date of 5
+            days from today, but please adjust accordingly.
           </p>
           <p className="my-2 text-slate-600 text-md font-quicksand">
             <span className=" font-quicksandBold">
-              2. Set a Use-By Date for your items.
+              2. Set a SMART Use-By Date for your items.
             </span>{" "}
-            Set a reasonable goal for when each item{" "}
-            <span className=" italic">should optimistically</span> be consumed
-            by. This should be based on what you feel is appropriate, not the
-            expiration code on the package. Make sure to factor in your
-            lifestyle and schedule when choosing this date.
+            Using the SMART methodology, set Use-By Dates that are Specific,
+            Measurable, Achievable, Relevant, and Time-Bound. Use your senses to
+            determine these dates, instead of relying on misleading expiration
+            codes.
           </p>
           <p className="my-2 text-slate-600 text-md font-quicksand">
             <span className=" font-quicksandBold">
               3. Consume your items from the top of the list, first.
             </span>{" "}
-            Try to always eat what should be eaten next. If your item has a{" "}
+            Since your Items List is ordered by Use-By Date, always try to eat
+            from the top. If your item has a{" "}
             <span className="text-red-500/70">red background</span>, that means
-            it is less than 2 days away from the Use-By Date.{" "}
-            <span className="text-green-600">Green background</span> means you
+            it is less than 2 days away from the Use-By Date. A{" "}
+            <span className="text-green-600">green background</span> means you
             have more than 2 days to consume your item.
           </p>
           <p className="my-2 text-slate-600 text-md font-quicksand">

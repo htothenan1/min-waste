@@ -8,8 +8,8 @@ import {
 } from "../_actions"
 import { useState, Fragment, useRef } from "react"
 import { useSession } from "next-auth/react"
-import Lottie from "lottie-react"
-import confetti from "../../public/confetti.json"
+// import Lottie from "lottie-react"
+// import confetti from "../../public/confetti.json"
 import { Transition, Dialog } from "@headlessui/react"
 import { format, addDays } from "date-fns"
 import { cn } from "../lib/utils"
@@ -43,7 +43,7 @@ const SingleItemView = ({
   const [updateLoading, setUpdateLoading] = useState(false)
   const [mistaken, setMistaken] = useState(false)
   const [flipped, set] = useState(false)
-  const [confettiActive, setConfettiActive] = useState(false)
+  // const [confettiActive, setConfettiActive] = useState(false)
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
@@ -64,13 +64,9 @@ const SingleItemView = ({
     if (!mistaken) {
       await incrementCounterAction(session.user.email)
     }
-    // toast.success(`${data.name} ${mistaken ? "deleted!" : "consumed!"}`, {
-    //   position: "top-center",
-    //   autoClose: 1250,
-    // })
-    if (!mistaken) {
-      setConfettiActive(true)
-    }
+    // if (!mistaken) {
+    //   setConfettiActive(true)
+    // }
     handleSelectItem(null)
     setOpen(false)
     setDeleteLoading(false)
@@ -80,10 +76,6 @@ const SingleItemView = ({
   const deleteItemWithWaste = async (data) => {
     setWasteLoading(true)
     await deleteItemAction(data.id)
-    // toast.success("Its ok, next time will be better", {
-    //   position: "top-center",
-    //   autoClose: 1250,
-    // })
     setOpen(false)
     setWasteLoading(false)
     handleSelectItem(null)
@@ -117,15 +109,15 @@ const SingleItemView = ({
     }
   }
 
-  const confettiStyle = {
-    position: "fixed",
-    left: "50%",
-    top: 350,
-    transform: "translate(-50%, -50%)",
-    width: "100vw",
-    height: 950,
-    margin: "0 auto",
-  }
+  // const confettiStyle = {
+  //   position: "fixed",
+  //   left: "50%",
+  //   top: 350,
+  //   transform: "translate(-50%, -50%)",
+  //   width: "100vw",
+  //   height: 950,
+  //   margin: "0 auto",
+  // }
 
   return (
     <>
@@ -404,14 +396,14 @@ const SingleItemView = ({
           </a.div>
         </div>
       </div>
-      {confettiActive && (
+      {/* {confettiActive && (
         <Lottie
           animationData={confetti}
           style={confettiStyle}
           loop={false}
           onComplete={() => setConfettiActive(false)}
         />
-      )}
+      )} */}
     </>
   )
 }
