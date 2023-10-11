@@ -5,6 +5,8 @@ import {
   deleteItemAction,
   incrementCounterAction,
   updateItemAction,
+  createConsumedItemAction,
+  createWastedItemAction,
 } from "../_actions"
 import { useState, Fragment, useRef } from "react"
 import { useSession } from "next-auth/react"
@@ -62,6 +64,7 @@ const SingleItemView = ({
     setDeleteLoading(true)
     await deleteItemAction(data.id)
     if (!mistaken) {
+      await createConsumedItemAction(session.user.email, data.name)
       await incrementCounterAction(session.user.email)
     }
     // if (!mistaken) {
@@ -75,6 +78,7 @@ const SingleItemView = ({
 
   const deleteItemWithWaste = async (data) => {
     setWasteLoading(true)
+    await createWastedItemAction(session.user.email, data.name)
     await deleteItemAction(data.id)
     setOpen(false)
     setWasteLoading(false)

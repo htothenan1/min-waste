@@ -2,6 +2,8 @@
 
 import {
   createItem,
+  createConsumedItem,
+  createWastedItem,
   deleteItemById,
   updateItemById,
   incrementCounter,
@@ -15,6 +17,18 @@ export async function createItemAction(
   expiredAt: string
 ) {
   await createItem(email, name, storageTip, expiredAt)
+
+  revalidatePath("/")
+}
+
+export async function createConsumedItemAction(email: string, name: string) {
+  await createConsumedItem(email, name)
+
+  revalidatePath("/")
+}
+
+export async function createWastedItemAction(email: string, name: string) {
+  await createWastedItem(email, name)
 
   revalidatePath("/")
 }

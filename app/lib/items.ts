@@ -48,6 +48,42 @@ export async function createItem(
   }
 }
 
+export async function createConsumedItem(email: string, name: string) {
+  try {
+    const item = await prisma.consumedItem.create({
+      data: {
+        name,
+        owner: {
+          connect: {
+            email,
+          },
+        },
+      },
+    })
+    return { item }
+  } catch (error) {
+    return { error }
+  }
+}
+
+export async function createWastedItem(email: string, name: string) {
+  try {
+    const item = await prisma.wastedItem.create({
+      data: {
+        name,
+        owner: {
+          connect: {
+            email,
+          },
+        },
+      },
+    })
+    return { item }
+  } catch (error) {
+    return { error }
+  }
+}
+
 export async function getItemById(id: string) {
   try {
     const item = await prisma.item.findUnique({ where: { id } })
