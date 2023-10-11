@@ -36,6 +36,12 @@ export const ingredientsObjects = [
       "Store on counter until ripe, then refrigerate. If you've cut an avocado and have leftover halves, keep the pit in the unused half and wrap it tightly in plastic wrap or place it in an airtight container. This helps minimize exposure to air and slows down browning.",
   },
   {
+    id: "0p2e5f6c",
+    name: "Baby Formula",
+    storageTip:
+      "Keep unopened containers of powdered formula in a cool, dry place. Direct sunlight can degrade the nutrients in the formula. Avoid areas with high humidity. Always check the expiration date before using the formula. Do not use formula past its expiration date.",
+  },
+  {
     id: "0c2e3f6d",
     name: "Bacon",
     storageTip:
@@ -96,6 +102,12 @@ export const ingredientsObjects = [
       "Always seperate the soggy or spoiled berries from the good ones. Blackberries are highly perishable and should be stored in the refrigerator as soon as possible. Place in shallow container lined with paper towels to absorb excess moisture.",
   },
   {
+    id: "1s289d9o",
+    name: "Bok Choy",
+    storageTip:
+      "It's important to keep bok choy dry before storing it to prevent rot. Wash it only when you're ready to use it. Place bok choy in a produce bag or a loose plastic bag. Do not seal the bag entirely; allow some air circulation.",
+  },
+  {
     id: "f79b02ff",
     name: "Bread",
     storageTip:
@@ -154,6 +166,18 @@ export const ingredientsObjects = [
     name: "Cherries",
     storageTip:
       "Cherries are sensitive to heat, so store them in the refrigerator as soon as possible. Place them in the crisper drawer, where the temperature is slightly cooler and more humid. Avoid washing cherries before storing them.",
+  },
+  {
+    id: "po79b2e1",
+    name: "Chives",
+    storageTip:
+      "Place the chives in a produce bag or a plastic bag with a piece of paper towel to absorb any excess moisture. Wait to wash chives until you're ready to use them. Keeping them dry prior to storage prevents premature rotting.",
+  },
+  {
+    id: "9ou9624w",
+    name: "Cilantro",
+    storageTip:
+      "Dampen a paper towel (not soaking wet) and wrap it around the base of the cilantro stems. Othewise, you can treat cilantro the same way you would flowers, always keeping the roots submerged in water.",
   },
   {
     id: "f8c3e44c",
@@ -246,6 +270,12 @@ export const ingredientsObjects = [
       "For optimal quality, use ground turkey within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
+    id: "kd83jv8w",
+    name: "Heavy Cream",
+    storageTip:
+      "The temperature near the refrigerator door fluctuates more than deeper inside the fridge. Store heavy cream on a shelf rather than the door to maintain a consistent cool temperature. Always store heavy cream in the refrigerator.",
+  },
+  {
     id: "0b0c1bd0",
     name: "Kale",
     storageTip:
@@ -256,6 +286,18 @@ export const ingredientsObjects = [
     name: "Kiwis",
     storageTip:
       "To store kiwis, keep them in the fridge when ripe to maintain freshness. Store unripe ones at room temperature until ready. Keep separate from ethylene-producing fruits like apples to prevent overripening.",
+  },
+  {
+    id: "4k3rt670",
+    name: "Lamb",
+    storageTip:
+      "Store fresh lamb in the refrigerator, wrapped in its original packaging, and use within a few days. For long-term storage, freeze lamb in vacuum-sealed or air-tight freezer bags, labeled with the date and cut type.",
+  },
+  {
+    id: "2q3c9bd0",
+    name: "Leeks",
+    storageTip:
+      "Store unwashed leeks in the refrigerator's crisper drawer, wrapped loosely in a plastic bag to allow for air circulation. Before use, trim off any wilted parts and thoroughly wash to remove dirt trapped between layers.",
   },
   {
     id: "9756e066",
@@ -282,10 +324,22 @@ export const ingredientsObjects = [
       "Place them in the vegetable crisper drawer, where the temperature is slightly cooler and more humid. To prevent moisture loss, place limes in a perforated plastic bag or an airtight container in the refrigerator.",
   },
   {
+    id: "7ddcagd5",
+    name: "Lobster",
+    storageTip:
+      "Live lobsters should be cooked the day they're purchased and stored in a breathable container, like a cardboard box, in the refrigerator until preparation. Cooked lobster should be refrigerated in airtight containers and consumed within 2 days.",
+  },
+  {
     id: "8ss5cr06e",
     name: "Mangos",
     storageTip:
       "If your mangoes are not fully ripe when you buy them, leave them at room temperature to ripen. They will continue to ripen and become sweeter over a few days.",
+  },
+  {
+    id: "52t5cry6t",
+    name: "Melons",
+    storageTip:
+      "Store whole melons at room temperature until ripe, then transfer to the refrigerator to prolong freshness. Once cut, store melon pieces in an airtight container in the refrigerator and consume within 3-4 days.",
   },
   {
     id: "d7622b31",
@@ -318,6 +372,18 @@ export const ingredientsObjects = [
       "Place them in the vegetable crisper drawer, where the temperature is slightly cooler and more humid. To prevent moisture loss, place oranges in a perforated plastic bag or an airtight container in the refrigerator.",
   },
   {
+    id: "rr388u5b",
+    name: "Parsley",
+    storageTip:
+      "Store fresh parsley stems in a glass of water, covered loosely with a plastic bag, in the refrigerator. Change the water every few days and trim stems as needed to keep the parsley fresh.",
+  },
+  {
+    id: "jcc65e57",
+    name: "Papaya",
+    storageTip:
+      "Store unripe papayas at room temperature until their skin yields to gentle pressure. Once ripe, transfer papayas to the refrigerator and consume within one week, or store cut papaya in an airtight container in the refrigerator for up to two days.",
+  },
+  {
     id: "f7965fa6",
     name: "Peaches",
     storageTip:
@@ -330,10 +396,28 @@ export const ingredientsObjects = [
       "Pears are often picked when slightly underripe. Place them at room temperature to ripen. Check their firmness near the stem daily. Once they yield slightly to gentle pressure, they're ripe and ready to eat.",
   },
   {
+    id: "4e3653ld",
+    name: "Peas",
+    storageTip:
+      "Store fresh peas in their pods in a breathable bag in the refrigerator's crisper drawer. Once shelled, keep the peas in an airtight container in the refrigerator and consume within 3-5 days.",
+  },
+  {
+    id: "90r65c4t",
+    name: "Pineapples",
+    storageTip:
+      "Store whole pineapples at room temperature until ripe, then transfer to the refrigerator to prolong freshness. Once cut, store pineapple pieces in an airtight container in the refrigerator and consume within 2-3 days.",
+  },
+  {
     id: "c8197f9d",
     name: "Plums",
     storageTip:
       "If your plums are not fully ripe when you buy them, leave them at room temperature to ripen. They will continue to ripen and become sweeter over a few days. Plums can bruise easily, so handle them gently to avoid damaging the skin.",
+  },
+  {
+    id: "cdk97u94",
+    name: "Pork",
+    storageTip:
+      "Store fresh pork cuts in the coldest part of the refrigerator, wrapped in their original packaging, and use within 3-5 days. For longer storage, freeze pork in airtight containers or vacuum-sealed bags, and thaw in the refrigerator before cooking.",
   },
   {
     id: "c5fc302d",
@@ -354,8 +438,20 @@ export const ingredientsObjects = [
       "Remove soggy or spoiled berries before storing. Transfer raspberries to a shallow container or a paper towel-lined plate. This helps prevent crushing and allows for proper air circulation.",
   },
   {
+    id: "133b2539",
+    name: "Rosemary",
+    storageTip:
+      "Store fresh rosemary sprigs in a damp paper towel, rolled up inside a plastic bag, in the refrigerator. For longer storage, freeze rosemary sprigs in airtight containers or bags, using them directly from the freezer as needed.",
+  },
+  {
     id: "6063358a",
     name: "Salad Mix",
+    storageTip:
+      "Store it in the vegetable crisper drawer of your refrigerator to maintain its freshness.  Moisture can cause kale to become wilted and slimy. Make sure the kale leaves are dry before storing them.",
+  },
+  {
+    id: "4t633f81",
+    name: "Salmon",
     storageTip:
       "Store it in the vegetable crisper drawer of your refrigerator to maintain its freshness.  Moisture can cause kale to become wilted and slimy. Make sure the kale leaves are dry before storing them.",
   },
@@ -370,6 +466,12 @@ export const ingredientsObjects = [
     name: "Scallions",
     storageTip:
       "Cool, dimly lit, and dry. Place scallions in a glass or jar with enough water to cover the roots. Cover the top loosely with a plastic bag or plastic wrap to create a mini greenhouse effect. Change the water every few days.",
+  },
+  {
+    id: "6ba21fg1",
+    name: "Shellfish",
+    storageTip:
+      "Store live shellfish, like clams and mussels, in a breathable container (like a mesh bag) covered with a damp cloth in the refrigerator, and consume within 1-2 days. For longer storage, cook and freeze shellfish in airtight containers.",
   },
   {
     id: "rba2dfh3",
@@ -390,6 +492,12 @@ export const ingredientsObjects = [
       "Store strawberries unwashed and remove any damaged or moldy ones.  Strawberries are delicate fruits that can bruise easily. Handle them gently when washing, moving, or storing to prevent damage.",
   },
   {
+    id: "q2c630de",
+    name: "Thyme",
+    storageTip:
+      "Store fresh thyme wrapped in a slightly damp paper towel, inside a plastic bag, in the refrigerator. For longer storage, freeze thyme sprigs in airtight containers or bags.",
+  },
+  {
     id: "f3a34dh2",
     name: "Tofu",
     storageTip:
@@ -400,6 +508,12 @@ export const ingredientsObjects = [
     name: "Tomatoes",
     storageTip:
       "If your tomatoes are not fully ripe, you can leave them at room temperature to ripen. Once they are ripe, you can transfer them to the refrigerator to slow down further ripening.",
+  },
+  {
+    id: "h913de35",
+    name: "Tuna",
+    storageTip:
+      "Refrigerate fresh tuna steaks or fillets in their original packaging on a plate in the coldest part of the fridge, and consume within 1-2 days. For longer storage, freeze tuna in airtight containers or vacuum-sealed bags.",
   },
   {
     id: "32db8c5a",

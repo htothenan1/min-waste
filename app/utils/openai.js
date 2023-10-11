@@ -12,7 +12,7 @@ export async function generateStorageTip(item) {
     messages: [
       {
         role: "user",
-        content: `Tell me the best storage tips you can give me about ${item}, and make sure the answer is between 250 and 260 characters long, including spaces.`,
+        content: `Best storage advice for ${item}, limit response to two sentences.`,
       },
     ],
     model: "gpt-3.5-turbo",
