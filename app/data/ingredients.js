@@ -462,7 +462,7 @@ export const ingredientsObjects = [
       "For optimal quality, use sausage within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
-    id: "6ba21fg1",
+    id: "6ha31rg1",
     name: "Scallions",
     storageTip:
       "Cool, dimly lit, and dry. Place scallions in a glass or jar with enough water to cover the roots. Cover the top loosely with a plastic bag or plastic wrap to create a mini greenhouse effect. Change the water every few days.",
