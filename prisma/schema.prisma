@@ -20,6 +20,8 @@ model User {
   hashedPassword String?
   createdAt DateTime @default(now())
   items Item[]
+  consumedItems ConsumedItem[]
+  wastedItems WastedItem[]
 
   @@index([email])
 }
@@ -36,4 +38,20 @@ model Item {
   owner User @relation(fields: [ownerId], references: [id])
   ownerId String
   home String?
+}
+
+model ConsumedItem {
+  id String @id @default(uuid())
+  name String
+  createdAt DateTime @default(now())
+  owner User @relation(fields: [ownerId], references: [id])
+  ownerId String
+}
+
+model WastedItem {
+  id String @id @default(uuid())
+  name String
+  createdAt DateTime @default(now())
+  owner User @relation(fields: [ownerId], references: [id])
+  ownerId String
 }
