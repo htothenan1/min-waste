@@ -122,11 +122,46 @@ export async function updateItemById(
   }
 }
 
+export async function incrementLogCounter(email: string) {
+  try {
+    const user = await prisma.user.update({
+      where: { email },
+      data: { loggedCounter: { increment: 1 } },
+    })
+    return { user }
+  } catch (error) {
+    return { error }
+  }
+}
 export async function incrementCounter(email: string) {
   try {
     const user = await prisma.user.update({
       where: { email },
       data: { itemsCounter: { increment: 1 } },
+    })
+    return { user }
+  } catch (error) {
+    return { error }
+  }
+}
+
+export async function incrementWasteCounter(email: string) {
+  try {
+    const user = await prisma.user.update({
+      where: { email },
+      data: { wastedCounter: { increment: 1 } },
+    })
+    return { user }
+  } catch (error) {
+    return { error }
+  }
+}
+
+export async function incrementMistakeCounter(email: string) {
+  try {
+    const user = await prisma.user.update({
+      where: { email },
+      data: { mistakeCounter: { increment: 1 } },
     })
     return { user }
   } catch (error) {

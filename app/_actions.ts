@@ -7,6 +7,9 @@ import {
   deleteItemById,
   updateItemById,
   incrementCounter,
+  incrementWasteCounter,
+  incrementLogCounter,
+  incrementMistakeCounter,
 } from "./lib/items"
 import { revalidatePath } from "next/cache"
 
@@ -49,5 +52,20 @@ export async function updateItemAction(
 
 export async function incrementCounterAction(email: string) {
   await incrementCounter(email)
+  revalidatePath("/")
+}
+
+export async function incrementWasteCounterAction(email: string) {
+  await incrementWasteCounter(email)
+  revalidatePath("/")
+}
+
+export async function incrementLogCounterAction(email: string) {
+  await incrementLogCounter(email)
+  revalidatePath("/")
+}
+
+export async function incrementMistakeCounterAction(email: string) {
+  await incrementMistakeCounter(email)
   revalidatePath("/")
 }

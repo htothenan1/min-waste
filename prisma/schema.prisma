@@ -15,7 +15,10 @@ model User {
   email String  @unique
   emailVerified  DateTime?
   name  String?
+  loggedCounter Int @default(0)
   itemsCounter Int @default(0)
+  wastedCounter Int @default(0)
+  mistakeCounter Int @default(0)
   image          String?
   hashedPassword String?
   createdAt DateTime @default(now())

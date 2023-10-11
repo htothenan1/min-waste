@@ -90,7 +90,37 @@ const ItemsChecklist = ({ items }) => {
           Get Recipes
         </button>
       </div>
-      <ul className="grid grid-cols-3 md:grid-cols-6 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg mt-10 mb-20 mx-10">
+
+      {items.length ? (
+        <ul className="grid grid-cols-3 md:grid-cols-6 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg mt-10 mb-20 mx-10">
+          {items.map((item, index) => (
+            <div
+              onClick={() => handleItemSelect(index)}
+              key={item.id}
+              className={`${calcDaysFrom(item)} ${
+                checkedState[index] === true ? "bg-white hover:bg-white" : ""
+              } relative shadow-lg px-4 py-3 
+            focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
+            >
+              <div className="flex justify-between space-x-3">
+                <div className="min-w-0 flex-1">
+                  <a className="block focus:outline-none">
+                    <span className="absolute inset-0" aria-hidden="true" />
+                    <p
+                      className={`truncate cursor-default text-sm font-medium text-slate-600 font-quicksandBold`}
+                    >
+                      {item.name}
+                    </p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </ul>
+      ) : (
+        <p>No Items! Log some items to get started!</p>
+      )}
+      {/* <ul className="grid grid-cols-3 md:grid-cols-6 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg mt-10 mb-20 mx-10">
         {items.length ? (
           items.map((item, index) => (
             <div
@@ -116,11 +146,11 @@ const ItemsChecklist = ({ items }) => {
             </div>
           ))
         ) : (
-          <p className=" p-2 cursor-default text-center text-slate-600 my-auto font-quicksand">
+          <p className=" p-2 cursor-default text-center text-slate-600 m-auto font-quicksand">
             You have no items. Go to your logger!
           </p>
         )}
-      </ul>
+      </ul> */}
       <div className="flex justify-center flex-wrap">
         <RecipesList
           recipes={fetchedRecipes}

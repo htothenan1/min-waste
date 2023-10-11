@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { isMobile } from "react-device-detect"
 import { useDoubleTap } from "use-double-tap"
-import { createItemAction } from "../_actions"
+import { createItemAction, incrementLogCounterAction } from "../_actions"
 import { toast } from "react-toastify"
 import { addDays } from "date-fns"
 import { useSession } from "next-auth/react"
@@ -72,6 +72,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
       const fiveDaysFromToday = addDays(new Date(), 5)
       const finalDate = isToday(date) ? fiveDaysFromToday : date
       await createItemAction(session.user.email, clientData, tip, finalDate)
+      await incrementLogCounterAction(session.user.email)
       toast.success(`${clientData} added!`, {
         position: "top-center",
         autoClose: 1000,
@@ -109,6 +110,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
         tip,
         fiveDaysFromToday
       )
+      await incrementLogCounterAction(session.user.email)
       setCustomItem("")
     } else {
       toast.error("Cannot be blank", {
