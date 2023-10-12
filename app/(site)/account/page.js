@@ -22,8 +22,6 @@ export default async function Account() {
         <h2 className="text-slate-600 text-lg font-quicksandBold mb-2">
           Total Items Logged: {user?.loggedCounter - user?.mistakeCounter}
         </h2>
-        {/* <p>Items Consumed Completely: {user?.itemsCounter}</p>
-        <p>Items With Waste: {user?.wastedCounter}</p> */}
         <PieChart
           itemsCounter={user?.itemsCounter}
           wastedCounter={user?.wastedCounter}
