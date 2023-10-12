@@ -12,7 +12,7 @@ export async function generateStorageTip(item) {
     messages: [
       {
         role: "user",
-        content: `Best storage advice for ${item}, limit response to two sentences.`,
+        content: `Best storage advice for ${item}, limit response to 3 sentences.`,
       },
     ],
     model: "gpt-3.5-turbo",
