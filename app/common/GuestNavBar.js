@@ -21,7 +21,7 @@ const GuestNavBar = () => {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <h1 className="text-slate-600 font-quicksand">Login</h1>
+               
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -42,9 +42,9 @@ const GuestNavBar = () => {
                   className="flex rounded-full bg-white focus:outline-none active:ring-2 active:ring-orange-500/70 active:ring-offset-2"
                   href={"/login"}
                 >
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
+                  <span className="inline-flex p-4 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-green-300">
                     <span className="text-md font-quicksandBold leading-none text-white">
-                      Go!
+                      Log In
                     </span>
                   </span>
                 </Link>
