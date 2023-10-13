@@ -131,7 +131,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
         <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg p-4">
           <ul 
             role="list"
-            className="flex flex-col divide-y divide-gray-200 h-36 lg:h-72 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-36 mb-7"
+            className="flex flex-col divide-y divide-gray-200 h-36 lg:h-72 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-scroll w-36 mb-7"
           >
             {filteredItems.map((item) => (
               <button
@@ -198,7 +198,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
           onDragOver={handleOnDragOver}
         >
           <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
-            Items List
+            Your items
           </h2>
 
           <ul
