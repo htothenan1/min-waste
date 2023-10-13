@@ -82,7 +82,9 @@ export default function Register() {
               <div className="mt-2">
                 <input
                   value={data.email}
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
+                  onChange={(e) =>
+                    setData({ ...data, email: e.target.value.toLowerCase() })
+                  }
                   id="email"
                   name="email"
                   type="email"

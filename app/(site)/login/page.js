@@ -62,7 +62,9 @@ export default function Login() {
                   type="email"
                   autoComplete="email"
                   value={data.email}
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
+                  onChange={(e) =>
+                    setData({ ...data, email: e.target.value.toLowerCase() })
+                  }
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
                 />
