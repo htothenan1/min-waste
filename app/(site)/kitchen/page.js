@@ -26,12 +26,12 @@ export default async function Home() {
           </h2>
           <p className="my-2 text-slate-600 text-md font-quicksand">
             <span className=" font-quicksandBold">
-              1. Log your spoilable items regularly.
+              1. Log your items regularly.
             </span>{" "}
-            Find your item, and drag it into your Items List (double tap on
-            mobile). If you add a custom item, the OpenAI API will generate the
-            storage tips. By default, your items will have a Use-By Date of 5
-            days from today, but please adjust accordingly.
+            Find an item you have, and drag it into Your Items (double tap on
+            mobile). If you add a custom item, OpenAI will generate the storage
+            tips. By default, your items will have a Use-By Date of 5 days from
+            the date of entry.
           </p>
           <p className="my-2 text-slate-600 text-md font-quicksand">
             <span className=" font-quicksandBold">
@@ -46,7 +46,7 @@ export default async function Home() {
             <span className=" font-quicksandBold">
               3. Consume your items from the top of the list, first.
             </span>{" "}
-            Since your Items List is ordered by Use-By Date, always try to eat
+            Since Your Items are ordered by Use-By Date, always try to consume
             from the top. If your item has a{" "}
             <span className="text-red-500/70">red background</span>, that means
             it is less than 2 days away from the Use-By Date. A{" "}
@@ -58,7 +58,8 @@ export default async function Home() {
               4. Update your Items List when an item is finished.
             </span>{" "}
             We will keep count of the items you fully consume, so that you can
-            track your overall progress.
+            track your overall progress. Head over to your Account page for more
+            details.
           </p>
         </div>
       </div>

@@ -47,13 +47,13 @@ const Kitchen = ({ items, itemsCount, userName }) => {
         <h1 className=" text-orange-600/70 font-quicksandBold text-4xl">
           MinWaste Kitchen
         </h1>
-        <h2 className="my-2 text-slate-600 text-lg font-quicksandBold">
+        {/* <h2 className="my-2 text-slate-600 text-lg font-quicksandBold">
           {`${userName} has consumed ` + itemsCount + ` complete items!`}
-        </h2>
+        </h2> */}
       </div>
       <div className="flex justify-center flex-wrap bg-slate-50/50">
         {editMode ? (
-          <div className="flex flex-col justify-center items-center w-80 h-72 border-2 rounded-md shadow-xl mx-14 mt-16 mb-1">
+          <div className="flex flex-col justify-center items-center w-96 h-72 border-2 rounded-md shadow-xl mx-14 mt-16 mb-1">
             <h2 className="font-semibold text-lg text-orange-600/70">
               Food For Thought
             </h2>

@@ -245,7 +245,7 @@ const SingleItemView = ({
 
         <div className="flex items-center justify-center">
           <a.div
-            className="flex flex-col z-10 items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 h-72"
+            className="flex flex-col z-10 items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-96 h-72"
             style={{ opacity: opacity.to((o) => 1 - o), transform }}
           >
             {item ? (
@@ -374,7 +374,7 @@ const SingleItemView = ({
             )}
           </a.div>
           <a.div
-            className="flex flex-col absolute items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-lg rounded-md w-80 h-72 overflow-scroll"
+            className="flex flex-col absolute items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-lg rounded-md w-96 h-72 overflow-scroll"
             style={{
               opacity,
               transform,

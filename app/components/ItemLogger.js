@@ -9,6 +9,7 @@ import { addDays } from "date-fns"
 import { useSession } from "next-auth/react"
 import { generateStorageTip } from "../utils/openai"
 import { ingredientsObjects } from "../data/ingredients"
+import { ReloadIcon } from "@radix-ui/react-icons"
 
 const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
   const [selected, setSelected] = useState(null)
@@ -111,6 +112,10 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
         fiveDaysFromToday
       )
       await incrementLogCounterAction(session.user.email)
+      toast.success(`${clientData} added!`, {
+        position: "top-center",
+        autoClose: 1000,
+      })
       setCustomItem("")
     } else {
       toast.error("Cannot be blank", {
@@ -128,10 +133,10 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
           Groceries
         </h2>
 
-        <div className="flex flex-col items-center bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg p-4">
-          <ul 
+        <div className="flex flex-col items-center">
+          <ul
             role="list"
-            className="flex flex-col divide-y divide-gray-200 h-36 lg:h-72 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-scroll w-36 mb-7"
+            className="flex flex-col divide-y divide-gray-200 h-96 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-scroll w-48 mb-7"
           >
             {filteredItems.map((item) => (
               <button
@@ -151,7 +156,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
                     <a className="block focus:outline-none">
                       <span className="absolute inset-0" aria-hidden="true" />
                       <p
-                        className={`truncate cursor-default text-sm font-medium font-quicksandBold`}
+                        className={`truncate cursor-default text-sm font-medium font-quicksandBold text-slate-600`}
                       >
                         {item.name}
                       </p>
@@ -161,85 +166,77 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
               </button>
             ))}
           </ul>
+        </div>
+      </div>
+      <div className="flex flex-col items-center mt-6 mb-4 mx-0 md:mx-6">
+        <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
+          Your items
+        </h2>
 
+        <div className="mb-4">
           <input
             minLength="2"
             maxLength="25"
             value={customItem}
             onChange={(e) => setCustomItem(e.target.value)}
-            placeholder="Add your own"
-            className="relative w-40 cursor-default
-         bg-white rounded-md py-1.5 pl-5 outline outline-1 outline-slate-400 text-slate-600
-          sm:text-sm sm:leading-6 font-quicksandBold"
+            placeholder="Custom Item"
+            className="relative w-24 cursor-default
+         bg-white rounded-md py-1.5 px-1 outline outline-1 outline-slate-400 text-slate-600
+          text-sm sm:leading-6 font-quicksandBold mr-1"
           />
 
-          <div className="mt-4">
-            <button
-              onClick={() => addCustomItem(customItem)}
-              className="group relative h-8 w-28 overflow-hidden rounded-lg bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-200 to-gray-200 text-sm shadow-lg"
-            >
-              <span className="relative text-gray-500 group-hover:text-gray-400 font-quicksandBold group-active:text-slate-500">
-                {customLoading ? (
-                  <div className="flex justify-center items-center font-quicksand">
-                    Adding...
-                  </div>
-                ) : (
-                  "Add"
-                )}
-              </span>
-            </button>
-          </div>
+          <button
+            onClick={() => addCustomItem(customItem)}
+            className="group w-10 relative py-2 px-1 mx-1 rounded-lg bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-200 to-gray-200 text-xs shadow-lg"
+          >
+            <span className="relative text-gray-500 group-hover:text-gray-400 font-quicksandBold group-active:text-slate-500">
+              {customLoading ? (
+                <ReloadIcon className="animate-spin m-auto" />
+              ) : (
+                "Add"
+              )}
+            </span>
+          </button>
         </div>
-      </div>
-      <div className="flex flex-col items-center">
-        <div
-          className="mt-6 mb-4 mx-0 md:mx-6"
+
+        <ul
           onDrop={handleOnDrop}
           onDragOver={handleOnDragOver}
+          role="list"
+          className="flex flex-col divide-y divide-gray-200 h-[335px] bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-auto w-48 cursor-pointer"
         >
-          <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
-            Your items
-          </h2>
-
-          <ul
-            role="list"
-            className="flex flex-col divide-y divide-gray-200 h-72 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-auto w-36 cursor-pointer"
-          >
-            {items.length ? (
-              items.map((item) => (
-                <li
-                  onClick={() => handleSelectItem(item)}
-                  key={item.id}
-                  className={`${calcDaysFrom(
-                    item
-                  )} relative shadow-lg px-4 py-3 
+          {items.length ? (
+            items.map((item) => (
+              <li
+                onClick={() => handleSelectItem(item)}
+                key={item.id}
+                className={`${calcDaysFrom(item)} relative shadow-lg px-4 py-3 
                 focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
-                >
-                  <div className="flex justify-between space-x-3">
-                    <div className="min-w-0 flex-1">
-                      <a className="block focus:outline-none">
-                        <span className="absolute inset-0" aria-hidden="true" />
-                        <p
-                          className={`truncate cursor-default text-sm font-medium ${
-                            selectedItem && item.name === selectedItem.name
-                              ? "text-white"
-                              : "text-slate-600"
-                          } font-quicksandBold`}
-                        >
-                          {item.name}
-                        </p>
-                      </a>
-                    </div>
+              >
+                <div className="flex justify-between space-x-3">
+                  <div className="min-w-0 flex-1">
+                    <a className="block focus:outline-none">
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      <p
+                        className={`truncate cursor-default text-sm font-medium ${
+                          selectedItem && item.name === selectedItem.name
+                            ? "text-white"
+                            : "text-slate-600"
+                        } font-quicksandBold`}
+                      >
+                        {item.name}
+                      </p>
+                    </a>
                   </div>
-                </li>
-              ))
-            ) : (
-              <p className=" p-2 cursor-default text-center text-slate-600 my-auto font-quicksand">
-                Add an item!
-              </p>
-            )}
-          </ul>
-        </div>
+                </div>
+              </li>
+            ))
+          ) : (
+            <p className=" p-2 cursor-default text-center text-slate-600 my-auto font-quicksand">
+              Add an item!
+            </p>
+          )}
+        </ul>
       </div>
     </>
   )
