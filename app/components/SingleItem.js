@@ -239,7 +239,7 @@ const SingleItemView = ({
       </Transition.Root>
 
       <div className="flex flex-col m-6">
-        <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
+        <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600">
           Item Details
         </h2>
 

@@ -129,47 +129,34 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
   return (
     <>
       <div className="my-6 mx-0 md:mx-6">
-        <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
+        <h2 className="pb-2 font-quicksandBold text-lg text-slate-600 ">
           Groceries
         </h2>
 
-        <div className="flex flex-col items-center">
-          <ul
-            role="list"
-            className="flex flex-col divide-y divide-gray-200 h-96 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-scroll w-48 mb-7"
-          >
-            {filteredItems.map((item) => (
-              <button
-                disabled={!isMobile}
-                {...bind}
-                draggable
-                onDragStart={(e) => handleOnDrag(e, item.name)}
-                onTouchStart={() => setSelected(item.name)}
-                key={item.id}
-                className={`${
-                  selected === item.name ? "bg-white" : ""
-                } relative shadow-lg px-4 py-3 
-            focus-within:ring-2 focus-within:ring-green-200 rounded-md cursor-move`}
-              >
-                <div className="flex justify-between space-x-3">
-                  <div className="min-w-0 flex-1">
-                    <a className="block focus:outline-none">
-                      <span className="absolute inset-0" aria-hidden="true" />
-                      <p
-                        className={`truncate cursor-default text-sm font-medium font-quicksandBold text-slate-600`}
-                      >
-                        {item.name}
-                      </p>
-                    </a>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </ul>
-        </div>
+        <ul
+          role="list"
+          className="flex flex-col h-96 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-scroll w-48 mb-7"
+        >
+          {filteredItems.map((item) => (
+            <li
+              disabled={!isMobile}
+              {...bind}
+              draggable
+              onDragStart={(e) => handleOnDrag(e, item.name)}
+              onTouchStart={() => setSelected(item.name)}
+              key={item.id}
+              className={`${
+                selected === item.name ? "bg-white" : ""
+              } relative shadow-lg px-4 py-4 
+            focus-within:ring-2 focus-within:ring-green-200 rounded-md cursor-move text-sm font-medium font-quicksandBold text-slate-600`}
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="flex flex-col items-center mt-6 mb-4 mx-0 md:mx-6">
-        <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600 ">
+      <div className="flex flex-col items-left mt-6 mb-4 mx-2 md:mx-6">
+        <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600 ">
           Your items
         </h2>
 
@@ -180,8 +167,8 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
             value={customItem}
             onChange={(e) => setCustomItem(e.target.value)}
             placeholder="Custom Item"
-            className="relative w-24 cursor-default
-         bg-white rounded-md py-1.5 px-1 outline outline-1 outline-slate-400 text-slate-600
+            className="relative w-36 cursor-default
+         bg-white rounded-md py-1.5 px-4 outline outline-1 outline-slate-400 text-slate-600
           text-sm sm:leading-6 font-quicksandBold mr-1"
           />
 
@@ -203,31 +190,29 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
           onDrop={handleOnDrop}
           onDragOver={handleOnDragOver}
           role="list"
-          className="flex flex-col divide-y divide-gray-200 h-[335px] bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-auto w-48 cursor-pointer"
+          className="flex flex-col h-[335px] bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-auto w-48 cursor-pointer"
         >
           {items.length ? (
             items.map((item) => (
               <li
                 onClick={() => handleSelectItem(item)}
                 key={item.id}
-                className={`${calcDaysFrom(item)} relative shadow-lg px-4 py-3 
+                className={`${calcDaysFrom(item)} relative shadow-lg px-4 py-4 
                 focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
               >
-                <div className="flex justify-between space-x-3">
-                  <div className="min-w-0 flex-1">
-                    <a className="block focus:outline-none">
-                      <span className="absolute inset-0" aria-hidden="true" />
-                      <p
-                        className={`truncate cursor-default text-sm font-medium ${
-                          selectedItem && item.name === selectedItem.name
-                            ? "text-white"
-                            : "text-slate-600"
-                        } font-quicksandBold`}
-                      >
-                        {item.name}
-                      </p>
-                    </a>
-                  </div>
+                <div className="min-w-0 flex-1">
+                  <a className="block focus:outline-none">
+                    <span className="absolute inset-0" aria-hidden="true" />
+                    <p
+                      className={`truncate cursor-default text-sm font-medium ${
+                        selectedItem && item.name === selectedItem.name
+                          ? "text-white"
+                          : "text-slate-600"
+                      } font-quicksandBold`}
+                    >
+                      {item.name}
+                    </p>
+                  </a>
                 </div>
               </li>
             ))
