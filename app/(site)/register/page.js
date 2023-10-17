@@ -30,7 +30,7 @@ export default function Register() {
         router.push("/login")
       })
       .catch(() =>
-        toast.error("Oops, something went wrong!", {
+        toast.error("User already exists. Proceed to login.", {
           position: "top-center",
           autoClose: 1000,
         })
