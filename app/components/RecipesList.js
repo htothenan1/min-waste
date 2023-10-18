@@ -9,7 +9,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
 
       <ul
         role="list"
-        className="h-96 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-96"
+        className="flex flex-col justify-center h-96 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-96"
       >
         {recipes && recipes.length > 0 ? (
           recipes.map((recipe) => (
@@ -22,7 +22,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
             </li>
           ))
         ) : (
-          <p className=" p-2 cursor-default text-center text-slate-600 my-auto font-quicksand">
+          <p className="p-2 cursor-default mx-auto text-slate-600 font-quicksand">
             No current recipes
           </p>
         )}
