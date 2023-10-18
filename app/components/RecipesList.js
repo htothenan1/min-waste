@@ -2,31 +2,23 @@
 
 const RecipesList = ({ recipes, handleSelectRecipe }) => {
   return (
-    <div className="m-6 flex flex-col w-80">
-      <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
+    <div className="m-6 flex flex-col text-left">
+      <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600">
         Recipes List
       </h2>
+
       <ul
         role="list"
-        className="flex flex-col divide-y h-80 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-80"
+        className="h-96 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-scroll w-96"
       >
         {recipes && recipes.length > 0 ? (
           recipes.map((recipe) => (
             <li
               onClick={() => handleSelectRecipe(recipe.id)}
               key={recipe.id}
-              className="relative shadow-lg px-4 py-3 bg-orange-200/50 hover:bg-orange-100/50 rounded-md font-quicksandBold"
+              className="relative shadow-lg cursor-pointer px-4 py-4 bg-orange-200/50 hover:bg-orange-100/50 rounded-md font-quicksandBold text-sm font-medium text-slate-600"
             >
-              <div className="flex justify-between space-x-3">
-                <div className="min-w-0 flex-1">
-                  <a className="block focus:outline-none">
-                    <span className="absolute inset-0" aria-hidden="true" />
-                    <p className="truncate cursor-default text-sm font-medium text-slate-600">
-                      {recipe.title}
-                    </p>
-                  </a>
-                </div>
-              </div>
+              {recipe.title}
             </li>
           ))
         ) : (

@@ -157,7 +157,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
       </div>
       <div className="flex flex-col items-left mt-6 mb-4 mx-2 md:mx-6">
         <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600 ">
-          Your items
+          Your Items
         </h2>
 
         <div className="mb-4">
@@ -200,19 +200,26 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
                 className={`${calcDaysFrom(item)} relative shadow-lg px-4 py-4 
                 focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
               >
-                <div className="min-w-0 flex-1">
-                  <a className="block focus:outline-none">
-                    <span className="absolute inset-0" aria-hidden="true" />
-                    <p
-                      className={`truncate cursor-default text-sm font-medium ${
-                        selectedItem && item.name === selectedItem.name
-                          ? "text-white"
-                          : "text-slate-600"
-                      } font-quicksandBold`}
-                    >
-                      {item.name}
-                    </p>
-                  </a>
+                <div className="flex justify-between">
+                  <p
+                    className={`truncate cursor-default text-sm font-medium ${
+                      selectedItem && item.name === selectedItem.name
+                        ? "text-white"
+                        : "text-slate-600"
+                    } font-quicksandBold`}
+                  >
+                    {item.name}
+                  </p>
+                  <p
+                    className={`text-sm font-medium ${
+                      selectedItem && item.name === selectedItem.name
+                        ? "text-white"
+                        : "text-slate-600"
+                    } font-quicksandBold`}
+                  >{`${Math.round(
+                    (item.expiredAt.getTime() - new Date().getTime()) /
+                      (1000 * 3600 * 24)
+                  )}d`}</p>
                 </div>
               </li>
             ))

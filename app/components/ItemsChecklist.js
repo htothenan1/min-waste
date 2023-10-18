@@ -65,17 +65,17 @@ const ItemsChecklist = ({ items }) => {
     )
       .then((res) => res.json())
       .then((recipe) => {
-        toast.success(`Recipe selected!`, {
-          position: "top-center",
-          autoClose: 1000,
-        })
+        // toast.success(`Recipe selected!`, {
+        //   position: "top-center",
+        //   autoClose: 1000,
+        // })
         setSelectedRecipe(recipe)
         console.log(recipe)
       })
   }
 
   return (
-    <div className="mt-6 mb-4 mx-0 md:mx-6">
+    <div className="mt-2 mb-4">
       <div className="flex flex-col justify-center items-center">
         <button
           onClick={() => resetSelectedItems()}
@@ -91,29 +91,26 @@ const ItemsChecklist = ({ items }) => {
         </button>
       </div>
 
+      <h2 className="text-left mb-2 ml-4 font-quicksandBold text-lg text-slate-600">
+        Your Items
+      </h2>
+
       {items.length ? (
-        <ul className="grid grid-cols-3 md:grid-cols-6 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg mt-10 mb-20 mx-10">
+        <ul className="grid grid-cols-3 md:grid-cols-6 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg mb-10 mx-4">
           {items.map((item, index) => (
             <div
               onClick={() => handleItemSelect(index)}
               key={item.id}
               className={`${calcDaysFrom(item)} ${
                 checkedState[index] === true ? "bg-white hover:bg-white" : ""
-              } relative shadow-lg px-4 py-3 
+              } relative cursor-pointer shadow-lg px-4 py-3 
             focus-within:ring-2 focus-within:ring-green-200 rounded-md`}
             >
-              <div className="flex justify-between space-x-3">
-                <div className="min-w-0 flex-1">
-                  <a className="block focus:outline-none">
-                    <span className="absolute inset-0" aria-hidden="true" />
-                    <p
-                      className={`truncate cursor-default text-sm font-medium text-slate-600 font-quicksandBold`}
-                    >
-                      {item.name}
-                    </p>
-                  </a>
-                </div>
-              </div>
+              <p
+                className={`truncate text-sm font-medium text-slate-600 font-quicksandBold`}
+              >
+                {item.name}
+              </p>
             </div>
           ))}
         </ul>

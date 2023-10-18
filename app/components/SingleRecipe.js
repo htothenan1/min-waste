@@ -11,13 +11,13 @@ const SingleRecipe = ({ recipe }) => {
 
   return (
     <div className="m-6 mb-10">
-      <h2 className="text-center pb-2 font-quicksandBold text-lg text-slate-600">
+      <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600">
         Single Recipe View
       </h2>
 
       <div
         ref={divRef}
-        className=" flex flex-col bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-80 md:w-96 h-80 overflow-scroll"
+        className=" flex flex-col bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg w-96 h-96 overflow-scroll"
       >
         {recipe ? (
           <>
