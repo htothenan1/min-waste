@@ -16,9 +16,12 @@ import { Transition, Dialog } from "@headlessui/react"
 import { format } from "date-fns"
 import { cn } from "@/app/lib/utils"
 import { Calendar } from "./ui/calendar"
-import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons"
+import {
+  CalendarIcon,
+  ReloadIcon,
+  ExclamationTriangleIcon,
+} from "@radix-ui/react-icons"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline"
 import { homes } from "../data/homes"
 import { useSpring, a } from "@react-spring/web"
 
