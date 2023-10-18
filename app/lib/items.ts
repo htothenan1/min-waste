@@ -106,6 +106,19 @@ export async function deleteItemById(id: string) {
   }
 }
 
+export async function deleteItems(ownerId: string) {
+  try {
+    const items = await prisma.item.deleteMany({
+      where: {
+        ownerId,
+      },
+    })
+    return { items }
+  } catch (error) {
+    return { error }
+  }
+}
+
 export async function updateItemById(
   id: string,
   name: string,

@@ -10,6 +10,7 @@ import {
   incrementWasteCounter,
   incrementLogCounter,
   incrementMistakeCounter,
+  deleteItems,
 } from "./lib/items"
 import { revalidatePath } from "next/cache"
 
@@ -38,6 +39,11 @@ export async function createWastedItemAction(email: string, name: string) {
 
 export async function deleteItemAction(id: string) {
   await deleteItemById(id)
+  revalidatePath("/")
+}
+
+export async function deleteItemsActions(ownerId: string) {
+  await deleteItems(ownerId)
   revalidatePath("/")
 }
 
