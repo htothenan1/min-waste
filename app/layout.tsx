@@ -4,18 +4,12 @@ import { Inter, Quicksand } from "next/font/google"
 import CustomToastContainer from "./common/CustomToastContainer"
 import Provider from "./context/AuthContext"
 import "react-toastify/dist/ReactToastify.css"
-// import "react-date-picker/dist/DatePicker.css"
-// import "react-calendar/dist/Calendar.css"
-import "intro.js/introjs.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "MinWaste App",
-  description: "An app to help reduce your food waste",
-  // alternates: {
-  //   canonical: "https://wastenot-app.com",
-  // },
+  description: "A website to help reduce your food waste",
   verification: {
     google:
       "google-site-verification=kmR4sAUO7i4PlQcI2NSS3LRAV9GCtmUDalVjRadlDK4",

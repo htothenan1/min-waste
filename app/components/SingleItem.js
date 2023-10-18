@@ -13,19 +13,11 @@ import {
 import { useState, Fragment, useRef } from "react"
 import { useSession } from "next-auth/react"
 import { Transition, Dialog } from "@headlessui/react"
-import { format, addDays } from "date-fns"
+import { format } from "date-fns"
 import { cn } from "../lib/utils"
-import { Button } from "./ui/button"
 import { Calendar } from "./ui/calendar"
 import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select"
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline"
 import { homes } from "../data/homes"
 import { useSpring, a } from "@react-spring/web"
@@ -249,16 +241,15 @@ const SingleItemView = ({
                 {editStatus ? (
                   <Popover>
                     <PopoverTrigger asChild on>
-                      <Button
-                        variant={"outline"}
+                      <button
                         className={cn(
-                          "w-[240px] justify-start text-left font-quicksand",
+                          "flex items-center bg-white rounded-md w-[240px] font-quicksand px-2 py-1 mt-1",
                           !date && "text-muted-foreground"
                         )}
                       >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        <CalendarIcon className="mx-2 h-4 w-4" />
                         {date ? format(date, "PPP") : <span>Pick a date</span>}
-                      </Button>
+                      </button>
                     </PopoverTrigger>
                     <PopoverContent
                       align="start"

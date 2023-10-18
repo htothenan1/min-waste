@@ -17,7 +17,6 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
   const { data: session } = useSession()
   const [customLoading, setCustomLoading] = useState(false)
   const [customItem, setCustomItem] = useState("")
-  const [mobileSelected, setMobileSelected] = useState(null)
 
   const filteredItems = ingredientsObjects.filter((el1) => {
     return !items.some((el2) => {

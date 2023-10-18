@@ -4,7 +4,6 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import smileLogo from "../../../public/smile_logo.png"
-import axios from "axios"
 import Image from "next/image"
 
 export default function Register() {
@@ -18,23 +17,31 @@ export default function Register() {
 
   const registerUser = async (e) => {
     e.preventDefault()
-    axios
-      .post("/api/register", data)
-      .then(() =>
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
         toast.success("User has been successfully registered!", {
           position: "top-center",
           autoClose: 1000,
         })
-      )
-      .then(() => {
         router.push("/login")
+      } else {
+        throw new Error("User registration failed")
+      }
+    } catch (error) {
+      toast.error("User already exists. Proceed to login.", {
+        position: "top-center",
+        autoClose: 1000,
       })
-      .catch(() =>
-        toast.error("User already exists. Proceed to login.", {
-          position: "top-center",
-          autoClose: 1000,
-        })
-      )
+    }
   }
 
   return (
