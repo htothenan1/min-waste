@@ -12,8 +12,6 @@ import {
 } from "../_actions"
 import { useState, Fragment, useRef } from "react"
 import { useSession } from "next-auth/react"
-// import Lottie from "lottie-react"
-// import confetti from "../../public/confetti.json"
 import { Transition, Dialog } from "@headlessui/react"
 import { format, addDays } from "date-fns"
 import { cn } from "../lib/utils"
@@ -47,7 +45,6 @@ const SingleItemView = ({
   const [updateLoading, setUpdateLoading] = useState(false)
   const [mistaken, setMistaken] = useState(false)
   const [flipped, set] = useState(false)
-  // const [confettiActive, setConfettiActive] = useState(false)
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
@@ -114,16 +111,6 @@ const SingleItemView = ({
       setOpen(false)
     }
   }
-
-  // const confettiStyle = {
-  //   position: "fixed",
-  //   left: "50%",
-  //   top: 350,
-  //   transform: "translate(-50%, -50%)",
-  //   width: "100vw",
-  //   height: 950,
-  //   margin: "0 auto",
-  // }
 
   return (
     <>
@@ -254,7 +241,7 @@ const SingleItemView = ({
                   className="bg-white rounded-b-md p-1 text-sm font-quicksand hover:bg-slate-50 active:bg-slate-100"
                   onClick={() => set((state) => !state)}
                 >
-                  Flip Me
+                  Click for Storage Tips
                 </button>
                 <h2 className="mt-2 text-slate-600 text-lg font-quicksandBold cursor-default">
                   {item.name}
@@ -277,21 +264,6 @@ const SingleItemView = ({
                       align="start"
                       className="flex w-auto flex-col space-y-2 p-2"
                     >
-                      <Select
-                        onValueChange={(value) =>
-                          setDate(addDays(new Date(), parseInt(value)))
-                        }
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select an interval of time" />
-                        </SelectTrigger>
-                        <SelectContent position="popper">
-                          <SelectItem value="3">In 3 days</SelectItem>
-                          <SelectItem value="7">In 1 week</SelectItem>
-                          <SelectItem value="10">In 10 days</SelectItem>
-                          <SelectItem value="14">In 2 weeks</SelectItem>
-                        </SelectContent>
-                      </Select>
                       <div className="rounded-md">
                         <Calendar
                           required
@@ -386,7 +358,7 @@ const SingleItemView = ({
                 <h2 className="mt-3 text-slate-600 text-lg font-quicksandBold cursor-default">
                   {`Storage Tips for ${item.name}:`}
                 </h2>
-                <p className="px-10 text-center font-quicksand ">
+                <p className="px-4 text-left font-quicksand ">
                   {item.storageTip}
                 </p>
 
@@ -402,14 +374,6 @@ const SingleItemView = ({
           </a.div>
         </div>
       </div>
-      {/* {confettiActive && (
-        <Lottie
-          animationData={confetti}
-          style={confettiStyle}
-          loop={false}
-          onComplete={() => setConfettiActive(false)}
-        />
-      )} */}
     </>
   )
 }
