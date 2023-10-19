@@ -31,20 +31,20 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
 
       if (daysFrom < 2) {
         return `${
-          selectedItem && data.name === selectedItem.name
+          selectedItem && data.id === selectedItem.id
             ? "bg-red-500/80 hover:bg-red-500/80 text-white"
             : "bg-red-300/30"
         } hover:bg-red-200`
       } else {
         return `${
-          selectedItem && data.name === selectedItem.name
+          selectedItem && data.id === selectedItem.id
             ? "bg-green-400/80 hover:bg-green-400/80 text-white"
             : "bg-green-300/30"
         } hover:bg-green-200/30`
       }
     } else {
       return `${
-        selectedItem && data.name === selectedItem.name
+        selectedItem && data.id === selectedItem.id
           ? "bg-slate-500 hover:bg-slate-500 text-white"
           : "bg-slate-200/30"
       } hover:bg-slate-100/30`
@@ -202,7 +202,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
                 <div className="flex justify-between">
                   <p
                     className={`truncate cursor-default text-sm font-medium ${
-                      selectedItem && item.name === selectedItem.name
+                      selectedItem && item.id === selectedItem.id
                         ? "text-white"
                         : "text-slate-600"
                     } font-quicksandBold`}
@@ -211,7 +211,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
                   </p>
                   <p
                     className={`text-sm font-medium ${
-                      selectedItem && item.name === selectedItem.name
+                      selectedItem && item.id === selectedItem.id
                         ? "text-white"
                         : "text-slate-600"
                     } font-quicksandBold`}
