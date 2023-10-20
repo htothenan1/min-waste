@@ -13,7 +13,6 @@ import { ReloadIcon } from "@radix-ui/react-icons"
 
 const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
   const [selected, setSelected] = useState(null)
-  const [date, setDate] = useState(new Date())
   const { data: session } = useSession()
   const [customLoading, setCustomLoading] = useState(false)
   const [customItem, setCustomItem] = useState("")
@@ -55,23 +54,16 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
     setSelected(name)
   }
 
-  const isToday = (someDate) => {
-    const today = new Date()
-    return (
-      someDate.getDate() == today.getDate() &&
-      someDate.getMonth() == today.getMonth() &&
-      someDate.getFullYear() == today.getFullYear()
-    )
-  }
-
   const confirmAddItem = async (clientData) => {
     if (clientData !== null) {
       const tip = ingredientsObjects.find(
         (el) => el.name === selected
       ).storageTip
-      const fiveDaysFromToday = addDays(new Date(), 5)
-      const finalDate = isToday(date) ? fiveDaysFromToday : date
-      await createItemAction(session.user.email, clientData, tip, finalDate)
+      const expDate = addDays(
+        new Date(),
+        ingredientsObjects.find((el) => el.name === selected).expInt
+      )
+      await createItemAction(session.user.email, clientData, tip, expDate)
       await incrementLogCounterAction(session.user.email)
       toast.success(`${clientData} added!`, {
         position: "top-center",
@@ -83,7 +75,6 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
         autoClose: 1000,
       })
     }
-    setDate(new Date())
   }
 
   const bind = useDoubleTap(() => {
