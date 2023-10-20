@@ -6,7 +6,7 @@ import ItemLogger from "./ItemLogger"
 import { toast } from "react-toastify"
 import { thought } from "../data/thoughts"
 
-const Kitchen = ({ items, itemsCount, userName }) => {
+const Kitchen = ({ items }) => {
   const [selectedItem, setSelectedItem] = useState(null)
   const [editMode, setEditMode] = useState(false)
   const [currentThought, setCurrentThought] = useState("")
