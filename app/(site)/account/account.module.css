@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 75%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: rgba(245, 247, 249, 0.87);
+}
+
+/* "flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50" */
+
+.layoutContainer {
+  height: 100%;
+  background-color: rgba(245, 247, 249, 0.87);
+}
+
+/* "h-full bg-slate-50/50" */

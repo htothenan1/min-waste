@@ -4,6 +4,7 @@ import PieChart from "../../components/PieChart"
 import AccountDetails from "../../components/AccountDetails"
 import NavBar from "../../common/NavBar"
 import Footer from "../../common/Footer"
+import styles from "./account.module.css"
 import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 export default async function Account() {
@@ -13,7 +14,7 @@ export default async function Account() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
+      <div class={styles.container}>
         <AccountDetails user={user} />
         <PieChart
           itemsCounter={user?.itemsCounter}
