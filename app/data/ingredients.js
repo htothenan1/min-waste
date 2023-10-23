@@ -302,17 +302,17 @@ export const ingredientsObjects = [
   },
   {
     id: "db68cf13",
-    name: "Ground Chicken",
+    name: "Chicken",
     expInt: 2,
     storageTip:
-      "For optimal quality, use ground chicken within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
+      "For optimal quality, use chicken within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
     id: "78801d0a",
-    name: "Ground Turkey",
+    name: "Turkey",
     expInt: 2,
     storageTip:
-      "For optimal quality, use ground turkey within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
+      "For optimal quality, use turkey within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
     id: "kd83jv8w",
