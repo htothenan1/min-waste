@@ -4,6 +4,7 @@ import { useState } from "react"
 import { signIn } from "next-auth/react"
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
+import styles from "./login.module.css"
 import smileLogo from "../../../public/smile_logo.png"
 import Image from "next/image"
 
@@ -34,108 +35,72 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-white">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <Image
-            className="mx-auto h-20 w-auto"
-            src={smileLogo}
-            alt="Your Company"
+      <div class={styles.pageContainer}>
+        <div class={styles.welcomeLogoContainer}>
+          <Image class={styles.logo} src={smileLogo} alt="MinWaste Logo" />
+          <h2 class={styles.headerText}>Welcome Back!</h2>
+        </div>
+
+        <form class={styles.formContainer} onSubmit={loginUser}>
+          <label htmlFor="email" class={styles.formLabel}>
+            Email address
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            value={data.email}
+            onChange={(e) =>
+              setData({ ...data, email: e.target.value.toLowerCase() })
+            }
+            required
+            class={styles.input}
           />
-          <h2 className="mt-10 text-center text-2xl font-quicksandBold leading-9 tracking-tight text-slate-600">
-            Welcome Back!
-          </h2>
-        </div>
-
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" onSubmit={loginUser}>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-quicksandBold leading-6 text-slate-600"
-              >
-                Email address
+          <div>
+            <div class={styles.passwordContainer}>
+              <label htmlFor="password" class={styles.formLabel}>
+                Password
               </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  value={data.email}
-                  onChange={(e) =>
-                    setData({ ...data, email: e.target.value.toLowerCase() })
-                  }
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-quicksandBold leading-6 text-slate-600"
-                >
-                  Password
-                </label>
-                <span>
-                  {showPassword ? (
-                    <div
-                      className=" cursor-pointer text-xs font-quicksand text-slate-200 border bg-black/70 rounded-md px-2 py-1 active:bg-slate-600"
-                      onClick={() => setShowPassword(false)}
-                    >
-                      hide password
-                    </div>
-                  ) : (
-                    <div
-                      className=" cursor-pointer text-xs text-slate-200 border bg-black/70 rounded-md px-2 py-1 active:bg-slate-600"
-                      onClick={() => setShowPassword(true)}
-                    >
-                      show password
-                    </div>
-                  )}
-                </span>
-              </div>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type={`${showPassword ? "text" : "password"}`}
-                  autoComplete="current-password"
-                  required
-                  value={data.password}
-                  onChange={(e) =>
-                    setData({ ...data, password: e.target.value })
-                  }
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-gradient-to-r from-green-200 via-orange-400 to-red-400 px-3 py-1.5 text-sm font-quicksandBold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 active:ring-2 active:ring-orange-500/70 active:ring-offset-2"
-              >
-                Sign in
-              </button>
-            </div>
-            <div className="text-sm">
-              <h2 className=" font-quicksand">
-                Don&apos;t have an account yet?{" "}
-                <span>
-                  <a
-                    href="/register"
-                    className="font-semibold text-green-500/70 hover:text-orange-600/70 active:text-orange-800"
+              <div>
+                {showPassword ? (
+                  <div
+                    class={styles.showPassword}
+                    onClick={() => setShowPassword(false)}
                   >
-                    Sign up here!
-                  </a>
-                </span>{" "}
-              </h2>
+                    hide password
+                  </div>
+                ) : (
+                  <div
+                    class={styles.showPassword}
+                    onClick={() => setShowPassword(true)}
+                  >
+                    show password
+                  </div>
+                )}
+              </div>
             </div>
-          </form>
-        </div>
+            <input
+              id="password"
+              name="password"
+              type={`${showPassword ? "text" : "password"}`}
+              autoComplete="current-password"
+              required
+              value={data.password}
+              onChange={(e) => setData({ ...data, password: e.target.value })}
+              class={styles.input}
+            />
+          </div>
+          <button type="submit" class={styles.signInButton}>
+            Sign in
+          </button>
+          <h2 class={styles.bottomText}>
+            Don&apos;t have an account yet?{" "}
+            <a class={styles.hyperLink} href="/register">
+              Sign up here!
+            </a>
+          </h2>
+        </form>
       </div>
     </>
   )

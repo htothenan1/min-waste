@@ -14,7 +14,7 @@ export default async function Account() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div class={styles.container}>
+      <div class={styles.pageContainer}>
         <AccountDetails user={user} />
         <PieChart
           itemsCounter={user?.itemsCounter}

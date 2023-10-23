@@ -1,0 +1,45 @@
+.pageContainer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.instructionsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  margin: 3rem auto;
+}
+
+.instructionsTitle {
+  color: #5e6774;
+  text-align: left;
+  font-family: var(--font-quicksandBold);
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.stepTitle {
+  margin-top: 0.5rem;
+  color: #5e6774;
+  font-size: 1rem;
+  font-family: var(--font-quicksandBold);
+}
+
+.stepText {
+  margin-bottom: 0.5rem;
+  color: #5e6774;
+  font-size: 1rem;
+  font-family: var(--font-quicksand);
+}
+
+.orangeText {
+  color: rgb(234 88 12 / 0.7);
+}
+
+.redText {
+  color: rgb(239 68 68 / 0.7);
+}
+
+.greenText {
+  color: rgb(22 163 74);
+}

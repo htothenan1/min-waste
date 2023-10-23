@@ -8,6 +8,7 @@ import farmlinkLogo from "../../../public/farmlink-project.png"
 import feedingAmericaLogo from "../../../public/feeding-america.png"
 import fwraLogo from "../../../public/fwra.jpg"
 import jamesBeardLogo from "../../../public/james-beard-foundation.png"
+import styles from "./resources.module.css"
 import { authOptions } from "../../api/auth/[...nextauth]/route"
 import Image from "next/image"
 import Link from "next/link"
@@ -19,16 +20,14 @@ export default async function Resources() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div className="flex flex-col text-center justify-center items-center mx-auto w-3/4 py-12 bg-slate-50/50">
-        <h1 className=" text-orange-600/70 font-quicksandBold text-4xl">
-          Resources
-        </h1>
-        <p className="my-2 text-slate-600 text-md text-center w-full md:w-1/2 font-quicksandBold">
+      <div class={styles.pageContainer}>
+        <h1 class={styles.headerText}>Resources</h1>
+        <p class={styles.subheaderText}>
           The organizations, projects, and videos that helped shape the goals
           and values of this app.
         </p>
-        <div class="container px-5 mb-24 mt-16 mx-auto">
-          <div class="flex flex-wrap -m-4">
+        <div class={styles.logosContainer}>
+          <div class={styles.rowContainer}>
             <div class="lg:w-1/3 sm:w-1/2 p-4">
               <div class="flex relative">
                 <Image
@@ -102,7 +101,7 @@ export default async function Resources() {
               </div>
             </div>
           </div>
-          <div class="flex flex-wrap -m-4">
+          <div class={styles.rowContainer}>
             <div class="lg:w-1/3 sm:w-1/2 p-4">
               <div class="flex relative">
                 <Image
