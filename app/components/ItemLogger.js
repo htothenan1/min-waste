@@ -1,8 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { isMobile } from "react-device-detect"
-import { useDoubleTap } from "use-double-tap"
 import { createItemAction, incrementLogCounterAction } from "../_actions"
 import { toast } from "react-toastify"
 import { addDays } from "date-fns"
@@ -12,8 +10,9 @@ import { ingredientsObjects } from "../data/ingredients"
 import { ReloadIcon } from "@radix-ui/react-icons"
 
 const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
-  const [selected, setSelected] = useState(null)
+  const [selectedItems, setSelectedItems] = useState([])
   const { data: session } = useSession()
+  const [loading, setLoading] = useState(false)
   const [customLoading, setCustomLoading] = useState(false)
   const [customItem, setCustomItem] = useState("")
 
@@ -22,6 +21,15 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
       return el2.name === el1.name
     })
   })
+
+  const handleItemSelect = (item) => {
+    if (!selectedItems.includes(item.name)) {
+      setSelectedItems((prevItems) => [...prevItems, item.name])
+    } else {
+      setSelectedItems((prevItems) => prevItems.filter((i) => i !== item.name))
+    }
+    console.log(selectedItems)
+  }
 
   const calcDaysFrom = (data) => {
     if (data.expiredAt) {
@@ -50,43 +58,43 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
     }
   }
 
-  const handleOnDrag = (e, name) => {
-    setSelected(name)
+  const confirmAddItems = async () => {
+    setLoading(true)
+    try {
+      await Promise.all(selectedItems.map((item) => confirmAddItem(item)))
+
+      toast.success(`${selectedItems.length} Items added!`, {
+        position: "top-center",
+        autoClose: 1000,
+      })
+      setSelectedItems([])
+    } catch (error) {
+      console.error("Error adding items:", error)
+      toast.error(`Failed to add items!`, {
+        position: "top-center",
+        autoClose: 1000,
+      })
+    }
+    setLoading(false)
   }
 
   const confirmAddItem = async (clientData) => {
     if (clientData !== null) {
       const tip = ingredientsObjects.find(
-        (el) => el.name === selected
+        (el) => el.name === clientData
       ).storageTip
       const expDate = addDays(
         new Date(),
-        ingredientsObjects.find((el) => el.name === selected).expInt
+        ingredientsObjects.find((el) => el.name === clientData).expInt
       )
       await createItemAction(session.user.email, clientData, tip, expDate)
       await incrementLogCounterAction(session.user.email)
-      toast.success(`${clientData} added!`, {
-        position: "top-center",
-        autoClose: 1000,
-      })
     } else {
       toast.error("Please select an item", {
         position: "top-center",
         autoClose: 1000,
       })
     }
-  }
-
-  const bind = useDoubleTap(() => {
-    confirmAddItem(selected)
-  })
-
-  const handleOnDrop = () => {
-    confirmAddItem(selected)
-  }
-
-  const handleOnDragOver = (e) => {
-    e.preventDefault()
   }
 
   const addCustomItem = async (clientData) => {
@@ -119,26 +127,38 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
   return (
     <>
       <div className="my-6 mx-0 md:mx-6">
-        <h2 className="pb-2 font-quicksandBold text-lg text-slate-600 ">
+        <h2 className="font-quicksandBold text-lg text-slate-600 mb-2">
           Groceries
         </h2>
 
+        <button
+          onClick={() => {
+            confirmAddItems()
+          }}
+          disabled={selectedItems.length === 0}
+          className="py-1.5 px-4 mb-4 outline outline-1 outline-slate-400 font-quicksandBold disabled:text-gray-400 disabled:bg-gray-300 w-full h-10 text-sm rounded-md bg-blue-300"
+        >
+          {loading ? (
+            <ReloadIcon className="animate-spin m-auto" />
+          ) : (
+            `Add Selected (${selectedItems.length})`
+          )}
+        </button>
+
         <ul
           role="list"
-          className="flex flex-col h-96 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-scroll w-48 mb-7"
+          className="flex flex-col h-80 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-md overflow-y-scroll w-48 mb-7"
         >
           {filteredItems.map((item) => (
             <li
-              disabled={!isMobile}
-              {...bind}
-              draggable
-              onDragStart={(e) => handleOnDrag(e, item.name)}
-              onTouchStart={() => setSelected(item.name)}
+              onClick={() => handleItemSelect(item)}
               key={item.id}
               className={`${
-                selected === item.name ? "bg-white" : ""
+                selectedItems.includes(item.name)
+                  ? "bg-white border border-black"
+                  : ""
               } relative shadow-lg px-4 py-4 
-            focus-within:ring-2 focus-within:ring-green-200 rounded-md cursor-move text-sm font-medium font-quicksandBold text-slate-600`}
+            focus-within:ring-2 focus-within:ring-green-200 rounded-md cursor-pointer text-sm font-medium font-quicksandBold text-slate-600`}
             >
               {item.name}
             </li>
@@ -157,16 +177,17 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
             value={customItem}
             onChange={(e) => setCustomItem(e.target.value)}
             placeholder="Custom Item"
-            className="relative w-36 cursor-default
+            className="relative w-36 h-10 cursor-default
          bg-white rounded-md py-1.5 px-4 outline outline-1 outline-slate-400 text-slate-600
           text-sm sm:leading-6 font-quicksandBold mr-1"
           />
 
           <button
+            disabled={customItem === ""}
             onClick={() => addCustomItem(customItem)}
-            className="group w-10 relative py-2 px-1 mx-1 rounded-lg bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-200 to-gray-200 text-xs shadow-lg"
+            className={`group w-10 relative py-2 px-1 mx-1 rounded-lg bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-green-200 via-slate-200 to-gray-200 text-xs shadow-lg`}
           >
-            <span className="relative text-gray-500 group-hover:text-gray-400 font-quicksandBold group-active:text-slate-500">
+            <span className="relative text-gray-500 font-quicksandBold">
               {customLoading ? (
                 <ReloadIcon className="animate-spin m-auto" />
               ) : (
@@ -177,10 +198,8 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
         </div>
 
         <ul
-          onDrop={handleOnDrop}
-          onDragOver={handleOnDragOver}
           role="list"
-          className="flex flex-col h-[335px] bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-auto w-48 cursor-pointer"
+          className="flex flex-col h-80 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-slate-300/50 via-slate-100/50 to-indigo-100/50 shadow-2xl rounded-lg overflow-y-auto w-48 cursor-pointer"
         >
           {items.length ? (
             items.map((item) => (
