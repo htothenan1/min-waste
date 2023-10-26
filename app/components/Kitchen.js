@@ -47,7 +47,7 @@ const Kitchen = ({ items }) => {
           MinWaste Kitchen
         </h1>
       </div>
-      <div className="flex justify-around flex-wrap bg-slate-50/50">
+      <div className="flex justify-center flex-wrap bg-slate-50/50">
         {editMode ? (
           <div className="flex flex-col justify-center items-center w-96 h-72 border rounded-md shadow-xl mx-14 my-16 mb-28">
             <h2 className="font-semibold text-lg text-orange-600/70">
