@@ -196,6 +196,13 @@ export const ingredientsObjects = [
       "Cherries are sensitive to heat, so store them in the refrigerator as soon as possible. Place them in the crisper drawer, where the temperature is slightly cooler and more humid. Avoid washing cherries before storing them.",
   },
   {
+    id: "db68cf13",
+    name: "Chicken",
+    expInt: 2,
+    storageTip:
+      "For optimal quality, use chicken within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
+  },
+  {
     id: "po79b2e1",
     name: "Chives",
     expInt: 7,
@@ -299,20 +306,6 @@ export const ingredientsObjects = [
     expInt: 2,
     storageTip:
       "Ground beef is perishable and should be refrigerated as soon as possible after purchase. For optimal quality, use ground beef within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
-  },
-  {
-    id: "db68cf13",
-    name: "Chicken",
-    expInt: 2,
-    storageTip:
-      "For optimal quality, use chicken within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
-  },
-  {
-    id: "78801d0a",
-    name: "Turkey",
-    expInt: 2,
-    storageTip:
-      "For optimal quality, use turkey within 1-2 days of purchase. If you won't be using it within that time, consider freezing it to extend its shelf life.",
   },
   {
     id: "kd83jv8w",
