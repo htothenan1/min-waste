@@ -14,7 +14,7 @@ import { useSession } from "next-auth/react"
 import Calendar from "react-calendar"
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { useSpring, a } from "@react-spring/web"
-import "react-calendar/dist/Calendar.css"
+import styles from "./styles/singleItem.module.css"
 
 const SingleItemView = ({
   item,
@@ -74,158 +74,68 @@ const SingleItemView = ({
     setUpdateLoading(false)
   }
 
-  function MistakenModal({ onClose, children }) {
+  function MistakenModal({ onClose }) {
     return (
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          zIndex: 1000,
-        }}
-        onClick={onClose}
-      >
-        <div
-          style={{
-            backgroundColor: "white",
-            padding: "30px 40px",
-            borderRadius: "8px",
-            pointerEvents: "auto",
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {children}
-          <h3 className="text-base font-quicksandBold leading-6 text-gray-900">
-            {"Item Added by Mistake"}
-          </h3>
-          <div className="mt-2">
-            <p className="text-sm text-gray-500 font-quicksand">
-              {"Was this item added by mistake?"}
-            </p>
-          </div>
-          <div className="mt-5">
-            <button
-              type="button"
-              className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-700 active:bg-green-800 sm:w-auto"
-              onClick={() => {
-                deleteMistakenItem(item)
-              }}
-              disabled={deleteLoading}
-            >
-              <div className="flex justify-center items-center">
-                {deleteLoading ? (
-                  <div className="flex justify-center items-center">
-                    <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
-                  </div>
-                ) : (
-                  <>{"Yes"}</>
-                )}
-              </div>
-            </button>
+      <div class={styles.modalBackground} onClick={onClose}>
+        <div class={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
+          <h3 class={styles.modalTitle}>Item Added by Mistake</h3>
+          <p class={styles.modalSub}>Was this item added by mistake?</p>
+          <button
+            class={styles.greenButton}
+            onClick={() => {
+              deleteMistakenItem(item)
+            }}
+            disabled={deleteLoading}
+          >
+            {deleteLoading ? (
+              <ReloadIcon class={styles.reloadIcon} />
+            ) : (
+              <p>Yes</p>
+            )}
+          </button>
 
-            <button
-              type="button"
-              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-200 sm:ml-3 sm:mt-0 sm:w-auto"
-              onClick={onClose}
-            >
-              Cancel
-            </button>
-          </div>
+          <button type="button" class={styles.cancelButton} onClick={onClose}>
+            Cancel
+          </button>
         </div>
       </div>
     )
   }
 
-  function FinishedModal({ onClose, children }) {
+  function FinishedModal({ onClose }) {
     return (
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          zIndex: 1000,
-        }}
-        onClick={onClose}
-      >
-        <div
-          style={{
-            backgroundColor: "white",
-            padding: "30px 40px",
-            borderRadius: "8px",
-            pointerEvents: "auto",
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {children}
-          <h3 className="text-base font-quicksandBold leading-6 text-gray-900">
-            {"Item Finished"}
-          </h3>
-          <div className="mt-2">
-            <p className="text-sm text-gray-500 font-quicksand">
-              {" Was any of this item wasted?"}
-            </p>
-          </div>
-          <div className="mt-5">
-            <button
-              type="button"
-              className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-700 active:bg-green-800 sm:w-auto"
-              onClick={() => {
-                deleteItem(item)
-              }}
-              disabled={deleteLoading}
-            >
-              <div className="flex justify-center items-center">
-                {deleteLoading ? (
-                  <div className="flex justify-center items-center">
-                    {"Yay"}
-                    <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
-                  </div>
-                ) : (
-                  <>{"Nope!"}</>
-                )}
-              </div>
-            </button>
+      <div class={styles.modalBackground} onClick={onClose}>
+        <div class={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
+          <h3 class={styles.modalTitle}>Item Finished</h3>
+          <p class={styles.modalSub}>Was any of this item wasted?</p>
+          <button
+            class={styles.greenButton}
+            onClick={() => {
+              deleteItem(item)
+            }}
+            disabled={deleteLoading}
+          >
+            {deleteLoading ? (
+              <ReloadIcon class={styles.reloadIcon} />
+            ) : (
+              <>Nope!</>
+            )}
+          </button>
 
-            <button
-              onClick={() => {
-                deleteItemWithWaste(item)
-              }}
-              disabled={wasteLoading}
-              type="button"
-              className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-red-600 active:bg-red-700 sm:ml-3 sm:w-auto"
-            >
-              <div className="flex justify-center items-center">
-                {wasteLoading ? (
-                  <div className="flex justify-center items-center">
-                    Discarding...
-                    <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
-                  </div>
-                ) : (
-                  "Yes"
-                )}
-              </div>
-            </button>
+          <button
+            onClick={() => {
+              deleteItemWithWaste(item)
+            }}
+            disabled={wasteLoading}
+            type="button"
+            class={styles.redButton}
+          >
+            {wasteLoading ? <ReloadIcon class={styles.reloadIcon} /> : "Yes"}
+          </button>
 
-            <button
-              type="button"
-              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-200 sm:ml-3 sm:mt-0 sm:w-auto"
-              onClick={onClose}
-            >
-              Cancel
-            </button>
-          </div>
+          <button type="button" class={styles.cancelButton} onClick={onClose}>
+            Cancel
+          </button>
         </div>
       </div>
     )

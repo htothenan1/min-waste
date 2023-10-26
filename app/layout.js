@@ -4,6 +4,7 @@ import { Quicksand } from "next/font/google"
 import CustomToastContainer from "./common/CustomToastContainer"
 import Provider from "./context/AuthContext"
 import "react-toastify/dist/ReactToastify.css"
+import "react-calendar/dist/Calendar.css"
 
 export const metadata = {
   title: "MinWaste App",
