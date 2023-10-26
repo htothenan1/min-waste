@@ -30,11 +30,7 @@ const quicksandBold = Quicksand({
   weight: "700",
 })
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }) {
   return (
     <html className="h-full bg-slate-50/50" lang="en">
       <body
