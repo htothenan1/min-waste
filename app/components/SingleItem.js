@@ -12,13 +12,11 @@ import {
 } from "../_actions"
 import { useState } from "react"
 import { useSession } from "next-auth/react"
-import { format } from "date-fns"
-import { cn } from "@/app/lib/utils"
-import { Calendar } from "./ui/calendar"
-import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons"
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
+import Calendar from "react-calendar"
+import { ReloadIcon } from "@radix-ui/react-icons"
 import { homes } from "../data/homes"
 import { useSpring, a } from "@react-spring/web"
+import "react-calendar/dist/Calendar.css"
 
 const SingleItemView = ({
   item,
@@ -27,7 +25,7 @@ const SingleItemView = ({
   handleSelectItem,
 }) => {
   const { data: session } = useSession()
-  const [date, setDate] = useState(new Date())
+  const [value, onChange] = useState(new Date())
   const [isModalOpen, setModalOpen] = useState(false)
   const [selected, setSelected] = useState(homes[0])
   const [deleteLoading, setDeleteLoading] = useState(false)
@@ -40,12 +38,6 @@ const SingleItemView = ({
     transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
     config: { mass: 5, tension: 500, friction: 80 },
   })
-
-  const adjustDate = (date) => {
-    date.setHours(date.getHours() + 18)
-
-    return date
-  }
 
   const deleteItem = async (data) => {
     setDeleteLoading(true)
@@ -74,14 +66,14 @@ const SingleItemView = ({
 
   const updateItem = async (data, newHome) => {
     setUpdateLoading(true)
-    const finalDate = adjustDate(date)
-    await updateItemAction(data.id, data.name, finalDate, newHome.name)
+    await updateItemAction(data.id, data.name, value, newHome.name)
     toast.info(`${data.name} Use By Date set!`, {
       position: "top-center",
       autoClose: 1000,
     })
     handleEditToggle(false)
-    setDate(new Date())
+    handleSelectItem(null)
+    onChange(new Date())
     setSelected(homes[0])
     setUpdateLoading(false)
   }
@@ -210,34 +202,14 @@ const SingleItemView = ({
                   {item.name}
                 </h2>
                 {editStatus ? (
-                  <Popover>
-                    <PopoverTrigger asChild on>
-                      <button
-                        className={cn(
-                          "flex items-center bg-white rounded-md w-[240px] font-quicksand px-2 py-1 mt-1",
-                          !date && "text-muted-foreground"
-                        )}
-                      >
-                        <CalendarIcon className="mx-2 h-4 w-4" />
-                        {date ? format(date, "PPP") : <span>Pick a date</span>}
-                      </button>
-                    </PopoverTrigger>
-                    <PopoverContent
-                      align="start"
-                      className="flex w-auto flex-col space-y-2 p-2"
-                    >
-                      <div className="rounded-md">
-                        <Calendar
-                          required
-                          mode="single"
-                          selected={
-                            item.expired ? item.expiredAt.toDateString() : date
-                          }
-                          onSelect={setDate}
-                        />
-                      </div>
-                    </PopoverContent>
-                  </Popover>
+                  <div>
+                    <Calendar
+                      minDate={new Date()}
+                      className={` rounded-lg text-sm`}
+                      onChange={onChange}
+                      value={value}
+                    />
+                  </div>
                 ) : (
                   <h2 className="text-slate-600 cursor-default mb-2 font-quicksand">{`Use By: ${
                     item.expiredAt
