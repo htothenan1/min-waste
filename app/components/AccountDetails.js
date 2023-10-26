@@ -1,7 +1,7 @@
 "use client"
 
 import { deleteItemsActions } from "@/_actions"
-import { useState, useRef } from "react"
+import { useState } from "react"
 
 const AccountDetails = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,8 +9,6 @@ const AccountDetails = ({ user }) => {
     await deleteItemsActions(user.id)
     setIsOpen(false)
   }
-
-  const cancelButtonRef = useRef(null)
 
   function Modal({ onClose, modalRef }) {
     return (
