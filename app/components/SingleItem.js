@@ -10,17 +10,12 @@ import {
   incrementWasteCounterAction,
   incrementMistakeCounterAction,
 } from "../_actions"
-import { useState, Fragment, useRef } from "react"
+import { useState } from "react"
 import { useSession } from "next-auth/react"
-import { Transition, Dialog } from "@headlessui/react"
 import { format } from "date-fns"
 import { cn } from "@/app/lib/utils"
 import { Calendar } from "./ui/calendar"
-import {
-  CalendarIcon,
-  ReloadIcon,
-  ExclamationTriangleIcon,
-} from "@radix-ui/react-icons"
+import { CalendarIcon, ReloadIcon } from "@radix-ui/react-icons"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { homes } from "../data/homes"
 import { useSpring, a } from "@react-spring/web"
@@ -33,7 +28,7 @@ const SingleItemView = ({
 }) => {
   const { data: session } = useSession()
   const [date, setDate] = useState(new Date())
-  const [open, setOpen] = useState(false)
+  const [isModalOpen, setModalOpen] = useState(false)
   const [selected, setSelected] = useState(homes[0])
   const [deleteLoading, setDeleteLoading] = useState(false)
   const [wasteLoading, setWasteLoading] = useState(false)
@@ -45,8 +40,6 @@ const SingleItemView = ({
     transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
     config: { mass: 5, tension: 500, friction: 80 },
   })
-
-  const cancelButtonRef = useRef(null)
 
   const adjustDate = (date) => {
     date.setHours(date.getHours() + 18)
@@ -64,7 +57,7 @@ const SingleItemView = ({
       await incrementCounterAction(session.user.email)
     }
     handleSelectItem(null)
-    setOpen(false)
+    setModalOpen(false)
     setDeleteLoading(false)
     setMistaken(false)
   }
@@ -74,7 +67,7 @@ const SingleItemView = ({
     await createWastedItemAction(session.user.email, data.name)
     await deleteItemAction(data.id)
     await incrementWasteCounterAction(session.user.email)
-    setOpen(false)
+    setModalOpen(false)
     setWasteLoading(false)
     handleSelectItem(null)
   }
@@ -95,130 +88,105 @@ const SingleItemView = ({
 
   const handleMistake = () => {
     setMistaken(true)
-    setOpen(true)
+    setModalOpen(true)
   }
 
-  const handleCancel = () => {
-    if (mistaken) {
-      setOpen(false)
-      setMistaken(false)
-    } else {
-      setOpen(false)
-    }
+  function Modal({ onClose, children }) {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex: 1000,
+        }}
+        onClick={onClose}
+      >
+        <div
+          style={{
+            backgroundColor: "white",
+            padding: "30px 40px",
+            borderRadius: "8px",
+            pointerEvents: "auto",
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {children}
+          <h3 className="text-base font-quicksandBold leading-6 text-gray-900">
+            {`${mistaken ? "Item added by mistake" : "Item Finished"}`}
+          </h3>
+          <div className="mt-2">
+            <p className="text-sm text-gray-500 font-quicksand">
+              {`${
+                mistaken
+                  ? "Was this item added by mistake?"
+                  : " Was any of this item wasted?"
+              }`}
+            </p>
+          </div>
+          <div className="mt-5">
+            <button
+              type="button"
+              className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-700 active:bg-green-800 sm:w-auto"
+              onClick={() => {
+                deleteItem(item)
+              }}
+              disabled={deleteLoading}
+            >
+              <div className="flex justify-center items-center">
+                {deleteLoading ? (
+                  <div className="flex justify-center items-center">
+                    {mistaken ? "Deleting..." : "Yay"}
+                    <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                  </div>
+                ) : (
+                  <>{mistaken ? "Yes!" : "Nope!"}</>
+                )}
+              </div>
+            </button>
+
+            <button
+              onClick={() => {
+                deleteItemWithWaste(item)
+              }}
+              disabled={wasteLoading}
+              type="button"
+              className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-red-600 active:bg-red-700 sm:ml-3 sm:w-auto"
+            >
+              <div className="flex justify-center items-center">
+                {wasteLoading ? (
+                  <div className="flex justify-center items-center">
+                    Discarding...
+                    <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                  </div>
+                ) : (
+                  "Yes..."
+                )}
+              </div>
+            </button>
+
+            <button
+              type="button"
+              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-200 sm:ml-3 sm:mt-0 sm:w-auto"
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
     <>
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-10"
-          initialFocus={cancelButtonRef}
-          onClose={setOpen}
-        >
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-          </Transition.Child>
-
-          <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex h-1/2 items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationTriangleIcon
-                        className="h-6 w-6 text-red-600"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                      <Dialog.Title
-                        as="h3"
-                        className="text-base font-quicksandBold leading-6 text-gray-900"
-                      >
-                        {`${
-                          mistaken ? "Item added by mistake" : "Item Finished"
-                        }`}
-                      </Dialog.Title>
-                      <div className="mt-2">
-                        <p className="text-sm text-gray-500 font-quicksand">
-                          {`${
-                            mistaken
-                              ? "Was this item added by mistake?"
-                              : " Was any of this item wasted?"
-                          }`}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-5 sm:ml-10 sm:mt-4 sm:flex sm:pl-4">
-                    <button
-                      type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-700 active:bg-green-800 sm:w-auto"
-                      onClick={() => {
-                        deleteItem(item)
-                      }}
-                      disabled={deleteLoading}
-                    >
-                      {deleteLoading ? (
-                        <div className="flex justify-center items-center">
-                          {mistaken ? "Deleting..." : "Yay"}
-                          <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
-                        </div>
-                      ) : (
-                        <>{mistaken ? "Yes!" : "Nope!"}</>
-                      )}
-                    </button>
-                    {mistaken ? null : (
-                      <button
-                        type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-red-600 active:bg-red-700 sm:ml-3 sm:w-auto"
-                        onClick={() => {
-                          deleteItemWithWaste(item)
-                        }}
-                        disabled={wasteLoading}
-                      >
-                        {wasteLoading ? (
-                          <div className="flex justify-center items-center">
-                            Discarding...
-                            <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
-                          </div>
-                        ) : (
-                          "Yes..."
-                        )}
-                      </button>
-                    )}
-                    <button
-                      type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-200 sm:ml-3 sm:mt-0 sm:w-auto"
-                      onClick={handleCancel}
-                      ref={cancelButtonRef}
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
+      {isModalOpen && <Modal onClose={() => setModalOpen(false)}></Modal>}
 
       <div className="flex flex-col m-6">
         <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600">
@@ -318,7 +286,7 @@ const SingleItemView = ({
                   <>
                     <button
                       disabled={flipped}
-                      onClick={() => setOpen(true)}
+                      onClick={() => setModalOpen(true)}
                       className="py-2 px-3 my-3 rounded-md bg-green-600/50 hover:bg-green-700/50 active:bg-green-800/50 text-white text-sm shadow-lg font-quicksand"
                     >
                       Item Finished

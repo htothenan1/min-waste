@@ -12,7 +12,7 @@ const SingleRecipe = ({ recipe }) => {
   return (
     <div className="m-6 mb-10">
       <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600">
-        Single Recipe View
+        Recipe Details
       </h2>
 
       <div

@@ -57,7 +57,7 @@ export default async function Home() {
           </p>
           <p class={styles.stepText}>
             We will keep count of the items you fully consume, so that you can
-            track your overall progress. Go to your Account page for more
+            track your overall progress. Visit your Account page for more
             details.
           </p>
         </div>

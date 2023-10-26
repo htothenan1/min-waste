@@ -4,7 +4,7 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
   return (
     <div className="m-6 flex flex-col text-left">
       <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600">
-        Recipes List
+        Your Recipes
       </h2>
 
       <ul
