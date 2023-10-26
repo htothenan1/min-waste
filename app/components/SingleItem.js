@@ -26,10 +26,10 @@ const SingleItemView = ({
   const { data: session } = useSession()
   const [value, onChange] = useState(new Date())
   const [isFinishedModalOpen, setFinishedModalOpen] = useState(false)
+  const [isMistakenModalOpen, setMistakenModalOpen] = useState(false)
   const [deleteLoading, setDeleteLoading] = useState(false)
   const [wasteLoading, setWasteLoading] = useState(false)
   const [updateLoading, setUpdateLoading] = useState(false)
-  const [mistaken, setMistaken] = useState(false)
   const [flipped, set] = useState(false)
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -37,19 +37,23 @@ const SingleItemView = ({
     config: { mass: 5, tension: 500, friction: 80 },
   })
 
+  const deleteMistakenItem = async (data) => {
+    setDeleteLoading(true)
+    await deleteItemAction(data.id)
+    await incrementMistakeCounterAction(session.user.email)
+    handleSelectItem(null)
+    setMistakenModalOpen(false)
+    setDeleteLoading(false)
+  }
+
   const deleteItem = async (data) => {
     setDeleteLoading(true)
     await deleteItemAction(data.id)
-    if (mistaken) {
-      await incrementMistakeCounterAction(session.user.email)
-    } else {
-      await createConsumedItemAction(session.user.email, data.name)
-      await incrementCounterAction(session.user.email)
-    }
+    await createConsumedItemAction(session.user.email, data.name)
+    await incrementCounterAction(session.user.email)
     handleSelectItem(null)
     setFinishedModalOpen(false)
     setDeleteLoading(false)
-    setMistaken(false)
   }
 
   const deleteItemWithWaste = async (data) => {
@@ -76,11 +80,77 @@ const SingleItemView = ({
   }
 
   const handleMistake = () => {
-    setMistaken(true)
     setModalOpen(true)
   }
 
   //Mistaken Modal
+  function MistakenModal({ onClose, children }) {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex: 1000,
+        }}
+        onClick={onClose}
+      >
+        <div
+          style={{
+            backgroundColor: "white",
+            padding: "30px 40px",
+            borderRadius: "8px",
+            pointerEvents: "auto",
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {children}
+          <h3 className="text-base font-quicksandBold leading-6 text-gray-900">
+            {"Item Added by Mistake"}
+          </h3>
+          <div className="mt-2">
+            <p className="text-sm text-gray-500 font-quicksand">
+              {"Was this item added by mistake?"}
+            </p>
+          </div>
+          <div className="mt-5">
+            <button
+              type="button"
+              className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-quicksandBold text-white shadow-sm hover:bg-green-700 active:bg-green-800 sm:w-auto"
+              onClick={() => {
+                deleteMistakenItem(item)
+              }}
+              disabled={deleteLoading}
+            >
+              <div className="flex justify-center items-center">
+                {deleteLoading ? (
+                  <div className="flex justify-center items-center">
+                    <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                  </div>
+                ) : (
+                  <>{"Yes"}</>
+                )}
+              </div>
+            </button>
+
+            <button
+              type="button"
+              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-quicksandBold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-200 sm:ml-3 sm:mt-0 sm:w-auto"
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   //Item Finished Modal
   function FinishedModal({ onClose, children }) {
@@ -180,6 +250,12 @@ const SingleItemView = ({
         ></FinishedModal>
       )}
 
+      {isMistakenModalOpen && (
+        <MistakenModal
+          onClose={() => setMistakenModalOpen(false)}
+        ></MistakenModal>
+      )}
+
       <div className="flex flex-col m-6">
         <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600">
           Item Details
@@ -258,14 +334,14 @@ const SingleItemView = ({
                   <>
                     <button
                       disabled={flipped}
-                      onClick={() => setModalOpen(true)}
+                      onClick={() => setFinishedModalOpen(true)}
                       className="py-2 px-3 my-3 rounded-md bg-green-600/50 hover:bg-green-700/50 active:bg-green-800/50 text-white text-sm shadow-lg font-quicksand"
                     >
                       Item Finished
                     </button>
                     <button
                       disabled={flipped}
-                      onClick={handleMistake}
+                      onClick={() => setMistakenModalOpen(true)}
                       className=" text-xs text-red-500 text-center border border-red-500 py-2 px-3 my-3 rounded-md shadow-lg font-quicksand bg-white hover:bg-slate-100 active:bg-slate-200/50"
                     >
                       Added by mistake?
