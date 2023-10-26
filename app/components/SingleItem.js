@@ -1,6 +1,5 @@
 "use client"
 
-import { toast } from "react-toastify"
 import {
   deleteItemAction,
   incrementCounterAction,
@@ -69,21 +68,12 @@ const SingleItemView = ({
   const updateItem = async (data) => {
     setUpdateLoading(true)
     await updateItemAction(data.id, data.name, value)
-    toast.info(`${data.name} Use By Date set!`, {
-      position: "top-center",
-      autoClose: 1000,
-    })
     handleEditToggle(false)
     handleSelectItem(null)
     onChange(new Date())
     setUpdateLoading(false)
   }
 
-  const handleMistake = () => {
-    setModalOpen(true)
-  }
-
-  //Mistaken Modal
   function MistakenModal({ onClose, children }) {
     return (
       <div
@@ -152,7 +142,6 @@ const SingleItemView = ({
     )
   }
 
-  //Item Finished Modal
   function FinishedModal({ onClose, children }) {
     return (
       <div
