@@ -14,3 +14,8 @@
 .layoutContainer {
   background-color: rgba(249, 245, 245, 0.87);
 }
+
+.pieContainer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

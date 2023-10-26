@@ -18,9 +18,5 @@ export default function PieChart({ wastedCounter, itemsCounter }) {
       },
     ],
   }
-  return (
-    <div>
-      <Pie data={data} />
-    </div>
-  )
+  return <Pie data={data} />
 }

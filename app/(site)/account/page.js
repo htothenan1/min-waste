@@ -16,10 +16,12 @@ export default async function Account() {
       <NavBar user={user?.name} />
       <div class={styles.pageContainer}>
         <AccountDetails user={user} />
-        <PieChart
-          itemsCounter={user?.itemsCounter}
-          wastedCounter={user?.wastedCounter}
-        />
+        <div class={styles.pieContainer}>
+          <PieChart
+            itemsCounter={user?.itemsCounter}
+            wastedCounter={user?.wastedCounter}
+          />
+        </div>
       </div>
       <Footer />
     </>
