@@ -31,17 +31,17 @@
 }
 
 .greenButton {
-  margin-top: 1.25rem; /* mt-5 */
+  margin-top: 1.25rem;
   margin-right: 0.5rem;
   display: inline-flex;
   justify-content: center;
   border-radius: 0.375rem;
   background-color: #48bb78;
   padding: 0.5rem 0.75rem;
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.875rem;
   font-family: var(--font-quicksandBold);
   color: #ffffff;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .redButton {
@@ -49,28 +49,27 @@
   display: inline-flex;
   justify-content: center;
   border-radius: 0.375rem;
-  background-color: #f56565; /* bg-red-500 */
+  background-color: #f56565;
   padding: 0.5rem 0.75rem;
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.875rem;
   font-family: var(--font-quicksandBold);
   color: #ffffff;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .cancelButton {
-  margin-top: 0.75rem; /* mt-3 */
+  margin-top: 0.75rem;
   margin-right: 0.5rem;
   display: inline-flex;
-  /* width: 100%; */
   justify-content: center;
-  border-radius: 0.375rem; /* rounded-md */
-  background-color: #ffffff; /* bg-white */
-  padding: 0.5rem 0.75rem; /* py-2 px-3 */
-  font-size: 0.875rem; /* text-sm */
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
   font-family: var(--font-quicksandBold);
-  color: #1a202c; /* text-gray-900 */
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05); /* shadow-sm */
-  border: 1px solid #d2d6dc; /* ring-1 ring-gray-300 */
+  color: #1a202c;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  border: 1px solid #d2d6dc;
   box-shadow: inset 0px 0px 0px 1px #d2d6dc;
 }
 
@@ -86,4 +85,155 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.itemDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+}
+
+.titleText {
+  text-align: left;
+  padding-bottom: 0.5rem;
+  font-family: var(--font-quicksandBold);
+  font-size: 1.125rem;
+  color: #2f3337;
+}
+
+.cardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideA {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  align-items: center;
+  background-color: #f6f1f1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 0.5rem;
+  width: 24rem;
+  height: 18rem;
+}
+
+.sideB {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  background-color: #f6f1f1;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.375rem;
+  width: 24rem;
+  height: 18rem;
+}
+
+.storageTipsButton {
+  background-color: white;
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+  padding: 0.25rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksand);
+}
+
+.flipBackButton {
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  padding: 0.25rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksand);
+}
+
+.itemNameTitle {
+  margin-top: 0.5rem;
+  color: #4a5568;
+  font-size: 1.125rem;
+  font-family: var(--font-quicksandBold);
+  cursor: default;
+}
+
+.itemDateText {
+  margin-top: 0.5rem;
+  color: #4a5568;
+  font-size: 1rem;
+  font-family: var(--font-quicksand);
+  cursor: default;
+}
+
+.calendar {
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.confirmButton {
+  margin: 1rem 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  background-color: rgba(59, 130, 246, 0.8);
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+.changeDateButton {
+  padding: 0.5rem 0.75rem;
+  margin: 0.75rem 0 0.75rem 0;
+  border-radius: 0.375rem;
+  background-color: rgba(59, 130, 246, 0.8);
+  color: white;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksand);
+}
+
+.itemFinishedButton {
+  padding: 0.5rem 0.75rem;
+  margin: 0.75rem 0;
+  border-radius: 0.375rem;
+  background-color: rgba(5, 150, 105, 0.5);
+  color: white;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksand);
+}
+
+.mistakeButton {
+  font-size: 0.75rem;
+  color: #ef4444;
+  text-align: center;
+  border: 1px solid #ef4444;
+  padding: 0.5rem 0.75rem;
+  margin: 0.75rem 0;
+  border-radius: 0.375rem;
+  font-family: var(--font-quicksand);
+  background-color: white;
+}
+
+.noItemText {
+  text-align: center;
+  margin: auto;
+  cursor: default;
+  color: #4b5563;
+  font-family: var(--font-quicksand);
+}
+
+.storageTipsTitle {
+  margin-top: 0.75rem;
+  color: #4b5563;
+  font-size: 1.125rem;
+  font-family: var(--font-quicksand);
+  cursor: default;
+}
+
+.storageTipsSub {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
+  font-family: var(--font-quicksand);
 }
