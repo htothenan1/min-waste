@@ -27,19 +27,18 @@ export default async function Home() {
           </h2>
           <p class={styles.stepTitle}>1. Log your Groceries regularly.</p>
           <p class={styles.stepText}>
-            Find a grocery item you have, and drag it into Your Items (double
-            tap on mobile). If you add a custom item, OpenAI will generate the
-            storage tips for that specific item. By default, your items will
-            have a Use-By Date of 5 days from the date of entry.
+            Select the grocery items you have, and add them to Your Items. If
+            you add a custom item, OpenAI will generate the storage tips for
+            that specific item. By default, custom items will have a Use-By Date
+            of 5 days from the date of entry.
           </p>
           <p class={styles.stepTitle}>
-            2. Set a SMART Use-By Date for Your Items.
+            2. Adjust the Use-By Date for Your Items, as needed.
           </p>
           <p class={styles.stepText}>
-            Using the SMART methodology, set Use-By Dates that are Specific,
-            Measurable, Achievable, Relevant, and Time-Bound. Use your senses to
-            determine the appropriate date, instead of relying on misleading
-            expiration codes.
+            All items come with an approximate Use-By Date, but make sure you
+            adjust the dates to fit your lifestyle and schedule. Set dates that
+            are SMART (Measurable, Achievable, Relevant, and Time-Bound)
           </p>
           <p class={styles.stepTitle}>
             3. Consume Your Items from the top of the list first.
@@ -47,10 +46,10 @@ export default async function Home() {
           <p class={styles.stepText}>
             Since Your Items are ordered by Use-By Date, always try to consume
             from the top. If an item has a{" "}
-            <span class={styles.redText}>red background</span>, that means it is
-            less than 2 days away from the Use-By Date. A{" "}
+            <span class={styles.redText}>red background</span>, that means you
+            should consume it in the next 2 days. A{" "}
             <span class={styles.greenText}>green background</span> means you
-            have more than 2 days to consume your item.
+            have more than 2 days.
           </p>
           <p class={styles.stepTitle}>
             4. Update Your Items when an item is finished.
