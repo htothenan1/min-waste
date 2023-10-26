@@ -14,7 +14,6 @@ import { useState } from "react"
 import { useSession } from "next-auth/react"
 import Calendar from "react-calendar"
 import { ReloadIcon } from "@radix-ui/react-icons"
-import { homes } from "../data/homes"
 import { useSpring, a } from "@react-spring/web"
 import "react-calendar/dist/Calendar.css"
 
@@ -26,8 +25,7 @@ const SingleItemView = ({
 }) => {
   const { data: session } = useSession()
   const [value, onChange] = useState(new Date())
-  const [isModalOpen, setModalOpen] = useState(false)
-  const [selected, setSelected] = useState(homes[0])
+  const [isFinishedModalOpen, setFinishedModalOpen] = useState(false)
   const [deleteLoading, setDeleteLoading] = useState(false)
   const [wasteLoading, setWasteLoading] = useState(false)
   const [updateLoading, setUpdateLoading] = useState(false)
@@ -49,7 +47,7 @@ const SingleItemView = ({
       await incrementCounterAction(session.user.email)
     }
     handleSelectItem(null)
-    setModalOpen(false)
+    setFinishedModalOpen(false)
     setDeleteLoading(false)
     setMistaken(false)
   }
@@ -59,14 +57,14 @@ const SingleItemView = ({
     await createWastedItemAction(session.user.email, data.name)
     await deleteItemAction(data.id)
     await incrementWasteCounterAction(session.user.email)
-    setModalOpen(false)
+    setFinishedModalOpen(false)
     setWasteLoading(false)
     handleSelectItem(null)
   }
 
-  const updateItem = async (data, newHome) => {
+  const updateItem = async (data) => {
     setUpdateLoading(true)
-    await updateItemAction(data.id, data.name, value, newHome.name)
+    await updateItemAction(data.id, data.name, value)
     toast.info(`${data.name} Use By Date set!`, {
       position: "top-center",
       autoClose: 1000,
@@ -74,7 +72,6 @@ const SingleItemView = ({
     handleEditToggle(false)
     handleSelectItem(null)
     onChange(new Date())
-    setSelected(homes[0])
     setUpdateLoading(false)
   }
 
@@ -83,7 +80,10 @@ const SingleItemView = ({
     setModalOpen(true)
   }
 
-  function Modal({ onClose, children }) {
+  //Mistaken Modal
+
+  //Item Finished Modal
+  function FinishedModal({ onClose, children }) {
     return (
       <div
         style={{
@@ -111,15 +111,11 @@ const SingleItemView = ({
         >
           {children}
           <h3 className="text-base font-quicksandBold leading-6 text-gray-900">
-            {`${mistaken ? "Item added by mistake" : "Item Finished"}`}
+            {"Item Finished"}
           </h3>
           <div className="mt-2">
             <p className="text-sm text-gray-500 font-quicksand">
-              {`${
-                mistaken
-                  ? "Was this item added by mistake?"
-                  : " Was any of this item wasted?"
-              }`}
+              {" Was any of this item wasted?"}
             </p>
           </div>
           <div className="mt-5">
@@ -134,11 +130,11 @@ const SingleItemView = ({
               <div className="flex justify-center items-center">
                 {deleteLoading ? (
                   <div className="flex justify-center items-center">
-                    {mistaken ? "Deleting..." : "Yay"}
+                    {"Yay"}
                     <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
                   </div>
                 ) : (
-                  <>{mistaken ? "Yes!" : "Nope!"}</>
+                  <>{"Nope!"}</>
                 )}
               </div>
             </button>
@@ -158,7 +154,7 @@ const SingleItemView = ({
                     <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
                   </div>
                 ) : (
-                  "Yes..."
+                  "Yes"
                 )}
               </div>
             </button>
@@ -178,7 +174,11 @@ const SingleItemView = ({
 
   return (
     <>
-      {isModalOpen && <Modal onClose={() => setModalOpen(false)}></Modal>}
+      {isFinishedModalOpen && (
+        <FinishedModal
+          onClose={() => setFinishedModalOpen(false)}
+        ></FinishedModal>
+      )}
 
       <div className="flex flex-col m-6">
         <h2 className="text-left pb-2 font-quicksandBold text-lg text-slate-600">
@@ -225,7 +225,7 @@ const SingleItemView = ({
                 {editStatus ? (
                   <button
                     onClick={() => {
-                      updateItem(item, item.name, selected)
+                      updateItem(item)
                     }}
                     className={`shadow-lg my-3 py-2 px-3 rounded-md ${
                       updateLoading

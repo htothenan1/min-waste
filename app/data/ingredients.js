@@ -41,13 +41,6 @@ export const ingredientsObjects = [
     storageTip:
       "Store on counter until ripe, then refrigerate. If you've cut an avocado and have leftover halves, keep the pit in the unused half and wrap it tightly in plastic wrap or place it in an airtight container. This helps minimize exposure to air and slows down browning.",
   },
-  // {
-  //   id: "0p2e5f6c",
-  //   name: "Baby Formula",
-  //   expInt: 7,
-  //   storageTip:
-  //     "Keep unopened containers of powdered formula in a cool, dry place. Direct sunlight can degrade the nutrients in the formula. Avoid areas with high humidity. Always check the expiration date before using the formula. Do not use formula past its expiration date.",
-  // },
   {
     id: "0c2e3f6d",
     name: "Bacon",

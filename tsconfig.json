@@ -32,7 +32,8 @@
     "app/components/ItemLogger.js",
     "app/common/SlideFillButton.js",
     "app/page.js",
-    "app/layout.js"
+    "app/layout.js",
+    "app/_actions.js"
   ],
   "exclude": ["node_modules"]
 }

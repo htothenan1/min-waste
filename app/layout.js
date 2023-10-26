@@ -1,11 +1,9 @@
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
-import { Inter, Quicksand } from "next/font/google"
+import { Quicksand } from "next/font/google"
 import CustomToastContainer from "./common/CustomToastContainer"
 import Provider from "./context/AuthContext"
 import "react-toastify/dist/ReactToastify.css"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "MinWaste App",
@@ -32,10 +30,8 @@ const quicksandBold = Quicksand({
 
 export default function RootLayout({ children }) {
   return (
-    <html className="h-full bg-slate-50/50" lang="en">
-      <body
-        className={`${inter.className} ${quicksand.variable} ${quicksandBold.variable} bg-slate-50/50 h-full`}
-      >
+    <html lang="en">
+      <body className={`${quicksand.variable} ${quicksandBold.variable}`}>
         <Provider>
           <CustomToastContainer />
           {children}
