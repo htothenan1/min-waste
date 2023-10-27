@@ -3,8 +3,8 @@
   top: 0;
   left: 0;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
-  background-color: #2b2b2b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@
   display: inline-flex;
   justify-content: center;
   border-radius: 0.375rem;
-  background-color: #89c9a3;
+  background-color: #6da882;
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   font-family: var(--font-quicksandBold);

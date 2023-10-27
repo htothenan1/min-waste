@@ -1,7 +1,7 @@
 "use client"
 
-import GuestNavBar from "./common/GuestNavBar"
-import Footer from "./common/Footer"
+import GuestNavBar from "./components/GuestNavBar"
+import Footer from "./components/Footer"
 import screenshot from "../public/waste-not.png"
 import Image from "next/image"
 import Lottie from "lottie-react"

@@ -1,7 +1,7 @@
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
 import { Quicksand } from "next/font/google"
-import CustomToastContainer from "./common/CustomToastContainer"
+import CustomToastContainer from "./components/CustomToastContainer"
 import Provider from "./context/AuthContext"
 import "react-toastify/dist/ReactToastify.css"
 import "react-calendar/dist/Calendar.css"

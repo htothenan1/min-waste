@@ -1,0 +1,100 @@
+.footerContainer {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.innerFooter {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 112rem;
+  padding: 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .innerFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .createdByContainer {
+    order: 2;
+  }
+}
+
+.createdByContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.creatorText {
+  text-align: center;
+  font-size: 0.75rem; /* corresponds to text-xs in TailwindCSS */
+  line-height: 1.25rem; /* corresponds to leading-5 in TailwindCSS */
+  color: #2b2b2b; /* corresponds to text-gray-500 in TailwindCSS */
+  font-family: var(--font-quicksand);
+}
+
+.footer-container {
+  background-color: #fafafa;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #777;
+}
+
+.author-section {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.icons {
+  margin-left: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.icon-link i {
+  color: #555;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.icon-link:hover i {
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .author-section {
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .icons {
+    margin: 0;
+  }
+}

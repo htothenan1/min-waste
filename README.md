@@ -23,4 +23,4 @@ Darker Red (Selected): #D76A6A
 Light Blue-Gray: #DCE2E6
 Dark Text Color: Charcoal - #2B2B2B
 Burnt Orange - #FF9F67
-DCE2E6 blue
+3e6b8e blue
