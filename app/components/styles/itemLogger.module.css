@@ -1,0 +1,179 @@
+.groceriesContainer {
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .groceriesContainer {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  .itemsContainer {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+
+.titleText {
+  text-align: left;
+  padding-bottom: 0.5rem;
+  font-family: var(--font-quicksandBold);
+  font-size: 1.125rem;
+  color: #2f3337;
+}
+
+.addItemsButton {
+  padding: 0.375rem 1rem;
+  margin-bottom: 1rem;
+  outline: 1px solid slategray;
+  font-family: var(--font-quicksand);
+  width: 100%;
+  height: 2.5rem;
+  font-size: 1rem;
+  border-radius: 0.375rem;
+  background-color: #3b82f6;
+  color: #1e3a8a;
+}
+
+.addItemsButton:disabled {
+  color: #9ca3af;
+  background-color: #d1d5db;
+}
+
+.reloadIcon {
+  margin: 3px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.groceriesList {
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  background-color: #fff7f7;
+  border-radius: 0.375rem;
+  overflow-y: scroll;
+  width: 12rem;
+  margin-bottom: 1.75rem;
+}
+
+.groceryItem {
+  position: relative;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  background-color: #f6f1f1;
+  margin-bottom: 3px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksandBold);
+  color: #4b5563;
+}
+
+.selectedGroceryItem {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1.5rem 0.5rem 1rem;
+}
+
+.customAddButton {
+  width: 2.5rem;
+  padding: 0.5rem 0.25rem;
+  margin: 0 0.25rem;
+  outline: 1px solid slategray;
+  border-radius: 0.375rem;
+  background-color: rgba(72, 187, 120, 0.6);
+  font-size: 0.75rem;
+  color: gray;
+  font-family: var(--font-quicksandBold);
+}
+
+.customAddInput {
+  width: 9rem;
+  height: 2.5rem;
+  cursor: default;
+  outline: 1px solid slategray;
+  background-color: white;
+  border-radius: 0.375rem;
+  padding: 0.375rem 1rem;
+  margin-right: 2px;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+  font-family: var(--font-quicksand);
+}
+
+.itemsList {
+  background-color: #f6f1f1;
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  border-radius: 0.75rem;
+  overflow-y: auto;
+  width: 12rem;
+}
+
+.redItem {
+  background-color: rgba(239, 68, 68, 0.3);
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksandBold);
+  color: #4b5563;
+}
+
+.redItemSelected {
+  background-color: rgba(239, 68, 68, 0.8);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksandBold);
+}
+
+.greenItem {
+  background-color: rgba(72, 187, 120, 0.3);
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksandBold);
+  color: #4b5563;
+}
+
+.greenItemSelected {
+  background-color: rgba(52, 211, 153, 0.8);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksandBold);
+}
+
+.listItemContainer {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.emptyListText {
+  padding: 0.5rem;
+  text-align: center;
+  color: #4a5568;
+  margin: auto;
+  font-family: var(--font-quicksand);
+}
