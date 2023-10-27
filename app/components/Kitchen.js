@@ -5,6 +5,7 @@ import SingleItem from "./SingleItem"
 import ItemLogger from "./ItemLogger"
 import { toast } from "react-toastify"
 import { thought } from "../data/thoughts"
+import styles from "./styles/kitchen.module.css"
 
 const Kitchen = ({ items }) => {
   const [selectedItem, setSelectedItem] = useState(null)
@@ -42,28 +43,20 @@ const Kitchen = ({ items }) => {
 
   return (
     <>
-      <div className="flex flex-col items-center">
-        <h1 className=" text-orange-600/70 font-quicksandBold text-4xl">
-          MinWaste Kitchen
-        </h1>
-      </div>
-      <div className="flex justify-center flex-wrap bg-slate-50/50">
+      <h1 class={styles.headerText}>MinWaste Kitchen</h1>
+      <div class={styles.kitchenContainer}>
         {editMode ? (
-          <div className="flex flex-col justify-center items-center w-96 h-72 border rounded-md shadow-xl mx-14 my-16 mb-28">
-            <h2 className="font-semibold text-lg text-orange-600/70">
-              Food For Thought
-            </h2>
-            <p className="text-center text-slate-600 p-2">{currentThought}</p>
+          <div class={styles.foodForThoughtContainer}>
+            <h2 class={styles.thoughtTitle}>Food For Thought</h2>
+            <p class={styles.thoughtText}>{currentThought}</p>
           </div>
         ) : (
-          <div className="flex">
-            <ItemLogger
-              items={items}
-              editStatus={editMode}
-              selectedItem={selectedItem}
-              handleSelectItem={handleSelectItem}
-            />
-          </div>
+          <ItemLogger
+            items={items}
+            editStatus={editMode}
+            selectedItem={selectedItem}
+            handleSelectItem={handleSelectItem}
+          />
         )}
 
         <SingleItem
