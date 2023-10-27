@@ -1,7 +1,7 @@
 .getRecipesButton {
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
-  background-color: rgba(255, 165, 0, 0.6);
+  background-color: #ff9f67;
   color: white;
   font-family: var(--font-quicksand);
   margin: 0.5rem 0;
@@ -10,7 +10,7 @@
 .clearButton {
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
-  background-color: rgba(30, 144, 255, 0.6);
+  background-color: #3e6b8e;
   color: white;
   font-family: var(--font-quicksand);
   margin: 0.5rem 0;
@@ -38,26 +38,26 @@
 
 .redItem {
   cursor: pointer;
-  padding: 0.75rem 1rem; /* px-4 py-3 */
-  border-radius: 0.375rem; /* rounded-md */
-  background-color: rgba(239, 68, 68, 0.3); /* bg-red-300 with 30% opacity */
-  font-size: 0.875rem; /* text-sm */
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  background-color: #f28c8c;
+  font-size: 0.875rem;
   font-family: var(--font-quicksand);
-  color: #4b5563; /* text-slate-600 */
+  color: #2b2b2b;
 }
 
 .greenItem {
   cursor: pointer;
-  padding: 0.75rem 1rem; /* px-4 py-3 */
-  border-radius: 0.375rem; /* rounded-md */
-  background-color: rgba(52, 211, 153, 0.3); /* bg-green-300 with 30% opacity */
-  font-size: 0.875rem; /* text-sm */
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  background-color: #89c9a3;
+  font-size: 0.875rem;
   font-family: var(--font-quicksand);
-  color: #4b5563; /* text-slate-600 */
+  color: #2b2b2b;
 }
 
 .orangeBackground {
-  background-color: #f97316; /* bg-orange-500 */
+  background-color: #ff9f67;
   color: white;
 }
 
@@ -70,7 +70,7 @@
 .emptyListText {
   padding: 0.5rem;
   text-align: center;
-  color: #4a5568;
+  color: #2b2b2b;
   margin: auto;
   font-family: var(--font-quicksand);
 }

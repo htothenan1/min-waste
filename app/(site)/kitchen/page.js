@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth"
 import NavBar from "../../common/NavBar"
 import Footer from "../../common/Footer"
 import Kitchen from "../../components/Kitchen"
-import styles from "./kitchen.module.css"
+import styles from "../styles/kitchen.module.css"
 import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 export default async function Home() {

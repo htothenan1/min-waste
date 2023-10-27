@@ -106,7 +106,9 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
           {loading ? (
             <ReloadIcon class={styles.reloadIcon} />
           ) : (
-            `Add Selected (${selectedItems.length})`
+            <p class={selectedItems.length && styles.whiteText}>
+              Add Selected ({selectedItems.length})
+            </p>
           )}
         </button>
 

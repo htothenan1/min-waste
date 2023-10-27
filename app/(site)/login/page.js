@@ -4,7 +4,7 @@ import { useState } from "react"
 import { signIn } from "next-auth/react"
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
-import styles from "./login.module.css"
+import styles from "../styles/login.module.css"
 import smileLogo from "../../../public/smile_logo.png"
 import Image from "next/image"
 

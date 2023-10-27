@@ -32,7 +32,7 @@ const quicksandBold = Quicksand({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${quicksand.variable} ${quicksandBold.variable}`}>
+      <body class={`${quicksand.variable} ${quicksandBold.variable}`}>
         <Provider>
           <CustomToastContainer />
           {children}

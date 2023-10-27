@@ -1,4 +1,4 @@
-import styles from "./account.module.css"
+import styles from "../styles/account.module.css"
 
 export const metadata = {
   title: "MinWaste Account",

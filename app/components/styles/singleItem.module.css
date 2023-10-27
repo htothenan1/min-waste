@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #2b2b2b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,20 +12,20 @@
 }
 
 .modalContainer {
-  background-color: white;
+  background-color: #fdfcfb;
   padding: 30px 40px;
   border-radius: 8px;
   pointer-events: auto;
 }
 
 .modalTitle {
-  color: #2f3337;
+  color: #2b2b2b;
   font-size: 1rem;
   font-family: var(--font-quicksandBold);
 }
 
 .modalSub {
-  color: #2f3337;
+  color: #2b2b2b;
   font-size: 1rem;
   font-family: var(--font-quicksand);
 }
@@ -36,7 +36,7 @@
   display: inline-flex;
   justify-content: center;
   border-radius: 0.375rem;
-  background-color: #48bb78;
+  background-color: #89c9a3;
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   font-family: var(--font-quicksandBold);
@@ -49,7 +49,7 @@
   display: inline-flex;
   justify-content: center;
   border-radius: 0.375rem;
-  background-color: #f56565;
+  background-color: #f28c8c;
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   font-family: var(--font-quicksandBold);
@@ -98,7 +98,7 @@
   padding-bottom: 0.5rem;
   font-family: var(--font-quicksandBold);
   font-size: 1.125rem;
-  color: #2f3337;
+  color: #2b2b2b;
 }
 
 .cardContainer {
@@ -130,7 +130,7 @@
 }
 
 .storageTipsButton {
-  background-color: white;
+  background-color: #fdfcfb;
   border-bottom-right-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
   padding: 0.25rem;
@@ -141,7 +141,7 @@
 .flipBackButton {
   position: absolute;
   bottom: 0;
-  background-color: white;
+  background-color: #fdfcfb;
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
   padding: 0.25rem;
@@ -151,7 +151,7 @@
 
 .itemNameTitle {
   margin-top: 0.5rem;
-  color: #4a5568;
+  color: #2b2b2b;
   font-size: 1.125rem;
   font-family: var(--font-quicksandBold);
   cursor: default;
@@ -159,7 +159,7 @@
 
 .itemDateText {
   margin-top: 0.5rem;
-  color: #4a5568;
+  color: #2b2b2b;
   font-size: 1rem;
   font-family: var(--font-quicksand);
   cursor: default;
@@ -174,7 +174,7 @@
   margin: 1rem 0;
   padding: 0.5rem 0.75rem;
   border-radius: 0.375rem;
-  background-color: rgba(59, 130, 246, 0.8);
+  background-color: #dce2e6;
   color: #ffffff;
   font-size: 0.875rem;
 }
@@ -183,7 +183,7 @@
   padding: 0.5rem 0.75rem;
   margin: 0.75rem 0 0.75rem 0;
   border-radius: 0.375rem;
-  background-color: rgba(59, 130, 246, 0.8);
+  background-color: #3e6b8e;
   color: white;
   font-size: 0.875rem;
   font-family: var(--font-quicksand);
@@ -193,7 +193,7 @@
   padding: 0.5rem 0.75rem;
   margin: 0.75rem 0;
   border-radius: 0.375rem;
-  background-color: rgba(5, 150, 105, 0.5);
+  background-color: #89c9a3;
   color: white;
   font-size: 0.875rem;
   font-family: var(--font-quicksand);
@@ -215,19 +215,20 @@
   text-align: center;
   margin: auto;
   cursor: default;
-  color: #4b5563;
+  color: #2b2b2b;
   font-family: var(--font-quicksand);
 }
 
 .storageTipsTitle {
   margin-top: 0.75rem;
-  color: #4b5563;
+  color: #2b2b2b;
   font-size: 1.125rem;
-  font-family: var(--font-quicksand);
+  font-family: var(--font-quicksandBold);
   cursor: default;
 }
 
 .storageTipsSub {
+  color: #2b2b2b;
   padding-left: 1rem;
   padding-right: 1rem;
   text-align: left;

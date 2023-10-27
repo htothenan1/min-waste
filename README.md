@@ -12,18 +12,15 @@ Empower users to live a minimum-waste life. My hope is to provide an easy-to-use
 
 The only way this problem goes away is if we can collectively improve our behavior.
 
-## What tech am I using?
+Current Mood:
 
-- Next.js 13.4.4
-- PostgreSQL
-- Prisma
-- TailwindCSS
-- React Toastify
-- Spoonacular API
-
-Current progress:
-
-![minWaste landing](./public//minwaste-landing.png)
-![minWaste kitchen](./public/waste-not.png)
-![minWaste resources](./public/minwaste-resources.png)
-![minWaste learn](./public/minwaste-learn.png)
+Updated Set 3: Earthy & Organic with Variations:
+Primary Background: Creamy Off-White - #FDFCFB
+Soothing Green: #89C9A3
+Darker Green (Selected): #6DA882
+Soothing Red: #F28C8C
+Darker Red (Selected): #D76A6A
+Light Blue-Gray: #DCE2E6
+Dark Text Color: Charcoal - #2B2B2B
+Burnt Orange - #FF9F67
+DCE2E6 blue

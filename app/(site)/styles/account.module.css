@@ -8,11 +8,11 @@
   width: 75%;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-color: rgba(245, 247, 249, 0.87);
+  background-color: #fdfcfb;
 }
 
 .layoutContainer {
-  background-color: rgba(249, 245, 245, 0.87);
+  background-color: #fdfcfb;
 }
 
 .pieContainer {

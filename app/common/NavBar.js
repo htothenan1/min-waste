@@ -53,11 +53,6 @@ const NavBar = ({ user }) => {
             className="mb-4 text-xl text-slate-600 font-quicksandBold"
           />
           <CustomLink
-            href={"/resources"}
-            title={"Resources"}
-            className="mb-4 text-xl text-slate-600 font-quicksandBold"
-          />
-          <CustomLink
             href={"/contact"}
             title={"Contact Us"}
             className="mb-4 text-xl text-slate-600 font-quicksandBold"
@@ -78,11 +73,6 @@ const NavBar = ({ user }) => {
           <CustomLink
             href={"/recipes"}
             title={"Recipes"}
-            className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600 font-quicksandBold"
-          />
-          <CustomLink
-            href={"/resources"}
-            title={"Resources"}
             className="inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-600 font-quicksandBold"
           />
           <CustomLink

@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import smileLogo from "../../../public/smile_logo.png"
 import Image from "next/image"
-import styles from "./register.module.css"
+import styles from "../styles/register.module.css"
 
 export default function Register() {
   const [data, setData] = useState({

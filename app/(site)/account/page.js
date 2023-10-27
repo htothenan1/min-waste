@@ -4,7 +4,7 @@ import PieChart from "../../components/PieChart"
 import AccountDetails from "../../components/AccountDetails"
 import NavBar from "../../common/NavBar"
 import Footer from "../../common/Footer"
-import styles from "./account.module.css"
+import styles from "../styles/account.module.css"
 import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 export default async function Account() {
