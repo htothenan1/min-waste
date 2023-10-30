@@ -11,6 +11,7 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 1rem;
+  margin-bottom: 8rem;
 }
 
 .foodForThoughtContainer {
@@ -19,9 +20,9 @@
   justify-content: center;
   width: 24rem;
   height: 18rem;
-  border: 1px solid;
-  border-radius: 0.375rem;
-  margin: 4rem 3.5rem 7rem 3.5rem;
+  margin-top: 8rem;
+  margin-bottom: 1rem;
+  margin-right: 11rem;
   padding: 20px;
 }
 
@@ -35,6 +36,7 @@
 
 .thoughtText {
   margin-top: 0.5rem;
+  text-align: center;
   color: #2b2b2b;
   font-size: 1rem;
   font-family: var(--font-quicksandBold);
