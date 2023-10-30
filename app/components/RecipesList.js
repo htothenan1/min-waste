@@ -2,7 +2,8 @@
 
 import styles from "./styles/recipesList.module.css"
 
-const RecipesList = ({ recipes, handleSelectRecipe }) => {
+const RecipesList = ({ recipes, handleSelectRecipe, selectedRecipe }) => {
+  console.log(selectedRecipe?.id)
   return (
     <div class={styles.recipesListContainer}>
       <h2 class={styles.titleText}>Your Recipes</h2>
@@ -13,7 +14,11 @@ const RecipesList = ({ recipes, handleSelectRecipe }) => {
             <li
               onClick={() => handleSelectRecipe(recipe.id)}
               key={recipe.id}
-              class={styles.recipeItem}
+              class={`${styles.recipeItem} ${
+                selectedRecipe && selectedRecipe.id === recipe.id
+                  ? styles.selectedItem
+                  : ""
+              }`}
             >
               {recipe.title}
             </li>

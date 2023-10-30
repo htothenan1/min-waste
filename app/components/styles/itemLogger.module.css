@@ -1,16 +1,8 @@
 .groceriesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin: 1.5rem 0;
-}
-
-@media (min-width: 768px) {
-  .groceriesContainer {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-  .itemsContainer {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
 }
 
 .titleText {
@@ -23,10 +15,10 @@
 
 .addItemsButton {
   padding: 0.375rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   outline: 1px solid rgb(112, 128, 144);
   font-family: var(--font-quicksandBold);
-  width: 100%;
+  width: 16rem;
   height: 2.5rem;
   font-size: 1rem;
   border-radius: 0.375rem;
@@ -54,18 +46,18 @@
 }
 
 .groceriesList {
-  display: flex;
-  flex-direction: column;
-  height: 20rem;
+  /* display: flex; */
+  /* flex-direction: column; */
+  height: 16rem;
   background-color: #fff7f7;
   border-radius: 0.375rem;
   overflow-y: scroll;
-  width: 12rem;
+  width: 16rem;
   margin-bottom: 1.75rem;
 }
 
 .groceryItem {
-  position: relative;
+  /* position: relative; */
   padding: 1rem;
   border-radius: 0.375rem;
   background-color: #f6f1f1;
@@ -87,16 +79,14 @@
 }
 
 .itemsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 1.5rem 0.5rem 1rem;
+  margin: 1.5rem 2rem;
 }
 
 .customAddButton {
   width: 2.5rem;
-  padding: 0.5rem 0.25rem;
-  margin: 0 0.25rem;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
   outline: 1px solid slategray;
   border-radius: 0.375rem;
   background-color: #ff9f67;
@@ -123,10 +113,10 @@
   background-color: #f6f1f1;
   display: flex;
   flex-direction: column;
-  height: 20rem;
+  height: 16rem;
   border-radius: 0.75rem;
   overflow-y: auto;
-  width: 12rem;
+  width: 16rem;
 }
 
 .redItem {

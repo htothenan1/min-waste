@@ -1,20 +1,15 @@
 .footerContainer {
   background-color: white;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 0px;
+  left: 0px;
   width: 100%;
-}
-
-.innerFooter {
   margin-left: auto;
   margin-right: auto;
-  max-width: 112rem;
   padding: 1rem 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .innerFooter {
+  .footerContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,10 +27,11 @@
 
 .creatorText {
   text-align: center;
-  font-size: 0.75rem; /* corresponds to text-xs in TailwindCSS */
-  line-height: 1.25rem; /* corresponds to leading-5 in TailwindCSS */
-  color: #2b2b2b; /* corresponds to text-gray-500 in TailwindCSS */
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: #2b2b2b;
   font-family: var(--font-quicksand);
+  margin-top: 0.5rem;
 }
 
 .footer-container {

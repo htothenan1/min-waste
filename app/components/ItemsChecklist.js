@@ -7,55 +7,27 @@ import { toast } from "react-toastify"
 import styles from "./styles/itemsChecklist.module.css"
 
 const ItemsChecklist = ({ items }) => {
+  const [selectedItems, setSelectedItems] = useState([])
+  const [loading, setLoading] = useState(false)
   const [fetchedRecipes, setFetchedRecipes] = useState(null)
   const [selectedRecipe, setSelectedRecipe] = useState(null)
-  const [checkedState, setCheckedState] = useState(
-    new Array(items.length).fill(false)
-  )
 
-  const calcDaysFrom = (data) => {
-    if (data.expiredAt) {
-      const daysFrom =
-        (data.expiredAt.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
-
-      if (daysFrom < 2) {
-        return styles.redItem
-      } else {
-        return styles.greenItem
-      }
+  const handleItemSelect = (item) => {
+    if (!selectedItems.includes(item.name)) {
+      setSelectedItems((prevItems) => [...prevItems, item.name])
+    } else {
+      setSelectedItems((prevItems) => prevItems.filter((i) => i !== item.name))
     }
-  }
-
-  const resetSelectedItems = () => {
-    setCheckedState(new Array(items.length).fill(false))
-  }
-
-  const handleItemSelect = (position) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
-    )
-    setCheckedState(updatedCheckedState)
   }
 
   const fetchRecipes = () => {
-    let itemsArray = []
-    for (let i = 0; i < items.length; i++) {
-      if (checkedState[i]) {
-        itemsArray.push(items[i])
-      }
-    }
-
-    if (itemsArray.length) {
-      const queryString = itemsArray.map((item) => item.name).join(",+")
+    if (selectedItems.length) {
+      const queryString = selectedItems.map((item) => item).join(",+")
       fetch(
         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=757d368ebb304fb3bf99a64e38c11942&ingredients=${queryString}&number=15`
       )
         .then((response) => response.json())
         .then((resItems) => {
-          toast.success("Recipes found!", {
-            position: "top-center",
-            autoClose: 1000,
-          })
           setFetchedRecipes(resItems)
         })
     } else {
@@ -79,40 +51,41 @@ const ItemsChecklist = ({ items }) => {
 
   return (
     <>
-      <button
-        disabled={!checkedState}
-        onClick={() => fetchRecipes()}
-        class={styles.getRecipesButton}
-      >
-        Get Recipes
-      </button>
-      <button onClick={() => resetSelectedItems()} class={styles.clearButton}>
-        Clear Selections
-      </button>
+      <div className="flex justify-center items-center flex-wrap">
+        <div class={styles.groceriesContainer}>
+          <h2 class={styles.titleText}>Your Items</h2>
+          <button
+            onClick={() => fetchRecipes()}
+            disabled={selectedItems.length === 0}
+            class={styles.addItemsButton}
+          >
+            {loading ? (
+              <ReloadIcon class={styles.reloadIcon} />
+            ) : (
+              <p class={selectedItems.length && styles.whiteText}>
+                Get Recipes ({selectedItems.length})
+              </p>
+            )}
+          </button>
 
-      <h2 class={styles.titleText}>Your Items</h2>
-
-      {items.length ? (
-        <div class={styles.itemsGrid}>
-          {items.map((item, index) => (
-            <div
-              onClick={() => handleItemSelect(index)}
-              key={item.id}
-              class={`${calcDaysFrom(item)} ${
-                checkedState[index] === true && styles.orangeBackground
-              }`}
-            >
-              <p>{item.name}</p>
-            </div>
-          ))}
+          <ul role="list" class={styles.groceriesList}>
+            {items.map((item) => (
+              <li
+                onClick={() => handleItemSelect(item)}
+                key={item.id}
+                class={`${styles.groceryItem} ${
+                  selectedItems.includes(item.name) &&
+                  styles.selectedGroceryItem
+                }`}
+              >
+                {item.name}
+              </li>
+            ))}
+          </ul>
         </div>
-      ) : (
-        <p class={styles.emptyListText}>
-          No Items! Log some items to get started!
-        </p>
-      )}
-      <div class={styles.recipeCardsContainer}>
+
         <RecipesList
+          selectedRecipe={selectedRecipe}
           recipes={fetchedRecipes}
           handleSelectRecipe={handleSelectRecipe}
         />

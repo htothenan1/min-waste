@@ -1,15 +1,15 @@
 .pageContainer {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  text-align: center;
   justify-content: center;
   align-items: center;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 1rem;
 }
 
 .headerText {
   color: #ff9f67;
   font-family: var(--font-quicksandBold);
   font-size: 2.5rem;
+  text-align: center;
 }
