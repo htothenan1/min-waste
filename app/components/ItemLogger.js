@@ -112,9 +112,9 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
           )}
         </button>
 
-        <ul role="list" class={styles.groceriesList}>
+        <div role="list" class={styles.groceriesList}>
           {filteredItems.map((item) => (
-            <li
+            <div
               onClick={() => handleItemSelect(item)}
               key={item.id}
               class={`${styles.groceryItem} ${
@@ -122,9 +122,9 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
               }`}
             >
               {item.name}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       <div class={styles.itemsContainer}>
         <h2 class={styles.titleText}>Your Items</h2>
@@ -147,10 +147,10 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
           </button>
         </div>
 
-        <ul role="list" class={styles.itemsList}>
+        <div role="list" class={styles.itemsList}>
           {items.length ? (
             items.map((item) => (
-              <li
+              <div
                 onClick={() => handleSelectItem(item)}
                 key={item.id}
                 class={`${calcDaysFrom(item)}`}
@@ -162,12 +162,12 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
                       (1000 * 3600 * 24)
                   )}d`}</p>
                 </div>
-              </li>
+              </div>
             ))
           ) : (
             <p class={styles.emptyListText}>Add an item!</p>
           )}
-        </ul>
+        </div>
       </div>
     </>
   )

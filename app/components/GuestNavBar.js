@@ -9,9 +9,10 @@ const GuestNavBar = () => {
   return (
     <nav class={styles.navContainer}>
       <Image class={styles.logo} src={logo} alt="Your Company" />
-      <h2 class={styles.logIn}>
-        <Link href={"/login"}>Log In</Link>
-      </h2>
+
+      <Link class={styles.logIn} href={"/login"}>
+        Log In
+      </Link>
     </nav>
   )
 }

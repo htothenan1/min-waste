@@ -3,6 +3,7 @@
   min-height: 100%;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 3rem;
@@ -10,8 +11,6 @@
 }
 
 .logo {
-  margin-left: auto;
-  margin-right: auto;
   height: 5rem;
   width: auto;
 }
@@ -60,6 +59,7 @@
 }
 
 .input {
+  padding-left: 0.5rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   width: 100%;
@@ -118,13 +118,17 @@
   font-weight: bold;
   line-height: 1.5;
   color: #fff;
+  outline: none;
+  border: none;
 }
 
 .bottomText {
   font-family: var(--font-quicksand);
+  font-size: 1rem;
 }
 
 .hyperLink {
   font-weight: 600;
   color: #6da882;
+  text-decoration: none;
 }

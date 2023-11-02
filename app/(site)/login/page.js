@@ -36,10 +36,8 @@ export default function Login() {
   return (
     <>
       <div class={styles.pageContainer}>
-        <div class={styles.welcomeLogoContainer}>
-          <Image class={styles.logo} src={smileLogo} alt="MinWaste Logo" />
-          <h2 class={styles.headerText}>Welcome Back!</h2>
-        </div>
+        <Image class={styles.logo} src={smileLogo} alt="MinWaste Logo" />
+        <h2 class={styles.headerText}>Welcome Back!</h2>
 
         <form class={styles.formContainer} onSubmit={loginUser}>
           <label htmlFor="email" class={styles.formLabel}>

@@ -7,6 +7,7 @@ import recipes from "../public/recipes.json"
 import grocerylist from "../public/grocerylist.json"
 import ideas from "../public/ideas.json"
 import styles from "./page.module.css"
+import Link from "next/link"
 
 export default async function Home() {
   return (
@@ -25,7 +26,9 @@ export default async function Home() {
           <p class={styles.subheaderText}>
             Start saving money (and the planet) today!
           </p>
-          <button class={styles.ctaButton}>See It In Action!</button>
+          <Link href={"/login"} class={styles.ctaButton}>
+            See It In Action!
+          </Link>
         </div>
         <div class={styles.contentContainer}>
           <div class={styles.sectionContainer}>
@@ -94,7 +97,9 @@ export default async function Home() {
             </div>
           </div>
           <div class={styles.signupButton}>
-            <button class={styles.ctaButton}>Sign Up For Free!</button>
+            <Link href={"/register"} class={styles.ctaButton}>
+              Sign Up For Free!
+            </Link>
           </div>
         </div>
       </div>

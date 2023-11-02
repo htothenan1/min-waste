@@ -4,6 +4,8 @@
   border-radius: 10px;
   padding: 1rem 1rem;
   background-color: #ff9f67;
+  cursor: pointer;
+  border: none;
 }
 
 .customLink {
@@ -36,6 +38,7 @@
   color: #2b2b2b;
   font-family: var(--font-quicksandBold);
   font-size: 1.25rem;
+  text-decoration: none;
 }
 
 .hidden {
@@ -63,6 +66,7 @@
 .hamburgerIcon {
   height: 1.5rem;
   width: 1.5rem;
+  cursor: pointer;
 }
 
 .webNavContainer {
@@ -97,14 +101,35 @@
   line-height: 1.25rem;
   color: #2b2b2b;
   font-family: var(--font-quicksandBold);
+  text-decoration: none;
 }
 
 .signOutContainer {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   right: 3rem;
   top: 4rem;
   border: 1px solid black;
   padding: 1rem 0.5rem;
   background-color: white;
   border-radius: 10px;
+}
+
+.accountText {
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: #2b2b2b;
+  font-family: var(--font-quicksandBold);
+}
+
+.signOutButton {
+  font-size: 0.875rem;
+  color: #2b2b2b;
+  font-family: var(--font-quicksandBold);
+  display: block;
+  cursor: pointer;
+  background: none;
+  border: none;
 }

@@ -8,10 +8,10 @@ const RecipesList = ({ recipes, handleSelectRecipe, selectedRecipe }) => {
     <div class={styles.recipesListContainer}>
       <h2 class={styles.titleText}>Your Recipes</h2>
 
-      <ul role="list" class={styles.recipesList}>
+      <div role="list" class={styles.recipesList}>
         {recipes && recipes.length > 0 ? (
           recipes.map((recipe) => (
-            <li
+            <div
               onClick={() => handleSelectRecipe(recipe.id)}
               key={recipe.id}
               class={`${styles.recipeItem} ${
@@ -21,12 +21,12 @@ const RecipesList = ({ recipes, handleSelectRecipe, selectedRecipe }) => {
               }`}
             >
               {recipe.title}
-            </li>
+            </div>
           ))
         ) : (
           <p class={styles.emptyListText}>No current recipes</p>
         )}
-      </ul>
+      </div>
     </div>
   )
 }

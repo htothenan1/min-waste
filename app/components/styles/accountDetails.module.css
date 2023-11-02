@@ -41,7 +41,7 @@
   font-size: 0.875rem;
   font-family: var(--font-quicksandBold);
   color: #fdfcfb;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: none;
 }
 
 .cancelButton {
@@ -57,7 +57,6 @@
   color: #1a202c;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   border: 1px solid #d2d6dc;
-  box-shadow: inset 0px 0px 0px 1px #d2d6dc;
 }
 
 .accountTitleText {
@@ -82,4 +81,6 @@
   color: #fdfcfb;
   font-size: 0.875rem;
   font-family: var(--font-quicksand);
+  border: none;
+  cursor: pointer;
 }

@@ -68,9 +68,9 @@ const ItemsChecklist = ({ items }) => {
             )}
           </button>
 
-          <ul role="list" class={styles.groceriesList}>
+          <div role="list" class={styles.groceriesList}>
             {items.map((item) => (
-              <li
+              <div
                 onClick={() => handleItemSelect(item)}
                 key={item.id}
                 class={`${styles.groceryItem} ${
@@ -79,9 +79,9 @@ const ItemsChecklist = ({ items }) => {
                 }`}
               >
                 {item.name}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         <RecipesList

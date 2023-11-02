@@ -50,6 +50,11 @@ const NavBar = ({ user }) => {
             className={styles.mobileCustomLinkText}
           />
           <CustomLink
+            href={"/account"}
+            title={"Account"}
+            className={styles.mobileCustomLinkText}
+          />
+          <CustomLink
             href={"/contact"}
             title={"Contact Us"}
             className={styles.mobileCustomLinkText}
@@ -75,6 +80,11 @@ const NavBar = ({ user }) => {
             className={styles.webNavLink}
           />
           <CustomLink
+            href={"/account"}
+            title={"Account"}
+            className={styles.webNavLink}
+          />
+          <CustomLink
             href={"/contact"}
             title={"Contact Us"}
             className={styles.webNavLink}
@@ -90,10 +100,13 @@ const NavBar = ({ user }) => {
         </button>
         {accountMenuOpen && (
           <div class={styles.signOutContainer}>
-            <h2>
-              <Link href="/account">Account</Link>
-            </h2>
-            <button onClick={() => signOut({ callbackUrl: "/" })}>
+            {/* <Link class={styles.accountText} href="/account">
+              Account
+            </Link> */}
+            <button
+              class={styles.signOutButton}
+              onClick={() => signOut({ callbackUrl: "/" })}
+            >
               Sign out
             </button>
           </div>
