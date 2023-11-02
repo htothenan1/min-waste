@@ -1,3 +1,11 @@
+.itemsChecklistContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
 .getRecipesButton {
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;

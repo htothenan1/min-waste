@@ -1,0 +1,19 @@
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  height: 5rem;
+  width: 5rem;
+}
+
+.logIn {
+  font-family: var(--font-quicksandBold);
+  color: white;
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  background-color: #ff9f67;
+}

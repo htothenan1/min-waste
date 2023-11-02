@@ -1,0 +1,157 @@
+.container {
+  background-color: #fdfcfb;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.headerText {
+  font-size: 2.5rem /* 36px */;
+  line-height: 2.5rem /* 40px */;
+  font-family: var(--font-quicksandBold);
+  color: #2b2b2b;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subheaderText {
+  margin-top: 0.5rem;
+  font-size: 1.125rem /* 36px */;
+  line-height: 1.75rem /* 40px */;
+  font-family: var(--font-quicksandBold);
+  color: #2b2b2b;
+}
+
+.orangeText {
+  color: #ff9f67;
+}
+
+.ctaButton {
+  margin-top: 2rem;
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: white;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: #ff9f67;
+  font-family: var(--font-quicksandBold);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 67%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTextContainer {
+  flex-grow: 1; /* flex-grow allows the item to grow to fill any available space */
+  text-align: left; /* text-center aligns text to the center */
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .sectionContainer {
+    width: 80%; /* This is the equivalent of w-4/5 */
+  }
+}
+
+@media (min-width: 640px) {
+  .sectionContainer {
+    flex-direction: row;
+  }
+
+  .lottieContainer {
+    width: 8rem;
+    height: 8rem;
+    margin-right: 2.5rem;
+  }
+
+  .middleLottieContainer {
+    width: 8rem;
+    height: 8rem;
+    margin-right: 2.5rem;
+    order: 0;
+  }
+
+  .sectionTextContainer {
+    margin-top: 0;
+  }
+}
+
+.lottieContainer {
+  height: 5rem;
+  width: 5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  color: #ff9f67;
+  flex-shrink: 0;
+  background-color: #fed7aa;
+}
+
+.middleLottieContainer {
+  height: 5rem;
+  width: 5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  color: #ff9f67;
+  flex-shrink: 0;
+  background-color: #fed7aa;
+  margin-left: 1.5rem;
+  order: 1;
+}
+
+.sectionTitle {
+  color: #ff9f67;
+  font-size: 1.125rem;
+  font-family: var(--font-quicksandBold);
+  margin-bottom: 0.5rem;
+}
+
+.sectionContentText {
+  color: #2b2b2b;
+  font-family: var(--font-quicksand);
+}
+
+.svg {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+}
+
+.signupButton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}

@@ -51,7 +51,7 @@ const ItemsChecklist = ({ items }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center flex-wrap mb-16">
+      <div class={styles.itemsChecklistContainer}>
         <div class={styles.groceriesContainer}>
           <h2 class={styles.titleText}>Your Items</h2>
           <button
