@@ -52,7 +52,7 @@ const ItemsChecklist = ({ items }) => {
   return (
     <>
       <div class={styles.itemsChecklistContainer}>
-        <div class={styles.groceriesContainer}>
+        <div>
           <h2 class={styles.titleText}>Your Items</h2>
           <button
             onClick={() => fetchRecipes()}

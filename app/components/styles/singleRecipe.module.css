@@ -1,14 +1,10 @@
-.recipeDetailsContainer {
-  /* margin: 1.5rem; */
-  /* border: 1px solid black; */
-}
-
 .textContainer {
-  /* padding: 20px; */
+  padding: 20px;
 }
 
 .titleText {
   text-align: left;
+  padding-top: 1rem;
   padding-bottom: 0.5rem;
   font-family: var(--font-quicksandBold);
   font-size: 1.125rem;

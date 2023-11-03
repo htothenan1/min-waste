@@ -11,7 +11,7 @@ const SingleRecipe = ({ recipe }) => {
   }, [recipe])
 
   return (
-    <div class={styles.recipeDetailsContainer}>
+    <div>
       <h2 class={styles.titleText}>Recipe Details</h2>
       <div ref={divRef} class={styles.recipeCardContainer}>
         {recipe ? (

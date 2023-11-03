@@ -1,18 +1,10 @@
-.recipesListContainer {
-  /* margin: 1.5rem; */
-  /* display: flex;
-  flex-direction: column;
-  border: 1px solid black; */
-}
-
 .titleText {
   text-align: left;
+  padding-top: 1rem;
   padding-bottom: 0.5rem;
   font-family: var(--font-quicksandBold);
   font-size: 1.125rem;
   color: #2f3337;
-  /* border: 1px solid black; */
-  /* margin-bottom: 0px; */
 }
 
 .recipesList {
@@ -24,7 +16,6 @@
   overflow-y: scroll;
   width: 20rem;
   margin-right: 1rem;
-  /* border: 1px solid black; */
 }
 
 .recipeItem {
