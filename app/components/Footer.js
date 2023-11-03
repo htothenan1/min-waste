@@ -1,5 +1,5 @@
 import styles from "./styles/footer.module.css"
-import { navigation } from "../data/icons"
+import { navIcons } from "../data/icons"
 
 export default function Footer() {
   return (
@@ -14,7 +14,7 @@ export default function Footer() {
             Hernan Berisso
           </a>
         </p>{" "}
-        {navigation.map((item) => (
+        {navIcons.map((item) => (
           <a key={item.name} href={item.href} target="_blank">
             <item.icon />
           </a>

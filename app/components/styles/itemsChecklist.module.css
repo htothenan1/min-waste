@@ -31,6 +31,7 @@
   background-color: #ff9f67;
   color: #1e3a8a;
   cursor: pointer;
+  border: none;
 }
 
 .addItemsButton:disabled {

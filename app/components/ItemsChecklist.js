@@ -21,6 +21,7 @@ const ItemsChecklist = ({ items }) => {
   }
 
   const fetchRecipes = () => {
+    setLoading(true)
     if (selectedItems.length) {
       const queryString = selectedItems.map((item) => item).join(",+")
       fetch(
@@ -36,6 +37,7 @@ const ItemsChecklist = ({ items }) => {
         autoClose: 1000,
       })
     }
+    setLoading(false)
   }
 
   const handleSelectRecipe = (data) => {
@@ -59,16 +61,12 @@ const ItemsChecklist = ({ items }) => {
             disabled={selectedItems.length === 0}
             class={styles.addItemsButton}
           >
-            {loading ? (
-              <ReloadIcon class={styles.reloadIcon} />
-            ) : (
-              <p class={selectedItems.length && styles.whiteText}>
-                Get Recipes ({selectedItems.length})
-              </p>
-            )}
+            <p class={selectedItems.length && styles.whiteText}>
+              Get Recipes ({selectedItems.length})
+            </p>
           </button>
 
-          <div role="list" class={styles.groceriesList}>
+          <div class={styles.groceriesList}>
             {items.map((item) => (
               <div
                 onClick={() => handleItemSelect(item)}

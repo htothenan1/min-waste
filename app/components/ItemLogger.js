@@ -6,7 +6,7 @@ import { addDays } from "date-fns"
 import { useSession } from "next-auth/react"
 import { generateStorageTip } from "../utils/openai"
 import { ingredientsObjects } from "../data/ingredients"
-import { ReloadIcon } from "@radix-ui/react-icons"
+import { ReloadIcon } from "@/data/icons"
 import styles from "./styles/itemLogger.module.css"
 
 const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {

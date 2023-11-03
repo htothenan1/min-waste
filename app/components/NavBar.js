@@ -6,7 +6,7 @@ import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { signOut } from "next-auth/react"
 import Link from "next/link"
-import { HamburgerMenuIcon } from "@radix-ui/react-icons"
+import { HamburgerIcon } from "@/data/icons"
 import styles from "./styles/navBar.module.css"
 
 const CustomLink = ({ href, title, className = "" }) => {
@@ -34,7 +34,7 @@ const NavBar = ({ user }) => {
         class={styles.hamburgerButton}
         onClick={() => setNavOpen(!navOpen)}
       >
-        <HamburgerMenuIcon class={styles.hamburgerIcon} aria-hidden="true" />
+        <HamburgerIcon class={styles.hamburgerIcon} aria-hidden="true" />
       </button>
       {navOpen ? (
         <div class={styles.mobileCustomLink}>
@@ -100,9 +100,6 @@ const NavBar = ({ user }) => {
         </button>
         {accountMenuOpen && (
           <div class={styles.signOutContainer}>
-            {/* <Link class={styles.accountText} href="/account">
-              Account
-            </Link> */}
             <button
               class={styles.signOutButton}
               onClick={() => signOut({ callbackUrl: "/" })}
