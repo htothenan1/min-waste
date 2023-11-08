@@ -8,7 +8,7 @@ import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
-  const { user } = await getUser(session.user.email)
+  const { user } = await getUser(session?.user?.email)
   const itemsCount = user?.itemsCounter
 
   return (
