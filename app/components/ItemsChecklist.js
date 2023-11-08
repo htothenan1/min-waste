@@ -53,25 +53,25 @@ const ItemsChecklist = ({ items }) => {
 
   return (
     <>
-      <div class={styles.itemsChecklistContainer}>
+      <div className={styles.itemsChecklistContainer}>
         <div>
-          <h2 class={styles.titleText}>Your Items</h2>
+          <h2 className={styles.titleText}>Your Items</h2>
           <button
             onClick={() => fetchRecipes()}
             disabled={selectedItems.length === 0}
-            class={styles.addItemsButton}
+            className={styles.addItemsButton}
           >
-            <p class={selectedItems.length && styles.whiteText}>
+            <p className={selectedItems.length && styles.whiteText}>
               Get Recipes ({selectedItems.length})
             </p>
           </button>
 
-          <div class={styles.groceriesList}>
+          <div className={styles.groceriesList}>
             {items.map((item) => (
               <div
                 onClick={() => handleItemSelect(item)}
                 key={item.id}
-                class={`${styles.groceryItem} ${
+                className={`${styles.groceryItem} ${
                   selectedItems.includes(item.name) &&
                   styles.selectedGroceryItem
                 }`}

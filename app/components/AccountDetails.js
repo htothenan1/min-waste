@@ -13,21 +13,24 @@ const AccountDetails = ({ user }) => {
 
   function Modal({ onClose }) {
     return (
-      <div class={styles.modalBackground} onClick={onClose}>
-        <div class={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
-          <h3 class={styles.modalTitle}>Delete All Current Items!</h3>
-          <p class={styles.modalSub}>
+      <div className={styles.modalBackground} onClick={onClose}>
+        <div
+          className={styles.modalContainer}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <h3 className={styles.modalTitle}>Delete All Current Items!</h3>
+          <p className={styles.modalSub}>
             Are you sure you want to delete all of your current items?
           </p>
           <button
-            class={styles.greenButton}
+            className={styles.greenButton}
             onClick={() => {
               deleteAllItems()
             }}
           >
             Delete All Items
           </button>
-          <button class={styles.cancelButton} onClick={onClose}>
+          <button className={styles.cancelButton} onClick={onClose}>
             Cancel
           </button>
         </div>
@@ -39,14 +42,17 @@ const AccountDetails = ({ user }) => {
     <>
       {isOpen && <Modal onClose={() => setIsOpen(false)}></Modal>}
 
-      <h1 class={styles.accountTitleText}>{user.name}&apos;s Account</h1>
-      <h2 class={styles.accountRegularText}>
+      <h1 className={styles.accountTitleText}>{user.name}&apos;s Account</h1>
+      <h2 className={styles.accountRegularText}>
         MinWaster since {user.createdAt.toDateString()}
       </h2>
-      <button class={styles.clearFridgeButton} onClick={() => setIsOpen(true)}>
+      <button
+        className={styles.clearFridgeButton}
+        onClick={() => setIsOpen(true)}
+      >
         Clear Fridge Items
       </button>
-      <h2 class={styles.accountRegularText}>
+      <h2 className={styles.accountRegularText}>
         Total Items Logged: {user.loggedCounter - user.mistakeCounter}
       </h2>
     </>

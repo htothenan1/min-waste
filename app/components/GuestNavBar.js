@@ -7,10 +7,10 @@ import styles from "./styles/guestNavBar.module.css"
 
 const GuestNavBar = () => {
   return (
-    <nav class={styles.navContainer}>
-      <Image class={styles.logo} src={logo} alt="Your Company" />
+    <nav className={styles.navContainer}>
+      <Image className={styles.logo} src={logo} alt="Your Company" />
 
-      <Link class={styles.logIn} href={"/login"}>
+      <Link className={styles.logIn} href={"/login"}>
         Log In
       </Link>
     </nav>

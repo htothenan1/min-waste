@@ -43,12 +43,12 @@ const Kitchen = ({ items }) => {
 
   return (
     <>
-      <h1 class={styles.headerText}>MinWaste Kitchen</h1>
-      <div class={styles.kitchenContainer}>
+      <h1 className={styles.headerText}>MinWaste Kitchen</h1>
+      <div className={styles.kitchenContainer}>
         {editMode ? (
-          <div class={styles.foodForThoughtContainer}>
-            <h2 class={styles.thoughtTitle}>Food For Thought</h2>
-            <p class={styles.thoughtText}>{currentThought}</p>
+          <div className={styles.foodForThoughtContainer}>
+            <h2 className={styles.thoughtTitle}>Food For Thought</h2>
+            <p className={styles.thoughtText}>{currentThought}</p>
           </div>
         ) : (
           <ItemLogger

@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function AccountLayout({ children }) {
   return (
-    <section class={styles.layoutContainer} lang="en">
+    <section className={styles.layoutContainer} lang="en">
       {children}
     </section>
   )

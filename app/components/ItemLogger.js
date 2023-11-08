@@ -94,30 +94,30 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
 
   return (
     <>
-      <div class={styles.groceriesContainer}>
-        <h2 class={styles.titleText}>Groceries</h2>
+      <div className={styles.groceriesContainer}>
+        <h2 className={styles.titleText}>Groceries</h2>
         <button
           onClick={() => {
             confirmAddItems()
           }}
           disabled={selectedItems.length === 0}
-          class={styles.addItemsButton}
+          className={styles.addItemsButton}
         >
           {loading ? (
-            <ReloadIcon class={styles.reloadIcon} />
+            <ReloadIcon className={styles.reloadIcon} />
           ) : (
-            <p class={selectedItems.length && styles.whiteText}>
+            <p className={selectedItems.length && styles.whiteText}>
               Add Selected ({selectedItems.length})
             </p>
           )}
         </button>
 
-        <div role="list" class={styles.groceriesList}>
+        <div role="list" className={styles.groceriesList}>
           {filteredItems.map((item) => (
             <div
               onClick={() => handleItemSelect(item)}
               key={item.id}
-              class={`${styles.groceryItem} ${
+              className={`${styles.groceryItem} ${
                 selectedItems.includes(item.name) && styles.selectedGroceryItem
               }`}
             >
@@ -126,8 +126,8 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
           ))}
         </div>
       </div>
-      <div class={styles.itemsContainer}>
-        <h2 class={styles.titleText}>Your Items</h2>
+      <div className={styles.itemsContainer}>
+        <h2 className={styles.titleText}>Your Items</h2>
         <div>
           <input
             minLength="2"
@@ -135,27 +135,31 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
             value={customItem}
             onChange={(e) => setCustomItem(e.target.value)}
             placeholder="Custom Item"
-            class={styles.customAddInput}
+            className={styles.customAddInput}
           />
 
           <button
             disabled={customItem === ""}
             onClick={() => addCustomItem(customItem)}
-            class={styles.customAddButton}
+            className={styles.customAddButton}
           >
-            {customLoading ? <ReloadIcon class={styles.reloadIcon} /> : "Add"}
+            {customLoading ? (
+              <ReloadIcon className={styles.reloadIcon} />
+            ) : (
+              "Add"
+            )}
           </button>
         </div>
 
-        <div role="list" class={styles.itemsList}>
+        <div role="list" className={styles.itemsList}>
           {items.length ? (
             items.map((item) => (
               <div
                 onClick={() => handleSelectItem(item)}
                 key={item.id}
-                class={`${calcDaysFrom(item)}`}
+                className={`${calcDaysFrom(item)}`}
               >
-                <div class={styles.listItemContainer}>
+                <div className={styles.listItemContainer}>
                   <p>{item.name}</p>
                   <p>{`${Math.round(
                     (item.expiredAt.getTime() - new Date().getTime()) /
@@ -165,7 +169,7 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
               </div>
             ))
           ) : (
-            <p class={styles.emptyListText}>Add an item!</p>
+            <p className={styles.emptyListText}>Add an item!</p>
           )}
         </div>
       </div>

@@ -13,8 +13,8 @@ export default async function Recipes() {
   return (
     <>
       <NavBar user={user?.name} />
-      <div class={styles.pageContainer}>
-        <h1 class={styles.headerText}>Recipes</h1>
+      <div className={styles.pageContainer}>
+        <h1 className={styles.headerText}>Recipes</h1>
         <ItemsChecklist items={user?.items} />
       </div>
       <Footer />

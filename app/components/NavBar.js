@@ -13,10 +13,10 @@ const CustomLink = ({ href, title, className = "" }) => {
   const pathname = usePathname()
 
   return (
-    <Link href={href} class={`${className} ${styles.customLink}`}>
+    <Link href={href} className={`${className} ${styles.customLink}`}>
       {title}
       <span
-        class={`${styles.mobileCustomLinkLine} ${
+        className={`${styles.mobileCustomLinkLine} ${
           pathname !== href && styles.hidden
         }`}
       ></span>
@@ -29,15 +29,15 @@ const NavBar = ({ user }) => {
   const [accountMenuOpen, setAccountMenuOpen] = useState(false)
 
   return (
-    <nav class={styles.navContainer}>
+    <nav className={styles.navContainer}>
       <button
-        class={styles.hamburgerButton}
+        className={styles.hamburgerButton}
         onClick={() => setNavOpen(!navOpen)}
       >
-        <HamburgerIcon class={styles.hamburgerIcon} aria-hidden="true" />
+        <HamburgerIcon className={styles.hamburgerIcon} aria-hidden="true" />
       </button>
       {navOpen ? (
-        <div class={styles.mobileCustomLink}>
+        <div className={styles.mobileCustomLink}>
           <Image width={80} height={80} src={logo} alt="MinWaste" />
           <CustomLink
             href={"/kitchen"}
@@ -61,11 +61,11 @@ const NavBar = ({ user }) => {
           />
         </div>
       ) : (
-        <div class={styles.webNavContainer}>
+        <div className={styles.webNavContainer}>
           <Image
             width={80}
             height={80}
-            class={styles.webNavLogo}
+            className={styles.webNavLogo}
             src={logo}
             alt="MinWaste"
           />
@@ -94,14 +94,14 @@ const NavBar = ({ user }) => {
       <div>
         <button
           onClick={() => setAccountMenuOpen(!accountMenuOpen)}
-          class={styles.userName}
+          className={styles.userName}
         >
           {user}
         </button>
         {accountMenuOpen && (
-          <div class={styles.signOutContainer}>
+          <div className={styles.signOutContainer}>
             <button
-              class={styles.signOutButton}
+              className={styles.signOutButton}
               onClick={() => signOut({ callbackUrl: "/" })}
             >
               Sign out

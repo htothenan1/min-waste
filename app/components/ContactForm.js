@@ -2,19 +2,19 @@ import styles from "./styles/contactForm.module.css"
 
 export default function ContactForm() {
   return (
-    <div class={styles.contactContainer}>
-      <div class={styles.headerContainer}>
-        <h2 class={styles.titleText}>Contact us</h2>
-        <p class={styles.subText}>
+    <div className={styles.contactContainer}>
+      <div className={styles.headerContainer}>
+        <h2 className={styles.titleText}>Contact us</h2>
+        <p className={styles.subText}>
           Have a feature idea? Found a bug? Let us know!
         </p>
       </div>
       <form
         action="https://formsubmit.co/hberissodev@gmail.com"
         method="POST"
-        class={styles.formContainer}
+        className={styles.formContainer}
       >
-        <label htmlFor="first-name" class={styles.labelText}>
+        <label htmlFor="first-name" className={styles.labelText}>
           First name
         </label>
         <input
@@ -23,10 +23,10 @@ export default function ContactForm() {
           id="first-name"
           autoComplete="given-name"
           required
-          class={styles.input}
+          className={styles.input}
         />
 
-        <label htmlFor="email" class={styles.labelText}>
+        <label htmlFor="email" className={styles.labelText}>
           Email
         </label>
         <input
@@ -34,11 +34,11 @@ export default function ContactForm() {
           name="email"
           id="email"
           autoComplete="email"
-          class={styles.input}
+          className={styles.input}
           required
         />
 
-        <label htmlFor="message" class={styles.labelText}>
+        <label htmlFor="message" className={styles.labelText}>
           Message
         </label>
         <textarea
@@ -46,9 +46,9 @@ export default function ContactForm() {
           name="message"
           id="message"
           rows={4}
-          class={styles.textArea}
+          className={styles.textArea}
         />
-        <button type="submit" class={styles.sendButton}>
+        <button type="submit" className={styles.sendButton}>
           Send Message
         </button>
       </form>

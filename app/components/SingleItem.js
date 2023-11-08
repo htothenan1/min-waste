@@ -77,25 +77,28 @@ const SingleItemView = ({
 
   function MistakenModal({ onClose }) {
     return (
-      <div class={styles.modalBackground} onClick={onClose}>
-        <div class={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
-          <h3 class={styles.modalTitle}>Item Added by Mistake</h3>
-          <p class={styles.modalSub}>Was this item added by mistake?</p>
+      <div className={styles.modalBackground} onClick={onClose}>
+        <div
+          className={styles.modalContainer}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <h3 className={styles.modalTitle}>Item Added by Mistake</h3>
+          <p className={styles.modalSub}>Was this item added by mistake?</p>
           <button
-            class={styles.greenButton}
+            className={styles.greenButton}
             onClick={() => {
               deleteMistakenItem(item)
             }}
             disabled={deleteLoading}
           >
             {deleteLoading ? (
-              <ReloadIcon class={styles.reloadIcon} />
+              <ReloadIcon className={styles.reloadIcon} />
             ) : (
               <p>Yes</p>
             )}
           </button>
 
-          <button class={styles.cancelButton} onClick={onClose}>
+          <button className={styles.cancelButton} onClick={onClose}>
             Cancel
           </button>
         </div>
@@ -105,19 +108,22 @@ const SingleItemView = ({
 
   function FinishedModal({ onClose }) {
     return (
-      <div class={styles.modalBackground} onClick={onClose}>
-        <div class={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
-          <h3 class={styles.modalTitle}>Item Finished</h3>
-          <p class={styles.modalSub}>Was any of this item wasted?</p>
+      <div className={styles.modalBackground} onClick={onClose}>
+        <div
+          className={styles.modalContainer}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <h3 className={styles.modalTitle}>Item Finished</h3>
+          <p className={styles.modalSub}>Was any of this item wasted?</p>
           <button
-            class={styles.greenButton}
+            className={styles.greenButton}
             onClick={() => {
               deleteItem(item)
             }}
             disabled={deleteLoading}
           >
             {deleteLoading ? (
-              <ReloadIcon class={styles.reloadIcon} />
+              <ReloadIcon className={styles.reloadIcon} />
             ) : (
               <p>Nope!</p>
             )}
@@ -128,12 +134,16 @@ const SingleItemView = ({
               deleteItemWithWaste(item)
             }}
             disabled={wasteLoading}
-            class={styles.redButton}
+            className={styles.redButton}
           >
-            {wasteLoading ? <ReloadIcon class={styles.reloadIcon} /> : "Yes"}
+            {wasteLoading ? (
+              <ReloadIcon className={styles.reloadIcon} />
+            ) : (
+              "Yes"
+            )}
           </button>
 
-          <button class={styles.cancelButton} onClick={onClose}>
+          <button className={styles.cancelButton} onClick={onClose}>
             Cancel
           </button>
         </div>
@@ -155,23 +165,23 @@ const SingleItemView = ({
         ></MistakenModal>
       )}
 
-      <div class={styles.itemDetailsContainer}>
-        <h2 class={styles.titleText}>Item Details</h2>
+      <div className={styles.itemDetailsContainer}>
+        <h2 className={styles.titleText}>Item Details</h2>
 
-        <div class={styles.cardContainer}>
+        <div className={styles.cardContainer}>
           <a.div
-            class={styles.sideA}
+            className={styles.sideA}
             style={{ opacity: opacity.to((o) => 1 - o), transform }}
           >
             {item ? (
               <>
                 <button
-                  class={styles.storageTipsButton}
+                  className={styles.storageTipsButton}
                   onClick={() => set((state) => !state)}
                 >
                   Click for Storage Tips
                 </button>
-                <h2 class={styles.itemNameTitle}>{item.name}</h2>
+                <h2 className={styles.itemNameTitle}>{item.name}</h2>
                 {editStatus ? (
                   <Calendar
                     minDate={new Date()}
@@ -180,7 +190,7 @@ const SingleItemView = ({
                     value={value}
                   />
                 ) : (
-                  <h2 class={styles.itemDateText}>{`Use By: ${
+                  <h2 className={styles.itemDateText}>{`Use By: ${
                     item.expiredAt
                       ? item.expiredAt.toLocaleString("en-En", {
                           weekday: "short",
@@ -196,10 +206,10 @@ const SingleItemView = ({
                     onClick={() => {
                       updateItem(item)
                     }}
-                    class={styles.confirmButton}
+                    className={styles.confirmButton}
                   >
                     {updateLoading ? (
-                      <ReloadIcon class={styles.reloadIcon} />
+                      <ReloadIcon className={styles.reloadIcon} />
                     ) : (
                       "Confirm Changes"
                     )}
@@ -210,7 +220,7 @@ const SingleItemView = ({
                     onClick={() => {
                       handleEditToggle(true)
                     }}
-                    class={styles.changeDateButton}
+                    className={styles.changeDateButton}
                   >
                     Change Date
                   </button>
@@ -220,14 +230,14 @@ const SingleItemView = ({
                     <button
                       disabled={flipped}
                       onClick={() => setFinishedModalOpen(true)}
-                      class={styles.itemFinishedButton}
+                      className={styles.itemFinishedButton}
                     >
                       Item Finished
                     </button>
                     <button
                       disabled={flipped}
                       onClick={() => setMistakenModalOpen(true)}
-                      class={styles.mistakeButton}
+                      className={styles.mistakeButton}
                     >
                       Added by mistake?
                     </button>
@@ -235,11 +245,11 @@ const SingleItemView = ({
                 )}
               </>
             ) : (
-              <h2 class={styles.noItemText}>No item selected</h2>
+              <h2 className={styles.noItemText}>No item selected</h2>
             )}
           </a.div>
           <a.div
-            class={styles.sideB}
+            className={styles.sideB}
             style={{
               opacity,
               transform,
@@ -248,15 +258,15 @@ const SingleItemView = ({
           >
             {item ? (
               <>
-                <h2 class={styles.storageTipsTitle}>
+                <h2 className={styles.storageTipsTitle}>
                   {`Storage Tips for ${item.name}:`}
                 </h2>
-                <p class={styles.storageTipsSub}>{item.storageTip}</p>
+                <p className={styles.storageTipsSub}>{item.storageTip}</p>
 
-                <button class={styles.flipBackButton}>Flip Back</button>
+                <button className={styles.flipBackButton}>Flip Back</button>
               </>
             ) : (
-              <h2 class={styles.noItemText}>No item selected</h2>
+              <h2 className={styles.noItemText}>No item selected</h2>
             )}
           </a.div>
         </div>

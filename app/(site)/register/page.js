@@ -47,12 +47,12 @@ export default function Register() {
 
   return (
     <>
-      <div class={styles.pageContainer}>
-        <Image class={styles.logo} src={smileLogo} alt="Your Company" />
-        <h2 class={styles.headerText}>Sign up for an account</h2>
+      <div className={styles.pageContainer}>
+        <Image className={styles.logo} src={smileLogo} alt="Your Company" />
+        <h2 className={styles.headerText}>Sign up for an account</h2>
 
-        <form class={styles.formContainer} onSubmit={registerUser}>
-          <label htmlFor="name" class={styles.formLabel}>
+        <form className={styles.formContainer} onSubmit={registerUser}>
+          <label htmlFor="name" className={styles.formLabel}>
             First Name
           </label>
           <input
@@ -62,10 +62,10 @@ export default function Register() {
             name="name"
             type="text"
             required
-            class={styles.input}
+            className={styles.input}
           />
           <div>
-            <label class={styles.formLabel} htmlFor="email">
+            <label className={styles.formLabel} htmlFor="email">
               Email address
             </label>
             <input
@@ -78,25 +78,25 @@ export default function Register() {
               type="email"
               autoComplete="email"
               required
-              class={styles.input}
+              className={styles.input}
             />
           </div>
 
-          <div class={styles.passwordContainer}>
-            <label htmlFor="password" class={styles.formLabel}>
+          <div className={styles.passwordContainer}>
+            <label htmlFor="password" className={styles.formLabel}>
               Password
             </label>
             <span>
               {showPassword ? (
                 <div
-                  class={styles.showPassword}
+                  className={styles.showPassword}
                   onClick={() => setShowPassword(false)}
                 >
                   hide password
                 </div>
               ) : (
                 <div
-                  class={styles.showPassword}
+                  className={styles.showPassword}
                   onClick={() => setShowPassword(true)}
                 >
                   show password
@@ -112,15 +112,15 @@ export default function Register() {
             type={`${showPassword ? "text" : "password"}`}
             autoComplete="current-password"
             required
-            class={styles.input}
+            className={styles.input}
           />
 
-          <button type="submit" class={styles.signInButton}>
+          <button type="submit" className={styles.signInButton}>
             Register
           </button>
-          <h2 class={styles.bottomText}>
+          <h2 className={styles.bottomText}>
             Already have an account?{" "}
-            <a href="/login" class={styles.hyperLink}>
+            <a href="/login" className={styles.hyperLink}>
               Sign in here!
             </a>
           </h2>

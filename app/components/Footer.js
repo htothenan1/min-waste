@@ -3,9 +3,9 @@ import { navIcons } from "../data/icons"
 
 export default function Footer() {
   return (
-    <footer class={styles.footerContainer}>
-      <div class={styles.createdByContainer}>
-        <p class={styles.creatorText}>
+    <footer className={styles.footerContainer}>
+      <div className={styles.createdByContainer}>
+        <p className={styles.creatorText}>
           Created by{" "}
           <a
             target="_blank"
@@ -20,7 +20,7 @@ export default function Footer() {
           </a>
         ))}
       </div>
-      <p class={styles.creatorText}>
+      <p className={styles.creatorText}>
         &copy;2023 MinWaste, LLC. All rights reserved.
       </p>
     </footer>

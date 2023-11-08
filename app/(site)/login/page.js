@@ -35,12 +35,12 @@ export default function Login() {
 
   return (
     <>
-      <div class={styles.pageContainer}>
-        <Image class={styles.logo} src={smileLogo} alt="MinWaste Logo" />
-        <h2 class={styles.headerText}>Welcome Back!</h2>
+      <div className={styles.pageContainer}>
+        <Image className={styles.logo} src={smileLogo} alt="MinWaste Logo" />
+        <h2 className={styles.headerText}>Welcome Back!</h2>
 
-        <form class={styles.formContainer} onSubmit={loginUser}>
-          <label htmlFor="email" class={styles.formLabel}>
+        <form className={styles.formContainer} onSubmit={loginUser}>
+          <label htmlFor="email" className={styles.formLabel}>
             Email address
           </label>
           <input
@@ -53,24 +53,24 @@ export default function Login() {
               setData({ ...data, email: e.target.value.toLowerCase() })
             }
             required
-            class={styles.input}
+            className={styles.input}
           />
           <div>
-            <div class={styles.passwordContainer}>
-              <label htmlFor="password" class={styles.formLabel}>
+            <div className={styles.passwordContainer}>
+              <label htmlFor="password" className={styles.formLabel}>
                 Password
               </label>
               <div>
                 {showPassword ? (
                   <div
-                    class={styles.showPassword}
+                    className={styles.showPassword}
                     onClick={() => setShowPassword(false)}
                   >
                     hide password
                   </div>
                 ) : (
                   <div
-                    class={styles.showPassword}
+                    className={styles.showPassword}
                     onClick={() => setShowPassword(true)}
                   >
                     show password
@@ -86,15 +86,15 @@ export default function Login() {
               required
               value={data.password}
               onChange={(e) => setData({ ...data, password: e.target.value })}
-              class={styles.input}
+              className={styles.input}
             />
           </div>
-          <button type="submit" class={styles.signInButton}>
+          <button type="submit" className={styles.signInButton}>
             Sign in
           </button>
-          <h2 class={styles.bottomText}>
+          <h2 className={styles.bottomText}>
             Don&apos;t have an account yet?{" "}
-            <a class={styles.hyperLink} href="/register">
+            <a className={styles.hyperLink} href="/register">
               Sign up here!
             </a>
           </h2>
