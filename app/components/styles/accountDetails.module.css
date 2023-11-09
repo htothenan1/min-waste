@@ -98,3 +98,14 @@
     transform: rotate(360deg);
   }
 }
+
+.fileInput {
+  display: none;
+}
+
+.button-upload {
+  cursor: pointer;
+  font: inherit;
+  min-height: 48px;
+  min-width: 48px;
+}

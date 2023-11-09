@@ -6,13 +6,15 @@ import {
   incrementLogCounterAction,
 } from "@/_actions"
 import { addDays } from "date-fns"
+import { toast } from "react-toastify"
 import { useSession } from "next-auth/react"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { generateStorageTip, receiptTest, veggiesTest } from "@/utils/openai"
 import styles from "./styles/accountDetails.module.css"
 import { ReloadIcon } from "@/data/icons"
 
 const AccountDetails = ({ user }) => {
+  const hiddenFileInput = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   const { data: session } = useSession()
   const [file, setFile] = useState(undefined)
@@ -22,6 +24,10 @@ const AccountDetails = ({ user }) => {
   const deleteAllItems = async () => {
     await deleteItemsActions(user.id)
     setIsOpen(false)
+  }
+
+  const handleClick = () => {
+    hiddenFileInput.current.click()
   }
 
   const addCustomItem = async (clientData) => {
@@ -36,20 +42,19 @@ const AccountDetails = ({ user }) => {
     await incrementLogCounterAction(session.user.email)
   }
 
-  const handleAddItems = () => {
-    handleVeggies()
-    itemList.forEach((item) => {
-      addCustomItem(item)
-    })
-  }
-
   const confirmAddItems = async () => {
     setLoading(true)
     try {
       await Promise.all(itemList.map((item) => addCustomItem(item)))
+      toast.success(`${itemList.length} items added!`, {
+        position: "top-center",
+        autoClose: 1000,
+      })
+      setItemList([])
     } catch (error) {
       console.error("Error adding items:", error)
     }
+
     setLoading(false)
   }
 
@@ -112,7 +117,20 @@ const AccountDetails = ({ user }) => {
       >
         Clear Fridge Items
       </button>
-      <input type="file" onChange={(e) => handleOnChange(e)} />
+
+      <button className={styles.clearFridgeButton} onClick={handleClick}>
+        Upload a Pic
+      </button>
+
+      <input
+        className={styles.fileInput}
+        type="file"
+        ref={hiddenFileInput}
+        onChange={(e) => handleOnChange(e)}
+      />
+
+      {file && <p>file uploaded successfully</p>}
+
       <button
         className={styles.clearFridgeButton}
         onClick={() => handleVeggies()}
@@ -123,6 +141,11 @@ const AccountDetails = ({ user }) => {
           "Analyze Photo"
         )}
       </button>
+
+      {itemList.length > 0 && (
+        <p>{`${itemList.length} grocery items identified`}</p>
+      )}
+
       {/* <button
         className={styles.clearFridgeButton}
         onClick={() => receiptTest(file)}
