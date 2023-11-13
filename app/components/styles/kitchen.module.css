@@ -1,3 +1,114 @@
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContainer {
+  background-color: #fdfcfb;
+  padding: 30px 40px;
+  border-radius: 8px;
+  pointer-events: auto;
+}
+
+.modalTitle {
+  color: #2b2b2b;
+  font-size: 1rem;
+  font-family: var(--font-quicksandBold);
+}
+
+.modalSub {
+  color: #2b2b2b;
+  font-size: 1rem;
+  font-family: var(--font-quicksand);
+}
+
+.greenButton {
+  margin-top: 1.25rem;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 0.375rem;
+  background-color: #6da882;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksandBold);
+  color: #fdfcfb;
+  border: none;
+  cursor: pointer;
+}
+
+.fileInput {
+  display: none;
+}
+
+.button-upload {
+  cursor: pointer;
+  font: inherit;
+  min-height: 48px;
+  min-width: 48px;
+}
+
+.imagePreview {
+  height: 150px;
+  border-radius: 10px;
+}
+
+.clearFridgeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  margin: 0.5rem auto;
+  border-radius: 0.375rem;
+  background-color: #ff9f67;
+  color: #fdfcfb;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksand);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.AiLogButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  margin: 0.5rem auto;
+  border-radius: 0.375rem;
+  background-color: #ff9f67;
+  color: #fdfcfb;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksand);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cancelButton {
+  margin-top: 0.75rem;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 0.375rem;
+  background-color: #fdfcfb;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksandBold);
+  color: #1a202c;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  border: 1px solid #d2d6dc;
+  cursor: pointer;
+}
+
 .headerText {
   color: #ff9f67;
   font-family: var(--font-quicksandBold);
@@ -40,4 +151,33 @@
   color: #2b2b2b;
   font-size: 1rem;
   font-family: var(--font-quicksandBold);
+}
+
+.addButton {
+  margin-top: 1.25rem;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 0.375rem;
+  background-color: #6da882;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: var(--font-quicksand);
+  color: #fdfcfb;
+  border: none;
+  cursor: pointer;
+}
+
+.reloadIcon {
+  margin: 3px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

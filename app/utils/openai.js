@@ -1,7 +1,5 @@
 "use server"
 
-const fs = require("fs")
-
 import OpenAI from "openai"
 
 const openai = new OpenAI({
@@ -14,7 +12,7 @@ export async function generateStorageTip(item) {
     messages: [
       {
         role: "user",
-        content: `Best storage advice for ${item}, limit response to 3 sentences.`,
+        content: `Best storage tips for ${item}, limit response to 3 sentences. Make sure you are interpreting the item as a common grocery item, if possible.`,
       },
     ],
     model: "gpt-3.5-turbo",
@@ -55,7 +53,7 @@ export async function veggiesTest(imgFile) {
         content: [
           {
             type: "text",
-            text: "Can you list the vegetables and fruits in this picture, seperated by commas. Please capitalize each item and do not include any other words in your response. Please make sure items any sort of adjectives.",
+            text: "Identify the fruits and vegetables in the attached image. Return the results in JSON format, with the common plural name of each fruit or vegetable as the key (if grammatically appropriate), and the value for that key being a single sentence containing the best practice storage tip for that item. Only include the beginning and ending bracket, and the key and value strings. No other characters can be in the response. Make sure the key names are capitalized.",
           },
           {
             type: "image_url",

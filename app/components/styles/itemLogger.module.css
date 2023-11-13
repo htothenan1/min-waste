@@ -5,6 +5,10 @@
   margin: 1.5rem 0;
 }
 
+.addItemsButton .buttonDisabled {
+  background-color: red;
+}
+
 .titleText {
   text-align: left;
   padding-bottom: 0.5rem;

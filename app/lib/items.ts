@@ -146,6 +146,19 @@ export async function incrementLogCounter(email: string) {
     return { error }
   }
 }
+
+export async function multiLogIncrement(email: string, itemCount: number) {
+  try {
+    const user = await prisma.user.update({
+      where: { email },
+      data: { loggedCounter: { increment: itemCount } },
+    })
+    return { user }
+  } catch (error) {
+    return { error }
+  }
+}
+
 export async function incrementCounter(email: string) {
   try {
     const user = await prisma.user.update({

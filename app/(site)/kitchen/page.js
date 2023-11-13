@@ -15,11 +15,7 @@ export default async function Home() {
     <>
       <NavBar user={user?.name} />
       <div className={styles.pageContainer}>
-        <Kitchen
-          items={user?.items}
-          itemsCount={itemsCount}
-          userName={user?.name}
-        />
+        <Kitchen user={user} items={user?.items} userName={user?.name} />
         <div className={styles.instructionsContainer}>
           <h2 className={styles.instructionsTitle}>
             How to get the most out of your{" "}

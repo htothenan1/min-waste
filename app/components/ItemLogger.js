@@ -23,12 +23,13 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
   })
 
   const handleItemSelect = (item) => {
-    if (!selectedItems.includes(item.name)) {
-      setSelectedItems((prevItems) => [...prevItems, item.name])
-    } else {
+    if (selectedItems.includes(item.name)) {
+      // Always allow unselecting items
       setSelectedItems((prevItems) => prevItems.filter((i) => i !== item.name))
+    } else if (selectedItems.length < 6) {
+      // Allow selecting new items only if less than 6 items are already selected
+      setSelectedItems((prevItems) => [...prevItems, item.name])
     }
-    console.log(selectedItems)
   }
 
   const calcDaysFrom = (data) => {
@@ -101,13 +102,17 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
             confirmAddItems()
           }}
           disabled={selectedItems.length === 0}
-          className={styles.addItemsButton}
+          className={`${styles.addItemsButton} ${
+            selectedItems.length === 6 && styles.buttonDisabled
+          }`}
         >
           {loading ? (
             <ReloadIcon className={styles.reloadIcon} />
           ) : (
             <p className={selectedItems.length && styles.whiteText}>
-              Add Selected ({selectedItems.length})
+              Add Selected (
+              {`${selectedItems.length === 6 ? "MAXED" : selectedItems.length}`}
+              )
             </p>
           )}
         </button>

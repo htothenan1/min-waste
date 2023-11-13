@@ -11,6 +11,7 @@ import {
   incrementLogCounter,
   incrementMistakeCounter,
   deleteItems,
+  multiLogIncrement,
 } from "./lib/items"
 import { revalidatePath } from "next/cache"
 
@@ -64,5 +65,10 @@ export async function incrementLogCounterAction(email) {
 
 export async function incrementMistakeCounterAction(email) {
   await incrementMistakeCounter(email)
+  revalidatePath("/")
+}
+
+export async function multiLogIncrementAction(email, itemCount) {
+  await multiLogIncrement(email, itemCount)
   revalidatePath("/")
 }
