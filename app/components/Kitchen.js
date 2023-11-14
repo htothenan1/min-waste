@@ -12,13 +12,22 @@ import {
   deleteItemsActions,
   multiLogIncrementAction,
 } from "@/_actions"
-import { ReloadIcon, TrashCan, UploadIcon, MagicStick } from "@/data/icons"
-import { veggiesTest } from "@/utils/openai"
+import {
+  ReloadIcon,
+  TrashCan,
+  UploadIcon,
+  MagicStick,
+  FruitsIcon,
+  ReceiptIcon,
+} from "@/data/icons"
+import { veggiesTest, receiptTest } from "@/utils/openai"
 import { addDays } from "date-fns"
 
 const Kitchen = ({ items, user }) => {
-  const hiddenFileInput = useRef(null)
-  const [file, setFile] = useState(undefined)
+  const hiddenGroceryInput = useRef(null)
+  const hiddenReceiptInput = useRef(null)
+  const [groceryFile, setGroceryFile] = useState(undefined)
+  const [receiptFile, setReceiptFile] = useState(undefined)
   const [itemList, setItemList] = useState({})
   const [openLoading, setOpenLoading] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
@@ -55,11 +64,10 @@ const Kitchen = ({ items, user }) => {
     await createItemAction(session.user.email, name, tip, fiveDaysFromToday)
   }
 
-  const handleAddItems = async () => {
+  const handleAddGroceryItems = async () => {
     setOpenLoading(true)
 
-    const itemsString = await veggiesTest(file)
-    console.log(itemsString.message.content)
+    const itemsString = await veggiesTest(groceryFile)
     const itemsObject = JSON.parse(itemsString.message.content)
 
     try {
@@ -75,7 +83,7 @@ const Kitchen = ({ items, user }) => {
 
       await multiLogIncrementAction(session.user.email, results.length)
       setItemList({})
-      setFile(undefined)
+      setGroceryFile(undefined)
     } catch (error) {
       console.error("Error adding items:", error)
     }
@@ -83,13 +91,79 @@ const Kitchen = ({ items, user }) => {
     setOpenLoading(false)
   }
 
-  const handleOnChange = (e) => {
+  const handleAddReceiptItems = async () => {
+    setOpenLoading(true)
+
+    const itemsString = await receiptTest(receiptFile)
+    const itemsObject = JSON.parse(itemsString.message.content)
+
+    try {
+      const promises = Object.entries(itemsObject).map(([itemName, tip]) => {
+        return addCustomItem(itemName, tip)
+      })
+
+      const results = await Promise.all(promises)
+      toast.success(`${results.length} items added!`, {
+        position: "top-center",
+        autoClose: 1000,
+      })
+
+      await multiLogIncrementAction(session.user.email, results.length)
+      setItemList({})
+      setReceiptFile(undefined)
+    } catch (error) {
+      console.error("Error adding items:", error)
+    }
+
+    setOpenLoading(false)
+  }
+
+  const handleGroceryOnChange = (e) => {
+    const file = e.target.files[0]
+
+    // Check if a file is selected
+    if (!file) {
+      alert("No file selected.")
+      return
+    }
+
+    // Check if the file size is greater than 1MB
+    if (file.size > 1024 * 1024) {
+      alert("File size should not exceed 1MB")
+      return // Exit the function if the file is too large
+    }
+
     const reader = new FileReader()
 
     reader.addEventListener("load", () => {
-      setFile(reader.result)
+      setGroceryFile(reader.result)
     })
-    reader.readAsDataURL(e.target.files[0])
+
+    reader.readAsDataURL(file)
+  }
+
+  const handleReceiptOnChange = (e) => {
+    const file = e.target.files[0]
+
+    // Check if a file is selected
+    if (!file) {
+      alert("No file selected.")
+      return
+    }
+
+    // Check if the file size is greater than 1MB
+    if (file.size > 1024 * 1024) {
+      alert("File size should not exceed 1MB")
+      return // Exit the function if the file is too large
+    }
+
+    const reader = new FileReader()
+
+    reader.addEventListener("load", () => {
+      setReceiptFile(reader.result)
+    })
+
+    reader.readAsDataURL(file)
   }
 
   const deleteAllItems = async () => {
@@ -97,8 +171,12 @@ const Kitchen = ({ items, user }) => {
     setIsOpen(false)
   }
 
-  const handleClick = () => {
-    hiddenFileInput.current.click()
+  const handleGroceryClick = () => {
+    hiddenGroceryInput.current.click()
+  }
+
+  const handleReceiptClick = () => {
+    hiddenReceiptInput.current.click()
   }
 
   function Modal({ onClose }) {
@@ -160,8 +238,8 @@ const Kitchen = ({ items, user }) => {
           <span style={{ marginLeft: "5px" }}>Clear Your Items</span>
         </button>
 
-        <button className={styles.AiLogButton} onClick={handleClick}>
-          <UploadIcon
+        <button className={styles.AiLogButton} onClick={handleGroceryClick}>
+          <FruitsIcon
             style={{
               height: "20px",
               width: "20px",
@@ -169,7 +247,28 @@ const Kitchen = ({ items, user }) => {
               marginRight: ".5rem",
             }}
           />
-          <span>Upload Pic / Log with AI</span>
+          <span>Log Groceries Pic with AI</span>
+          <MagicStick
+            style={{
+              height: "20px",
+              width: "20px",
+              fill: "white",
+              marginLeft: ".5rem",
+              paddingRight: "0px",
+            }}
+          />
+        </button>
+
+        <button className={styles.AiLogButton} onClick={handleReceiptClick}>
+          <ReceiptIcon
+            style={{
+              height: "20px",
+              width: "20px",
+              fill: "#ff9f67",
+              marginRight: ".5rem",
+            }}
+          />
+          <span>Log Receipt Pic with AI</span>
           <MagicStick
             style={{
               height: "20px",
@@ -184,19 +283,52 @@ const Kitchen = ({ items, user }) => {
         <input
           className={styles.fileInput}
           type="file"
-          ref={hiddenFileInput}
-          onChange={(e) => handleOnChange(e)}
+          ref={hiddenGroceryInput}
+          onChange={(e) => handleGroceryOnChange(e)}
+        />
+        <input
+          className={styles.fileInput}
+          type="file"
+          ref={hiddenReceiptInput}
+          onChange={(e) => handleReceiptOnChange(e)}
         />
 
-        {file && (
+        {groceryFile && (
           <>
             <div className={styles.imagePreviewContainer}>
-              <img src={file} alt="Preview" className={styles.imagePreview} />
+              <img
+                src={groceryFile}
+                alt="Preview"
+                className={styles.imagePreview}
+              />
             </div>
             <button
               disabled={itemList.length < 1}
               className={styles.addButton}
-              onClick={() => handleAddItems()}
+              onClick={() => handleAddGroceryItems()}
+            >
+              {openLoading ? (
+                <ReloadIcon className={styles.reloadIcon} />
+              ) : (
+                "Add Items"
+              )}
+            </button>
+          </>
+        )}
+
+        {receiptFile && (
+          <>
+            <div className={styles.imagePreviewContainer}>
+              <img
+                src={receiptFile}
+                alt="Preview"
+                className={styles.imagePreview}
+              />
+            </div>
+            <button
+              disabled={itemList.length < 1}
+              className={styles.addButton}
+              onClick={() => handleAddReceiptItems()}
             >
               {openLoading ? (
                 <ReloadIcon className={styles.reloadIcon} />

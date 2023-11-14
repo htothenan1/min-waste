@@ -102,8 +102,10 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
             confirmAddItems()
           }}
           disabled={selectedItems.length === 0}
-          className={`${styles.addItemsButton} ${
-            selectedItems.length === 6 && styles.buttonDisabled
+          className={`${
+            selectedItems.length === 6
+              ? styles.buttonDisabled
+              : styles.addItemsButton
           }`}
         >
           {loading ? (
@@ -166,10 +168,12 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
               >
                 <div className={styles.listItemContainer}>
                   <p>{item.name}</p>
-                  <p>{`${Math.round(
-                    (item.expiredAt.getTime() - new Date().getTime()) /
-                      (1000 * 3600 * 24)
-                  )}d`}</p>
+                  <p>{`${
+                    Math.round(
+                      (item.expiredAt.getTime() - new Date().getTime()) /
+                        (1000 * 3600 * 24)
+                    ) + 1
+                  }d`}</p>
                 </div>
               </div>
             ))

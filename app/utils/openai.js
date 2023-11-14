@@ -30,7 +30,7 @@ export async function receiptTest(imgFile) {
         content: [
           {
             type: "text",
-            text: "Identify the items on this receipt as common grocery items. Exclude snacks and non-food items that you identify. Seperate each item with a comma. Make sure the items do not include any adjectives or qualifiers such as “organic” or “half gallon”. Make sure there are no repeated items on the list you give me. Make sure the vegetable and fruit items are plural, as long as it makes grammatical sense. Make sure all items are capitalized, and limited to one word if possible. Just give me the items, with no other words.",
+            text: "Identify the grocery items listed on this receipt as common grocery items. Exclude snacks and non-food items that you identify. Return the results in JSON format, with the common plural name of each grocery item as the key (if grammatically appropriate), and the value for that key being a single sentence containing the best practice storage tip for that item. Only include the beginning and ending bracket, and the key and value strings. No other characters can be in the response. Make sure the key names are capitalized. Make sure the items do not include any adjectives or qualifiers such as “organic” or “half gallon”. Make sure there are no repeated items. If you can not identify a receipt in the image file, please return an empty JSON object in JSON format.",
           },
           {
             type: "image_url",
@@ -39,9 +39,9 @@ export async function receiptTest(imgFile) {
         ],
       },
     ],
-    max_tokens: 300,
+    max_tokens: 1000,
   })
-  console.log(response.choices[0])
+  return response.choices[0]
 }
 
 export async function veggiesTest(imgFile) {
@@ -53,7 +53,7 @@ export async function veggiesTest(imgFile) {
         content: [
           {
             type: "text",
-            text: "Identify the fruits and vegetables in the attached image. Return the results in JSON format, with the common plural name of each fruit or vegetable as the key (if grammatically appropriate), and the value for that key being a single sentence containing the best practice storage tip for that item. Only include the beginning and ending bracket, and the key and value strings. No other characters can be in the response. Make sure the key names are capitalized.",
+            text: "Identify the grocery items in the attached image. Return the results in JSON format, with the common plural name of each grocery item as the key (if grammatically appropriate), and the value for that key being a single sentence containing the best practice storage tip for that item. Only include the beginning and ending bracket, and the key and value strings. No other characters can be in the response. Make sure the key names are capitalized. If you can not identify any grocery items in the image file, please return an empty JSON object in JSON format.",
           },
           {
             type: "image_url",
@@ -62,7 +62,7 @@ export async function veggiesTest(imgFile) {
         ],
       },
     ],
-    max_tokens: 300,
+    max_tokens: 1000,
   })
   return response.choices[0]
 }
