@@ -259,7 +259,7 @@ const Kitchen = ({ items, user }) => {
           />
         </button>
 
-        <button className={styles.AiLogButton} onClick={handleReceiptClick}>
+        {/* <button className={styles.AiLogButton} onClick={handleReceiptClick}>
           <ReceiptIcon
             style={{
               height: "20px",
@@ -278,7 +278,7 @@ const Kitchen = ({ items, user }) => {
               paddingRight: "0px",
             }}
           />
-        </button>
+        </button> */}
 
         <input
           className={styles.fileInput}
@@ -286,12 +286,12 @@ const Kitchen = ({ items, user }) => {
           ref={hiddenGroceryInput}
           onChange={(e) => handleGroceryOnChange(e)}
         />
-        <input
+        {/* <input
           className={styles.fileInput}
           type="file"
           ref={hiddenReceiptInput}
           onChange={(e) => handleReceiptOnChange(e)}
-        />
+        /> */}
 
         {groceryFile && (
           <>
@@ -316,7 +316,7 @@ const Kitchen = ({ items, user }) => {
           </>
         )}
 
-        {receiptFile && (
+        {/* {receiptFile && (
           <>
             <div className={styles.imagePreviewContainer}>
               <img
@@ -337,7 +337,7 @@ const Kitchen = ({ items, user }) => {
               )}
             </button>
           </>
-        )}
+        )} */}
       </div>
 
       <div className={styles.kitchenContainer}>
