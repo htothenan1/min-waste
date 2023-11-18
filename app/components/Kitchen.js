@@ -15,7 +15,6 @@ import {
 import {
   ReloadIcon,
   TrashCan,
-  UploadIcon,
   MagicStick,
   FruitsIcon,
   ReceiptIcon,
@@ -145,16 +144,14 @@ const Kitchen = ({ items, user }) => {
   const handleReceiptOnChange = (e) => {
     const file = e.target.files[0]
 
-    // Check if a file is selected
     if (!file) {
       alert("No file selected.")
       return
     }
 
-    // Check if the file size is greater than 1MB
     if (file.size > 1024 * 1024) {
       alert("File size should not exceed 1MB")
-      return // Exit the function if the file is too large
+      return
     }
 
     const reader = new FileReader()
@@ -223,7 +220,27 @@ const Kitchen = ({ items, user }) => {
           alignItems: "center",
         }}
       >
-        <h1 className={styles.headerText}>MinWaste Kitchen</h1>
+        {/* <h1 className={styles.headerText}>MinWaste Kitchen</h1> */}
+        <button className={styles.AiLogButton} onClick={handleGroceryClick}>
+          <FruitsIcon
+            style={{
+              height: "20px",
+              width: "20px",
+              fill: "white",
+              marginRight: ".5rem",
+            }}
+          />
+          <span>Log Grocery Pic</span>
+          <MagicStick
+            style={{
+              height: "20px",
+              width: "20px",
+              fill: "white",
+              marginLeft: ".5rem",
+              paddingRight: "0px",
+            }}
+          />
+        </button>
         <button
           className={styles.clearFridgeButton}
           onClick={() => setIsOpen(true)}
@@ -236,27 +253,6 @@ const Kitchen = ({ items, user }) => {
             }}
           />
           <span style={{ marginLeft: "5px" }}>Clear Your Items</span>
-        </button>
-
-        <button className={styles.AiLogButton} onClick={handleGroceryClick}>
-          <FruitsIcon
-            style={{
-              height: "20px",
-              width: "20px",
-              fill: "white",
-              marginRight: ".5rem",
-            }}
-          />
-          <span>Log Groceries Pic with AI</span>
-          <MagicStick
-            style={{
-              height: "20px",
-              width: "20px",
-              fill: "white",
-              marginLeft: ".5rem",
-              paddingRight: "0px",
-            }}
-          />
         </button>
 
         {/* <button className={styles.AiLogButton} onClick={handleReceiptClick}>
@@ -286,12 +282,12 @@ const Kitchen = ({ items, user }) => {
           ref={hiddenGroceryInput}
           onChange={(e) => handleGroceryOnChange(e)}
         />
-        {/* <input
+        <input
           className={styles.fileInput}
           type="file"
           ref={hiddenReceiptInput}
           onChange={(e) => handleReceiptOnChange(e)}
-        /> */}
+        />
 
         {groceryFile && (
           <>
@@ -316,7 +312,7 @@ const Kitchen = ({ items, user }) => {
           </>
         )}
 
-        {/* {receiptFile && (
+        {receiptFile && (
           <>
             <div className={styles.imagePreviewContainer}>
               <img
@@ -337,7 +333,7 @@ const Kitchen = ({ items, user }) => {
               )}
             </button>
           </>
-        )} */}
+        )}
       </div>
 
       <div className={styles.kitchenContainer}>

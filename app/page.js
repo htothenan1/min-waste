@@ -21,7 +21,7 @@ export default async function Home() {
           </h2>
 
           <p class={styles.subheaderText}>
-            Our website will help you reduce your food waste.
+            Our website will help you throw away less food.
           </p>
           <p class={styles.subheaderText}>
             Start saving money (and the planet) today!

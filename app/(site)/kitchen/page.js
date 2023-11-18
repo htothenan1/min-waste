@@ -18,15 +18,16 @@ export default async function Home() {
         <Kitchen user={user} items={user?.items} userName={user?.name} />
         <div className={styles.instructionsContainer}>
           <h2 className={styles.instructionsTitle}>
-            How to get the most out of your{" "}
-            <span className={styles.orangeText}>MinWaste Kitchen:</span>
+            How to get the most out of{" "}
+            <span className={styles.orangeText}>MinWaste:</span>
           </h2>
           <p className={styles.stepTitle}>1. Log your Groceries regularly.</p>
           <p className={styles.stepText}>
-            Select the grocery items you have, and add them to Your Items. If
-            you add a custom item, OpenAI will generate the storage tips for
-            that specific item. By default, custom items will have a Use-By Date
-            of 5 days from the date of entry.
+            MinWaste allows you to log your groceries in a variety of exciting
+            ways. These include multi-selecting from a curated list, entering a
+            custom items by name. If that's not cool enough for you, log your
+            items by simply inputting a picture of your grocery items, or
+            grocery receipt! AI magic
           </p>
           <p className={styles.stepTitle}>
             2. Adjust the Use-By Date for Your Items, as needed.

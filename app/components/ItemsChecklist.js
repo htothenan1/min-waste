@@ -8,7 +8,6 @@ import styles from "./styles/itemsChecklist.module.css"
 
 const ItemsChecklist = ({ items }) => {
   const [selectedItems, setSelectedItems] = useState([])
-  const [loading, setLoading] = useState(false)
   const [fetchedRecipes, setFetchedRecipes] = useState(null)
   const [selectedRecipe, setSelectedRecipe] = useState(null)
 
@@ -21,7 +20,6 @@ const ItemsChecklist = ({ items }) => {
   }
 
   const fetchRecipes = () => {
-    setLoading(true)
     if (selectedItems.length) {
       const queryString = selectedItems.map((item) => item).join(",+")
       fetch(
@@ -37,7 +35,6 @@ const ItemsChecklist = ({ items }) => {
         autoClose: 1000,
       })
     }
-    setLoading(false)
   }
 
   const handleSelectRecipe = (data) => {

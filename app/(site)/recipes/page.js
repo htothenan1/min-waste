@@ -14,7 +14,7 @@ export default async function Recipes() {
     <>
       <NavBar user={user?.name} />
       <div className={styles.pageContainer}>
-        <h1 className={styles.headerText}>Recipes</h1>
+        {/* <h1 className={styles.headerText}>Recipes</h1> */}
         <ItemsChecklist items={user?.items} />
       </div>
       <Footer />

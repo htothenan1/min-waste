@@ -41,7 +41,7 @@ const NavBar = ({ user }) => {
           <Image width={80} height={80} src={logo} alt="MinWaste" />
           <CustomLink
             href={"/kitchen"}
-            title={"Kitchen"}
+            title={"Logger"}
             className={styles.mobileCustomLinkText}
           />
           <CustomLink
@@ -71,7 +71,7 @@ const NavBar = ({ user }) => {
           />
           <CustomLink
             href={"/kitchen"}
-            title={"Kitchen"}
+            title={"Logger"}
             className={styles.webNavLink}
           />
           <CustomLink

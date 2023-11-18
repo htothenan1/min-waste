@@ -24,10 +24,8 @@ const ItemLogger = ({ items, selectedItem, handleSelectItem }) => {
 
   const handleItemSelect = (item) => {
     if (selectedItems.includes(item.name)) {
-      // Always allow unselecting items
       setSelectedItems((prevItems) => prevItems.filter((i) => i !== item.name))
     } else if (selectedItems.length < 6) {
-      // Allow selecting new items only if less than 6 items are already selected
       setSelectedItems((prevItems) => [...prevItems, item.name])
     }
   }

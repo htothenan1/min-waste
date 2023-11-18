@@ -234,6 +234,8 @@
 
 .storageTipsTitle {
   margin-top: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   color: #2b2b2b;
   font-size: 1.125rem;
   font-family: var(--font-quicksandBold);
