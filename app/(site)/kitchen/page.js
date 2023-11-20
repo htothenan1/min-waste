@@ -26,8 +26,7 @@ export default async function Home() {
             MinWaste allows you to log your groceries in a variety of exciting
             ways. These include multi-selecting from a curated list, entering a
             custom items by name. If that's not cool enough for you, log your
-            items by simply inputting a picture of your grocery items, or
-            grocery receipt! AI magic
+            items by simply snapping a picture of your grocery items! AI magic!
           </p>
           <p className={styles.stepTitle}>
             2. Adjust the Use-By Date for Your Items, as needed.
