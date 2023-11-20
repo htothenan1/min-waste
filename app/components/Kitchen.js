@@ -19,7 +19,7 @@ import {
   FruitsIcon,
   ReceiptIcon,
 } from "@/data/icons"
-import { veggiesTest, receiptTest } from "@/utils/openai"
+import { veggiesTest } from "@/utils/openai"
 import { addDays } from "date-fns"
 
 const Kitchen = ({ items, user }) => {
@@ -121,16 +121,16 @@ const Kitchen = ({ items, user }) => {
     const file = e.target.files[0]
 
     // Check if a file is selected
-    if (!file) {
-      alert("No file selected.")
-      return
-    }
+    // if (!file) {
+    //   alert("No file selected.")
+    //   return
+    // }
 
     // Check if the file size is greater than 1MB
-    if (file.size > 1024 * 1024) {
-      alert("File size should not exceed 1MB")
-      return // Exit the function if the file is too large
-    }
+    // if (file.size > 1024 * 1024) {
+    //   alert("File size should not exceed 1MB")
+    //   return // Exit the function if the file is too large
+    // }
 
     const reader = new FileReader()
 
