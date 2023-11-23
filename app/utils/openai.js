@@ -39,7 +39,7 @@ export async function veggiesTest(imgFile) {
         ],
       },
     ],
-    max_tokens: 1000,
+    max_tokens: 5000,
   })
   return response.choices[0]
 }
