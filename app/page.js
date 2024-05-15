@@ -1,13 +1,12 @@
 "use client"
 
-import GuestNavBar from "./components/GuestNavBar"
-import Footer from "./components/Footer"
-import Lottie from "lottie-react"
+// import GuestNavBar from "./components/GuestNavBar"
+// import Footer from "./components/Footer"
+// import Lottie from "lottie-react"
 import recipes from "../public/recipes.json"
 import grocerylist from "../public/grocerylist.json"
 import ideas from "../public/ideas.json"
 import styles from "./page.module.css"
-import Link from "next/link"
 
 export default function Home() {
   return (

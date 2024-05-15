@@ -1,10 +1,10 @@
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
 import { Quicksand } from "next/font/google"
-import CustomToastContainer from "./components/CustomToastContainer"
-import Provider from "./context/AuthContext"
-import "react-toastify/dist/ReactToastify.css"
-import "react-calendar/dist/Calendar.css"
+// import CustomToastContainer from "./components/CustomToastContainer"
+// import Provider from "./context/AuthContext"
+// import "react-toastify/dist/ReactToastify.css"
+// import "react-calendar/dist/Calendar.css"
 
 export const metadata = {
   title: "MinWaste App",
@@ -33,11 +33,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body class={`${quicksand.variable} ${quicksandBold.variable}`}>
-        <Provider>
-          <CustomToastContainer />
-          {children}
-          <Analytics />
-        </Provider>
+        {children}
+        <Analytics />
       </body>
     </html>
   )
