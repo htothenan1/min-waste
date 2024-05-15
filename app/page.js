@@ -9,18 +9,29 @@ import ideas from "../public/ideas.json"
 import styles from "./page.module.css"
 import Link from "next/link"
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <GuestNavBar />
       <div class={styles.container}>
         <div class={styles.headerContainer}>
-          <h2 class={styles.headerText}>Do you want to stop wasting food?</h2>
           <h2 class={styles.headerText}>
-            Try <span class={styles.orangeText}>MinWaste!</span>
+            MinWaste is no longer being updated or maintained.
+          </h2>
+          <h2 class={styles.subHeadertext}>
+            If this project interests you, check out
+            <a
+              target="/blank"
+              href="https://www.flavrai.com"
+              class={styles.orangeText}
+            >
+              {" "}
+              www.FlavrAi.com
+            </a>{" "}
+            (the developer's new app!)
           </h2>
 
-          <p class={styles.subheaderText}>
+          {/* <p class={styles.subheaderText}>
             Our website will help you throw away less food.
           </p>
           <p class={styles.subheaderText}>
@@ -28,7 +39,8 @@ export default async function Home() {
           </p>
           <Link href={"/login"} class={styles.ctaButton}>
             See It In Action!
-          </Link>
+          </Link> 
+          */}
         </div>
         <div class={styles.contentContainer}>
           <div class={styles.sectionContainer}>
@@ -96,11 +108,11 @@ export default async function Home() {
               ></svg>
             </div>
           </div>
-          <div class={styles.signupButton}>
+          {/* <div class={styles.signupButton}>
             <Link href={"/register"} class={styles.ctaButton}>
               Sign Up For Free!
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />
