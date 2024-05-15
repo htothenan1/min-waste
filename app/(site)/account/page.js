@@ -5,11 +5,11 @@ import AccountDetails from "../../components/AccountDetails"
 import NavBar from "../../components/NavBar"
 import Footer from "../../components/Footer"
 import styles from "../styles/account.module.css"
-import { authOptions } from "../../api/auth/[...nextauth]/route"
+// import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 export default async function Account() {
-  const session = await getServerSession(authOptions)
-  const { user } = await getUser(session.user.email)
+  // const session = await getServerSession(authOptions)
+  // const { user } = await getUser(session.user.email)
 
   return (
     <>
