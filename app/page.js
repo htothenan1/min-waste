@@ -2,7 +2,7 @@
 
 // import GuestNavBar from "./components/GuestNavBar"
 // import Footer from "./components/Footer"
-// import Lottie from "lottie-react"
+import Lottie from "lottie-react"
 import recipes from "../public/recipes.json"
 import grocerylist from "../public/grocerylist.json"
 import ideas from "../public/ideas.json"
@@ -11,7 +11,7 @@ import styles from "./page.module.css"
 export default function Home() {
   return (
     <>
-      <GuestNavBar />
+      {/* <GuestNavBar /> */}
       <div class={styles.container}>
         <div class={styles.headerContainer}>
           <h2 class={styles.headerText}>
@@ -114,7 +114,7 @@ export default function Home() {
           </div> */}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
