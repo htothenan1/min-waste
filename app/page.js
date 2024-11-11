@@ -15,19 +15,19 @@ export default function Home() {
       <div class={styles.container}>
         <div class={styles.headerContainer}>
           <h2 class={styles.headerText}>
-            MinWaste is no longer being updated or maintained.
+            MinWaste is no longer being maintained.
           </h2>
           <h2 class={styles.subHeadertext}>
-            If this project interests you, check out
+            If these features interest you, check out
             <a
               target="/blank"
-              href="https://www.flavrai.com"
+              href="https://www.feedlink.app"
               class={styles.orangeText}
             >
               {" "}
-              www.FlavrAi.com
+              FeedLink App
             </a>{" "}
-            (the developer's new app!)
+            (the developer's new project!)
           </h2>
 
           {/* <p class={styles.subheaderText}>
